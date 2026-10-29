@@ -1,0 +1,31 @@
+{
+  "case_id": "C-0056",
+  "decision": "APPEAL",
+  "denial_code": "CO-151",
+  "policy_id": "MP-PT-011",
+  "action_deadline": "2026-10-28",
+  "deadline_ok": true,
+  "criteria": [
+    {
+      "id": "2.1",
+      "status": "met",
+      "evidence": "supporting/pt_progress_note.txt"
+    },
+    {
+      "id": "2.2",
+      "status": "met",
+      "evidence": "notes/2026-03-26_referral.txt"
+    },
+    {
+      "id": "2.3",
+      "status": "met",
+      "evidence": "supporting/pt_log.txt"
+    }
+  ],
+  "enclosures": [
+    "supporting/pt_progress_note.txt",
+    "notes/2026-03-26_referral.txt",
+    "supporting/pt_log.txt"
+  ],
+  "gaps": []
+}

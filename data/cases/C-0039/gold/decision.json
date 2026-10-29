@@ -1,0 +1,24 @@
+{
+  "case_id": "C-0039",
+  "decision": "CORRECT_AND_RESUBMIT",
+  "denial_code": "CO-16",
+  "policy_id": "MP-CLM-004",
+  "action_deadline": "2027-01-25",
+  "deadline_ok": true,
+  "criteria": [
+    {
+      "id": "2.1",
+      "status": "unmet",
+      "evidence": "eob_835.txt"
+    },
+    {
+      "id": "2.2",
+      "status": "met",
+      "evidence": "denial_letter.txt"
+    }
+  ],
+  "enclosures": [],
+  "gaps": [
+    "Rendering provider identifier value for the corrected claim is not provided in any case document"
+  ]
+}

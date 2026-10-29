@@ -1,0 +1,33 @@
+{
+  "model_id": "azure/anthropic/claude-opus-4-8",
+  "temperature": 0.7,
+  "max_tokens": 8000,
+  "attempts": 1,
+  "usage": {
+    "completion_tokens": 1674,
+    "prompt_tokens": 4676,
+    "total_tokens": 6350,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "text_tokens": 1674
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 1,
+      "cache_write_tokens": 4675,
+      "cache_creation_tokens": 4675,
+      "cache_creation_token_details": {
+        "ephemeral_5m_input_tokens": 4675,
+        "ephemeral_1h_input_tokens": 0
+      }
+    },
+    "cache_creation_input_tokens": 4675,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "speed": "standard",
+    "service_tier": "standard"
+  },
+  "prompt_template_sha256": "e71465ed3a83600e2166743b460f8852a6509f813ef69d22a6c3f8ff6dbe24d4",
+  "generator_sha256": "b6aee9f94b6a132468df61bdd42f1fec08cb569ba913cc5e394e1c515cd7dc52",
+  "note": "written by the datagen model; schema and auto rubric criteria pass 100%"
+}

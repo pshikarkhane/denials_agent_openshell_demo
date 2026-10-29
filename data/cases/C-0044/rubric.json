@@ -1,0 +1,168 @@
+{
+  "case_id": "C-0044",
+  "decision": "CORRECT_AND_RESUBMIT",
+  "criteria": [
+    {
+      "id": "DEC1",
+      "family": "decision",
+      "check": "auto",
+      "text": "decision.json states the correct decision",
+      "reference": "truth.correct_decision=CORRECT_AND_RESUBMIT",
+      "auto": {
+        "kind": "decision_eq",
+        "expected": "CORRECT_AND_RESUBMIT"
+      },
+      "sources": []
+    },
+    {
+      "id": "IDN1",
+      "family": "identifiers",
+      "check": "auto",
+      "text": "deliverable.md states the correct claim number, patient ID, date of service and CPT code",
+      "reference": "3257083 / P-4827 / 2026-07-22 / 97140",
+      "auto": {
+        "kind": "identifiers",
+        "claim_no": "3257083",
+        "patient_id": "P-4827",
+        "dos": "2026-07-22",
+        "cpt": "97140"
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN1",
+      "family": "denial_reason",
+      "check": "auto",
+      "text": "decision.json denial_code matches the denial",
+      "reference": "CO-97",
+      "auto": {
+        "kind": "denial_code_eq",
+        "expected": "CO-97"
+      },
+      "sources": []
+    },
+    {
+      "id": "DLN1",
+      "family": "deadline",
+      "check": "auto",
+      "text": "decision.json gives the correct action deadline and deadline_ok flag",
+      "reference": "action_deadline=2027-08-19; deadline_ok=True (review date 2027-08-12)",
+      "auto": {
+        "kind": "action_deadline_eq",
+        "date": "2027-08-19",
+        "deadline_ok": true
+      },
+      "sources": []
+    },
+    {
+      "id": "POL1",
+      "family": "policy_citation",
+      "check": "auto",
+      "text": "decision.json names the governing policy",
+      "reference": "MP-BND-002 (Claim Bundling and Distinct Procedural Service Modifiers)",
+      "auto": {
+        "kind": "policy_id_eq",
+        "expected": "MP-BND-002"
+      },
+      "sources": []
+    },
+    {
+      "id": "EVD1",
+      "family": "evidence_use",
+      "check": "auto",
+      "text": "decision.json lists every policy criterion with the correct status",
+      "reference": "2.1=met; 2.2=unmet",
+      "auto": {
+        "kind": "criteria_status_eq",
+        "expected": {
+          "2.1": "met",
+          "2.2": "unmet"
+        }
+      },
+      "sources": []
+    },
+    {
+      "id": "POL2",
+      "family": "policy_citation",
+      "check": "judge",
+      "text": "Cites MP-BND-002 (Claim Bundling and Distinct Procedural Service Modifiers) and the specific section number for each criterion it relies on",
+      "reference": "MP-BND-002; sections 2.1, 2.2",
+      "auto": null,
+      "sources": [
+        "policy_library/MP-BND-002.txt"
+      ]
+    },
+    {
+      "id": "DLN2",
+      "family": "deadline",
+      "check": "judge",
+      "text": "States the action deadline and whether it is still open or already passed as of the review date",
+      "reference": "action_deadline 2027-08-19; review date 2027-08-12; the deadline is still open (7 days remain)",
+      "auto": null,
+      "sources": [
+        "task.md",
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "EVD2",
+      "family": "evidence_use",
+      "check": "judge",
+      "text": "States that §2.2 (Distinct-procedural-service modifier appended to the denied line) is not satisfied and cites the record",
+      "reference": "§2.2 status=unmet, basis=evidence; files: eob_835.txt",
+      "auto": null,
+      "sources": [
+        "eob_835.txt"
+      ]
+    },
+    {
+      "id": "RSN2",
+      "family": "denial_reason",
+      "check": "judge",
+      "text": "Names the missing distinct-service modifier on the denied line and the bundled code",
+      "reference": "denied line 97140 lacks modifier 59; bundled with 97530",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt",
+        "eob_835.txt"
+      ]
+    },
+    {
+      "id": "REM1",
+      "family": "remedy_and_enclosures",
+      "check": "judge",
+      "text": "States that a corrected claim, not an appeal, is the right route even though an appeal deadline appears in the denial letter",
+      "reference": "appeal deadline 2027-02-15 appears in the denial letter; action is a corrected claim",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "DLN3",
+      "family": "deadline",
+      "check": "judge",
+      "text": "Uses the corrected-claim window: states the corrected-claim deadline and how it follows from the notice date",
+      "reference": "notice 2026-08-19 + 365 days = 2027-08-19",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "TRP1",
+      "family": "deadline",
+      "check": "judge",
+      "text": "Recognizes how little time remains before the action deadline and says what must happen before it",
+      "reference": "7 days from review date 2027-08-12 to action deadline 2027-08-19",
+      "auto": null,
+      "sources": [
+        "task.md"
+      ]
+    }
+  ],
+  "partial": true,
+  "skipped": [
+    "criterion 2.1 (Services documented as distinct (separate session/site)): evidence file(s) not rendered yet: ['notes/2026-07-22_procedure.txt']"
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "case_id": "C-0056",
+  "decision": "APPEAL",
+  "criteria": [
+    {
+      "id": "DEC1",
+      "family": "decision",
+      "check": "auto",
+      "text": "decision.json states the correct decision",
+      "reference": "truth.correct_decision=APPEAL",
+      "auto": {
+        "kind": "decision_eq",
+        "expected": "APPEAL"
+      },
+      "sources": []
+    },
+    {
+      "id": "IDN1",
+      "family": "identifiers",
+      "check": "auto",
+      "text": "deliverable.md states the correct claim number, patient ID, date of service and CPT code",
+      "reference": "6605517 / P-6525 / 2026-05-21 / 97112",
+      "auto": {
+        "kind": "identifiers",
+        "claim_no": "6605517",
+        "patient_id": "P-6525",
+        "dos": "2026-05-21",
+        "cpt": "97112"
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN1",
+      "family": "denial_reason",
+      "check": "auto",
+      "text": "decision.json denial_code matches the denial",
+      "reference": "CO-151",
+      "auto": {
+        "kind": "denial_code_eq",
+        "expected": "CO-151"
+      },
+      "sources": []
+    },
+    {
+      "id": "DLN1",
+      "family": "deadline",
+      "check": "auto",
+      "text": "decision.json gives the correct action deadline and deadline_ok flag",
+      "reference": "action_deadline=2026-10-28; deadline_ok=True (review date 2026-07-21)",
+      "auto": {
+        "kind": "action_deadline_eq",
+        "date": "2026-10-28",
+        "deadline_ok": true
+      },
+      "sources": []
+    },
+    {
+      "id": "POL1",
+      "family": "policy_citation",
+      "check": "auto",
+      "text": "decision.json names the governing policy",
+      "reference": "MP-PT-011 (Outpatient Therapy Visit Limits)",
+      "auto": {
+        "kind": "policy_id_eq",
+        "expected": "MP-PT-011"
+      },
+      "sources": []
+    },
+    {
+      "id": "EVD1",
+      "family": "evidence_use",
+      "check": "auto",
+      "text": "decision.json lists every policy criterion with the correct status",
+      "reference": "2.1=met; 2.2=met; 2.3=met",
+      "auto": {
+        "kind": "criteria_status_eq",
+        "expected": {
+          "2.1": "met",
+          "2.2": "met",
+          "2.3": "met"
+        }
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN2",
+      "family": "denial_reason",
+      "check": "judge",
+      "text": "Identifies the reason for the denial in words (CO-151) and the basis the payer gave",
+      "reference": "CO-151: Payment adjusted because the information submitted does not support this many services or this frequency.",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "POL2",
+      "family": "policy_citation",
+      "check": "judge",
+      "text": "Cites MP-PT-011 (Outpatient Therapy Visit Limits) and the specific section number for each criterion it relies on",
+      "reference": "MP-PT-011; sections 2.1, 2.2, 2.3",
+      "auto": null,
+      "sources": [
+        "policy_library/MP-PT-011.txt"
+      ]
+    },
+    {
+      "id": "DLN2",
+      "family": "deadline",
+      "check": "judge",
+      "text": "States the action deadline and whether it is still open or already passed as of the review date",
+      "reference": "action_deadline 2026-10-28; review date 2026-07-21; the deadline is still open (99 days remain)",
+      "auto": null,
+      "sources": [
+        "task.md",
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "EVD2",
+      "family": "evidence_use",
+      "check": "judge",
+      "text": "Supports §2.1 (Measurable functional improvement documented) with specific, dated evidence from the record",
+      "reference": "§2.1 status=met, basis=evidence; files: supporting/pt_progress_note.txt; record text: Functional improvement: lumbar flexion improved from 41 to 66 degrees and sit-to-stand time improved from 20 to 12 seconds.",
+      "auto": null,
+      "sources": [
+        "supporting/pt_progress_note.txt"
+      ]
+    },
+    {
+      "id": "EVD3",
+      "family": "evidence_use",
+      "check": "judge",
+      "text": "Supports §2.2 (Physician recertified the plan of care) with specific, dated evidence from the record",
+      "reference": "§2.2 status=met, basis=evidence; files: notes/2026-03-26_referral.txt; record text: I have reviewed the plan of care and recertify continued physical therapy.",
+      "auto": null,
+      "sources": [
+        "notes/2026-03-26_referral.txt"
+      ]
+    },
+    {
+      "id": "EVD4",
+      "family": "evidence_use",
+      "check": "judge",
+      "text": "Supports §2.3 (Denied visit is within visits 21 through 30 of the calendar year) with specific, dated evidence from the record",
+      "reference": "§2.3 status=met, basis=evidence; files: supporting/pt_log.txt; record text: Visit 21 | 2026-05-21",
+      "auto": null,
+      "sources": [
+        "supporting/pt_log.txt"
+      ]
+    },
+    {
+      "id": "REM1",
+      "family": "remedy_and_enclosures",
+      "check": "judge",
+      "text": "Contains a clear requested remedy (overturn the denial and reprocess the claim) addressed to the payer's appeals unit",
+      "reference": "claim 6605517; Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "REM2",
+      "family": "remedy_and_enclosures",
+      "check": "judge",
+      "text": "Lists the required enclosures from the case file",
+      "reference": "enclosures: supporting/pt_progress_note.txt, notes/2026-03-26_referral.txt, supporting/pt_log.txt",
+      "auto": null,
+      "sources": [
+        "supporting/pt_progress_note.txt",
+        "notes/2026-03-26_referral.txt",
+        "supporting/pt_log.txt"
+      ]
+    }
+  ],
+  "partial": false,
+  "skipped": []
+}

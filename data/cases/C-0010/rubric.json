@@ -1,0 +1,155 @@
+{
+  "case_id": "C-0010",
+  "decision": "DO_NOT_APPEAL",
+  "criteria": [
+    {
+      "id": "DEC1",
+      "family": "decision",
+      "check": "auto",
+      "text": "decision.json states the correct decision",
+      "reference": "truth.correct_decision=DO_NOT_APPEAL",
+      "auto": {
+        "kind": "decision_eq",
+        "expected": "DO_NOT_APPEAL"
+      },
+      "sources": []
+    },
+    {
+      "id": "IDN1",
+      "family": "identifiers",
+      "check": "auto",
+      "text": "deliverable.md states the correct claim number, patient ID, date of service and CPT code",
+      "reference": "7258906 / P-5524 / 2026-06-01 / 72148",
+      "auto": {
+        "kind": "identifiers",
+        "claim_no": "7258906",
+        "patient_id": "P-5524",
+        "dos": "2026-06-01",
+        "cpt": "72148"
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN1",
+      "family": "denial_reason",
+      "check": "auto",
+      "text": "decision.json denial_code matches the denial",
+      "reference": "CO-50",
+      "auto": {
+        "kind": "denial_code_eq",
+        "expected": "CO-50"
+      },
+      "sources": []
+    },
+    {
+      "id": "DLN1",
+      "family": "deadline",
+      "check": "auto",
+      "text": "decision.json gives the correct action deadline and deadline_ok flag",
+      "reference": "action_deadline=2026-12-25; deadline_ok=True (review date 2026-12-18)",
+      "auto": {
+        "kind": "action_deadline_eq",
+        "date": "2026-12-25",
+        "deadline_ok": true
+      },
+      "sources": []
+    },
+    {
+      "id": "POL1",
+      "family": "policy_citation",
+      "check": "auto",
+      "text": "decision.json names the governing policy",
+      "reference": "MP-IMG-007 (Advanced Imaging: Lumbar Spine MRI Medical Necessity)",
+      "auto": {
+        "kind": "policy_id_eq",
+        "expected": "MP-IMG-007"
+      },
+      "sources": []
+    },
+    {
+      "id": "EVD1",
+      "family": "evidence_use",
+      "check": "auto",
+      "text": "decision.json lists every policy criterion with the correct status",
+      "reference": "2.1(a)=met; 2.1(b)=unmet; 2.1(c)=met",
+      "auto": {
+        "kind": "criteria_status_eq",
+        "expected": {
+          "2.1(a)": "met",
+          "2.1(b)": "unmet",
+          "2.1(c)": "met"
+        }
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN2",
+      "family": "denial_reason",
+      "check": "judge",
+      "text": "Identifies the reason for the denial in words (CO-50) and the basis the payer gave",
+      "reference": "CO-50: The service was not deemed medically necessary by the plan.",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "POL2",
+      "family": "policy_citation",
+      "check": "judge",
+      "text": "Cites MP-IMG-007 (Advanced Imaging: Lumbar Spine MRI Medical Necessity) and the specific section number for each criterion it relies on",
+      "reference": "MP-IMG-007; sections 2.1(a), 2.1(b), 2.1(c)",
+      "auto": null,
+      "sources": [
+        "policy_library/MP-IMG-007.txt"
+      ]
+    },
+    {
+      "id": "POLX1",
+      "family": "policy_citation",
+      "check": "judge",
+      "text": "Does not cite or rely on the near-duplicate policy MP-IMG-012",
+      "reference": "distractor MP-IMG-012 (wrong service)",
+      "auto": null,
+      "sources": []
+    },
+    {
+      "id": "DLN2",
+      "family": "deadline",
+      "check": "judge",
+      "text": "States the action deadline and whether it is still open or already passed as of the review date",
+      "reference": "action_deadline 2026-12-25; review date 2026-12-18; the deadline is still open (7 days remain)",
+      "auto": null,
+      "sources": [
+        "task.md",
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "REM1",
+      "family": "remedy_and_enclosures",
+      "check": "judge",
+      "text": "Recommends the correct alternative to an appeal, with a next action, and does not draft an appeal letter",
+      "reference": "does not appeal; states which policy criterion is unmet or unsupported by the record and closes the claim without an appeal",
+      "auto": null,
+      "sources": []
+    },
+    {
+      "id": "TRP1",
+      "family": "deadline",
+      "check": "judge",
+      "text": "Recognizes how little time remains before the action deadline and says what must happen before it",
+      "reference": "7 days from review date 2026-12-18 to action deadline 2026-12-25",
+      "auto": null,
+      "sources": [
+        "task.md"
+      ]
+    }
+  ],
+  "partial": true,
+  "skipped": [
+    "criterion 2.1(a) (>=6 weeks conservative therapy): evidence file(s) not rendered yet: ['notes/2026-02-24_pcp.txt', 'supporting/pt_log.txt']",
+    "criterion 2.1(b) (Neuro deficit or red flag documented): evidence file(s) not rendered yet: ['notes/2026-05-25_ortho.txt']",
+    "criterion 2.1(c) (No imaging of the same region within 12 months): evidence file(s) not rendered yet: ['notes/2026-05-25_ortho.txt']"
+  ]
+}

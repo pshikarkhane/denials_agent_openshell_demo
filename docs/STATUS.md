@@ -1,5 +1,44 @@
 # STATUS (2026-10-29)
 
+## PHASE 2 (branch `phase2-rubrics`): evaluation layer for the 5 pilot cases
+Nothing under `truth.json`, agent-visible documents, the policy library or the generators was changed. The branch has two commits: the earlier uncommitted Phase 1 fixes (carried over from main) and the Phase 2 work.
+
+**Done**
+- `eval/deliverable_schema.py`: `decision.json` pydantic model (criterion ids are policy section strings; `§`/`Section` prefixes normalised) + `validate_decision_text` / `load_decision`.
+- `eval/gen_rubrics.py` (deterministic, no LLM): `rubric.json` for all 60 cases (host-only). 13-15 criteria on the pilots, 10-15 elsewhere; 6 `auto` (exact match: decision, claim no./patient ID/DOS/CPT in deliverable.md, denial code, action_deadline + deadline_ok, policy id, per-section statuses) and the rest `judge`. 45 non-pilot rubrics are marked `partial` (criteria needing unrendered notes are skipped and logged in `skipped`); rubrics never exceed 15 (lowest-priority judge criteria are trimmed and logged).
+- `eval/gen_gold.py`: gold `deliverable.md` + `decision.json` + `meta.json` (model, temperature 0.7, max_tokens, prompt template hash) in `data/cases/<id>/gold/` for the 5 pilots, written by the `datagen` model, checked by schema and the `auto` criteria (100%, first attempt each).
+- `eval/judge_panel.py`, `eval/hallucination_check.py`, `eval/run_eval.py`, prompts in `eval/prompts/`. Protocol per spec 6.4/6.6: three judges from config, temperature 0 where the provider allows (falls back automatically), retry wrapper, one repair retry for malformed JSON then recorded as a judge failure, quote rule (a PASS needs a quote that appears in deliverable.md or decision.json, else FAIL), auto criteria pooled, majority per criterion, per-judge pass rate, unanimity, tokens, latency; two-stage hallucination check (upheld if >= 2 judges, severity by majority of upholders; flags whose quote is not in the deliverable are discarded). Raw outputs in `runs/<run_id>/raw/` (gitignored, keys redacted).
+- `tests/test_eval.py`: 39 tests, all with mocked judges (schema, rubric consistency/determinism, quote rule, majority, repair/failure, pooling, two-stage logic, prompts never name the producer). `pytest`: 112 passed; `validate_data`: 0 errors.
+
+**Gold sanity check (5 gold deliverables, 3 judges)**
+| run | panel pass | upheld material flags | notes |
+|---|---|---|---|
+| gold1 | 100% panel (judges 87-100%) | 3 (C-0039) + 1 minor (C-0030) | 4 fabricated-quote FAILs |
+| gold2 | 98% (C-0039 92%) | 0 | after fixes below |
+| gold3 (final) | **100% all cases, all 3 judges** | **0 upheld flags** | 0 fabricated quotes, 0 judge failures, unanimity 100% |
+Failures and classification: (1) 4 PASS verdicts rejected because the judge stitched two separate passages into one "quote": **judge error**; fixed by clarifying the quote format in the grader prompt (one contiguous passage), not by loosening the rule. (2) C-0039 gold said "Gaps: none" although no document gives the rendering provider identifier value: **gold bug**; gold rule added (list any value the documents lack under Gaps). (3) C-0030 gold invented the author title "Revenue-Cycle Analyst" (minor flag): **gold bug**; gold rule added. (4) Criterion text "(145 days remain)" made all three judges demand a day count: **rubric bug (ambiguous wording)**; reworded, count moved to the reference. (5) One judge (Gemini) wanted "dated evidence in one passage" for a std-document criterion: **judge strictness**; criterion wording made simpler. No criteria were deleted. Residual failures: none.
+
+**Cost and time (gold sanity run, 5 cases x 3 judges, grading + both hallucination stages):** about 340k prompt + 68k completion tokens per run (Gemini 105k+41k, Claude 145k+7k, GPT 92k+20k); 340-920 s wall clock per run (Gemini is the slow one; the last run was slowed by network timeouts). Gold writing: 5 calls, about 8k tokens each. Dollar cost not computed (no price table).
+
+**Not verified**
+- The panel has only seen perfect deliverables. It has NOT been shown bad ones (that is the mutation-test step you excluded), so detection power, judge bias and strictness are unknown.
+- Rubric quality by a human (see `docs/RUBRIC_REVIEW.md`); non-pilot rubrics are partial and unreviewed.
+- Judge verdicts by Claude on gold written by Claude (see decision 1).
+
+**Decisions needed**
+1. **Conflict in your constraints:** the `datagen` model is Claude Opus 4.8, which is also the Claude judge, so the gold writer grades its own output. I followed both instructions literally and added `scripts/gold_without_claude.py` (recomputes a run with Gemini + GPT only): the final run is also 100% / 0 flags without Claude, so the result does not depend on it. Recommend changing the datagen model (or the third judge) before the real agent run.
+2. Answer the 3 questions per case in `docs/RUBRIC_REVIEW.md`.
+3. `rubric.json` and `gold/` files are inside the dataset hash in `manifest.json` (hash covers all of `cases/**`); fine for a host-side hash, but say if you want them excluded.
+
+**Spec ambiguities (my choice in brackets)** `deadline_ok` = review date <= action_deadline; `decision.json` `evidence` is one file per criterion; the identifiers criterion is auto-graded on deliverable.md text with several date formats accepted; a failed judge's missing verdicts count as FAIL in its own pass rate but it is excluded from majorities (ties fail); hallucination upheld threshold is 2 judges (so both, if only two judges are run); gold uses the datagen temperature (0.7).
+
+**Pilot data problems found (recorded, not fixed):** none new in the documents. Note for the agent run: C-0039's correction needs a rendering-provider identifier value that no document contains, so a correct answer lists it as a gap.
+
+**Reproduce:** `python -m eval.gen_rubrics`; `python -m eval.gen_gold [--force]`; `python -m eval.run_eval --source gold --run-id NAME [--judges gemini gpt]`; `python scripts/gold_without_claude.py NAME`; `python scripts/make_rubric_review.py`.
+
+---
+# EARLIER STATUS (Phase 1, kept for reference)
+
 ## What changed this step (owner decisions applied; 5 pilot cases regenerated)
 - **Step 0:** git repo created, baseline commit `7bd512b`, no secrets committed (scan clean; the only `sk-` string is a fake test fixture). `data/manifest.json` now records `git_sha` / `git_dirty` (currently the baseline SHA, dirty, because I made no further commit; commit when you are happy). `validate_data` is strictly read-only (stdout, optional `--report` outside `data/`). `gen_cases` refuses to overwrite truth files that hold clinical facts unless `--force`. `scripts/build_all.sh` runs every stage (`FORCE_TRUTH=1`, `FORCE_POLICIES=1` to regenerate). Python 3.13 pinned (`.python-version`, pinned `requirements.txt`).
 - **Step 1 (absence model):** every criterion has `basis`: `evidence`, `documented_absence` (a file states it; status met/unmet) or `missing_evidence` (file refers to a document not received; status `unknown`, decision ESCALATE_MISSING_DOCS; `unknown` <=> `missing_evidence`). New deterministic `docs/claim_history.txt` in every case (submission, clearinghouse acceptance, payer receipt, prior claims, retro-auth line for categories 3-4; proof-exists cases show an early accepted submission, expired cases state "Earlier submissions: none recorded"). Medical-necessity ortho notes carry an `Imaging history:` statement. `criterion_no_supporting_doc` now exists only on ESCALATE cases.

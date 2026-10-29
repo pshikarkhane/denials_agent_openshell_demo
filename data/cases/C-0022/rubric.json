@@ -1,0 +1,174 @@
+{
+  "case_id": "C-0022",
+  "decision": "APPEAL",
+  "criteria": [
+    {
+      "id": "DEC1",
+      "family": "decision",
+      "check": "auto",
+      "text": "decision.json states the correct decision",
+      "reference": "truth.correct_decision=APPEAL",
+      "auto": {
+        "kind": "decision_eq",
+        "expected": "APPEAL"
+      },
+      "sources": []
+    },
+    {
+      "id": "IDN1",
+      "family": "identifiers",
+      "check": "auto",
+      "text": "deliverable.md states the correct claim number, patient ID, date of service and CPT code",
+      "reference": "8834557 / P-5014 / 2026-07-10 / 73721",
+      "auto": {
+        "kind": "identifiers",
+        "claim_no": "8834557",
+        "patient_id": "P-5014",
+        "dos": "2026-07-10",
+        "cpt": "73721"
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN1",
+      "family": "denial_reason",
+      "check": "auto",
+      "text": "decision.json denial_code matches the denial",
+      "reference": "CO-29",
+      "auto": {
+        "kind": "denial_code_eq",
+        "expected": "CO-29"
+      },
+      "sources": []
+    },
+    {
+      "id": "DLN1",
+      "family": "deadline",
+      "check": "auto",
+      "text": "decision.json gives the correct action deadline and deadline_ok flag",
+      "reference": "action_deadline=2027-02-23; deadline_ok=True (review date 2026-12-03)",
+      "auto": {
+        "kind": "action_deadline_eq",
+        "date": "2027-02-23",
+        "deadline_ok": true
+      },
+      "sources": []
+    },
+    {
+      "id": "POL1",
+      "family": "policy_citation",
+      "check": "auto",
+      "text": "decision.json names the governing policy",
+      "reference": "MP-TF-001 (Timely Filing of Claims)",
+      "auto": {
+        "kind": "policy_id_eq",
+        "expected": "MP-TF-001"
+      },
+      "sources": []
+    },
+    {
+      "id": "EVD1",
+      "family": "evidence_use",
+      "check": "auto",
+      "text": "decision.json lists every policy criterion with the correct status",
+      "reference": "2.1=met; 2.2=met",
+      "auto": {
+        "kind": "criteria_status_eq",
+        "expected": {
+          "2.1": "met",
+          "2.2": "met"
+        }
+      },
+      "sources": []
+    },
+    {
+      "id": "RSN2",
+      "family": "denial_reason",
+      "check": "judge",
+      "text": "Identifies the reason for the denial in words (CO-29) and the basis the payer gave",
+      "reference": "CO-29: The time limit for filing has expired.",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "POL2",
+      "family": "policy_citation",
+      "check": "judge",
+      "text": "Cites MP-TF-001 (Timely Filing of Claims) and the specific section number for each criterion it relies on",
+      "reference": "MP-TF-001; sections 2.1, 2.2",
+      "auto": null,
+      "sources": [
+        "policy_library/MP-TF-001.txt"
+      ]
+    },
+    {
+      "id": "POLX1",
+      "family": "policy_citation",
+      "check": "judge",
+      "text": "Does not cite or rely on the near-duplicate policy MP-TF-010",
+      "reference": "distractor MP-TF-010 (superseded version)",
+      "auto": null,
+      "sources": []
+    },
+    {
+      "id": "DLN2",
+      "family": "deadline",
+      "check": "judge",
+      "text": "States the action deadline and whether it is still open or already passed as of the review date",
+      "reference": "action_deadline 2027-02-23; review date 2026-12-03; the deadline is still open (82 days remain)",
+      "auto": null,
+      "sources": [
+        "task.md",
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "EVD2",
+      "family": "evidence_use",
+      "check": "judge",
+      "text": "Supports §2.1 (Claim submitted within 90 days of DOS) with specific, dated evidence from the record",
+      "reference": "§2.1 status=met, basis=evidence; files: claim_history.txt; record text: 2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED",
+      "auto": null,
+      "sources": [
+        "claim_history.txt"
+      ]
+    },
+    {
+      "id": "EVD3",
+      "family": "evidence_use",
+      "check": "judge",
+      "text": "Supports §2.2 (Proof of clearinghouse acceptance within the filing limit is available) with specific, dated evidence from the record",
+      "reference": "§2.2 status=met, basis=evidence; files: claim_history.txt; record text: 2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED",
+      "auto": null,
+      "sources": [
+        "claim_history.txt"
+      ]
+    },
+    {
+      "id": "REM1",
+      "family": "remedy_and_enclosures",
+      "check": "judge",
+      "text": "Contains a clear requested remedy (overturn the denial and reprocess the claim) addressed to the payer's appeals unit",
+      "reference": "claim 8834557; Appeals Unit, P.O. Box 3300, Terravista, ST 00003",
+      "auto": null,
+      "sources": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "REM2",
+      "family": "remedy_and_enclosures",
+      "check": "judge",
+      "text": "Lists the required enclosures from the case file",
+      "reference": "enclosures: claim_history.txt",
+      "auto": null,
+      "sources": [
+        "claim_history.txt"
+      ]
+    }
+  ],
+  "partial": false,
+  "skipped": []
+}

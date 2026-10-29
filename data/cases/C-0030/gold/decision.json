@@ -1,0 +1,22 @@
+{
+  "case_id": "C-0030",
+  "decision": "DO_NOT_APPEAL",
+  "denial_code": "CO-29",
+  "policy_id": "MP-TF-001",
+  "action_deadline": "2026-11-01",
+  "deadline_ok": true,
+  "criteria": [
+    {
+      "id": "2.1",
+      "status": "unmet",
+      "evidence": "claim_history.txt"
+    },
+    {
+      "id": "2.2",
+      "status": "unmet",
+      "evidence": "claim_history.txt"
+    }
+  ],
+  "enclosures": [],
+  "gaps": []
+}

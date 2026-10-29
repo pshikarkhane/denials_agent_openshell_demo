@@ -5,47 +5,51 @@
   "payer_id": "HALCYON_PLAN",
   "policy_id": "MP-PT-011",
   "patient": {
-    "synthetic_id": "P-2758"
+    "synthetic_id": "P-8930"
   },
   "claim": {
-    "claim_no": "6733762",
-    "cpt": "97110",
+    "claim_no": "2801207",
+    "cpt": "97112",
     "icd10": [
-      "M25.561"
+      "M54.16"
     ],
     "dos": "2026-04-16",
-    "billed": 111.67
+    "billed": 123.53
   },
   "denial": {
     "carc": "CO-151",
     "rarc": "N640",
-    "denial_date": "2026-05-19"
+    "denial_date": "2026-05-12"
   },
-  "appeal_deadline": "2026-09-16",
+  "appeal_deadline": "2026-09-09",
+  "action_deadline": "2026-09-09",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§4.2",
+      "section": "§2.1",
       "text": "Measurable functional improvement documented",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "supporting/pt_progress_note.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§4.3",
+      "section": "§2.2",
       "text": "Physician recertified the plan of care",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
-        "notes/2026-02-24_referral.txt"
+        "notes/2026-02-05_referral.txt"
       ]
     },
     {
       "id": "C3",
-      "section": "§4.4",
-      "text": "Visit count is within the exception cap of 30",
+      "section": "§2.3",
+      "text": "Denied visit is within visits 21 through 30 of the calendar year",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "supporting/pt_log.txt"
       ]
@@ -57,26 +61,27 @@
   ],
   "required_enclosures": [
     "supporting/pt_progress_note.txt",
-    "notes/2026-02-24_referral.txt"
+    "notes/2026-02-05_referral.txt",
+    "supporting/pt_log.txt"
   ],
   "facts": [
     {
       "key": "claim_no",
-      "value": "6733762",
+      "value": "2801207",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-2758",
+      "value": "P-8930",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "97110",
+      "value": "97112",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -84,7 +89,7 @@
     {
       "key": "icd10",
       "value": [
-        "M25.561"
+        "M54.16"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -99,7 +104,7 @@
     },
     {
       "key": "billed",
-      "value": 111.67,
+      "value": 123.53,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -127,7 +132,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-05-19",
+      "value": "2026-05-12",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -135,27 +140,48 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-04-20",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-04-20",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-04-22",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
       "key": "appeal_window_days",
       "value": 120,
       "source_file": "denial_letter.txt",
-      "line": 20,
+      "line": 9,
       "evidence": null
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-09-16",
+      "value": "2026-09-09",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2026-09-09",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-05-24",
+      "value": "2026-05-17",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -168,13 +194,6 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2026-11-15",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "N640",
       "source_file": "denial_letter.txt",
@@ -182,9 +201,16 @@
       "evidence": null
     },
     {
+      "key": "corrected_claim_deadline",
+      "value": "2026-11-08",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "planned_document",
-      "value": "notes/2026-01-27_initial_eval.txt",
-      "source_file": "notes/2026-01-27_initial_eval.txt",
+      "value": "notes/2026-01-12_initial_eval.txt",
+      "source_file": "notes/2026-01-12_initial_eval.txt",
       "line": null,
       "evidence": null
     },
@@ -204,21 +230,21 @@
     },
     {
       "key": "planned_document",
-      "value": "notes/2026-02-24_referral.txt",
-      "source_file": "notes/2026-02-24_referral.txt",
+      "value": "notes/2026-02-05_referral.txt",
+      "source_file": "notes/2026-02-05_referral.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "therapy_start_date",
-      "value": "2026-01-27",
+      "value": "2026-01-12",
       "source_file": "supporting/pt_log.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "therapy_duration_days",
-      "value": 79,
+      "value": 94,
       "source_file": "supporting/pt_log.txt",
       "line": null,
       "evidence": null
@@ -231,7 +257,7 @@
       "evidence": null
     },
     {
-      "key": "visit_cap_with_exception",
+      "key": "visit_cap",
       "value": 30,
       "source_file": "policy_library",
       "line": null,
@@ -239,7 +265,7 @@
     },
     {
       "key": "denied_visit_number",
-      "value": 24,
+      "value": 21,
       "source_file": "supporting/pt_log.txt",
       "line": null,
       "evidence": null

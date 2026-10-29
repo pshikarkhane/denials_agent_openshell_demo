@@ -5,10 +5,10 @@
   "payer_id": "MERIDIAN_COMM",
   "policy_id": "MP-BND-002",
   "patient": {
-    "synthetic_id": "P-1772"
+    "synthetic_id": "P-4508"
   },
   "claim": {
-    "claim_no": "9543611",
+    "claim_no": "1791068",
     "cpt": "97140",
     "icd10": [
       "M51.16"
@@ -19,45 +19,46 @@
   "denial": {
     "carc": "CO-97",
     "rarc": "N20",
-    "denial_date": "2026-05-26"
+    "denial_date": "2026-06-02"
   },
-  "appeal_deadline": "2026-11-22",
+  "appeal_deadline": "2026-11-29",
+  "action_deadline": "2027-06-02",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§3.1",
+      "section": "§2.1",
       "text": "Services documented as distinct (separate session/site)",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "notes/2026-04-22_procedure.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§3.3",
+      "section": "§2.2",
       "text": "Distinct-procedural-service modifier appended to the denied line",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "eob_835.txt"
       ]
     }
   ],
   "correct_decision": "CORRECT_AND_RESUBMIT",
-  "traps": [
-    "note_after_dos"
-  ],
+  "traps": [],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "9543611",
+      "value": "1791068",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-1772",
+      "value": "P-4508",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
@@ -115,7 +116,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-05-26",
+      "value": "2026-06-02",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -123,8 +124,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-05-06",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-05-06",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-05-07",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -136,14 +151,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-11-22",
+      "value": "2026-11-29",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
+      "key": "action_deadline",
+      "value": "2027-06-02",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "as_of_date",
-      "value": "2026-06-05",
+      "value": "2026-07-04",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -156,17 +178,17 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2027-05-26",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "N20",
       "source_file": "denial_letter.txt",
       "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2027-06-02",
+      "source_file": "denial_letter.txt",
+      "line": 24,
       "evidence": null
     },
     {
@@ -201,20 +223,6 @@
       "key": "modifier_present",
       "value": false,
       "source_file": "eob_835.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "planned_document",
-      "value": "notes/2026-05-10_followup.txt",
-      "source_file": "notes/2026-05-10_followup.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "post_dos_note",
-      "value": "notes/2026-05-10_followup.txt",
-      "source_file": "notes/2026-05-10_followup.txt",
       "line": null,
       "evidence": null
     }

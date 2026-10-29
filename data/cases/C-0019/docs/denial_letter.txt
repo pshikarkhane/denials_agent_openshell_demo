@@ -2,25 +2,25 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-06-16
+Date of notice: 2026-06-03
 To: Yang Medical Group
-Member: Dylan Williams   Patient ID: P-4963   Member ID: MBR519251195
+Member: Dylan Williams   Patient ID: P-9528   Member ID: MBR519251195
 
-Claim number: 7636162
+Claim number: 5058907
 Date of service: 2026-05-05
-Service: 27447 - Total knee arthroplasty
-Billed amount: 4893.04
+Service: 29881 - Knee arthroscopy with meniscectomy
+Billed amount: 3885.44
 
 DETERMINATION
 Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
-Remark code (RARC): N54
+Remark code (RARC): none
 No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-14.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-01.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-13.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-11-30.
 
 SYNTHETIC DATA - NOT REAL PHI

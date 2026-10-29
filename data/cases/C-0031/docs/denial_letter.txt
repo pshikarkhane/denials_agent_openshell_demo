@@ -2,14 +2,14 @@ MERIDIAN COMMUNITY HEALTH PLAN
 Payer ID: MERIDIAN_COMM
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-06-05
+Date of notice: 2026-06-09
 To: Patrick Medical Group
-Member: Thomas Brown   Patient ID: P-6270   Member ID: MBR236895042
+Member: Thomas Brown   Patient ID: P-5136   Member ID: MBR236895042
 
-Claim number: 5144256
+Claim number: 6396619
 Date of service: 2026-05-08
-Service: 99214 - Established patient visit, moderate
-Billed amount: 223.65
+Service: 99213 - Established patient visit, low
+Billed amount: 390.20
 
 DETERMINATION
 Reason code (CARC): PR-1  Amount applied to the patient's deductible.
@@ -17,10 +17,10 @@ Remark code (RARC): none
 The billed amount was applied to the member's deductible. This amount is the member's responsibility.
 
 Appeal Rights
-You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2026-12-02.
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2026-12-06.
 Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
 
 Corrected Claims
-A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-06-05.
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-06-09.
 
 SYNTHETIC DATA - NOT REAL PHI

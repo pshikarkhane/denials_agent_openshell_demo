@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-28
+Date of notice: 2026-08-22
 To: Powers Medical Group
-Member: Jason Chapman   Patient ID: P-8359   Member ID: MBR157152158
+Member: Jason Chapman   Patient ID: P-4593   Member ID: MBR157152158
 
-Claim number: 8217006
+Claim number: 8535923
 Date of service: 2026-04-27
-Service: 99214 - Established patient visit, moderate
-Billed amount: 208.26
+Service: 93000 - ECG with interpretation
+Billed amount: 108.17
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-08-09, after the 90-day filing limit. The filing deadline for this date of service was 2026-07-26 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-08-01, after the 90-day filing limit. The filing deadline for this date of service was 2026-07-26 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-26.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-20.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-24.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-18.
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Watson Medical Group
-Trace number: SYN-EFT-87446450
-Remittance date: 2026-07-29
+Trace number: 87446450
+Remittance date: 2026-08-08
 
 PATIENT
   Name: Mary Oconnell
-  Patient ID: P-6246
+  Patient ID: P-2038
   MRN: SYN-527688
   Member ID: MBR934391503
-  Date of birth: 1986-02-16
-  SSN: 916-96-8698
+  Date of birth: 1986-02-17
+  SSN: XXX-XX-8698
 
 CLAIM
-  Claim number: 4148533
+  Claim number: 6372385
   Claim status: DENIED
   Date of service: 2026-06-29
-  Date claim received by payer: 2026-07-13
-  Diagnosis (ICD-10): M25.511
-  Place of service: 11
-  Rendering provider: Dr. Rita Brady (ID SYN-RP-8533)
-  Referring provider: Dr. Frances Herrera
+  Date claim received by payer: 2026-07-16
+  Diagnosis (ICD-10): I10
+  Place of service: (not provided)
+  Rendering provider: Dr. Rita Brady (ID RP-2385)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97110       157.16     0.00       0.00       CO-4 157.16 RARC M51
-        (Therapeutic exercise)
+  1     99213       169.94     0.00       0.00       CO-16 169.94
+        (Established patient visit, low)
 
-TOTALS  Billed 157.16  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 169.94  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

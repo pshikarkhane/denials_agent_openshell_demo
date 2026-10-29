@@ -10,26 +10,26 @@ from common import RAW, ROOT, ask, load_models, parse_json, reviewers, run_paral
 
 PROMPT = """You are helping triage a table of medical coding pairings used in a SYNTHETIC test dataset for a denial-appeal agent. You are NOT an authoritative coding source: never say a line is 'correct' or 'valid'. For each numbered line answer only "suspect" or "no concern", with a confidence (low/medium/high) and a one-line reason. Prioritize likely problems: CPT/ICD-10 fit and ICD-10 Excludes1 conflicts when two diagnosis codes are listed together on one claim (the table lists codes individually, so also say which COMBINATIONS you would flag if you know how they were combined: see note), RARC fit for each CARC, NCCI-style bundling pairs and whether modifier 59/XS would plausibly be allowed or the code is bundled by CPT rules, and whether the scenario text matches the CARC.
 
-Context: claims in categories 1-2 carry TWO diagnosis codes drawn from {{M54.16, M51.16, M54.17, M51.17, M51.26}} with CPT 72148. Table A-D lines were derived from the dataset; table E lists category-to-CARC scenario pairs. Category 11 deliberately uses diagnoses that do not fit the procedure (table B), and its corrected diagnoses appear in table A.
+Context: the lines come from the current dataset. Section 1 = pairings meant to be valid (categories 1-2 now carry ONE diagnosis per claim), section 2 = deliberate mismatches (category 11), section 3 = CARC/RARC pairs (RARCs were deliberately omitted for CO-197, CO-4, CO-18, CO-16), section 4 = bundling pairs, section 5 = modifier/claim-data scenarios.
 
-Respond with ONE JSON object: {{"lines": [{{"id": "A1", "verdict": "suspect|no concern", "confidence": "low|medium|high", "reason": "..."}}], "combination_flags": [{{"codes": "...", "confidence": "...", "reason": "..."}}]}} covering EVERY line id.
+Respond with ONE JSON object: {{"lines": [{{"id": "S1.1", "verdict": "suspect|no concern", "confidence": "low|medium|high", "reason": "..."}}], "combination_flags": [{{"codes": "...", "confidence": "...", "reason": "..."}}]}} covering EVERY line id.
 
 {table}
 """
 
 
 def parse_tables():
-    text = (ROOT / "docs" / "PILOT_REVIEW.md").read_text()
-    sec = text[text.index("## Coding review"):]
-    out, cur, n = [], None, 0
-    for line in sec.splitlines():
-        m = re.match(r"### ([A-E])\. (.*)", line)
+    """Numbered lines of docs/CODER_CHECKLIST.md sections 1-5 (ids S<section>.<n>)."""
+    text = (ROOT / "docs" / "CODER_CHECKLIST.md").read_text()
+    out, sec, n = [], None, 0
+    for line in text.splitlines():
+        m = re.match(r"## (\d)\. (.*)", line)
         if m:
-            cur, n = m.group(1), 0
-            out.append(f"\n### Table {cur}: {m.group(2)}")
-        elif line.startswith("- ") and cur:
+            sec, n = m.group(1), 0
+            out.append(f"\n### Section {sec}: {m.group(2)}")
+        elif line.startswith("- ") and sec and sec != "6":
             n += 1
-            out.append(f"{cur}{n}. " + re.split(r"\s*\|\s*\[ \]", line[2:])[0])
+            out.append(f"S{sec}.{n}. " + re.split(r"\s*\|\s*\[ \]", line[2:])[0])
     return "\n".join(out)
 
 

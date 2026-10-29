@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Holland Medical Group
+Claim number: 3130670
+Patient ID: P-7687
+Payer ID: MERIDIAN_COMM
+Date of service: 2026-05-18
+Service: 97140 - Manual therapy
+
+SUBMISSION HISTORY
+  2026-05-23  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-23  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-05-26  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-06-14  Adjudicated by payer: adverse determination (CARC CO-97)
+
+SYNTHETIC DATA - NOT REAL PHI

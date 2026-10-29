@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Yang Medical Group
-Trace number: SYN-EFT-14754412
-Remittance date: 2026-06-16
+Trace number: 14754412
+Remittance date: 2026-06-03
 
 PATIENT
   Name: Dylan Williams
-  Patient ID: P-4963
+  Patient ID: P-9528
   MRN: SYN-318984
   Member ID: MBR519251195
-  Date of birth: 1955-11-13
-  SSN: 910-37-2161
+  Date of birth: 1955-11-14
+  SSN: XXX-XX-2161
 
 CLAIM
-  Claim number: 7636162
+  Claim number: 5058907
   Claim status: DENIED
   Date of service: 2026-05-05
-  Date claim received by payer: 2026-05-17
-  Diagnosis (ICD-10): M17.12
+  Date claim received by payer: 2026-05-19
+  Diagnosis (ICD-10): M23.221
   Place of service: 11
-  Rendering provider: Dr. Matthew Fisher (ID SYN-RP-6162)
-  Referring provider: Dr. Jeff Barry
+  Rendering provider: Dr. Jeff Barry (ID RP-8907)
+  Referring provider: Dr. Matthew Fisher
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     27447       4893.04    0.00       0.00       CO-197 4893.04 RARC N54
-        (Total knee arthroplasty)
+  1     29881       3885.44    0.00       0.00       CO-197 3885.44
+        (Knee arthroscopy with meniscectomy)
 
-TOTALS  Billed 4893.04  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 3885.44  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

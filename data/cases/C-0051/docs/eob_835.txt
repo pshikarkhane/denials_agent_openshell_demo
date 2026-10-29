@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Richard Medical Group
-Trace number: SYN-EFT-98486523
-Remittance date: 2026-07-16
+Trace number: 98486523
+Remittance date: 2026-07-08
 
 PATIENT
   Name: Jeremy Fleming
-  Patient ID: P-6354
+  Patient ID: P-6530
   MRN: SYN-938056
   Member ID: MBR970480361
-  Date of birth: 1954-12-13
-  SSN: 987-63-4250
+  Date of birth: 1954-12-14
+  SSN: XXX-XX-4250
 
 CLAIM
-  Claim number: 3381395
+  Claim number: 6482796
   Claim status: DENIED
   Date of service: 2026-06-17
-  Date claim received by payer: 2026-06-22
+  Date claim received by payer: 2026-06-24
   Diagnosis (ICD-10): J06.9
   Place of service: 11
-  Rendering provider: Dr. Ryan Butler (ID SYN-RP-1395)
-  Referring provider: Dr. Lisa Roberson
+  Rendering provider: Dr. Lisa Roberson (ID RP-2796)
+  Referring provider: Dr. Ryan Butler
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     63030       3618.63    0.00       0.00       CO-11 3618.63 RARC M76
-        (Lumbar laminotomy/discectomy)
+  1     27447       2927.82    0.00       0.00       CO-11 2927.82 RARC M76
+        (Total knee arthroplasty)
 
-TOTALS  Billed 3618.63  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 2927.82  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

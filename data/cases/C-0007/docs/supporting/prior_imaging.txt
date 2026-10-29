@@ -1,6 +1,6 @@
 Hester Medical Group - RADIOLOGY REPORT (LUMBAR SPINE RADIOGRAPHS)
 Patient: Shannon Eaton  MRN: SYN-282701
-Study date: 2023-11-14
+Study date: 2024-04-07
 Impression: mild degenerative changes; no acute osseous abnormality.
 
 SYNTHETIC DATA - NOT REAL PHI

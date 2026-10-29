@@ -6,16 +6,16 @@ Effective date: 2026-02-01
 Version history: Version 1.0, current.
 
 Section 1  Purpose and scope
-This policy establishes the clinical criteria that Meridian Community Health Plan uses to determine when computed tomography of the lumbar spine is considered medically necessary. It applies to members for whom advanced imaging of the lower back is being requested as part of their diagnostic or treatment evaluation.
+This policy establishes the criteria under which Meridian Community Health Plan considers computed tomography of the lumbar spine to be medically necessary. It is intended to guide coverage determinations for advanced imaging of the lumbar region and to support consistent, clinically appropriate review.
 
-Section 3.2(a)
-The member must have completed at least 4 weeks of documented conservative therapy before lumbar spine CT will be approved. Acceptable conservative measures include supervised physical therapy, activity modification, or an appropriate course of pharmacologic management, and the clinical record must reflect the member's response to these interventions. Requests that do not demonstrate this minimum duration of conservative care will not meet medical necessity under this section.
+Section 2.1(a)
+The member must have completed at least 4 weeks of conservative therapy prior to the requested imaging. Documentation of this conservative treatment period is required for the request to be considered medically necessary.
 
-Section 3.2(b)
-A qualifying neurological deficit or recognized red flag finding must be documented in the medical record to support the request. Such findings may include progressive motor weakness, signs suggestive of cauda equina syndrome, suspected malignancy, infection, or acute trauma. The documentation must clearly describe the clinical findings that establish the presence of the deficit or red flag.
+Section 2.1(b)
+A neurological deficit or a documented red flag finding must be present and recorded in the clinical record. This documentation must support the need for lumbar spine CT imaging.
 
-Section 3.2(c)
-Lumbar spine CT will not be considered medically necessary if imaging of the same region has already been performed within the preceding 6 months, unless a significant change in the member's clinical condition is documented. The ordering provider should confirm that no qualifying prior study of the same region exists within this timeframe before submitting the request. Repeat imaging within this interval requires explicit clinical justification to be eligible for coverage.
+Section 2.1(c)
+There must be no prior imaging of the same lumbar region performed within the preceding 6 months. The absence of such recent imaging of the same region is required for coverage under this policy.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 180 days from the date of the claim determination notice.

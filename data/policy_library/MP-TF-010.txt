@@ -3,20 +3,20 @@ Policy ID: MP-TF-010
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Effective date: 2024-01-01
-Version history: Version 1.0 (superseded). Replaced by Version 2.0 effective 2025-01-01; applies only to dates of service before 2025-01-01.
+Status: SUPERSEDED. Replaced by MP-TF-001 (current version effective 2026-03-15). Version 1.0, effective 2024-01-01; this version last applied to dates of service on or before 2024-12-31.
 
 Section 1  Purpose and scope
-This policy establishes the standards under which Terravista Health accepts and adjudicates claims based on the timeliness of their submission. It applies to all participating and non-participating providers who render covered services to members enrolled in plans administered by Terravista Health.
+This policy establishes the standards for timely submission of claims to Terravista Health for consideration of reimbursement. It applies to all participating and non-participating providers who render covered services to eligible members.
 
 Section 2.1
-Providers must submit all claims for covered services to Terravista Health within 60 days of the date of service. Claims received after this 60-day window will be considered untimely and may be denied, with the provider held responsible for the resulting charges unless a valid exception applies. For services spanning multiple dates, the filing period is measured from the final date of service associated with the claim.
+Providers must submit claims to Terravista Health within 60 days of the date of service. Claims received after this filing period will be considered untimely and may be denied for failure to meet the submission requirement.
 
-Section 2.3
-Providers must retain documentation that demonstrates timely submission, such as a clearinghouse acceptance confirmation that validates receipt of the claim. This proof of timely filing must be available upon request and submitted to Terravista Health when a provider disputes a denial based on untimely filing. Acceptable evidence establishes that the claim entered the submission pipeline within the required filing period.
+Section 2.2
+Providers must retain and be able to furnish proof of clearinghouse acceptance demonstrating that the claim was transmitted within the applicable filing limit. This documentation serves as evidence that the submission requirement was met and must be available upon request by Terravista Health.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 90 days from the date of the claim determination notice.
-7.2 Timely filing limit: 90 days from the date of service.
+7.2 Timely filing limit: 60 days from the date of service.
 7.3 Corrected claims: must be received within 180 days of the date of the notice.
 7.4 Appeals address: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 

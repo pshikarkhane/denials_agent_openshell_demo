@@ -1,7 +1,9 @@
 {
-  "version": "phase1-v1",
+  "version": "phase1-v2",
   "seed": 20261028,
-  "dataset_hash": "6135f125ddf23a3810a842fef7dcaa79d9b9fb585da3ac242f3b077a5a1099d2",
+  "dataset_hash": "7117f7a2ccf3041fa8090c72e391c77c7ad3c974e20e8b9396bd50ba9178a8fa",
+  "git_sha": "7bd512b3c298c5bbdf867c7dd8ec9d094fc0f274",
+  "git_dirty": true,
   "hash_scope": "cases/** (truth.json, task.md, docs/**) and policy_library/**",
   "counts": {
     "cases": 60,
@@ -436,10 +438,10 @@
     "temperature": 0.7,
     "max_tokens": 3000,
     "prompts_sha256_by_file": {
-      "data_gen/gen_policies.py": "88a5f96463a7a028612858a095e30a550a2ba436916c81ae36aee5d7a79e31bc",
-      "data_gen/gen_clinical.py": "b8e855603b002b7942198b62dc5b01e5819e4eebc64e40921b18b5a7b97012bf"
+      "data_gen/gen_policies.py": "aafd0d54ba7fe45e73045b4c711280f209077f62ec4422d277d62994b0ca63a9",
+      "data_gen/gen_clinical.py": "24224d0192f5b0e934485679f3e380fc99c74ccab287e4092fe1a17994eed24f"
     },
-    "prompts_sha256": "9b58298ef1030b1ad2ba6858b525201255ad77000942e702b693d34f742ff428",
+    "prompts_sha256": "42c357840f9f09852a1fe86ad4e6de966cc16652dbfef962ba480c76d78c0c76",
     "prompts_git_sha": null,
     "prompts_git_sha_note": "project is not a git repository; per-file sha256 of the prompt-bearing source is recorded instead"
   },
@@ -453,17 +455,91 @@
   "policy_library": {
     "frozen": true,
     "files": {
-      "MP-APL-001.txt": "a3dd1e15f1642f1b0d0bd050bfa73cd76a2b59c250cc715b644b279595ddc11c",
-      "MP-BEN-002.txt": "4e94a9b7dbc35da1ecffdb0f4b4a9f16a4097d66c385ef7c96255cc4267348f0",
-      "MP-BND-002.txt": "d73f681f261bfcd14bef3e77ea81845da54c62a5c4988ce1ad9442ee7ab290e0",
-      "MP-CLM-004.txt": "325b911441de5d00a278a6f45696ce1eea36b8f760dcbe4d7ea4e77a904d2fb5",
-      "MP-IMG-007.txt": "2cdc3e0ab47e542633cc440e9d725122ab193b24322065a1af7b4ce78e2bd3bd",
-      "MP-IMG-012.txt": "f9880dc3ae2b87366bb62bb552dd62a027d349caf3ae284d005d2779fd503c29",
-      "MP-PA-003.txt": "283fe0619008dc450c80cad0b061d58990cccf8ed66c546a94cf4cc4652d0160",
-      "MP-PA-030.txt": "0d0570eb2bcd567948514659d843f9321f5890ea905af8a16ffbe338dcee44f0",
-      "MP-PT-011.txt": "c79927698235a76cf2c4c24e1f3fd0f79450a49d4a18370e4f69a0eb97201b38",
-      "MP-TF-001.txt": "534a2e8894373ef46755eaa37cca6fb12fbe8d71b6a0d319b8ffbf25cbce147b",
-      "MP-TF-010.txt": "e8741b17a1e977b4e5167c0c8d5f05dc45fcc8e792679206788fc486c4f75357"
+      "MP-APL-001.txt": "0bb118deffbf9d20116ac6817dd3fdb800463c4343982e2ca69134749b7e618b",
+      "MP-BEN-002.txt": "e034b7b53a2d737a683059e3da91bb3ab8527d39ae574523e74a766f157f0d8c",
+      "MP-BND-002.txt": "4b01cfc7ce3971c1d29f880f343696d38bde3580fa238add408f021c49d04b0e",
+      "MP-CLM-004.txt": "54fd7f7fc409788571b0958d8af8f4f7662aeaaedc6700cca9083960c918ef07",
+      "MP-IMG-007.txt": "b9eaaec0b78d43b59b33f77543cac5265a5a02ed78849e71cd4d202a489dce6c",
+      "MP-IMG-012.txt": "fda8560c2681b0f921954afc3e5c92f4856542bfb352689dd88ea5a0e04320f5",
+      "MP-PA-003.txt": "73de3c379fcd8d0e8d712392cbea40a99941917b0804bb32f8dc6dcd8196253e",
+      "MP-PA-030.txt": "88a9d9555468867c14982001101e2924a2d2b7fc81cfa3e0ae01c96d7e07a28b",
+      "MP-PT-011.txt": "d66149ce3ac15942761c43a4e3be85bd887c413d841e8687297732abb84f23a4",
+      "MP-TF-001.txt": "4b42b35528b7d37afe21cd655a8173a13b7c8974fcaa458b314149d67b242f8e",
+      "MP-TF-010.txt": "66146455d43ea250398f5f14179e19f492b888e20718a8401154fde3ec54705d"
+    }
+  },
+  "note_lint": {
+    "C-0005/notes/2026-03-23_pcp.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
+    },
+    "C-0005/notes/2026-06-04_ortho.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
+    },
+    "C-0005/notes/2026-04-13_pcp_followup.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
+    },
+    "C-0007/notes/2026-02-09_pcp.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
+    },
+    "C-0007/notes/2026-04-10_ortho.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 2
+    },
+    "C-0030/notes/2026-03-02_pcp.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 3
+    },
+    "C-0030/notes/2026-04-01_visit.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
+    },
+    "C-0039/notes/2026-05-18_pcp.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
+    },
+    "C-0039/notes/2026-06-29_visit.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 2
+    },
+    "C-0056/notes/2026-03-03_initial_eval.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 2
+    },
+    "C-0056/notes/2026-03-26_referral.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 3
+    },
+    "C-0056/supporting/pt_progress_note.txt": {
+      "spell": "pass",
+      "reviewer_model": "azure/openai/gpt-5.5",
+      "reviewer_issues": 0,
+      "attempts": 1
     }
   }
 }

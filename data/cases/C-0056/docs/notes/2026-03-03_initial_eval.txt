@@ -1,0 +1,19 @@
+King Medical Group
+PHYSICAL THERAPY INITIAL EVALUATION
+Patient: Amanda Sullivan   DOB: 1983-10-23   MRN: SYN-921446   Patient ID: P-6525
+Date of encounter: 2026-03-03
+Provider: David Fisher, PT
+------------------------------------------------------------
+Reason for visit: Patient presents with low back pain (M54.50) that began approximately two months ago after lifting a heavy box at home. She reports aching pain across the lumbar region, worse with prolonged sitting and bending. Pain is intermittent, rated 6/10 at worst and 2/10 at best.
+
+History: No prior episodes of significant back pain. No history of spinal surgery. Denies bowel or bladder changes, saddle anesthesia, or lower extremity numbness. Works at a desk job requiring extended sitting. No red flags identified.
+
+Exam: Lumbar active range of motion limited in flexion and extension, with pain reported at end range. Tenderness to palpation over the bilateral paraspinal musculature. Strength grossly within functional limits in bilateral lower extremities. Negative straight leg raise bilaterally. Gait independent and symmetrical. Posture notable for increased lumbar flexion with sitting.
+
+Assessment: Findings consistent with mechanical low back pain. Impairments include reduced lumbar mobility, muscle tenderness, and limited tolerance for prolonged sitting. Good rehabilitation potential given no red flags and motivated patient.
+
+Plan: Initial evaluation completed today and plan of care established. Plan includes therapeutic exercise, manual therapy, postural education, and a home exercise program. Goals are to reduce pain and improve functional mobility.
+------------------------------------------------------------
+Electronically signed: David Fisher, PT
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -5,38 +5,41 @@
   "payer_id": "MERIDIAN_COMM",
   "policy_id": "MP-BEN-002",
   "patient": {
-    "synthetic_id": "P-9804"
+    "synthetic_id": "P-3443"
   },
   "claim": {
     "claim_no": "1946462",
-    "cpt": "85025",
+    "cpt": "99213",
     "icd10": [
-      "I10"
+      "J02.9"
     ],
     "dos": "2026-07-24",
-    "billed": 338.96
+    "billed": 175.1
   },
   "denial": {
     "carc": "PR-1",
     "rarc": null,
-    "denial_date": "2026-08-25"
+    "denial_date": "2026-08-24"
   },
-  "appeal_deadline": "2027-02-21",
+  "appeal_deadline": "2027-02-20",
+  "action_deadline": "2027-02-20",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§5.1",
+      "section": "§2.1",
       "text": "Member deductible was already satisfied before DOS",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "supporting/benefit_summary.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§5.2",
+      "section": "§2.2",
       "text": "Payer applied the deductible in error",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "supporting/benefit_summary.txt"
       ]
@@ -57,14 +60,14 @@
     },
     {
       "key": "patient_id",
-      "value": "P-9804",
+      "value": "P-3443",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "85025",
+      "value": "99213",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -72,7 +75,7 @@
     {
       "key": "icd10",
       "value": [
-        "I10"
+        "J02.9"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -87,7 +90,7 @@
     },
     {
       "key": "billed",
-      "value": 338.96,
+      "value": 175.1,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -115,7 +118,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-08-25",
+      "value": "2026-08-24",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -123,8 +126,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-08-07",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-08-07",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-08-08",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -136,14 +153,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2027-02-21",
+      "value": "2027-02-20",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2027-02-20",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2027-03-23",
+      "value": "2027-03-13",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -157,7 +181,7 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2027-08-25",
+      "value": "2027-08-24",
       "source_file": "denial_letter.txt",
       "line": 24,
       "evidence": null
@@ -171,30 +195,30 @@
     },
     {
       "key": "allowed_amount",
-      "value": 235.58,
+      "value": 89.16,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
     },
     {
       "key": "deductible_total",
-      "value": 1000,
+      "value": 500,
       "source_file": "supporting/benefit_summary.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "deductible_met_before_dos",
-      "value": 530,
+      "value": 440,
       "source_file": "supporting/benefit_summary.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "pr1_amount",
-      "value": 235.58,
+      "value": 60,
       "source_file": "eob_835.txt",
-      "line": 29,
+      "line": 15,
       "evidence": null
     }
   ]

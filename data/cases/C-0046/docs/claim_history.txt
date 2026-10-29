@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Porter Medical Group
+Claim number: 1795064
+Patient ID: P-8964
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-04-27
+Service: 73721 - MRI lower-extremity joint without contrast
+
+SUBMISSION HISTORY
+  2026-05-30  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-30  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-01  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: claim 1795020 paid 2026-05-24 amount 832.15
+
+CURRENT STATUS
+  2026-06-19  Adjudicated by payer: adverse determination (CARC CO-18)
+
+SYNTHETIC DATA - NOT REAL PHI

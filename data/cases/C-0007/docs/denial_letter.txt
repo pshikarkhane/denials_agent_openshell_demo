@@ -2,14 +2,14 @@ MERIDIAN COMMUNITY HEALTH PLAN
 Payer ID: MERIDIAN_COMM
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-05-28
+Date of notice: 2026-05-30
 To: Hester Medical Group
-Member: Shannon Eaton   Patient ID: P-5266   Member ID: MBR629319882
+Member: Shannon Eaton   Patient ID: P-7169   Member ID: MBR629319882
 
-Claim number: 7780010
+Claim number: 5368894
 Date of service: 2026-04-20
 Service: 72148 - MRI lumbar spine without contrast
-Billed amount: 1538.18
+Billed amount: 1582.37
 
 DETERMINATION
 Reason code (CARC): CO-50  The service was not deemed medically necessary by the plan.
@@ -17,10 +17,10 @@ Remark code (RARC): N115
 The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity).
 
 Appeal Rights
-You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2026-11-24.
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2026-11-26.
 Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
 
 Corrected Claims
-A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-05-28.
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-05-30.
 
 SYNTHETIC DATA - NOT REAL PHI

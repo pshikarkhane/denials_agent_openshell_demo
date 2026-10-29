@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-09-18
+Date of notice: 2026-09-15
 To: Shepard Medical Group
-Member: Joe Reid   Patient ID: P-2443   Member ID: MBR804804811
+Member: Joe Reid   Patient ID: P-8502   Member ID: MBR804804811
 
-Claim number: 3195790
+Claim number: 2478541
 Date of service: 2026-07-20
-Service: 99214 - Established patient visit, moderate
-Billed amount: 282.76
+Service: 99213 - Established patient visit, low
+Billed amount: 151.39
 
 DETERMINATION
 Reason code (CARC): CO-18  Exact duplicate of a claim/service already adjudicated.
-Remark code (RARC): N522
-This claim duplicates claim 3195757, which was paid on 2026-08-08 in the amount of 169.66.
+Remark code (RARC): none
+This claim duplicates claim 2478453, which was paid on 2026-08-08 in the amount of 90.83.
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-12-17.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-12-14.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-03-17.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-03-14.
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -5,48 +5,53 @@
   "payer_id": "HALCYON_PLAN",
   "policy_id": "MP-PA-003",
   "patient": {
-    "synthetic_id": "P-2823"
+    "synthetic_id": "P-1220"
   },
   "claim": {
-    "claim_no": "3312632",
-    "cpt": "63030",
+    "claim_no": "2867652",
+    "cpt": "27447",
     "icd10": [
-      "M51.16"
+      "M17.11"
     ],
     "dos": "2026-07-09",
     "billed": 4474.5
   },
   "denial": {
     "carc": "CO-197",
-    "rarc": "N54",
-    "denial_date": "2026-07-31"
+    "rarc": null,
+    "denial_date": "2026-08-17"
   },
-  "appeal_deadline": "2026-11-28",
+  "appeal_deadline": "2026-12-15",
+  "action_deadline": "2026-12-15",
   "policy_criteria": [
     {
       "id": "C1",
       "section": "§2.1",
       "text": "Service requires prior authorization",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "denial_letter.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§4.1",
+      "section": "§2.2",
       "text": "Service was urgent/emergent so auth could not be obtained beforehand",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "notes/2026-07-08_urgent_eval.txt"
       ]
     },
     {
       "id": "C3",
-      "section": "§4.2",
+      "section": "§2.3",
       "text": "Retro-auth requested within 14 days of DOS",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
+        "claim_history.txt",
         "supporting/retro_auth_request.txt"
       ]
     }
@@ -62,21 +67,21 @@
   "facts": [
     {
       "key": "claim_no",
-      "value": "3312632",
+      "value": "2867652",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-2823",
+      "value": "P-1220",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "63030",
+      "value": "27447",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -84,7 +89,7 @@
     {
       "key": "icd10",
       "value": [
-        "M51.16"
+        "M17.11"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -127,7 +132,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-07-31",
+      "value": "2026-08-17",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -135,8 +140,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-07-17",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-07-17",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-07-19",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -148,14 +167,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-11-28",
+      "value": "2026-12-15",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2026-12-15",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-08-21",
+      "value": "2026-09-20",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -169,16 +195,9 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2027-01-27",
+      "value": "2027-02-13",
       "source_file": "denial_letter.txt",
       "line": 24,
-      "evidence": null
-    },
-    {
-      "key": "rarc",
-      "value": "N54",
-      "source_file": "denial_letter.txt",
-      "line": 16,
       "evidence": null
     },
     {
@@ -226,8 +245,8 @@
     {
       "key": "retro_request_date",
       "value": "2026-07-13",
-      "source_file": "supporting/retro_auth_request.txt",
-      "line": null,
+      "source_file": "claim_history.txt",
+      "line": 14,
       "evidence": null
     },
     {
@@ -236,6 +255,13 @@
       "source_file": "policy_library",
       "line": null,
       "evidence": null
+    },
+    {
+      "key": "criterion_C3_quote",
+      "value": "Retroactive authorization request: received 2026-07-13",
+      "source_file": "claim_history.txt",
+      "line": 14,
+      "evidence": "Retroactive authorization request: received 2026-07-13"
     }
   ]
 }

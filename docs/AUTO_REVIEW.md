@@ -1,4 +1,6 @@
-# Automated review of the 5 pilot cases and the policy library
+# Automated review of the 5 pilot cases and the policy library (ROUND 1, before the owner-decision fixes)
+
+> Superseded by the acceptance re-run described in docs/STATUS.md. Round 1 raw outputs: `docs/auto_review_raw_round1/`; the final run is in `docs/auto_review_raw/`.
 
 Run 2026-10-28. Read-only: nothing under `data/` or `data_gen/` was changed. Reviewers: **Gemini 3.1 Pro** (`judges.gemini`) and **GPT-5.5** (`judges.gpt`) from `config/models.yaml`; the datagen model (claude-opus-4-8) and the agent model were not used. Source tags: **[G]** Gemini, **[P]** GPT-5.5, **[S]** my deterministic script checks, **[C]** my own read-through (Claude). Raw reviewer outputs: `docs/auto_review_raw/`. Re-run: `scripts/review/README.md`.
 

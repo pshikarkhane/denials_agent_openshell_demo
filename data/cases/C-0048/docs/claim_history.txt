@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Shepard Medical Group
+Claim number: 2478541
+Patient ID: P-8502
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-07-20
+Service: 99213 - Established patient visit, low
+
+SUBMISSION HISTORY
+  2026-08-28  Submitted to clearinghouse (submission 1 of 1)
+  2026-08-28  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-08-30  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: claim 2478453 paid 2026-08-08 amount 90.83
+
+CURRENT STATUS
+  2026-09-15  Adjudicated by payer: adverse determination (CARC CO-18)
+
+SYNTHETIC DATA - NOT REAL PHI

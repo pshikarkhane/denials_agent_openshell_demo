@@ -1,4 +1,4 @@
-"""Deterministic documents (no LLM) for all cases: docs/eob_835.txt, docs/denial_letter.txt and task.md.
+"""Deterministic documents (no LLM) for all cases: docs/eob_835.txt, docs/denial_letter.txt, docs/claim_history.txt, task.md.
 
 Codes, dates, amounts, claim numbers and deadlines come only from truth.json. Patient/provider details come from
 the seeded Faker profile. Nothing here mentions the decision, category or traps.
@@ -11,7 +11,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from data_gen import reference as R
-from data_gen.docs_util import SYNTHETIC_FOOTER, case_dir, fill_lines
+from data_gen.docs_util import SYNTHETIC_FOOTER, case_dir, fill_lines, set_fact
 from data_gen.gen_cases import DEFAULT_SEED, build_manifest, load_truths, write_truth
 from data_gen.profiles import profile
 from data_gen.schema import Truth
@@ -32,11 +32,25 @@ def m(x):
     return f"{x:.2f}"
 
 
+def _providers(t, p, fld):
+    """(rendering, referring) provider text chosen by service type: radiology for MRI, therapist for PT, specialist for surgery, PCP for E/M."""
+    cpt = t.claim.cpt
+    if cpt in ("72148", "73721"):
+        rend, ref = f"{p['radiologist']} (Radiology)", p["specialist"] if cpt == "72148" else p["provider"]
+    elif cpt.startswith("97"):
+        rend, ref = p["therapist"], p["specialist"]
+    elif cpt in ("27447", "29881", "63030"):
+        rend, ref = p["specialist"], p["provider"]
+    else:
+        rend, ref = p["provider"], "(not applicable)"
+    rend = "(not provided)" if fld == "rendering_provider" else f"{rend} (ID RP-{t.claim.claim_no[-4:]})"
+    return rend, "(not provided)" if fld == "referring_provider" else ref
+
+
 def render_eob(t, p):
     f = facts(t)
     c = t.claim
     cat, fld = t.category, f.get("missing_field")
-    received = f.get("payer_received_date", f["claim_submitted_date"] if t.category != 5 else f["payer_received_date"])
     lines = []  # (cpt, modifier, billed, allowed, paid, adjustment)
     carc, rarc = t.denial.carc, t.denial.rarc
     rarc_s = f" RARC {rarc}" if rarc else ""
@@ -62,16 +76,15 @@ def render_eob(t, p):
     tb, ta, tp = (round(sum(x[i] for x in lines), 2) for i in (2, 3, 4))
     pr = m(f["pr1_amount"]) if cat == 7 else "0.00"
     pos = "(not provided)" if fld == "place_of_service" else "11"
-    rend = "(not provided)" if fld == "rendering_provider" else f"{p['provider']} (ID SYN-RP-{t.claim.claim_no[-4:]})"
-    ref = "(not provided)" if fld == "referring_provider" else p["specialist"]
+    rend, ref = _providers(t, p, fld)
     out = [
-        "835 REMITTANCE ADVICE (SYNTHETIC RENDERING)", "",
+        "835 REMITTANCE ADVICE", "",
         f"Payer: {R.PAYER_NAMES[t.payer_id]}", f"Payer ID: {t.payer_id}", f"Payee: {p['practice']}",
         f"Trace number: {p['trace']}", f"Remittance date: {t.denial.denial_date.isoformat()}", "",
         "PATIENT", f"  Name: {p['name']}", f"  Patient ID: {t.patient.synthetic_id}", f"  MRN: {p['mrn']}",
-        f"  Member ID: {p['member_id']}", f"  Date of birth: {p['dob']}", f"  SSN: {p['ssn']}", "",
+        f"  Member ID: {p['member_id']}", f"  Date of birth: {p['dob']}", f"  SSN: XXX-XX-{p['ssn'][-4:]}", "",
         "CLAIM", f"  Claim number: {c.claim_no}", f"  Claim status: {status}",
-        f"  Date of service: {c.dos.isoformat()}", f"  Date claim received by payer: {received}",
+        f"  Date of service: {c.dos.isoformat()}", f"  Date claim received by payer: {f['payer_received_date']}",
         f"  Diagnosis (ICD-10): {', '.join(c.icd10)}", f"  Place of service: {pos}",
         f"  Rendering provider: {rend}", f"  Referring provider: {ref}", "",
         "SERVICE LINES", "  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment",
@@ -83,6 +96,39 @@ def render_eob(t, p):
     if cat == 7:
         out.append(f"  Amount not allowed (billed minus allowed): {m(round(c.billed - f['allowed_amount'], 2))}")
     out += ["", SYNTHETIC_FOOTER]
+    return "\n".join(out) + "\n"
+
+
+def history_lines(t):
+    """Named lines of claim_history.txt that criteria quote. Deterministic from truth."""
+    f = facts(t)
+    q = {"accepted": f"{f['clearinghouse_accepted_date']}  Clearinghouse acceptance (277CA): ACCEPTED",
+         "submitted": f"{f['claim_submitted_date']}  Submitted to clearinghouse (submission 1 of 1)",
+         "received": f"{f['payer_received_date']}  Received by payer",
+         "earlier": "Earlier submissions: none recorded"}
+    if t.category in (3, 4):
+        q["retro"] = (f"Retroactive authorization request: received {f['retro_request_date']}" if "retro_request_date" in f
+                      else "Retroactive authorization request: none recorded")
+    q["prior"] = (f"Prior adjudicated claims for this service: claim {f['original_claim_no']} paid {f['original_paid_date']} "
+                  f"amount {m(f['original_paid_amount'])}" if t.category == 10 else "Prior adjudicated claims for this service: none recorded")
+    return q
+
+
+# which named history line backs which criterion (category -> {criterion id: line name})
+HISTORY_QUOTES = {3: {"C3": "retro"}, 4: {"C3": "retro"}, 5: {"C1": "accepted", "C2": "accepted"},
+                  6: {"C1": "submitted", "C2": "earlier"}, 10: {"C1": "prior"}}
+
+
+def render_history(t, p):
+    f, q, c = facts(t), history_lines(t), t.claim
+    out = ["CLAIM HISTORY (BILLING SYSTEM EXTRACT)", f"Practice: {p['practice']}", f"Claim number: {c.claim_no}",
+           f"Patient ID: {t.patient.synthetic_id}", f"Payer ID: {t.payer_id}", f"Date of service: {c.dos.isoformat()}",
+           f"Service: {c.cpt} - {R.CPT[c.cpt]}", "", "SUBMISSION HISTORY",
+           f"  {q['submitted']}", f"  {q['accepted']}", f"  {q['received']}", f"  {q['earlier']}"]
+    if "retro" in q:
+        out.append(f"  {q['retro']}")
+    out += [f"  {q['prior']}", "", "CURRENT STATUS",
+            f"  {t.denial.denial_date.isoformat()}  Adjudicated by payer: adverse determination (CARC {t.denial.carc})", "", SYNTHETIC_FOOTER]
     return "\n".join(out) + "\n"
 
 
@@ -137,7 +183,7 @@ _OUTPUT = (
     "- deliverable.md: the appeal letter, or a short decision memo. State the source document for each factual statement; "
     "list anything you could not verify under \"Gaps\".\n"
     "- decision.json: {{\"decision\": one of APPEAL | CORRECT_AND_RESUBMIT | DO_NOT_APPEAL | ESCALATE_MISSING_DOCS, "
-    "\"denial_code\", \"appeal_deadline\", \"deadline_ok\", \"criteria\": [{{\"id\" (policy section, e.g. 3.2(a)), \"status\": met|unmet|unknown, \"evidence\"}}], "
+    "\"denial_code\", \"action_deadline\" (the deadline that governs your recommended action: the corrected-claim deadline if you recommend a corrected claim, otherwise the appeal deadline), \"deadline_ok\", \"criteria\": [{{\"id\" (policy section, e.g. 2.1(a)), \"status\": met|unmet|unknown, \"evidence\"}}], "
     "\"enclosures\": [], \"gaps\": []}}\n"
     "\n" + SYNTHETIC_FOOTER + "\n"
 )
@@ -181,7 +227,12 @@ def render_all(root, seed):
         (base / "docs").mkdir(parents=True, exist_ok=True)
         (base / "docs" / "eob_835.txt").write_text(render_eob(t, p))
         (base / "docs" / "denial_letter.txt").write_text(render_denial(t, p))
+        (base / "docs" / "claim_history.txt").write_text(render_history(t, p))
         (base / "task.md").write_text(render_task(t, seed))
+        t.facts = [x for x in t.facts if not (x.key.startswith("criterion_") and x.source_file == "claim_history.txt")]
+        q = history_lines(t)
+        for cid, name in HISTORY_QUOTES.get(t.category, {}).items():
+            set_fact(t, f"criterion_{cid}_quote", "claim_history.txt", q[name])
         fill_lines(root, t)
         write_truth(root, t)
     build_manifest(root, truths, man["seed"])
@@ -193,4 +244,4 @@ if __name__ == "__main__":
     ap.add_argument("--data", default="data")
     ap.add_argument("--seed", type=int, default=DEFAULT_SEED)
     a = ap.parse_args()
-    print(f"rendered eob_835.txt, denial_letter.txt, task.md for {render_all(a.data, a.seed)} cases")
+    print(f"rendered eob_835.txt, denial_letter.txt, claim_history.txt, task.md for {render_all(a.data, a.seed)} cases")

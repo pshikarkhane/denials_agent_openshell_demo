@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: James Medical Group
-Trace number: SYN-EFT-23103995
-Remittance date: 2026-06-26
+Trace number: 23103995
+Remittance date: 2026-06-28
 
 PATIENT
   Name: Amy Allen
-  Patient ID: P-7112
+  Patient ID: P-5524
   MRN: SYN-740094
   Member ID: MBR771204693
-  Date of birth: 1965-02-15
-  SSN: 930-63-7747
+  Date of birth: 1965-02-16
+  SSN: XXX-XX-7747
 
 CLAIM
-  Claim number: 7291586
+  Claim number: 7258906
   Claim status: DENIED
-  Date of service: 2026-05-31
-  Date claim received by payer: 2026-06-04
-  Diagnosis (ICD-10): M54.17, M51.17
+  Date of service: 2026-06-01
+  Date claim received by payer: 2026-06-07
+  Diagnosis (ICD-10): M51.26
   Place of service: 11
-  Rendering provider: Dr. Mary Rush (ID SYN-RP-1586)
+  Rendering provider: Dr. Paula Chambers (Radiology) (ID RP-8906)
   Referring provider: Dr. Denise Wood
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     72148       1814.17    0.00       0.00       CO-50 1814.17 RARC N115
+  1     72148       1449.31    0.00       0.00       CO-50 1449.31 RARC N115
         (MRI lumbar spine without contrast)
 
-TOTALS  Billed 1814.17  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1449.31  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

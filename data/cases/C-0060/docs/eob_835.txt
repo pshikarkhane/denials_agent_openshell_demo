@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Conway Medical Group
-Trace number: SYN-EFT-22243305
-Remittance date: 2026-07-31
+Trace number: 22243305
+Remittance date: 2026-08-01
 
 PATIENT
   Name: Gary Patel
-  Patient ID: P-5006
+  Patient ID: P-7012
   MRN: SYN-355505
   Member ID: MBR165376345
-  Date of birth: 1981-07-08
-  SSN: 968-47-2927
+  Date of birth: 1981-07-09
+  SSN: XXX-XX-2927
 
 CLAIM
-  Claim number: 1894651
+  Claim number: 5102530
   Claim status: DENIED
   Date of service: 2026-07-01
-  Date claim received by payer: 2026-07-06
-  Diagnosis (ICD-10): M25.561
+  Date claim received by payer: 2026-07-08
+  Diagnosis (ICD-10): M62.81
   Place of service: 11
-  Rendering provider: Dr. Jessica Stout (ID SYN-RP-4651)
+  Rendering provider: Dennis Gutierrez, PT (ID RP-2530)
   Referring provider: Dr. Donna Mitchell
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97112       126.64     0.00       0.00       CO-151 126.64 RARC N640
-        (Neuromuscular re-education)
+  1     97530       132.88     0.00       0.00       CO-151 132.88 RARC N640
+        (Therapeutic activities)
 
-TOTALS  Billed 126.64  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 132.88  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

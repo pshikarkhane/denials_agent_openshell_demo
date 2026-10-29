@@ -1,0 +1,24 @@
+Hester Medical Group
+PRIMARY CARE VISIT NOTE
+Patient: Shannon Eaton   DOB: 1970-01-31   MRN: SYN-282701   Patient ID: P-7169
+Date of encounter: 2026-02-09
+Provider: Dr. Claire Walker
+------------------------------------------------------------
+Reason for visit
+Evaluation of low back pain with associated left leg symptoms, present and gradually worsening. Visit date 2026-02-09.
+
+History
+The patient reports aching low back pain that radiates into the left buttock and down the posterior left thigh. She notes intermittent tingling along the left leg. Symptoms are aggravated by prolonged sitting and bending, and eased somewhat by walking and position change. She denies bowel or bladder changes, saddle numbness, fever, or unintentional weight loss. No history of recent trauma. Over-the-counter analgesics have provided only partial relief.
+
+Exam
+Alert and in no acute distress. Lumbar paraspinal tenderness noted on the left, more prominent than the right. Range of motion of the lumbar spine is reduced, with pain on forward flexion and left lateral bending. No midline bony tenderness appreciated. Exam limited to tenderness and range of motion today.
+
+Assessment
+Low back pain with left-sided radicular features, consistent with left lumbar radiculopathy (M54.16). No red flag symptoms identified at this visit.
+
+Plan
+Begin conservative management. Started NSAIDs, a home exercise program and a physical therapy referral at this visit. Reviewed activity modification, posture, and return precautions including new weakness, numbness, or loss of bowel or bladder control. Will reassess response and adjust management accordingly.
+------------------------------------------------------------
+Electronically signed: Dr. Claire Walker
+
+SYNTHETIC DATA - NOT REAL PHI

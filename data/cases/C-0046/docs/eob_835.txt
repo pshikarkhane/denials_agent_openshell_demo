@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Porter Medical Group
-Trace number: SYN-EFT-49004113
-Remittance date: 2026-06-18
+Trace number: 49004113
+Remittance date: 2026-06-19
 
 PATIENT
   Name: Mary Lyons
-  Patient ID: P-1776
+  Patient ID: P-8964
   MRN: SYN-697175
   Member ID: MBR959599908
-  Date of birth: 1973-07-23
-  SSN: 906-87-1703
+  Date of birth: 1973-07-24
+  SSN: XXX-XX-1703
 
 CLAIM
-  Claim number: 6777220
+  Claim number: 1795064
   Claim status: DENIED
-  Date of service: 2026-04-26
-  Date claim received by payer: 2026-05-29
-  Diagnosis (ICD-10): M54.16
+  Date of service: 2026-04-27
+  Date claim received by payer: 2026-06-01
+  Diagnosis (ICD-10): M25.561
   Place of service: 11
-  Rendering provider: Dr. Anthony Smith (ID SYN-RP-7220)
-  Referring provider: Dr. Yolanda Robinson
+  Rendering provider: Dr. Keith Kim (Radiology) (ID RP-5064)
+  Referring provider: Dr. Anthony Smith
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97110       101.41     0.00       0.00       CO-18 101.41 RARC N522
-        (Therapeutic exercise)
+  1     73721       1386.91    0.00       0.00       CO-18 1386.91
+        (MRI lower-extremity joint without contrast)
 
-TOTALS  Billed 101.41  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1386.91  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

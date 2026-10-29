@@ -5,9 +5,11 @@ from pathlib import Path
 
 from data_gen import reference as R
 from data_gen.docs_util import SYNTHETIC_FOOTER, locate, needle, source_path
+from data_gen.gen_cases import STD_DOCS
+from data_gen.note_lint import note_body, spell_issues
 from data_gen.schema import Decision, Trap
 
-STD = ("eob_835.txt", "denial_letter.txt")
+STD = STD_DOCS  # eob, denial letter, claim history: rendered for every case
 ENUM_TOKENS = [d.value for d in Decision]
 DECISION_TOKEN = re.compile(r"\b(?:DO_NOT_APPEAL|CORRECT_AND_RESUBMIT|ESCALATE_MISSING_DOCS|APPEAL)\b")
 LEAK = re.compile(r"truth\.json|rubric|\bgold\b|correct_decision|ground[- ]truth|" + "|".join(x.value for x in Trap), re.I)
@@ -40,6 +42,14 @@ def _ints(s):
     return set(re.findall(r"(?<![\d.])\d+(?![\d.])", s))
 
 
+def _sec_key(s):
+    return [(0, int(x)) if x.isdigit() else (1, x) for x in re.findall(r"\d+|[a-z]", s)]
+
+
+CORRECTED_SENTENCE = ("An appeal does not cure missing or invalid claim data. When a claim is denied for missing or invalid "
+                      "required information, the provider should submit a corrected claim.")
+
+
 def check_policy_library(root, truths, rep):
     lib = Path(root) / "policy_library"
     texts = {}
@@ -55,7 +65,10 @@ def check_policy_library(root, truths, rep):
             rep.error(f"policy_library/{pid}", "policy id or payer id line is missing/wrong")
         if pid in R.POLICY_EFFECTIVE and f"Effective date: {R.POLICY_EFFECTIVE[pid].isoformat()}" not in t:
             rep.error(f"policy_library/{pid}", "effective date disagrees with reference.py")
-        pay = R.PAYERS[payer]
+        pay = dict(R.PAYERS[payer])
+        if pid in R.DISTRACTOR_DOCS and R.DISTRACTOR_DOCS[pid]["kind"] == "superseded version":
+            from data_gen.gen_policies import perturb
+            pay["timely_filing_days"] = int(perturb(str(pay["timely_filing_days"])))  # its own, older limit
         for label, key in (("7.1 Appeal deadline", "appeal_days"), ("7.2 Timely filing limit", "timely_filing_days"),
                            ("7.3 Corrected claims", "corrected_claim_days")):
             m = re.search(rf"^{re.escape(label)}:.*?(\d+) days", t, re.M)
@@ -63,6 +76,44 @@ def check_policy_library(root, truths, rep):
                 rep.error(f"policy_library/{pid}", f"{label} must state {pay[key]} days (reference.py), found {m.group(1) if m else None}")
         if SYNTHETIC_FOOTER not in t:
             rep.error(f"policy_library/{pid}", "missing synthetic footer")
+        secs = re.findall(r"^Section (\S+)", t, re.M)
+        if secs != sorted(secs, key=_sec_key):
+            rep.error(f"policy_library/{pid}", f"sections are not in numeric order: {secs}")
+        majors = sorted({int(x.split(".")[0].rstrip("(abc)")) for x in secs if x[0].isdigit() and x != "7"})
+        if majors and majors != list(range(majors[0], majors[0] + len(majors))):
+            rep.error(f"policy_library/{pid}", f"gaps in section numbering: major sections {majors}")
+        subs = {}
+        for x in secs:
+            m = re.match(r"(\d+)\.(\d+)", x)
+            if m:
+                subs.setdefault(int(m.group(1)), set()).add(int(m.group(2)))
+        for mj, ss in subs.items():
+            if sorted(ss) != list(range(1, len(ss) + 1)):
+                rep.error(f"policy_library/{pid}", f"gaps in subsection numbering of section {mj}: {sorted(ss)}")
+        for bad in ("unless clinically justified", "approved exception"):
+            if bad in t.lower():
+                rep.error(f"policy_library/{pid}", f"contains removed wording {bad!r}")
+        if pid in ("MP-CLM-004", "MP-BND-002") and CORRECTED_SENTENCE not in " ".join(t.split()):
+            rep.error(f"policy_library/{pid}", "missing the corrected-claim sentence required for CORRECT_AND_RESUBMIT policies")
+        if pid in ("MP-CLM-004", "MP-BND-002") and re.search(r"appeals? (?:is|are) (?:barred|not permitted|prohibited)", t, re.I):
+            rep.error(f"policy_library/{pid}", "must not say appeals are barred")
+        if pid == "MP-BND-002":
+            for c1, c2 in R.BUNDLE_PAIRS:
+                if f"CPT {c2}" not in t or f"CPT {c1}" not in t:
+                    rep.error(f"policy_library/{pid}", f"bundled pair {c1}/{c2} is not stated explicitly")
+        if pid in ("MP-TF-001", "MP-TF-010"):
+            sec21 = _section_bodies(t).get("2.1", "")
+            lim = re.search(r"^7\.2 .*?(\d+) days", t, re.M)
+            if lim and lim.group(1) not in _ints(sec21):
+                rep.error(f"policy_library/{pid}", f"section 2.1 and 7.2 disagree on the filing limit (7.2 says {lim.group(1)})")
+        if pid == "MP-TF-010" and not re.search(r"SUPERSEDED.*MP-TF-001.*\d{4}-\d{2}-\d{2}", t, re.S):
+            rep.error(f"policy_library/{pid}", "must state it is superseded, with the superseding policy and date")
+        if pid == "MP-PT-011":
+            s23 = _section_bodies(t).get("2.3", "")
+            if "21 through 30" not in s23:
+                rep.error(f"policy_library/{pid}", "section 2.3 must say visits 21 through 30 may be considered")
+        if pid == "MP-APL-001" and "first-level appeal decision" not in t:
+            rep.error(f"policy_library/{pid}", "must state when the second-level window starts")
     seen = set()
     for t in truths:
         body = _section_bodies(texts.get(t.policy_id, ""))
@@ -87,11 +138,35 @@ def check_documents(root, truths, man, rep):
     for t in truths:
         w, base = t.case_id, root / "cases" / t.case_id
         f = {x.key: x.value for x in t.facts}
-        eob, den = (base / "docs" / s for s in STD)
-        if not (eob.exists() and den.exists() and (base / "task.md").exists()):
-            rep.error(w, "eob_835.txt, denial_letter.txt or task.md is not rendered")
+        eob, den, hist = (base / "docs" / s for s in STD)
+        if not (eob.exists() and den.exists() and hist.exists() and (base / "task.md").exists()):
+            rep.error(w, "eob_835.txt, denial_letter.txt, claim_history.txt or task.md is not rendered")
             continue
-        e_txt, d_txt = eob.read_text(), den.read_text()
+        e_txt, d_txt, h_txt = eob.read_text(), den.read_text(), hist.read_text()
+        # claim_history agrees with truth
+        for n in (t.claim.claim_no, t.patient.synthetic_id, t.payer_id, t.claim.dos.isoformat(),
+                  f"{f['claim_submitted_date']}  Submitted to clearinghouse (submission 1 of 1)",
+                  f"{f['clearinghouse_accepted_date']}  Clearinghouse acceptance (277CA): ACCEPTED",
+                  f"{f['payer_received_date']}  Received by payer", f"{t.denial.denial_date.isoformat()}  Adjudicated by payer", f"(CARC {t.denial.carc})"):
+            if n not in " ".join(h_txt.split()) and " ".join(n.split()) not in " ".join(h_txt.split()):
+                rep.error(w, f"claim_history: expected {n!r} (from truth.json) is missing")
+        if t.category == 10:
+            exp = f"claim {f['original_claim_no']} paid {f['original_paid_date']} amount {f['original_paid_amount']:.2f}"
+            if exp not in h_txt:
+                rep.error(w, "claim_history: prior adjudicated claim reference disagrees with truth")
+        elif "Prior adjudicated claims for this service: none recorded" not in h_txt:
+            rep.error(w, "claim_history: must state that no prior adjudicated claim is recorded")
+        if t.category in (3, 4):
+            want = (f"Retroactive authorization request: received {f['retro_request_date']}" if "retro_request_date" in f
+                    else "Retroactive authorization request: none recorded")
+            if want not in h_txt:
+                rep.error(w, f"claim_history: expected {want!r}")
+        elif "Retroactive authorization" in h_txt:
+            rep.error(w, "claim_history mentions retroactive authorization in a case that has no such scenario")
+        if f"{t.action_deadline.isoformat()}" not in d_txt:
+            rep.error(w, "denial letter does not state the action deadline date")
+        if "action_deadline" not in (base / "task.md").read_text():
+            rep.error(w, "task.md output format must name action_deadline")
         money = f"{t.claim.billed:.2f}"
         for label, txt, need in (
                 ("eob", e_txt, [t.claim.claim_no, money, t.claim.dos.isoformat(), t.claim.cpt, t.denial.carc, t.patient.synthetic_id]),
@@ -101,6 +176,18 @@ def check_documents(root, truths, man, rep):
             for n in need:
                 if n not in txt:
                     rep.error(w, f"{label}: expected {n!r} (from truth.json) is missing")
+        # EOB realism rules
+        if e_txt.splitlines()[0] != "835 REMITTANCE ADVICE":
+            rep.error(w, "eob: title must be exactly '835 REMITTANCE ADVICE' (no synthetic marker in the title)")
+        ssn = re.search(r"SSN: (\S+)", e_txt)
+        if not ssn or not re.fullmatch(r"XXX-XX-\d{4}", ssn.group(1)):
+            rep.error(w, "eob: SSN line must be masked to the last four digits (XXX-XX-dddd)")
+        rline = re.search(r"Rendering provider: (.*)", e_txt)
+        if rline and f.get("missing_field") != "rendering_provider":
+            if t.claim.cpt in ("72148", "73721") and "(Radiology)" not in rline.group(1):
+                rep.error(w, "eob: rendering provider for an MRI must be radiology")
+            if t.claim.cpt.startswith("97") and ", PT" not in rline.group(1):
+                rep.error(w, "eob: rendering provider for therapy must be a therapist")
         if t.category == 7 and (f"{f['pr1_amount']:.2f}" not in e_txt or f"{f['allowed_amount']:.2f}" not in e_txt):
             rep.error(w, "eob: PR-1 or allowed amount disagrees with truth.json")
         if f["as_of_date"] not in (base / "task.md").read_text():
@@ -127,10 +214,32 @@ def check_documents(root, truths, man, rep):
             quotes = {(x.key, x.source_file) for x in t.facts if x.evidence}
             for c in t.policy_criteria:
                 for ev in c.evidence:
-                    if ev not in STD and (f"criterion_{c.id}_quote", ev) not in quotes:
+                    if ev not in ("eob_835.txt", "denial_letter.txt") and (f"criterion_{c.id}_quote", ev) not in quotes:
                         rep.error(w, f"criterion {c.id} cites {ev} but no verbatim evidence quote is recorded for it")
         elif docs - set(STD):
             rep.error(w, f"non-pilot case has clinical documents already: {sorted(docs - set(STD))}")
+        if w in pilots and docs - set(STD) - planned:
+            rep.error(w, f"documents that are not in the plan: {sorted(docs - set(STD) - planned)}")
+        # criteria that rely on claim_history (all cases) need a recorded quote
+        cq = {(x.key, x.source_file) for x in t.facts if x.evidence}
+        for c in t.policy_criteria:
+            if "claim_history.txt" in c.evidence and (f"criterion_{c.id}_quote", "claim_history.txt") not in cq:
+                rep.error(w, f"criterion {c.id} cites claim_history.txt but no verbatim quote is recorded")
+        if w in pilots:
+            lint = man.get("note_lint", {})
+            for d in sorted(docs - set(STD)):
+                if d.startswith("notes/") or d == "supporting/pt_progress_note.txt":
+                    for sp in spell_issues(note_body((base / "docs" / d).read_text())):
+                        rep.error(w, f"{d}: possible misspelling {sp['word']!r} (did you mean {sp['suggestion']!r}?)")
+                    rec = lint.get(f"{w}/{d}")
+                    if not rec or rec.get("reviewer_issues") != 0 or rec.get("spell") != "pass":
+                        rep.error(w, f"{d}: no passing note_lint record (spellcheck + second-pass reviewer) in the manifest")
+            if t.category in (1, 2):
+                ortho = next((d for d in docs if d.endswith("_ortho.txt")), None)
+                if not ortho or "Imaging history:" not in (base / "docs" / ortho).read_text():
+                    rep.error(w, "medical-necessity case: the ortho note must contain an 'Imaging history:' statement")
+                if not any(x.key == "last_lumbar_imaging_date" and x.evidence and x.evidence.startswith("Imaging history:") for x in t.facts):
+                    rep.error(w, "imaging history statement is not recorded as a quote on last_lumbar_imaging_date")
     return pilots
 
 
@@ -158,6 +267,10 @@ def check_agent_visible(root, truths, rep):
         for m in PHONE.finditer(text):
             if not (m.group(1) == "555" and m.group(2).startswith("01")):
                 rep.error(rel, f"phone-like string {m.group(0)} is not 555-01xx")
+        for m in re.finditer(r"SYN-", text):
+            if text[max(0, m.start() - 5):m.start()] != "MRN: ":
+                rep.error(rel, "SYN- prefix is only allowed on MRNs")
+                break
         for m in MRN.finditer(text):
             if not m.group(1).startswith("SYN-"):
                 rep.error(rel, f"MRN {m.group(1)} does not start with SYN-")
@@ -184,6 +297,8 @@ def check_mount_safety(root, rep):
 
 
 def check_manifest_datagen(root, man, rep):
+    if "git_sha" not in man:
+        rep.error("manifest", "git_sha missing (regenerate the manifest inside the git repository)")
     dg = man.get("datagen")
     if not dg:
         rep.error("manifest", "datagen record (model id, prompts hash) is missing")

@@ -12,7 +12,7 @@ PROMPT = """You are reviewing the payer policy library of a SYNTHETIC denial-app
 Intended parameters (must match the policy text exactly):
 {windows}
 
-Policy structure notes: sections are cited by number in an answer key; denial letters cite policies by TITLE only. Policies MP-CLM-004 (claim data / duplicates / diagnosis edits) and MP-BND-002 (bundling) back cases whose correct action is CORRECT_AND_RESUBMIT rather than appeal.
+Policy structure notes: sections are cited by number in an answer key; denial letters cite policies by TITLE only. Policies MP-CLM-004 (claim data / duplicates / diagnosis edits) and MP-BND-002 (bundling; its code pairs are CPT 97140 into 97110 and 97140 into 97530) back cases whose correct action is CORRECT_AND_RESUBMIT rather than appeal.
 
 Check:
 1. Section ordering and numbering (are sections out of numeric order? gaps?).
@@ -34,7 +34,7 @@ def windows():
     rows = [f"{p} ({R.PAYER_NAMES[p]}): appeal {w['appeal_days']} days from notice; timely filing {w['timely_filing_days']} days from DOS; corrected claim {w['corrected_claim_days']} days from notice"
             for p, w in R.PAYERS.items()]
     rows += [f"{pid}: payer {payer}, effective {R.POLICY_EFFECTIVE[pid]}" for pid, payer in R.POLICIES.items()]
-    rows += [f"retro-auth window {R.RETRO_AUTH_WINDOW_DAYS} days; PT visit limit {R.PT_VISIT_LIMIT}, cap with exception {R.PT_VISIT_CAP_WITH_EXCEPTION}"]
+    rows += [f"retro-auth window {R.RETRO_AUTH_WINDOW_DAYS} days; PT visit limit {R.PT_VISIT_LIMIT}, visits {R.PT_VISIT_LIMIT + 1} through {R.PT_VISIT_CAP} may be considered with documented improvement and a recertified plan of care"]
     return "\n".join(rows)
 
 

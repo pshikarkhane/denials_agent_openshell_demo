@@ -6,22 +6,25 @@ Effective date: 2026-04-05
 Version history: Version 3.0, effective 2026-04-05. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy establishes the standards Terravista Health applies to the submission, processing, and validation of claims to promote accurate and timely adjudication. It defines the expectations for complete claim data, the handling of duplicate submissions, and the application of edit rules across covered services.
+This policy establishes the standards Terravista Health applies when evaluating claim submissions, duplicate claims, and automated edit rules. It is intended to promote accurate claim processing and consistent adjudication across all applicable provider submissions.
 
-Section 3.1
-Each claim submitted to Terravista Health must contain all required data elements and any applicable modifiers at the time of submission. Claims lacking required data elements or necessary modifiers may be rejected or denied until a complete and corrected version is received. Providers remain responsible for ensuring that the claim as submitted is complete and accurate.
+Section 2.1
+A claim must contain all required data elements and modifiers at the time it is submitted. Terravista Health will evaluate each claim to confirm that these elements and modifiers were present as submitted. Claims that do not meet this requirement may be subject to further review under this policy.
 
-Section 3.4
-When a claim is denied or returned for correction, the provider may file a corrected claim within the payer corrected-claim window established by Terravista Health. A corrected claim submitted after this window has closed may not be eligible for reprocessing. Providers should clearly identify a resubmission as a corrected claim to support proper handling.
+Section 2.2
+A corrected claim may be filed provided it is submitted within the payer corrected-claim window. Terravista Health requires that any correction to a previously submitted claim fall within this window to be considered. Corrected claims meeting this requirement will be processed in accordance with this policy.
+
+Section 2.3
+A denied claim must not be a duplicate of a claim that has already been adjudicated. Terravista Health will verify that the claim under review does not match an already-adjudicated claim before further handling. Claims identified as duplicates of adjudicated claims will be addressed under the duplicate provisions of this policy.
 
 Section 2.4
-A denied claim must represent a distinct service and must not be a duplicate of a claim that has already been adjudicated by Terravista Health. Claims identified as duplicates of previously adjudicated services will not be considered for separate payment. Providers should confirm the status of prior submissions before resubmitting to avoid duplicate denials.
+The diagnosis billed on a claim must support the billed procedure according to the applicable payer edit. Terravista Health will apply its edit rules to confirm that the billed diagnosis aligns with the billed procedure. Claims that fail this edit may be subject to additional review under this policy.
 
-Section 4.2
-The billed diagnosis must support the billed procedure in accordance with the applicable Terravista Health edit. Claims in which the reported diagnosis does not support the procedure under the edit may be denied. Providers are expected to report diagnoses that accurately reflect the clinical reason for the service rendered.
+Section 2.5
+The clinical note must document a diagnosis that supports the procedure performed. Terravista Health requires that supporting documentation in the clinical record reflect a diagnosis consistent with the billed procedure. Claims lacking such documentation may be reviewed in accordance with this policy.
 
-Section 4.3
-The clinical note associated with the service must document a diagnosis that supports the billed procedure. Documentation that fails to establish a supporting diagnosis may result in denial or recovery of payment upon review. Providers must maintain records sufficient to demonstrate that the procedure was warranted by the documented condition.
+Section 3  Corrections and resubmission
+An appeal does not cure missing or invalid claim data. When a claim is denied for missing or invalid required information, the provider should submit a corrected claim. The corrected-claim deadline is stated in Section 7.3.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 90 days from the date of the claim determination notice.

@@ -2,14 +2,14 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-07-31
+Date of notice: 2026-08-01
 To: Conway Medical Group
-Member: Gary Patel   Patient ID: P-5006   Member ID: MBR165376345
+Member: Gary Patel   Patient ID: P-7012   Member ID: MBR165376345
 
-Claim number: 1894651
+Claim number: 5102530
 Date of service: 2026-07-01
-Service: 97112 - Neuromuscular re-education
-Billed amount: 126.64
+Service: 97530 - Therapeutic activities
+Billed amount: 132.88
 
 DETERMINATION
 Reason code (CARC): CO-151  Payment adjusted because the information submitted does not support this many services or this frequency.
@@ -17,10 +17,10 @@ Remark code (RARC): N640
 The number of visits for this benefit period exceeds the plan's outpatient therapy visit limit (Medical Policy: Outpatient Therapy Visit Limits).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-11-28.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-11-29.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-27.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-28.
 
 SYNTHETIC DATA - NOT REAL PHI

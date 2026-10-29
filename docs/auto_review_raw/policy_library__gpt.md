@@ -1,96 +1,80 @@
-<!-- reviewer=gpt model=azure/openai/gpt-5.5 time=2026-10-28T22:50:06.390364+00:00 secs=49 usage={"completion_tokens": 5140, "prompt_tokens": 5932, "total_tokens": 11072, "completion_tokens_details": {"reasoning_tokens": 3106}, "prompt_tokens_details": {"cached_tokens": 0, "cache_write_tokens": 0, "cache_creation_tokens": 0}} -->
+<!-- reviewer=gpt model=azure/openai/gpt-5.5 time=2026-10-29T20:23:26.042485+00:00 secs=49 usage={"completion_tokens": 4632, "prompt_tokens": 5558, "total_tokens": 10190, "completion_tokens_details": {"reasoning_tokens": 3022}, "prompt_tokens_details": {"cached_tokens": 0, "cache_write_tokens": 0, "cache_creation_tokens": 0}} -->
 {
   "findings": [
     {
       "area": "ordering",
-      "severity": "major",
-      "policy": "MP-CLM-004",
-      "quote": "Section 3.4\nWhen a claim is denied or returned for correction, the provider may file a corrected claim within the payer corrected-claim window established by Terravista Health. A corrected claim submitted after this window has closed may not be eligible for reprocessing. Providers should clearly identify a resubmission as a corrected claim to support proper handling.\n\nSection 2.4",
-      "problem": "Section 2.4 appears after Sections 3.1 and 3.4, so the policy is out of numeric order. Because answer keys cite section numbers, this could make the claim-data/duplicate policy harder to follow.",
-      "suggested_fix": "Move Section 2.4 before Section 3.1, or renumber the duplicate-claim section so the sequence is 3.1, 3.4, 4.2, 4.3 only if that ordering is intentional."
+      "severity": "minor",
+      "policy": "MP-APL-001 et al.",
+      "quote": "Section 7  Key parameters and general provisions",
+      "problem": "Most policies jump from Section 2.x directly to Section 7, leaving Sections 3 through 6 unused; MP-BND-002 and MP-CLM-004 add Sections 3/4 but still skip to Section 7. This is not internally contradictory, but it creates numbering gaps that may look accidental when answer keys cite section numbers.",
+      "suggested_fix": "Either add placeholder reserved sections, renumber 'Key parameters and general provisions' to the next sequential section in each policy, or state that Section 7 is intentionally reserved for payer-wide parameters."
     },
     {
-      "area": "ordering",
+      "area": "version",
+      "severity": "minor",
+      "policy": "MP-IMG-007 et al.",
+      "quote": "Effective date: 2026-04-15",
+      "problem": "The header effective date is later than the stated date-of-service applicability in the version history. This is probably intended because the requirements carry forward unchanged, but readers may confuse the current-version effective date with the policy applicability date.",
+      "suggested_fix": "Keep the carry-forward language, but label the header as 'Current version effective date' and add a separate line such as 'Criteria applicability: dates of service on or after 2025-01-01.'"
+    },
+    {
+      "area": "corrected_claim_gap",
       "severity": "minor",
       "policy": "MP-BND-002",
-      "quote": "Section 3.1\nWhen two or more services that would ordinarily be bundled are performed during separate sessions or at distinct anatomical sites, the submitting provider must clearly document the independent nature of each service in the medical record. The documentation must identify the separate encounter, timing, or location that supports treating the services as distinct rather than components of a single procedure. Services lacking such supporting documentation will be evaluated as a bundled unit.\n\nSection 3.3",
-      "problem": "The policy skips from Section 3.1 to Section 3.3 with no Section 3.2. This is not necessarily substantive, but it is a numbering gap in a library where sections are cited by number.",
-      "suggested_fix": "Either add the omitted Section 3.2 or renumber Section 3.3 to Section 3.2 if no intervening section is intended."
-    },
-    {
-      "area": "ordering",
-      "severity": "minor",
-      "policy": "MP-PT-011",
-      "quote": "Section 4.2",
-      "problem": "The therapy policy begins its substantive coverage criteria at Section 4.2 and has no Section 4.1 in the provided text. This may be acceptable if the policy is intentionally excerpted, but it is a visible numbering gap.",
-      "suggested_fix": "Add Section 4.1 or renumber Sections 4.2 through 4.4 if no omitted section is intended."
-    },
-    {
-      "area": "contradiction",
-      "severity": "major",
-      "policy": "MP-TF-010",
-      "quote": "Providers must submit all claims for covered services to Terravista Health within 60 days of the date of service.",
-      "problem": "This superseded distractor states a 60-day timely filing limit in Section 2.1, but Section 7.2 states the Terravista timely filing limit as 90 days from date of service. That is an internal contradiction.",
-      "suggested_fix": "If MP-TF-010 is meant to be the pre-2025 superseded policy, Section 7.2 should also say 60 days. If all Terravista policies must use the intended 90-day parameter, Section 2.1 should be changed to 90 days."
-    },
-    {
-      "area": "contradiction",
-      "severity": "minor",
-      "policy": "MP-APL-001",
-      "quote": "A provider who disagrees with the outcome of a first-level appeal may request a second-level review, and such request must be submitted within the same stated window referenced in Section 7.",
-      "problem": "Section 7 defines the appeal deadline as 180 days from the claim determination notice. For a second-level review, it is unclear whether the 180 days runs from the original claim determination notice or from the first-level appeal decision notice.",
-      "suggested_fix": "Clarify the trigger for second-level review, for example: 'within 180 days from the date of the first-level appeal decision notice.'"
+      "quote": "An appeal does not cure missing or invalid claim data. When a claim is denied for missing or invalid required information, the provider should submit a corrected claim. The corrected-claim deadline is stated in Section 7.3.",
+      "problem": "This correctly says missing or invalid claim data should be corrected rather than appealed, and it points to the corrected-claim deadline. However, for the bundling scenario, it does not explicitly say that a missing distinct-procedural-service modifier on CPT 97140 should be added via corrected claim rather than appeal.",
+      "suggested_fix": "Add a sentence in Section 4: 'If CPT 97140 was denied under this bundling edit because modifier 59 or XS was omitted from the denied line, the provider must submit a corrected claim with the modifier appended within the deadline in Section 7.3.'"
     },
     {
       "area": "corrected_claim_gap",
       "severity": "major",
-      "policy": "MP-BND-002",
-      "quote": "Where a bundling edit results in a denied line, the provider may support separate reimbursement by appending a distinct-procedural-service modifier to that denied line.",
-      "problem": "This supports a CORRECT_AND_RESUBMIT outcome, but it does not explicitly say the modifier should be added through a corrected claim rather than through an appeal. Section 7.3 gives the corrected-claim deadline, but the bundling section does not connect the corrective action to that deadline.",
-      "suggested_fix": "Add language such as: 'If the denial was caused by an omitted or incorrect distinct-procedural-service modifier, the provider should submit a corrected claim, not an appeal, within the corrected-claim window in Section 7.3.'"
+      "policy": "MP-CLM-004",
+      "quote": "Claims identified as duplicates of adjudicated claims will be addressed under the duplicate provisions of this policy.",
+      "problem": "The policy is intended to support CORRECT_AND_RESUBMIT cases for claim data, duplicates, and diagnosis edits, but Section 3 only clearly addresses missing or invalid required information. It does not explain what corrected-claim action applies to duplicate denials, such as voiding/replacing, using the original claim control number, or not resubmitting if the duplicate denial is valid.",
+      "suggested_fix": "Add a duplicate-specific correction paragraph explaining when a duplicate denial should be resolved by corrected claim, what identifiers must be included, and that the Section 7.3 corrected-claim deadline applies."
     },
     {
       "area": "corrected_claim_gap",
       "severity": "minor",
       "policy": "MP-CLM-004",
-      "quote": "When a claim is denied or returned for correction, the provider may file a corrected claim within the payer corrected-claim window established by Terravista Health.",
-      "problem": "The policy does tell the reader to use a corrected claim and Section 7.3 supplies the 180-day deadline, but it does not expressly distinguish provider-correctable claim-data or modifier errors from appealable disputes.",
-      "suggested_fix": "Add a sentence stating that denials caused by missing or invalid claim data, omitted modifiers, or correctable diagnosis coding should be corrected and resubmitted as corrected claims rather than appealed, unless the provider is disputing the edit itself."
+      "quote": "The diagnosis billed on a claim must support the billed procedure according to the applicable payer edit.",
+      "problem": "For diagnosis-edit cases, the text states the edit requirement but does not explicitly tell the reader that an incorrect or unsupported diagnosis code on the claim should be fixed by corrected claim rather than appeal. Section 3 may cover this as 'invalid claim data,' but the cross-reference is implicit.",
+      "suggested_fix": "Add a sentence stating that if the billed diagnosis was omitted, invalid, or entered incorrectly, the provider should submit a corrected claim with the supported diagnosis within the corrected-claim deadline in Section 7.3."
     },
     {
       "area": "distractor",
-      "severity": "major",
-      "policy": "MP-PA-030",
+      "severity": "minor",
+      "policy": "MP-PA-003 and MP-PA-030",
       "quote": "PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION",
-      "problem": "MP-PA-030 has the exact same title as the correct Halcyon policy MP-PA-003. Because denial letters cite policies by title only, a retrieval agent could initially tie between the two unless it reliably uses payer ID/name.",
-      "suggested_fix": "Make the title distinguishable, for example 'MERIDIAN PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION,' or ensure denial letters include payer and policy ID."
+      "problem": "The Halcyon primary policy and Meridian distractor have the exact same title. They are distinguishable by payer and by the retroauthorization window, but a denial letter that cites policy title only could produce a retrieval tie unless the agent also uses payer.",
+      "suggested_fix": "If denial letters must cite title only, consider differentiating the title by payer, e.g., 'Halcyon Prior Authorization and Retroactive Authorization,' or require payer-aware retrieval."
     },
     {
       "area": "distractor",
-      "severity": "major",
-      "policy": "MP-TF-010",
+      "severity": "minor",
+      "policy": "MP-TF-001 and MP-TF-010",
       "quote": "TIMELY FILING OF CLAIMS",
-      "problem": "MP-TF-010 has the same title, same payer, and same general subject as MP-TF-001, and is distinguishable only by superseded-version language and dates of service. That is a plausible distractor, but the internal 60-day/90-day contradiction makes it more likely to confuse an agent.",
-      "suggested_fix": "Keep the superseded-version language, but make the old policy internally consistent and consider adding 'SUPERSEDED' to the title if title-only citation is used."
+      "problem": "The current Terravista timely-filing policy and the superseded distractor share the same payer and exact same title. MP-TF-010 is clearly marked superseded, so it is distinguishable by status and date-of-service applicability, but title-only matching could still select the wrong 60-day limit.",
+      "suggested_fix": "Keep the superseded status, but add an explicit 'Status: CURRENT' line to MP-TF-001 and ensure retrieval considers status and date of service, not title alone."
     },
     {
       "area": "realism",
-      "severity": "minor",
-      "policy": "ALL",
+      "severity": "major",
+      "policy": "MP-APL-001 et al.",
       "quote": "SYNTHETIC DATA - NOT REAL PHI",
-      "problem": "This footer directly signals that the library is synthetic/test data. It is unrealistic for payer policy language and may hint to an agent that this is a test.",
-      "suggested_fix": "Remove the footer from the policy text used by the agent, or keep it only in file metadata that is not exposed during the task."
+      "problem": "This footer appears in every policy and directly signals that the library is synthetic/test data, which is unrealistic for payer policy language and may cue an agent that it is in a test environment.",
+      "suggested_fix": "Remove the synthetic-data footer from the policy bodies or place test-environment metadata outside the text exposed to the agent."
     }
   ],
   "clean_areas": [
-    "The primary payer windows match the intended parameters: Meridian appeal 180 days, timely filing 180 days, corrected claims 365 days; Halcyon appeal 120 days, timely filing 365 days, corrected claims 180 days; Terravista appeal 90 days, timely filing 90 days, corrected claims 180 days.",
-    "The listed primary policy IDs, payers, and effective dates match the intended parameters.",
+    "The stated appeal, timely-filing, and corrected-claim windows match the intended payer parameters for Meridian, Halcyon, and Terravista.",
+    "The listed primary policy IDs, payer IDs, and effective dates match the intended parameters.",
+    "MP-BND-002 contains the intended bundled code pairs: CPT 97140 into CPT 97110 and CPT 97140 into CPT 97530.",
     "MP-PA-003 correctly states a 14-day retroactive authorization window.",
-    "MP-PT-011 correctly states a 20-visit outpatient therapy limit and a 30-visit cap with documented exception.",
-    "The carry-forward version-history language in the Version 3.0 primary policies is generally sensible for dates of service before the displayed 2026 effective date because it states the requirements carry forward unchanged from Version 2.0 effective 2025-01-01.",
-    "MP-IMG-012 is a plausible imaging distractor and is distinguishable from MP-IMG-007 by service type, CT versus MRI.",
-    "MP-PA-030 is distinguishable from MP-PA-003 by payer and by 7-day versus 14-day retroactive authorization window, assuming the agent uses payer context.",
-    "MP-TF-010 is distinguishable from MP-TF-001 by superseded-version language and dates of service, aside from the noted internal inconsistency."
+    "MP-PT-011 correctly states a 20-visit therapy limit and allows visits 21 through 30 with documented functional improvement and a recertified plan of care.",
+    "The carry-forward version-history language generally allows dates of service before the current-version effective date to be handled sensibly, although the wording could be clearer.",
+    "The imaging distractor MP-IMG-012 is plausibly similar but distinguishable from MP-IMG-007 by service type, CT versus MRI.",
+    "No direct internal contradiction was found in the substantive clinical or administrative criteria apart from the clarity gaps listed above."
   ],
-  "overall": "The primary parameters mostly match the intended design, but MP-CLM-004 ordering, MP-TF-010’s internal timely-filing contradiction, and the corrected-claim/action clarity for bundling are the main issues to fix."
+  "overall": "The library mostly matches the intended parameters, with the main issues being section-number gaps, corrected-claim specificity for MP-CLM-004 and MP-BND-002, title-only distractor ambiguity, and overt synthetic-test language."
 }

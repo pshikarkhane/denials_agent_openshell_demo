@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Murphy Medical Group
-Trace number: SYN-EFT-60648067
-Remittance date: 2026-08-05
+Trace number: 60648067
+Remittance date: 2026-08-16
 
 PATIENT
   Name: Melanie Fuller
-  Patient ID: P-8936
+  Patient ID: P-3735
   MRN: SYN-898610
   Member ID: MBR992853792
-  Date of birth: 1989-10-01
-  SSN: 968-11-3677
+  Date of birth: 1989-10-02
+  SSN: XXX-XX-3677
 
 CLAIM
-  Claim number: 2946087
+  Claim number: 9127066
   Claim status: DENIED
   Date of service: 2026-07-13
-  Date claim received by payer: 2026-07-17
-  Diagnosis (ICD-10): I10
-  Place of service: 11
-  Rendering provider: (not provided)
-  Referring provider: Dr. Veronica Carter
+  Date claim received by payer: 2026-07-18
+  Diagnosis (ICD-10): E78.5
+  Place of service: (not provided)
+  Rendering provider: Dr. Alyssa Lawrence (ID RP-7066)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99214       221.69     0.00       0.00       CO-16 221.69 RARC MA130
-        (Established patient visit, moderate)
+  1     99213       212.48     0.00       0.00       CO-16 212.48
+        (Established patient visit, low)
 
-TOTALS  Billed 221.69  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 212.48  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,35 +1,35 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Morales Medical Group
-Trace number: SYN-EFT-10460100
-Remittance date: 2026-08-04
+Trace number: 10460100
+Remittance date: 2026-07-25
 
 PATIENT
   Name: Michael Bryan
-  Patient ID: P-3112
+  Patient ID: P-7628
   MRN: SYN-823121
   Member ID: MBR424869994
-  Date of birth: 1959-05-29
-  SSN: 913-78-7886
+  Date of birth: 1959-05-30
+  SSN: XXX-XX-7886
 
 CLAIM
-  Claim number: 4962840
+  Claim number: 3163105
   Claim status: PROCESSED - PATIENT RESPONSIBILITY APPLIED
   Date of service: 2026-06-26
-  Date claim received by payer: 2026-07-09
-  Diagnosis (ICD-10): M54.50
+  Date claim received by payer: 2026-07-11
+  Diagnosis (ICD-10): J02.9
   Place of service: 11
-  Rendering provider: Dr. Charlotte Clark (ID SYN-RP-2840)
-  Referring provider: Dr. Karen Davis
+  Rendering provider: Dr. Charlotte Clark (ID RP-3105)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99214       336.87     196.43     56.43      PR-1 140.00
-        (Established patient visit, moderate)
+  1     99213       318.65     220.59     0.59       PR-1 220.00
+        (Established patient visit, low)
 
-TOTALS  Billed 336.87  Allowed 196.43  Paid 56.43  Patient responsibility 140.00
-  Amount not allowed (billed minus allowed): 140.44
+TOTALS  Billed 318.65  Allowed 220.59  Paid 0.59  Patient responsibility 220.00
+  Amount not allowed (billed minus allowed): 98.06
 
 SYNTHETIC DATA - NOT REAL PHI

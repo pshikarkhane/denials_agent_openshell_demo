@@ -1,35 +1,35 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Goodman Medical Group
-Trace number: SYN-EFT-45558643
-Remittance date: 2026-08-15
+Trace number: 45558643
+Remittance date: 2026-08-03
 
 PATIENT
   Name: Gary Thomas
-  Patient ID: P-9176
+  Patient ID: P-8726
   MRN: SYN-488439
   Member ID: MBR768087520
-  Date of birth: 1962-04-13
-  SSN: 918-55-7574
+  Date of birth: 1962-04-14
+  SSN: XXX-XX-7574
 
 CLAIM
-  Claim number: 8058144
+  Claim number: 9373148
   Claim status: PROCESSED - PATIENT RESPONSIBILITY APPLIED
   Date of service: 2026-07-07
-  Date claim received by payer: 2026-07-17
-  Diagnosis (ICD-10): E78.5
+  Date claim received by payer: 2026-07-19
+  Diagnosis (ICD-10): D64.9
   Place of service: 11
-  Rendering provider: Dr. Matthew Beck (ID SYN-RP-8144)
-  Referring provider: Dr. Gregory Stewart
+  Rendering provider: Dr. Matthew Beck (ID RP-3148)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99213       130.26     78.02      0.00       PR-1 78.02
-        (Established patient visit, low)
+  1     85025       294.15     152.00     0.00       PR-1 152.00
+        (Complete blood count with differential)
 
-TOTALS  Billed 130.26  Allowed 78.02  Paid 0.00  Patient responsibility 78.02
-  Amount not allowed (billed minus allowed): 52.24
+TOTALS  Billed 294.15  Allowed 152.00  Paid 0.00  Patient responsibility 152.00
+  Amount not allowed (billed minus allowed): 142.15
 
 SYNTHETIC DATA - NOT REAL PHI

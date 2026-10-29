@@ -25,5 +25,6 @@ def profile(seed, case_id):
         "provider": f"Dr. {fake.first_name()} {fake.last_name()}",
         "specialist": f"Dr. {fake.first_name()} {fake.last_name()}",
         "therapist": f"{fake.first_name()} {fake.last_name()}, PT",
-        "trace": f"SYN-EFT-{rng.randint(10000000, 99999999)}",
+        "trace": f"{rng.randint(10000000, 99999999)}",
+        "radiologist": f"Dr. {fake.first_name()} {fake.last_name()}",  # appended last so earlier draws are unchanged
     }

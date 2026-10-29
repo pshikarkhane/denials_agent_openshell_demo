@@ -1,6 +1,8 @@
 """Helpers shared by the renderers and validate_data: locate fact text in rendered documents."""
 from pathlib import Path
 
+from data_gen.schema import Fact
+
 # Facts whose value is not a literal string in the source document.
 NON_LITERAL_KEYS = {"missing_docs", "post_dos_note", "authoritative_duration_source", "planned_document",
                     "missing_field", "no_prior_imaging_record", "correct_fix"}
@@ -59,3 +61,12 @@ def fill_lines(root, truth):
         else:
             n += 1
     return n, missing
+
+
+def set_fact(truth, key, source, quote):
+    """Attach a verbatim evidence quote to an existing fact (same key+source) or append a new quote fact. Idempotent."""
+    for f in truth.facts:
+        if f.key == key and f.source_file == source and (not key.startswith("criterion_") or f.evidence in (None, quote)):
+            f.evidence = quote
+            return
+    truth.facts.append(Fact(key=key, value=quote, source_file=source, evidence=quote))

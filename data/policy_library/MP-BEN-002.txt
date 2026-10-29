@@ -6,13 +6,13 @@ Effective date: 2026-03-01
 Version history: Version 3.0, effective 2026-03-01. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy establishes the principles governing how Meridian Community Health Plan applies member cost sharing, including deductibles, to covered services. It is intended to ensure that financial responsibility is assigned accurately and consistently across all eligible members.
+This policy establishes the principles governing how member financial responsibility is determined and applied under Meridian Community Health Plan. It describes the circumstances in which deductible amounts, cost sharing, and related member obligations are assessed in connection with covered services.
 
-Section 5.1
-When a member's deductible has already been satisfied before the date of service, the plan shall not apply any additional deductible amount to the claim for that service. Claims processing must verify the accumulated deductible status as of the date of service and adjudicate the claim accordingly. If a deductible was applied despite prior satisfaction, the plan shall correct the adjudication and reimburse the member or provider as appropriate.
+Section 2.1
+When a member's deductible has already been satisfied prior to the date of service, no further deductible amount may be applied to the claim for that date of service. Meridian Community Health Plan will recognize the satisfied deductible and process the claim without assessing additional deductible responsibility to the member. The member's financial obligation for that service will be calculated as if the deductible has been fully met.
 
-Section 5.2
-In circumstances where the plan applied a deductible in error, Meridian Community Health Plan shall reprocess the affected claim to remove the erroneous member responsibility. Any amount collected from the member as a result of the error must be refunded promptly once the error is identified and confirmed. The member and the servicing provider shall be notified of the corrected determination.
+Section 2.2
+Where Meridian Community Health Plan has applied the deductible in error, the plan will correct the claim and remove the erroneously applied deductible amount. Any member payment collected as a result of the erroneous deductible application will be adjusted accordingly. The claim will be reprocessed to reflect the member's correct cost sharing responsibility.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 180 days from the date of the claim determination notice.

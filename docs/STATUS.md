@@ -1,46 +1,44 @@
-# STATUS (2026-10-28)
+# STATUS (2026-10-29)
 
-## Done this step
-- **Step 0:** `ESCALATE_MISSING_DOCS` everywhere (spec §6.5 fixed). Criteria use `status: met|unmet|unknown` (schema, generator, validator, tests); ESCALATE cases carry `unknown`. Python 3.13 pinned (`.python-version`, `requirements.txt` pinned versions). Decisions 2, 4, 7, 8 kept as before.
-- **Step 1:** Data Designer spike: works with our endpoint, **NO-GO** for now ([docs/data_designer_spike.md](data_designer_spike.md)). Plain Python + `chat_with_retry` used.
-- **Step 2:** `datagen` model = `azure/anthropic/claude-opus-4-8` (not Nemotron; code refuses otherwise). Manifest records model, temperature, per-file sha256 of the prompt-bearing source (no git repo exists, so no git SHA).
-- **Step 3:** `eob_835.txt`, `denial_letter.txt`, `task.md` for all 60 cases, deterministic from truth.json + seeded Faker. Every file ends with the synthetic footer.
-- **Step 4:** 8 primary + 3 distractor policies (LLM prose, injected windows/ids/dates), frozen, hashed in the manifest.
-- **Step 5:** clinical documents for 5 pilot cases only (dev: C-0005 cat 1, C-0007 cat 2, C-0030 cat 6, C-0039 cat 8, C-0056 cat 12). Evidence quotes + line numbers stored in truth.facts.
-- **Step 6:** `validate_data` extended (policy library, windows, sections, evidence quotes, leaks, footers, SSN/phone/MRN, mount safety, frozen hashes). [PILOT_REVIEW.md](PILOT_REVIEW.md) written for you.
+## What changed this step (owner decisions applied; 5 pilot cases regenerated)
+- **Step 0:** git repo created, baseline commit `7bd512b`, no secrets committed (scan clean; the only `sk-` string is a fake test fixture). `data/manifest.json` now records `git_sha` / `git_dirty` (currently the baseline SHA, dirty, because I made no further commit; commit when you are happy). `validate_data` is strictly read-only (stdout, optional `--report` outside `data/`). `gen_cases` refuses to overwrite truth files that hold clinical facts unless `--force`. `scripts/build_all.sh` runs every stage (`FORCE_TRUTH=1`, `FORCE_POLICIES=1` to regenerate). Python 3.13 pinned (`.python-version`, pinned `requirements.txt`).
+- **Step 1 (absence model):** every criterion has `basis`: `evidence`, `documented_absence` (a file states it; status met/unmet) or `missing_evidence` (file refers to a document not received; status `unknown`, decision ESCALATE_MISSING_DOCS; `unknown` <=> `missing_evidence`). New deterministic `docs/claim_history.txt` in every case (submission, clearinghouse acceptance, payer receipt, prior claims, retro-auth line for categories 3-4; proof-exists cases show an early accepted submission, expired cases state "Earlier submissions: none recorded"). Medical-necessity ortho notes carry an `Imaging history:` statement. `criterion_no_supporting_doc` now exists only on ESCALATE cases.
+- **Step 2 (traps):** at most one hard trap per case, 2 traps total. Before: stacked cases were C-0004, C-0005, C-0044. `action_deadline` added to the schema (appeal deadline, or corrected-claim deadline for CORRECT_AND_RESUBMIT); deadline traps and the task's `decision.json` field (`action_deadline`) use it; CORRECT cases keep the appeal date in the letter as a lure. The "after the date of service" sentence is gone.
+- **Step 3 (policies):** regenerated; sections sorted and renumbered 2.x; corrected-claim sentence in MP-CLM-004 and MP-BND-002 (Sections 3 / 4); MP-BND-002 states both bundled pairs; MP-TF-010 uses its own 60-day limit and says it is superseded by MP-TF-001 (2026-03-15); MP-PT-011 reworded (visits 21-30, no "approved exception"; denied visit is visit 21); MP-IMG-007 has no "unless clinically justified"; MP-APL-001 states the second-level start. Footers kept.
+- **Step 4 (realism):** EOB retitled, `SYN-` only on MRNs, SSN masked, rendering provider by service; chart-voice evidence sentences (header date carries dates); functional metric by diagnosis; weekday dates and PT log; note lint = clinical spellcheck (`medical_words.txt`) + second-pass reviewer (GPT-5.5, never the datagen model), recorded in the manifest.
+- **Step 5 (coding data, all flagged "coder to confirm"):** categories 1-2 one diagnosis; Excludes1 validator; 20610/76942 replaced by 97530/97140 (candidates and reasons in `reference.py`); RARCs omitted for CO-197/CO-4/CO-18/CO-16; 99214 -> 99213; CBC now with D64.9 or R53.83. Category 3 "urgent elective surgery" left as is.
+- **Step 6:** validators added for each rule above (claim_history, stacked traps, action_deadline, Excludes1, corrected-claim sentence, imaging statement, section order/gaps, footers, EOB rules, SYN-, spellcheck and lint records, stale files); each has a mutation test. `pytest`: 73 passed. `validate_data`: 60 cases, 0 errors.
 
-## Verified
-`pytest`: 47 passed (incl. mutation tests proving each new validator fires). `validate_data`: 60 cases, 0 errors, 0 review items. No API key in any file. No clinical docs exist outside the 5 pilot cases (validator enforces).
+## Review: before vs after (Gemini 3.1 Pro + GPT-5.5, same prompts)
+| | Round 1 (before) | Final run (after) |
+|---|---|---|
+| Blind solves matching truth (decision, policy, deadline, criteria) | 5 of 10 | **10 of 10** |
+| Blockers | 1 | **0** |
+| Leak findings in case documents | 0 (test signals only) | 0 |
+| Major findings (de-duplicated) | 15 | 5 (4 trace to your decisions below; 1 new: Gemini wants a corrected-claim submission address in the policies) |
+Rounds in between (kept under `docs/auto_review_raw_round2/`, `_round3/`) found and I fixed: a "59 days of PT" note dated 19 days after start, mixed left/right symptoms, PT visits on weekends, calendar-year visit count unclear, `7.5` renumbered to `12.10` in MP-PA-030, a criterion worded "proof of timely filing" although a late 277CA exists, and a missing enclosure. One mismatch was my compare script not stripping "Section " labels (reviewer was right).
+
+## Still open from the final run (not fixed)
+- **Major, your decisions:** CO-16 without a RARC looks odd to GPT-5.5 (you chose to omit); corrected-claim sentence covers missing/invalid data but not duplicates or diagnosis edits in MP-CLM-004; synthetic footer on policies.
+- **Minor / new:** corrected-claim submission address missing from policies (Gemini, rated major); MP-TF-010 names MP-TF-001 (hint, as you specified); PT log last visit differs from the stated treatment end; onset history differs between two C-0056 notes; N386 RARC for a commercial plan; "Section 7" follows Sections 2-4 (gap by convention); two same-title policy pairs.
+- Pilot set now has no `note_after_dos` case, so that trap is untested on pilots.
 
 ## Not verified
-- **All coding content** (CPT/ICD-10 pairs, CARC/RARC pairs, CARC wording): unreviewed, see PILOT_REVIEW.md tables A–E. Validator only checks consistency with my own table.
-- Clinical and policy prose quality is checked by rules (verbatim quotes, allowed dates/codes, no durations/claims words), not by a clinician.
-- NemoClaw/OpenShell sandbox: deferred, nothing installed.
+All coding content (see `docs/CODER_CHECKLIST.md`: pairs, RARCs, bundling pair, modifier scenarios). Clinical and policy prose is checked by rules and two LLM reviewers, not a clinician. Other 55 cases: only deterministic documents exist. No agent run; NemoClaw/OpenShell not installed.
 
-## Decisions needed / spec ambiguities (my default in brackets)
-1. **`policy_effective_after_dos` trap redefined.** A per-policy effective date is fixed; the trap = DOS before it. The library says requirements "carry forward unchanged from Version 2.0", so the correct policy is still the same document (the agent should note it). If you want a real version switch, the library and truth must model two versions.
-2. **as-of date appears in every task.md**, not only deadline_passed cases (otherwise it leaks the trap). Tell me if you disagree.
-3. **task.md lists the four decision values** (output format, same in all cases); the leak check allows this only there. `decision.json` criteria `id` = policy section (agent can't see C1/C2).
-4. **Denial letters cite the policy by title, not ID**, so retrieval is needed (distractors share titles).
-5. **Policy windows** (appeal 90/120/180, filing 90/180/365, corrected-claim 180/365 days) are invented fixed values; the library states them exactly.
-6. Cat 6/8 notes: I added a pre-service PCP note to the generator for categories 6 and 8, and an initial-eval note to 12, to meet the "2–5 notes" rule; other categories still have fewer than 2 planned notes in some cases (3, 4, 5, 7, 9, 10, 11). Extend after pilot review.
-7. Spec "8 policies + distractors" read as 8 primary + 3 distractors. Datagen model shares a family with the Claude judge (low risk; documents are checked against truth, not graded by it).
-8. Pilot cat-2 dev case is DO_NOT_APPEAL (seeded); the ESCALATE_MISSING_DOCS path is generated but has no pilot document.
+## Decisions needed from you
+1. Keep CO-16 / CO-4 / CO-18 / CO-197 without RARCs until the coder answers, or accept reviewer realism hits?
+2. Extend the corrected-claim sentence to duplicates and diagnosis edits (appeal-not-barred wording kept)?
+3. Keep the synthetic footer inside policy files (spec 3.6) or add it only outside retrievable text?
+4. `action_deadline` for DO_NOT_APPEAL / ESCALATE = appeal deadline; OK? (Spec 4.2's `appeal_deadline` field in decision.json was replaced by `action_deadline`.)
+5. Commit the current state (manifest will then record a clean SHA).
 
 ## Reproduce
 ```
 python3.13 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m data_gen.gen_cases && .venv/bin/python -m data_gen.render_docs
-export NVIDIA_INFERENCE_API_KEY=<rotated key>      # policies/clinical only; files already generated are kept (frozen)
-.venv/bin/python -m data_gen.gen_policies && .venv/bin/python -m data_gen.gen_clinical    # --force to regenerate
-.venv/bin/python -m data_gen.validate_data && .venv/bin/pytest
-.venv/bin/python scripts/make_pilot_review.py
+export NVIDIA_INFERENCE_API_KEY=<key>
+FORCE_TRUTH=1 FORCE_POLICIES=1 bash scripts/build_all.sh     # plain `bash scripts/build_all.sh` keeps frozen LLM output
+.venv/bin/python scripts/review/run_review.py                # acceptance review (about 10 min)
+.venv/bin/python scripts/make_coder_checklist.py
 ```
-Note: re-running `gen_cases` rewrites truth.json without the clinical quotes; re-run the later steps afterwards.
-
-## Automated review of the pilot (2026-10-28; read-only)
-- **Report:** [AUTO_REVIEW.md](AUTO_REVIEW.md); raw outputs in `docs/auto_review_raw/`; tooling in `scripts/review/`. Nothing under `data/` or `data_gen/` was changed.
-- **Reviewed:** the 5 pilot cases (blind solve + realism/evidence/consistency review, Gemini 3.1 Pro and GPT-5.5), the 11 policies, coding tables A-E, plus script checks and my own read-through (findings labeled by source).
-- **Headline:** 5 of 10 blind solves matched truth fully. 3 chose the wrong decision (C-0005 both reviewers, C-0030 Gemini) and 2 had only a criterion-status mismatch (C-0007 and C-0030, GPT). Policy and deadline matched in all 10. Cause: criteria about the *absence* of a document cannot be settled from the files. Also found: a trap-leaking sentence in C-0056, a back-pain metric for a knee patient, a nonsense phrase in C-0039, MP-TF-010 contradicting itself, MP-CLM-004 out of order, no corrected-claim guidance in MP-CLM-004/MP-BND-002, deadline traps measured on the wrong deadline for 7 of 13 CORRECT_AND_RESUBMIT cases, and an Excludes1 diagnosis pair in categories 1-2.
-- **Not reviewed:** the other 55 cases' content beyond arithmetic, any real agent run, attack fixtures (none exist), anything by a coding/RCM professional. Reviewers are LLMs and are not authoritative; the coding flags are triage only.
-- **Decisions needed from you:** how to model absence criteria (AUTO_REVIEW section 5, items 1-4), whether to keep the synthetic footer on policy files, and whether to fix the generator-level issues (rendering provider, SYN- ids, trap rules) before generating the other 55 cases.
+Earlier-step notes: spec ambiguities (policy-effective trap simplified, as-of date in every task.md, policy windows invented, notes still thin in non-pilot categories) are unchanged from the previous STATUS.

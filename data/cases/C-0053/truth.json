@@ -5,57 +5,62 @@
   "payer_id": "TERRAVISTA_HEALTH",
   "policy_id": "MP-CLM-004",
   "patient": {
-    "synthetic_id": "P-1589"
+    "synthetic_id": "P-1648"
   },
   "claim": {
-    "claim_no": "5544314",
+    "claim_no": "1604222",
     "cpt": "93000",
     "icd10": [
-      "D64.9"
+      "E78.5"
     ],
-    "dos": "2026-06-06",
-    "billed": 119.07
+    "dos": "2026-06-08",
+    "billed": 108.0
   },
   "denial": {
     "carc": "CO-11",
     "rarc": "M76",
-    "denial_date": "2026-07-02"
+    "denial_date": "2026-07-13"
   },
-  "appeal_deadline": "2026-09-30",
+  "appeal_deadline": "2026-10-11",
+  "action_deadline": "2027-01-09",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§4.2",
+      "section": "§2.4",
       "text": "Billed diagnosis supports the billed procedure per payer edit",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "denial_letter.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§4.3",
+      "section": "§2.5",
       "text": "Clinical note documents a diagnosis that supports the procedure",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
-        "notes/2026-06-06_visit.txt"
+        "notes/2026-06-08_visit.txt"
       ]
     }
   ],
   "correct_decision": "CORRECT_AND_RESUBMIT",
-  "traps": [],
+  "traps": [
+    "deadline_within_7_days"
+  ],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "5544314",
+      "value": "1604222",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-1589",
+      "value": "P-1648",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
@@ -70,7 +75,7 @@
     {
       "key": "icd10",
       "value": [
-        "D64.9"
+        "E78.5"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -78,14 +83,14 @@
     },
     {
       "key": "dos",
-      "value": "2026-06-06",
+      "value": "2026-06-08",
       "source_file": "eob_835.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "billed",
-      "value": 119.07,
+      "value": 108.0,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -113,16 +118,30 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-07-02",
+      "value": "2026-07-13",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
     },
     {
       "key": "claim_submitted_date",
-      "value": "2026-06-17",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "value": "2026-06-19",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-06-19",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-06-22",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -134,14 +153,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-09-30",
+      "value": "2026-10-11",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
+      "key": "action_deadline",
+      "value": "2027-01-09",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "as_of_date",
-      "value": "2026-08-10",
+      "value": "2027-01-06",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -154,13 +180,6 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2026-12-29",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "M76",
       "source_file": "denial_letter.txt",
@@ -168,9 +187,16 @@
       "evidence": null
     },
     {
+      "key": "corrected_claim_deadline",
+      "value": "2027-01-09",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "planned_document",
-      "value": "notes/2026-06-06_visit.txt",
-      "source_file": "notes/2026-06-06_visit.txt",
+      "value": "notes/2026-06-08_visit.txt",
+      "source_file": "notes/2026-06-08_visit.txt",
       "line": null,
       "evidence": null
     },
@@ -179,7 +205,7 @@
       "value": [
         "I10"
       ],
-      "source_file": "notes/2026-06-06_visit.txt",
+      "source_file": "notes/2026-06-08_visit.txt",
       "line": null,
       "evidence": null
     }

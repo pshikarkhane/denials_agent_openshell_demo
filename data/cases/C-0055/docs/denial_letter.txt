@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-07-05
+Date of notice: 2026-07-10
 To: Meyer Medical Group
-Member: John Salas   Patient ID: P-7709   Member ID: MBR641084572
+Member: John Salas   Patient ID: P-7211   Member ID: MBR641084572
 
-Claim number: 2452125
+Claim number: 7870925
 Date of service: 2026-06-04
-Service: 63030 - Lumbar laminotomy/discectomy
-Billed amount: 3768.95
+Service: 72148 - MRI lumbar spine without contrast
+Billed amount: 1764.63
 
 DETERMINATION
 Reason code (CARC): CO-11  The diagnosis is inconsistent with the procedure.
 Remark code (RARC): M76
-The diagnosis code(s) D64.9 are not consistent with procedure 63030 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+The diagnosis code(s) D64.9 are not consistent with procedure 72148 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-03.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-08.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-01.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-06.
 
 SYNTHETIC DATA - NOT REAL PHI

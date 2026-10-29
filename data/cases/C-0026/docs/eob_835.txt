@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Williams Medical Group
-Trace number: SYN-EFT-20264714
-Remittance date: 2026-11-13
+Trace number: 20264714
+Remittance date: 2026-12-04
 
 PATIENT
   Name: Sherri Mckinney
-  Patient ID: P-7771
+  Patient ID: P-3400
   MRN: SYN-936847
   Member ID: MBR996730834
-  Date of birth: 1955-09-07
-  SSN: 917-16-1862
+  Date of birth: 1955-09-08
+  SSN: XXX-XX-1862
 
 CLAIM
-  Claim number: 6479059
+  Claim number: 7934025
   Claim status: DENIED
   Date of service: 2026-07-09
-  Date claim received by payer: 2026-10-27
-  Diagnosis (ICD-10): M23.222
+  Date claim received by payer: 2026-11-17
+  Diagnosis (ICD-10): M23.221
   Place of service: 11
-  Rendering provider: Dr. Tommy Johnson (ID SYN-RP-9059)
-  Referring provider: Dr. Nicole Mccarty
+  Rendering provider: Dr. Elizabeth Mercer (Radiology) (ID RP-4025)
+  Referring provider: Dr. Tommy Johnson
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     73721       987.41     0.00       0.00       CO-29 987.41
+  1     73721       1424.39    0.00       0.00       CO-29 1424.39
         (MRI lower-extremity joint without contrast)
 
-TOTALS  Billed 987.41  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1424.39  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Snow Medical Group
+Claim number: 2801207
+Patient ID: P-8930
+Payer ID: HALCYON_PLAN
+Date of service: 2026-04-16
+Service: 97112 - Neuromuscular re-education
+
+SUBMISSION HISTORY
+  2026-04-20  Submitted to clearinghouse (submission 1 of 1)
+  2026-04-20  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-04-22  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-05-12  Adjudicated by payer: adverse determination (CARC CO-151)
+
+SYNTHETIC DATA - NOT REAL PHI

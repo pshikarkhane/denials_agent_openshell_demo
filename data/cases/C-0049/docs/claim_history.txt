@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Coleman Medical Group
+Claim number: 3083789
+Patient ID: P-7955
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-06-15
+Service: 97110 - Therapeutic exercise
+
+SUBMISSION HISTORY
+  2026-07-31  Submitted to clearinghouse (submission 1 of 1)
+  2026-07-31  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-08-01  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: claim 3083745 paid 2026-07-08 amount 84.02
+
+CURRENT STATUS
+  2026-08-20  Adjudicated by payer: adverse determination (CARC CO-18)
+
+SYNTHETIC DATA - NOT REAL PHI

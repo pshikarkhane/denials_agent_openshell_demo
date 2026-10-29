@@ -161,8 +161,11 @@ def check_policies():
         payer = R.POLICIES.get(pid) or R.DISTRACTOR_DOCS[pid]["payer"]
         for label, key_ in (("7.1", "appeal_days"), ("7.2", "timely_filing_days"), ("7.3", "corrected_claim_days")):
             m = re.search(rf"^{re.escape(label)} .*?(\d+) days", txt, re.M)
-            if not m or int(m.group(1)) != R.PAYERS[payer][key_]:
-                flag("major", p.name, f"{label} window {m.group(1) if m else None} != reference.py {R.PAYERS[payer][key_]}")
+            want = R.PAYERS[payer][key_]
+            if pid == "MP-TF-010" and key_ == "timely_filing_days":
+                want = 60  # the superseded version states its own (older) limit, consistent with its section 2.1
+            if not m or int(m.group(1)) != want:
+                flag("major", p.name, f"{label} window {m.group(1) if m else None} != expected {want}")
         body = txt.split("Section 7")[0]
         mentions_corrected = len(re.findall(r"corrected claim", body, re.I))
         mentions_appeal = len(re.findall(r"\bappeal", body, re.I))
@@ -180,21 +183,23 @@ def check_policies():
 
 def check_schema_and_traps(truths):
     fields = list(Truth.model_fields)
-    flag("info", "schema", f"Truth top-level fields: {fields}; deadline-bearing fields: appeal_deadline only (corrected-claim deadline lives in facts['corrected_claim_deadline'])")
+    flag("info", "schema", f"Truth top-level fields: {fields}; action_deadline present: {'action_deadline' in fields}")
     car = [t for t in truths if t.correct_decision.value == "CORRECT_AND_RESUBMIT"]
-    rows = []
-    for t in car:
+    bad = 0
+    for t in truths:
         f = facts(t)
-        dl = [x.value for x in t.traps if x.value.startswith("deadline")]
-        if dl:
-            rows.append(f"{t.case_id} (cat {t.category}): trap {dl} is computed against the APPEAL deadline {t.appeal_deadline} (as-of {f['as_of_date']}); "
-                        f"the governing corrected-claim deadline is {f['corrected_claim_deadline']}, {(d(f['corrected_claim_deadline']) - d(f['as_of_date'])).days} days after as-of")
-    flag("info", "traps", f"{len(rows)} of {len(car)} CORRECT_AND_RESUBMIT cases carry a deadline trap measured on the wrong (appeal) deadline")
-    for r in rows:
-        flag("major" if "C-0039" in r else "minor", "traps", r)
-    # traps in all cases attach to appeal deadline only
-    dl_all = [t for t in truths if any(x.value.startswith("deadline") for x in t.traps)]
-    flag("info", "traps", f"{len(dl_all)} of {len(truths)} cases carry a deadline trap; all measured on appeal_deadline")
+        left = (t.action_deadline - d(f["as_of_date"])).days
+        tr = [x.value for x in t.traps]
+        if "deadline_within_7_days" in tr and not 1 <= left <= 7:
+            flag("major", t.case_id, f"deadline_within_7_days but {left} days remain to the ACTION deadline")
+            bad += 1
+        if "deadline_passed" in tr and left >= 0:
+            flag("major", t.case_id, "deadline_passed but the action deadline has not passed")
+            bad += 1
+    flag("info", "traps", f"deadline traps measured on action_deadline in all {len(truths)} cases: {'yes' if not bad else 'NO'}")
+    lure = [t.case_id for t in car if d(facts(t)["as_of_date"]) > t.appeal_deadline]
+    flag("info", "traps", f"{len(lure)} of {len(car)} CORRECT_AND_RESUBMIT cases have an appeal deadline that is already past at the as-of date (intentional lure): {lure}")
+    flag("info", "traps", f"cases with more than one hard trap: {[t.case_id for t in truths if len([x for x in t.traps if x.value in ('deadline_within_7_days','deadline_passed','note_after_dos','notes_disagree_therapy_duration','criterion_no_supporting_doc')]) > 1]}")
 
 
 def check_c0005(by):

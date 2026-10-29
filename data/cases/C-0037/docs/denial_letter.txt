@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-08
+Date of notice: 2026-08-10
 To: Taylor Medical Group
-Member: Joseph Espinoza   Patient ID: P-9817   Member ID: MBR807053974
+Member: Joseph Espinoza   Patient ID: P-7791   Member ID: MBR807053974
 
 Claim number: 1561390
 Date of service: 2026-07-09
 Service: 97110 - Therapeutic exercise
-Billed amount: 105.22
+Billed amount: 142.50
 
 DETERMINATION
 Reason code (CARC): CO-4  The procedure code is inconsistent with the modifier used, or a required modifier is missing.
-Remark code (RARC): M51
+Remark code (RARC): none
 The claim is missing required information: therapy modifier GP missing (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-06.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-08.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-04.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-06.
 
 SYNTHETIC DATA - NOT REAL PHI

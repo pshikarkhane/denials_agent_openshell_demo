@@ -1,0 +1,65 @@
+
+### Section 1: CPT + ICD-10 pairings meant to be valid
+S1.1. 27447 (Total knee arthroplasty) + M17.11 (Primary OA, right knee)  | categories [3, 4, 11]
+S1.2. 29881 (Knee arthroscopy with meniscectomy) + M23.221 (Old meniscus tear, post horn medial, right knee)  | categories [3, 4]
+S1.3. 29881 (Knee arthroscopy with meniscectomy) + M23.222 (Old meniscus tear, post horn medial, left knee)  | categories [4]
+S1.4. 63030 (Lumbar laminotomy/discectomy) + M51.26 (Other disc displacement, lumbar)  | categories [4]
+S1.5. 72148 (MRI lumbar spine without contrast) + M51.16 (Disc disorder w/ radiculopathy, lumbar)  | categories [1, 2]
+S1.6. 72148 (MRI lumbar spine without contrast) + M51.17 (Disc disorder w/ radiculopathy, lumbosacral)  | categories [11]
+S1.7. 72148 (MRI lumbar spine without contrast) + M51.26 (Other disc displacement, lumbar)  | categories [1, 2]
+S1.8. 72148 (MRI lumbar spine without contrast) + M54.16 (Radiculopathy, lumbar)  | categories [1, 2]
+S1.9. 72148 (MRI lumbar spine without contrast) + M54.17 (Radiculopathy, lumbosacral)  | categories [2]
+S1.10. 73721 (MRI lower-extremity joint without contrast) + M23.221 (Old meniscus tear, post horn medial, right knee)  | categories [6]
+S1.11. 73721 (MRI lower-extremity joint without contrast) + M25.561 (Pain in right knee)  | categories [6, 10]
+S1.12. 73721 (MRI lower-extremity joint without contrast) + M25.562 (Pain in left knee)  | categories [5]
+S1.13. 85025 (Complete blood count with differential) + D64.9 (Anemia, unspecified)  | categories [7]
+S1.14. 93000 (ECG with interpretation) + I10 (Essential hypertension)  | categories [5, 6, 11]
+S1.15. 93000 (ECG with interpretation) + R07.9 (Chest pain, unspecified)  | categories [5]
+S1.16. 97110 (Therapeutic exercise) + M25.511 (Pain in right shoulder)  | categories [12]
+S1.17. 97110 (Therapeutic exercise) + M25.561 (Pain in right knee)  | categories [10]
+S1.18. 97110 (Therapeutic exercise) + M25.562 (Pain in left knee)  | categories [8]
+S1.19. 97110 (Therapeutic exercise) + M54.50 (Low back pain, unspecified)  | categories [10]
+S1.20. 97112 (Neuromuscular re-education) + M54.16 (Radiculopathy, lumbar)  | categories [12]
+S1.21. 97112 (Neuromuscular re-education) + M54.50 (Low back pain, unspecified)  | categories [12]
+S1.22. 97140 (Manual therapy) + M25.561 (Pain in right knee)  | categories [9]
+S1.23. 97140 (Manual therapy) + M51.16 (Disc disorder w/ radiculopathy, lumbar)  | categories [9]
+S1.24. 97140 (Manual therapy) + M54.50 (Low back pain, unspecified)  | categories [9]
+S1.25. 97530 (Therapeutic activities) + M25.561 (Pain in right knee)  | categories [12]
+S1.26. 97530 (Therapeutic activities) + M62.81 (Muscle weakness)  | categories [12]
+S1.27. 99213 (Established patient visit, low) + E11.9 (Type 2 diabetes without complications)  | categories [10]
+S1.28. 99213 (Established patient visit, low) + E78.5 (Hyperlipidemia)  | categories [8]
+S1.29. 99213 (Established patient visit, low) + I10 (Essential hypertension)  | categories [5, 6, 8]
+S1.30. 99213 (Established patient visit, low) + J02.9 (Acute pharyngitis)  | categories [6, 7]
+S1.31. 99213 (Established patient visit, low) + J06.9 (Acute upper respiratory infection)  | categories [7, 8]
+S1.32. 99213 (Established patient visit, low) + M54.50 (Low back pain, unspecified)  | categories [8]
+
+### Section 2: Pairings that are deliberately WRONG (category 11, CO-11); the corrected diagnosis is in section 1
+S2.1. 27447 (Total knee arthroplasty) billed with J02.9 (Acute pharyngitis): is it a clear mismatch that a payer edit would deny?
+S2.2. 27447 (Total knee arthroplasty) billed with J06.9 (Acute upper respiratory infection): is it a clear mismatch that a payer edit would deny?
+S2.3. 72148 (MRI lumbar spine without contrast) billed with D64.9 (Anemia, unspecified): is it a clear mismatch that a payer edit would deny?
+S2.4. 93000 (ECG with interpretation) billed with D64.9 (Anemia, unspecified): is it a clear mismatch that a payer edit would deny?
+S2.5. 93000 (ECG with interpretation) billed with E78.5 (Hyperlipidemia): is it a clear mismatch that a payer edit would deny?
+
+### Section 3: CARC / RARC pairings in use
+S3.1. CO-11 (The diagnosis is inconsistent with the procedure.) with RARC M76  | scenario: Diagnosis inconsistent with procedure
+S3.2. CO-151 (Payment adjusted because the information submitted does not support this many services or this frequency.) with RARC N640  | scenario: Frequency / visit-limit exceeded
+S3.3. CO-16 (The claim lacks information needed for adjudication.) with RARC none  | scenario: Missing/invalid information or modifier
+S3.4. CO-18 (Exact duplicate of a claim/service already adjudicated.) with RARC none  | scenario: Duplicate claim
+S3.5. CO-197 (Precertification/authorization/notification was absent.) with RARC none  | scenario: No prior auth, retro-auth available; No prior auth, not retro-eligible
+S3.6. CO-29 (The time limit for filing has expired.) with RARC none  | scenario: Timely filing, proof exists; Timely filing, expired, no proof
+S3.7. CO-4 (The procedure code is inconsistent with the modifier used, or a required modifier is missing.) with RARC none  | scenario: Missing/invalid information or modifier
+S3.8. CO-50 (The service was not deemed medically necessary by the plan.) with RARC N115  | scenario: Medical necessity, record supports; Medical necessity, record does not support
+S3.9. CO-50 (The service was not deemed medically necessary by the plan.) with RARC N386  | scenario: Medical necessity, record supports; Medical necessity, record does not support
+S3.10. CO-97 (The benefit for this service is included in the payment for another service already adjudicated.) with RARC N20  | scenario: Bundling / NCCI-style
+S3.11. PR-1 (Amount applied to the patient's deductible.) with RARC none  | scenario: Patient responsibility (deductible)
+
+### Section 4: Bundling pairs (CO-97 / N20, distinct-service modifier 59 or XS)
+S4.1. Column 1: 97110 (Therapeutic exercise); denied column 2: 97140 (Manual therapy)  | 2 case(s)  | edit exists? modifier 59/XS allowed? [ ] OK  [ ] wrong  Notes: 
+S4.2. Column 1: 97530 (Therapeutic activities); denied column 2: 97140 (Manual therapy)  | 3 case(s)  | edit exists? modifier 59/XS allowed? [ ] OK  [ ] wrong  Notes: 
+
+### Section 5: Modifier / claim-data scenarios (CO-4, CO-16)
+S5.1. CO-4: modifier GP missing on therapy (97110) (CPT 97110)  | 1 case(s)  | right CARC for this scenario? [ ] OK  [ ] wrong  Notes: 
+S5.2. CO-16: place of service code missing (CPT 99213)  | 3 case(s)  | right CARC for this scenario? [ ] OK  [ ] wrong  Notes: 
+S5.3. CO-16: rendering provider identifier missing (CPT 99213)  | 1 case(s)  | right CARC for this scenario? [ ] OK  [ ] wrong  Notes: 
+
+### Section 6: Changed this round (flagged: coder to confirm)

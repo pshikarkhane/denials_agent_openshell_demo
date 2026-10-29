@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: James Medical Group
+Claim number: 7258906
+Patient ID: P-5524
+Payer ID: MERIDIAN_COMM
+Date of service: 2026-06-01
+Service: 72148 - MRI lumbar spine without contrast
+
+SUBMISSION HISTORY
+  2026-06-05  Submitted to clearinghouse (submission 1 of 1)
+  2026-06-05  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-07  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-06-28  Adjudicated by payer: adverse determination (CARC CO-50)
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-11-16
+Date of notice: 2026-11-25
 To: Allen Medical Group
-Member: Marie Atkins   Patient ID: P-8650   Member ID: MBR348244094
+Member: Marie Atkins   Patient ID: P-5014   Member ID: MBR348244094
 
-Claim number: 6681849
+Claim number: 8834557
 Date of service: 2026-07-10
-Service: 99214 - Established patient visit, moderate
-Billed amount: 197.24
+Service: 73721 - MRI lower-extremity joint without contrast
+Billed amount: 1034.29
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-11-02, after the 90-day filing limit. The filing deadline for this date of service was 2026-10-08 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-11-06, after the 90-day filing limit. The filing deadline for this date of service was 2026-10-08 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-02-14.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-02-23.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-05-15.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-05-24.
 
 SYNTHETIC DATA - NOT REAL PHI

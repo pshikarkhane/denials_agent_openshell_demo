@@ -2,25 +2,25 @@ MERIDIAN COMMUNITY HEALTH PLAN
 Payer ID: MERIDIAN_COMM
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-11
+Date of notice: 2026-08-28
 To: Humphrey Medical Group
-Member: Dustin Roberts   Patient ID: P-5762   Member ID: MBR742469895
+Member: Dustin Roberts   Patient ID: P-2016   Member ID: MBR742469895
 
-Claim number: 8408667
+Claim number: 5877122
 Date of service: 2026-07-22
 Service: 97140 - Manual therapy
-Billed amount: 145.43
+Billed amount: 88.82
 
 DETERMINATION
 Reason code (CARC): CO-97  The benefit for this service is included in the payment for another service already adjudicated.
 Remark code (RARC): N20
-This service is considered included in the payment for procedure 97110 billed on the same claim (Medical Policy: Claim Bundling and Distinct Procedural Service Modifiers).
+This service is considered included in the payment for procedure 97530 billed on the same claim (Medical Policy: Claim Bundling and Distinct Procedural Service Modifiers).
 
 Appeal Rights
-You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-02-07.
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-02-24.
 Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
 
 Corrected Claims
-A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-08-11.
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-08-28.
 
 SYNTHETIC DATA - NOT REAL PHI

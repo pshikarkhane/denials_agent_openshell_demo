@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-07-16
+Date of notice: 2026-07-08
 To: Richard Medical Group
-Member: Jeremy Fleming   Patient ID: P-6354   Member ID: MBR970480361
+Member: Jeremy Fleming   Patient ID: P-6530   Member ID: MBR970480361
 
-Claim number: 3381395
+Claim number: 6482796
 Date of service: 2026-06-17
-Service: 63030 - Lumbar laminotomy/discectomy
-Billed amount: 3618.63
+Service: 27447 - Total knee arthroplasty
+Billed amount: 2927.82
 
 DETERMINATION
 Reason code (CARC): CO-11  The diagnosis is inconsistent with the procedure.
 Remark code (RARC): M76
-The diagnosis code(s) J06.9 are not consistent with procedure 63030 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+The diagnosis code(s) J06.9 are not consistent with procedure 27447 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-14.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-06.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-12.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-04.
 
 SYNTHETIC DATA - NOT REAL PHI

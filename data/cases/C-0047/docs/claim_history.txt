@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Espinoza Medical Group
+Claim number: 3877152
+Patient ID: P-4435
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-06-16
+Service: 97110 - Therapeutic exercise
+
+SUBMISSION HISTORY
+  2026-08-03  Submitted to clearinghouse (submission 1 of 1)
+  2026-08-03  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-08-04  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: claim 3877086 paid 2026-07-09 amount 77.63
+
+CURRENT STATUS
+  2026-08-25  Adjudicated by payer: adverse determination (CARC CO-18)
+
+SYNTHETIC DATA - NOT REAL PHI

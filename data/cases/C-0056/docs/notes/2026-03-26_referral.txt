@@ -1,0 +1,19 @@
+King Medical Group
+PHYSICIAN PLAN-OF-CARE RECERTIFICATION
+Patient: Amanda Sullivan   DOB: 1983-10-23   MRN: SYN-921446   Patient ID: P-6525
+Date of encounter: 2026-03-26
+Provider: Dr. Elizabeth Hobbs
+------------------------------------------------------------
+Reason for visit: Physician review of the physical therapy plan of care for low back pain (M54.50) to determine whether continued skilled therapy remains appropriate.
+
+History: Symptoms began insidiously without a clear inciting injury. The patient initiated outpatient physical therapy on 2026-03-03. She reports gradual improvement in pain intensity and tolerance for standing and walking, though she continues to experience stiffness with prolonged sitting and difficulty with bending and lifting during daily activities and at work.
+
+Exam: Alert and in no acute distress. Lumbar paraspinal tenderness persists with mild guarding. Lumbar flexion and extension remain limited by discomfort. Straight leg raise is negative bilaterally. Strength is grossly intact in the lower extremities, and sensation is preserved. Gait is steady without a supportive device.
+
+Assessment: Low back pain (M54.50) with ongoing functional limitations. The patient is demonstrating measurable progress toward established goals and continues to require skilled intervention to safely advance her exercise program and restore functional mobility.
+
+Plan: I have reviewed the plan of care and recertify continued physical therapy. Continue therapeutic exercise, manual therapy, and a home exercise program. Reassess progress at the next scheduled review and advance activity as tolerated.
+------------------------------------------------------------
+Electronically signed: Dr. Elizabeth Hobbs
+
+SYNTHETIC DATA - NOT REAL PHI

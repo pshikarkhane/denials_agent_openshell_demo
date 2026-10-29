@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Clark Medical Group
-Trace number: SYN-EFT-37932674
-Remittance date: 2026-04-10
+Trace number: 37932674
+Remittance date: 2026-04-14
 
 PATIENT
   Name: Alicia Shea
-  Patient ID: P-8914
+  Patient ID: P-4106
   MRN: SYN-946006
   Member ID: MBR113894168
-  Date of birth: 1978-05-14
-  SSN: 994-50-5727
+  Date of birth: 1978-05-15
+  SSN: XXX-XX-5727
 
 CLAIM
-  Claim number: 1378805
+  Claim number: 9104150
   Claim status: DENIED
   Date of service: 2026-03-13
-  Date claim received by payer: 2026-03-21
-  Diagnosis (ICD-10): M51.17, M51.26
+  Date claim received by payer: 2026-03-22
+  Diagnosis (ICD-10): M51.26
   Place of service: 11
-  Rendering provider: Dr. Jon Garcia (ID SYN-RP-8805)
+  Rendering provider: Dr. Christopher Davidson (Radiology) (ID RP-4150)
   Referring provider: Dr. Ashley Oliver
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     72148       1878.96    0.00       0.00       CO-50 1878.96 RARC N115
+  1     72148       1500.05    0.00       0.00       CO-50 1500.05 RARC N115
         (MRI lumbar spine without contrast)
 
-TOTALS  Billed 1878.96  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1500.05  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

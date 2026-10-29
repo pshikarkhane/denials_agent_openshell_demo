@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Burns Medical Group
-Trace number: SYN-EFT-26649785
-Remittance date: 2026-07-27
+Trace number: 26649785
+Remittance date: 2026-07-29
 
 PATIENT
   Name: Jordan Mcdonald
-  Patient ID: P-9277
+  Patient ID: P-6876
   MRN: SYN-751677
   Member ID: MBR883497256
-  Date of birth: 1962-10-04
-  SSN: 961-57-7282
+  Date of birth: 1962-10-05
+  SSN: XXX-XX-7282
 
 CLAIM
-  Claim number: 8636194
+  Claim number: 9475884
   Claim status: DENIED
-  Date of service: 2026-06-28
-  Date claim received by payer: 2026-07-02
-  Diagnosis (ICD-10): J02.9
-  Place of service: (not provided)
-  Rendering provider: Dr. Joshua Sullivan (ID SYN-RP-6194)
-  Referring provider: Dr. Brandon Taylor
+  Date of service: 2026-06-29
+  Date claim received by payer: 2026-07-04
+  Diagnosis (ICD-10): M54.50
+  Place of service: 11
+  Rendering provider: (not provided)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99213       245.17     0.00       0.00       CO-16 245.17 RARC MA130
+  1     99213       172.84     0.00       0.00       CO-16 172.84
         (Established patient visit, low)
 
-TOTALS  Billed 245.17  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 172.84  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

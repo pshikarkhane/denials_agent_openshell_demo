@@ -1,38 +1,31 @@
 King Medical Group - PHYSICAL THERAPY ATTENDANCE LOG
 Patient: Amanda Sullivan  MRN: SYN-921446
-Start of care: 2026-03-06
+Start of care: 2026-03-03
 Therapist: David Fisher, PT
 
-Visit 1 | 2026-03-06 | neuromuscular re-education
-Visit 2 | 2026-03-09 | therapeutic activities
-Visit 3 | 2026-03-12 | manual therapy
-Visit 4 | 2026-03-14 | therapeutic exercise
-Visit 5 | 2026-03-17 | neuromuscular re-education
-Visit 6 | 2026-03-20 | therapeutic activities
-Visit 7 | 2026-03-23 | manual therapy
-Visit 8 | 2026-03-26 | therapeutic exercise
-Visit 9 | 2026-03-29 | neuromuscular re-education
-Visit 10 | 2026-03-31 | therapeutic activities
-Visit 11 | 2026-04-03 | manual therapy
-Visit 12 | 2026-04-06 | therapeutic exercise
-Visit 13 | 2026-04-09 | neuromuscular re-education
-Visit 14 | 2026-04-12 | therapeutic activities
-Visit 15 | 2026-04-14 | manual therapy
-Visit 16 | 2026-04-17 | therapeutic exercise
-Visit 17 | 2026-04-20 | neuromuscular re-education
-Visit 18 | 2026-04-23 | therapeutic activities
-Visit 19 | 2026-04-26 | manual therapy
-Visit 20 | 2026-04-28 | therapeutic exercise
-Visit 21 | 2026-05-01 | neuromuscular re-education
-Visit 22 | 2026-05-04 | therapeutic activities
-Visit 23 | 2026-05-07 | manual therapy
-Visit 24 | 2026-05-10 | therapeutic exercise
-Visit 25 | 2026-05-13 | neuromuscular re-education
-Visit 26 | 2026-05-15 | therapeutic activities
-Visit 27 | 2026-05-18 | manual therapy
-Visit 28 | 2026-05-21 | therapeutic exercise
+Visit 1 | 2026-03-03 | neuromuscular re-education
+Visit 2 | 2026-03-06 | therapeutic activities
+Visit 3 | 2026-03-11 | manual therapy
+Visit 4 | 2026-03-16 | therapeutic exercise
+Visit 5 | 2026-03-18 | neuromuscular re-education
+Visit 6 | 2026-03-23 | therapeutic activities
+Visit 7 | 2026-03-26 | manual therapy
+Visit 8 | 2026-03-31 | therapeutic exercise
+Visit 9 | 2026-04-03 | neuromuscular re-education
+Visit 10 | 2026-04-08 | therapeutic activities
+Visit 11 | 2026-04-10 | manual therapy
+Visit 12 | 2026-04-15 | therapeutic exercise
+Visit 13 | 2026-04-20 | neuromuscular re-education
+Visit 14 | 2026-04-23 | therapeutic activities
+Visit 15 | 2026-04-28 | manual therapy
+Visit 16 | 2026-05-01 | therapeutic exercise
+Visit 17 | 2026-05-06 | neuromuscular re-education
+Visit 18 | 2026-05-08 | therapeutic activities
+Visit 19 | 2026-05-13 | manual therapy
+Visit 20 | 2026-05-18 | therapeutic exercise
+Visit 21 | 2026-05-21 | neuromuscular re-education
 
-Treatment period: 2026-03-06 to 2026-05-21
-Visits completed to date: 28
+Treatment period: 2026-03-03 to 2026-05-21
+Visits completed in calendar year 2026: 21 (no other outpatient therapy visits recorded)
 
 SYNTHETIC DATA - NOT REAL PHI

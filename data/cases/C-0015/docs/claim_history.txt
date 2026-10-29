@@ -1,0 +1,20 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Mitchell Medical Group
+Claim number: 2867652
+Patient ID: P-1220
+Payer ID: HALCYON_PLAN
+Date of service: 2026-07-09
+Service: 27447 - Total knee arthroplasty
+
+SUBMISSION HISTORY
+  2026-07-17  Submitted to clearinghouse (submission 1 of 1)
+  2026-07-17  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-07-19  Received by payer
+  Earlier submissions: none recorded
+  Retroactive authorization request: received 2026-07-13
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-08-17  Adjudicated by payer: adverse determination (CARC CO-197)
+
+SYNTHETIC DATA - NOT REAL PHI

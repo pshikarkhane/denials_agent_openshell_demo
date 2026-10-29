@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Gill Medical Group
+Claim number: 5741175
+Patient ID: P-7410
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-05-12
+Service: 97110 - Therapeutic exercise
+
+SUBMISSION HISTORY
+  2026-06-09  Submitted to clearinghouse (submission 1 of 1)
+  2026-06-09  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-10  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: claim 5741076 paid 2026-05-29 amount 85.18
+
+CURRENT STATUS
+  2026-06-26  Adjudicated by payer: adverse determination (CARC CO-18)
+
+SYNTHETIC DATA - NOT REAL PHI

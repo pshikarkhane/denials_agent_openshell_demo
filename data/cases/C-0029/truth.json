@@ -5,62 +5,69 @@
   "payer_id": "TERRAVISTA_HEALTH",
   "policy_id": "MP-TF-001",
   "patient": {
-    "synthetic_id": "P-8590"
+    "synthetic_id": "P-4736"
   },
   "claim": {
-    "claim_no": "3534625",
-    "cpt": "73721",
+    "claim_no": "8772333",
+    "cpt": "99213",
     "icd10": [
-      "M23.221"
+      "J02.9"
     ],
     "dos": "2026-06-03",
-    "billed": 1521.68
+    "billed": 195.93
   },
   "denial": {
     "carc": "CO-29",
     "rarc": null,
-    "denial_date": "2026-11-15"
+    "denial_date": "2026-10-22"
   },
-  "appeal_deadline": "2027-02-13",
+  "appeal_deadline": "2027-01-20",
+  "action_deadline": "2027-01-20",
   "policy_criteria": [
     {
       "id": "C1",
       "section": "§2.1",
       "text": "Claim submitted within 90 days of DOS",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
-        "denial_letter.txt"
+        "claim_history.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§2.3",
-      "text": "Proof of timely filing (clearinghouse acceptance) available",
+      "section": "§2.2",
+      "text": "Proof of clearinghouse acceptance within the filing limit is available",
       "status": "unmet",
-      "evidence": []
+      "basis": "documented_absence",
+      "evidence": [
+        "claim_history.txt"
+      ]
     }
   ],
   "correct_decision": "DO_NOT_APPEAL",
-  "traps": [],
+  "traps": [
+    "deadline_passed"
+  ],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "3534625",
+      "value": "8772333",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-8590",
+      "value": "P-4736",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "73721",
+      "value": "99213",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -68,7 +75,7 @@
     {
       "key": "icd10",
       "value": [
-        "M23.221"
+        "J02.9"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -83,7 +90,7 @@
     },
     {
       "key": "billed",
-      "value": 1521.68,
+      "value": 195.93,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -111,35 +118,56 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-11-15",
+      "value": "2026-10-22",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
     },
     {
       "key": "claim_submitted_date",
-      "value": "2026-10-27",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "value": "2026-10-02",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-10-02",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-10-03",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
       "key": "appeal_window_days",
       "value": 90,
       "source_file": "denial_letter.txt",
-      "line": 7,
+      "line": 17,
       "evidence": null
     },
     {
       "key": "appeal_deadline",
-      "value": "2027-02-13",
+      "value": "2027-01-20",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2027-01-20",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-12-11",
+      "value": "2027-01-27",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -153,7 +181,7 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2027-05-14",
+      "value": "2027-04-20",
       "source_file": "denial_letter.txt",
       "line": 24,
       "evidence": null
@@ -173,13 +201,6 @@
       "evidence": null
     },
     {
-      "key": "payer_received_date",
-      "value": "2026-10-27",
-      "source_file": "denial_letter.txt",
-      "line": 17,
-      "evidence": null
-    },
-    {
       "key": "planned_document",
       "value": "notes/2026-04-29_pcp.txt",
       "source_file": "notes/2026-04-29_pcp.txt",
@@ -192,6 +213,20 @@
       "source_file": "notes/2026-06-03_visit.txt",
       "line": null,
       "evidence": null
+    },
+    {
+      "key": "criterion_C1_quote",
+      "value": "2026-10-02  Submitted to clearinghouse (submission 1 of 1)",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": "2026-10-02  Submitted to clearinghouse (submission 1 of 1)"
+    },
+    {
+      "key": "criterion_C2_quote",
+      "value": "Earlier submissions: none recorded",
+      "source_file": "claim_history.txt",
+      "line": 13,
+      "evidence": "Earlier submissions: none recorded"
     }
   ]
 }

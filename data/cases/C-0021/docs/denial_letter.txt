@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-11-03
+Date of notice: 2026-12-06
 To: Price Medical Group
-Member: Michele Jones   Patient ID: P-4377   Member ID: MBR825803595
+Member: Michele Jones   Patient ID: P-6225   Member ID: MBR825803595
 
-Claim number: 9641320
+Claim number: 4458484
 Date of service: 2026-07-14
-Service: 73721 - MRI lower-extremity joint without contrast
-Billed amount: 1376.74
+Service: 93000 - ECG with interpretation
+Billed amount: 112.74
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-10-20, after the 90-day filing limit. The filing deadline for this date of service was 2026-10-12 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-11-16, after the 90-day filing limit. The filing deadline for this date of service was 2026-10-12 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-02-01.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-03-06.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-05-02.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-06-04.
 
 SYNTHETIC DATA - NOT REAL PHI

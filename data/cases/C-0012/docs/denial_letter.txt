@@ -2,9 +2,9 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-05-02
+Date of notice: 2026-05-11
 To: Hernandez Medical Group
-Member: Ryan Garcia   Patient ID: P-9856   Member ID: MBR958311024
+Member: Ryan Garcia   Patient ID: P-5647   Member ID: MBR958311024
 
 Claim number: 9810792
 Date of service: 2026-04-03
@@ -13,14 +13,14 @@ Billed amount: 3009.11
 
 DETERMINATION
 Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
-Remark code (RARC): N54
+Remark code (RARC): none
 No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-08-30.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-09-08.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-10-29.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-11-07.
 
 SYNTHETIC DATA - NOT REAL PHI

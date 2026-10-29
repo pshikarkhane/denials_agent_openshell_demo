@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts" / "phase0"))
 from _common import chat_with_retry, load_models  # noqa: E402
 
-PROMPT_FILES = ["data_gen/gen_policies.py", "data_gen/gen_clinical.py"]
+PROMPT_FILES = ["data_gen/gen_policies.py", "data_gen/gen_clinical.py", "data_gen/note_lint.py"]
 
 
 def datagen_model(cfg):
@@ -22,7 +22,20 @@ def generate(cfg, prompt, system=None):
     """One datagen call (retried). Returns text. `system` is prepended to the prompt."""
     full = f"{system}\n\n{prompt}" if system else prompt
     text, usage, _ = chat_with_retry(cfg, datagen_model(cfg), full, max_tokens=int(cfg["datagen"]["max_tokens"]),
-                                     temperature=float(cfg["datagen"]["temperature"]))
+                                     temperature=float(cfg["datagen"]["temperature"]), attempts=5, backoff=4.0)
+    return text
+
+
+def reviewer_model(cfg):
+    """Second-pass lint reviewer: the judge named by lint.reviewer in models.yaml. Never the datagen or agent model."""
+    m = cfg["judges"][cfg["lint"]["reviewer"]]
+    if m in (cfg["datagen"]["model_id"], cfg["agent"]["model_id"]) or "nemotron" in m.lower():
+        raise SystemExit("lint reviewer must not be the datagen or agent model")
+    return m
+
+
+def ask_reviewer(cfg, prompt):
+    text, _, _ = chat_with_retry(cfg, reviewer_model(cfg), prompt, max_tokens=6000, timeout=300, attempts=5, backoff=4.0)
     return text
 
 

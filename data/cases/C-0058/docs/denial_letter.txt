@@ -2,14 +2,14 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-07-01
+Date of notice: 2026-07-14
 To: Gonzalez Medical Group
-Member: Cathy Torres   Patient ID: P-6849   Member ID: MBR800586141
+Member: Cathy Torres   Patient ID: P-3782   Member ID: MBR800586141
 
-Claim number: 8645632
+Claim number: 6989686
 Date of service: 2026-06-05
-Service: 97110 - Therapeutic exercise
-Billed amount: 159.97
+Service: 97530 - Therapeutic activities
+Billed amount: 109.31
 
 DETERMINATION
 Reason code (CARC): CO-151  Payment adjusted because the information submitted does not support this many services or this frequency.
@@ -17,10 +17,10 @@ Remark code (RARC): N640
 The number of visits for this benefit period exceeds the plan's outpatient therapy visit limit (Medical Policy: Outpatient Therapy Visit Limits).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-29.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-11-11.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-28.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-10.
 
 SYNTHETIC DATA - NOT REAL PHI

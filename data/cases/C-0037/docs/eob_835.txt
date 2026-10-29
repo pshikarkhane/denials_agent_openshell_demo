@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Taylor Medical Group
-Trace number: SYN-EFT-92472883
-Remittance date: 2026-08-08
+Trace number: 92472883
+Remittance date: 2026-08-10
 
 PATIENT
   Name: Joseph Espinoza
-  Patient ID: P-9817
+  Patient ID: P-7791
   MRN: SYN-442902
   Member ID: MBR807053974
-  Date of birth: 1961-04-10
-  SSN: 983-52-6263
+  Date of birth: 1961-04-11
+  SSN: XXX-XX-6263
 
 CLAIM
   Claim number: 1561390
   Claim status: DENIED
   Date of service: 2026-07-09
-  Date claim received by payer: 2026-07-12
+  Date claim received by payer: 2026-07-15
   Diagnosis (ICD-10): M25.562
   Place of service: 11
-  Rendering provider: Dr. Melody Wright (ID SYN-RP-1390)
+  Rendering provider: Deborah Hutchinson, PT (ID RP-1390)
   Referring provider: Dr. Steven Garcia
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97110       105.22     0.00       0.00       CO-4 105.22 RARC M51
+  1     97110       142.50     0.00       0.00       CO-4 142.50
         (Therapeutic exercise)
 
-TOTALS  Billed 105.22  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 142.50  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

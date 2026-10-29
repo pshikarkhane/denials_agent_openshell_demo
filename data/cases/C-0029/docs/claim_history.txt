@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Gibson Medical Group
+Claim number: 8772333
+Patient ID: P-4736
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-06-03
+Service: 99213 - Established patient visit, low
+
+SUBMISSION HISTORY
+  2026-10-02  Submitted to clearinghouse (submission 1 of 1)
+  2026-10-02  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-10-03  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-10-22  Adjudicated by payer: adverse determination (CARC CO-29)
+
+SYNTHETIC DATA - NOT REAL PHI

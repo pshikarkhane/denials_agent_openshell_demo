@@ -4,11 +4,12 @@ from pathlib import Path
 
 import pytest
 
+from data_gen import reference as R
 from data_gen import validate_data as V
 from data_gen.docs_util import locate, needle
 from data_gen.gen_cases import DEFAULT_SEED, generate_all, load_truths, write_dataset
 from data_gen.render_docs import render_all
-from data_gen.schema import Fact
+from data_gen.schema import Decision, Fact
 
 REAL = Path(__file__).resolve().parents[1] / "data"
 needs_real = pytest.mark.skipif(not (REAL / "policy_library").exists() or not (REAL / "manifest.json").exists(),
@@ -121,8 +122,8 @@ def test_detects_wrong_policy_window(full):
 @needs_real
 def test_detects_missing_policy_section(full):
     p = full / "policy_library" / "MP-IMG-007.txt"
-    p.write_text(p.read_text().replace("Section 3.2(b)", "Section 3.9(z)"))
-    assert any("section 3.2(b) does not exist" in e for e in errors(full))
+    p.write_text(p.read_text().replace("Section 2.1(b)", "Section 2.9(z)"))
+    assert any("section 2.1(b) does not exist" in e for e in errors(full))
 
 
 @needs_real
@@ -196,3 +197,234 @@ def test_datagen_model_must_not_be_agent():
     with pytest.raises(SystemExit):
         datagen_model({"datagen": {"model_id": "nvidia/nvidia/nemotron-3.5-super-text-preview"}, "agent": {"model_id": "x"}})
     assert datagen_model({"datagen": {"model_id": "azure/anthropic/claude-opus-4-8"}, "agent": {"model_id": "x"}})
+
+
+# ---- step 6 validators (each has a mutation test)
+def edit_truth(root, case_id, fn):
+    p = root / "cases" / case_id / "truth.json"
+    d = json.loads(p.read_text())
+    fn(d)
+    p.write_text(json.dumps(d, indent=2))
+
+
+def case_of(root, cat, pilot=True):
+    man = json.loads((root / "manifest.json").read_text())
+    return next(e["case_id"] for e in man["cases"] if e["category"] == cat and (e["case_id"] in man["pilot_cases"]) == pilot)
+
+
+@needs_real
+def test_validate_data_is_read_only(full):
+    before = {p: p.read_bytes() for p in full.rglob("*") if p.is_file()}
+    V.main(["--data", str(full)])
+    assert {p: p.read_bytes() for p in full.rglob("*") if p.is_file()} == before
+    with pytest.raises(SystemExit):
+        V.main(["--data", str(full), "--report", str(full / "report.json")])
+
+
+@needs_real
+def test_detects_stacked_traps(full):
+    cid = case_of(full, 6)
+    edit_truth(full, cid, lambda d: d.update(traps=["deadline_within_7_days", "note_after_dos"]))
+    assert any("stacked hard traps" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_criterion_trap_on_appeal_case(full):
+    cid = case_of(full, 1, pilot=False)
+    edit_truth(full, cid, lambda d: d.update(traps=d["traps"][:1] + ["criterion_no_supporting_doc"]))
+    assert any("criterion_no_supporting_doc must be present exactly on ESCALATE" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_wrong_action_deadline(full):
+    cid = case_of(full, 8)
+    edit_truth(full, cid, lambda d: d.update(action_deadline=d["appeal_deadline"]))
+    assert any("action_deadline" in e and "must be the corrected-claim" in e for e in errors(full))
+
+
+@needs_real
+def test_deadline_trap_is_measured_on_action_deadline(full):
+    man = json.loads((full / "manifest.json").read_text())
+    cid = next(e["case_id"] for e in man["cases"] if e["category"] == 8 and not any(
+        x.startswith("deadline") for x in json.loads((full / e["path"]).read_text())["traps"]))
+    def fn(d):
+        d["traps"] = ["deadline_within_7_days"]
+    edit_truth(full, cid, fn)
+    assert any("deadline_within_7_days but" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_excludes1(full):
+    cid = case_of(full, 1, pilot=False)
+    edit_truth(full, cid, lambda d: d["claim"].update(icd10=["M54.16", "M51.16"]))
+    e = errors(full)
+    assert any("Excludes1" in x for x in e) and any("exactly one diagnosis" in x for x in e)
+
+
+@needs_real
+def test_detects_missing_corrected_claim_sentence(full):
+    p = full / "policy_library" / "MP-CLM-004.txt"
+    p.write_text(p.read_text().replace("An appeal does not cure missing or invalid claim data.", "Appeals are reviewed."))
+    assert any("corrected-claim sentence" in e for e in errors(full))
+    p = full / "policy_library" / "MP-BND-002.txt"
+    p.write_text(p.read_text().replace("CPT 97530", "CPT 11111"))
+    assert any("bundled pair" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_policy_order_gap_and_removed_wording(full):
+    p = full / "policy_library" / "MP-CLM-004.txt"
+    t = p.read_text()
+    p.write_text(t.replace("Section 2.3", "Section 9.9").replace("Section 3  Corrections", "Section 2.3  Corrections"))
+    e = errors(full)
+    assert any("not in numeric order" in x for x in e)
+    p = full / "policy_library" / "MP-PT-011.txt"
+    p.write_text(p.read_text() + "approved exception\n")
+    assert any("removed wording" in x for x in errors(full))
+
+
+@needs_real
+def test_detects_tf010_contradiction_and_missing_supersession(full):
+    p = full / "policy_library" / "MP-TF-010.txt"
+    p.write_text(p.read_text().replace("7.2 Timely filing limit: 60 days", "7.2 Timely filing limit: 90 days"))
+    e = errors(full)
+    assert any("7.2" in x for x in e)
+    p.write_text(p.read_text().replace("SUPERSEDED", "CURRENT"))
+    assert any("superseded" in x.lower() for x in errors(full))
+
+
+@needs_real
+def test_detects_claim_history_mismatch(full):
+    cid = case_of(full, 6)
+    p = full / "cases" / cid / "docs" / "claim_history.txt"
+    t = json.loads((full / "cases" / cid / "truth.json").read_text())
+    sub = next(f["value"] for f in t["facts"] if f["key"] == "claim_submitted_date")
+    p.write_text(p.read_text().replace(sub, "2020-01-01"))
+    assert any("claim_history" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_missing_imaging_statement(full):
+    cid = case_of(full, 1)
+    p = next((full / "cases" / cid / "docs" / "notes").glob("*_ortho.txt"))
+    p.write_text(p.read_text().replace("Imaging history:", "Imaging review:"))
+    assert any("Imaging history" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_misspelling_in_note(full):
+    cid = case_of(full, 6)
+    p = next((full / "cases" / cid / "docs" / "notes").glob("*_visit.txt"))
+    p.write_text(p.read_text().replace("Reason for visit", "Reason for visit nontagender", 1))
+    assert any("possible misspelling" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_missing_lint_record_and_git_sha(full):
+    m = json.loads((full / "manifest.json").read_text())
+    m["note_lint"].pop(next(iter(m["note_lint"])))
+    m.pop("git_sha")
+    (full / "manifest.json").write_text(json.dumps(m))
+    e = errors(full)
+    assert any("note_lint" in x for x in e) and any("git_sha" in x for x in e)
+
+
+@needs_real
+def test_detects_unplanned_clinical_file(full):
+    cid = case_of(full, 6)
+    d = full / "cases" / cid / "docs" / "notes"
+    (d / "2026-01-01_stale.txt").write_text("x\nSYNTHETIC DATA - NOT REAL PHI\n")
+    assert any("not in the plan" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_basis_status_disagreement(full):
+    cid = case_of(full, 6)
+    edit_truth(full, cid, lambda d: d["policy_criteria"][1].update(basis="missing_evidence"))
+    assert any("disagree (unknown <=> missing_evidence)" in e for e in errors(full))
+
+
+@needs_real
+def test_detects_eob_realism_regressions(full):
+    cid = case_of(full, 1)
+    p = full / "cases" / cid / "docs" / "eob_835.txt"
+    p.write_text(p.read_text().replace("835 REMITTANCE ADVICE", "835 REMITTANCE ADVICE (SYNTHETIC RENDERING)").replace("XXX-XX-", "912-34-"))
+    e = " ".join(errors(full))
+    assert "title must be" in e and "SSN" in e
+
+
+# ---- generator rules
+
+
+
+def test_clinical_truth_is_protected(tmp_path):
+    root = tmp_path / "d"
+    write_dataset(generate_all(DEFAULT_SEED), root, DEFAULT_SEED)
+    p = root / "cases" / "C-0001" / "truth.json"
+    d = json.loads(p.read_text())
+    d["facts"][0]["evidence"] = "quote"
+    p.write_text(json.dumps(d))
+    with pytest.raises(SystemExit):
+        write_dataset(generate_all(DEFAULT_SEED), root, DEFAULT_SEED)
+    write_dataset(generate_all(DEFAULT_SEED), root, DEFAULT_SEED, force=True)
+
+
+def test_claim_history_rendered_for_every_case(tmp_path):
+    write_dataset(generate_all(DEFAULT_SEED), tmp_path, DEFAULT_SEED)
+    render_all(tmp_path, DEFAULT_SEED)
+    for p in (tmp_path / "cases").glob("C-*/docs/claim_history.txt"):
+        assert p.read_text().rstrip().endswith("SYNTHETIC DATA - NOT REAL PHI")
+    assert len(list((tmp_path / "cases").glob("C-*/docs/claim_history.txt"))) == 60
+
+
+def test_eob_realism(tmp_path):
+    write_dataset(generate_all(DEFAULT_SEED), tmp_path, DEFAULT_SEED)
+    render_all(tmp_path, DEFAULT_SEED)
+    _, truths = load_truths(tmp_path)
+    for t in truths:
+        eob = (tmp_path / "cases" / t.case_id / "docs" / "eob_835.txt").read_text()
+        assert "SYNTHETIC RENDERING" not in eob and "SSN: XXX-XX-" in eob
+        assert eob.count("SYN-") == 1 and "MRN: SYN-" in eob  # SYN- stays on the MRN only
+        if t.claim.cpt in ("72148", "73721"):
+            assert "(Radiology)" in eob
+        if t.claim.cpt.startswith("97") and "(not provided)" not in eob.split("Rendering provider:")[1].splitlines()[0]:
+            assert ", PT" in eob.split("Rendering provider:")[1].splitlines()[0]
+
+
+def test_functional_metric_follows_diagnosis():
+    import random as rnd
+
+    from data_gen.gen_clinical import functional_sentence
+    from data_gen.schema import Claim
+    class T:  # minimal stand-in
+        pass
+    t = T()
+    t.claim = Claim(claim_no="1234567", cpt="97110", icd10=["M25.562"], dos="2026-05-01", billed=100)
+    s = functional_sentence(t, rnd.Random(1))
+    assert "left knee" in s and "lumbar" not in s
+    t.claim.icd10 = ["M54.50"]
+    assert "lumbar flexion" in functional_sentence(t, rnd.Random(1))
+
+
+def test_spellcheck_catches_typo_and_accepts_clinical_terms():
+    from data_gen.note_lint import spell_issues
+    assert [x["word"] for x in spell_issues("Abdomen soft, nontagender.")] == ["nontagender"]
+    assert spell_issues("Radiculopathy with antalgic gait; metformin continued; paraspinal tenderness.") == []
+
+
+def test_lint_reviewer_must_not_be_datagen_or_agent():
+    from data_gen.llm import reviewer_model
+    base = {"judges": {"gpt": "azure/openai/gpt-5.5", "claude": "azure/anthropic/claude-opus-4-8"}, "agent": {"model_id": "a"},
+            "datagen": {"model_id": "azure/anthropic/claude-opus-4-8"}}
+    assert reviewer_model({**base, "lint": {"reviewer": "gpt"}}) == "azure/openai/gpt-5.5"
+    with pytest.raises(SystemExit):
+        reviewer_model({**base, "lint": {"reviewer": "claude"}})
+
+
+@needs_real
+def test_detects_syn_prefix_on_non_mrn_ids_and_wrong_rendering_provider(full):
+    cid = case_of(full, 1)
+    p = full / "cases" / cid / "docs" / "eob_835.txt"
+    p.write_text(p.read_text().replace("Trace number: ", "Trace number: SYN-EFT-").replace("(Radiology)", "(PCP)"))
+    e = " ".join(errors(full))
+    assert "SYN-" in e and "rendering provider" in e

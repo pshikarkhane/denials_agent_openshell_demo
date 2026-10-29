@@ -2,25 +2,25 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-23
+Date of notice: 2026-08-22
 To: Reilly Medical Group
-Member: Jack Ortiz   Patient ID: P-6252   Member ID: MBR873004545
+Member: Jack Ortiz   Patient ID: P-2899   Member ID: MBR873004545
 
-Claim number: 9894441
-Date of service: 2026-07-26
+Claim number: 6378677
+Date of service: 2026-07-27
 Service: 63030 - Lumbar laminotomy/discectomy
-Billed amount: 4258.48
+Billed amount: 5027.63
 
 DETERMINATION
 Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
-Remark code (RARC): N54
+Remark code (RARC): none
 No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-12-21.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-12-20.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-19.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-18.
 
 SYNTHETIC DATA - NOT REAL PHI

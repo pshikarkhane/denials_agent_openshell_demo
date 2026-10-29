@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Cooley Medical Group
+Claim number: 1604222
+Patient ID: P-1648
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-06-08
+Service: 93000 - ECG with interpretation
+
+SUBMISSION HISTORY
+  2026-06-19  Submitted to clearinghouse (submission 1 of 1)
+  2026-06-19  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-22  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-07-13  Adjudicated by payer: adverse determination (CARC CO-11)
+
+SYNTHETIC DATA - NOT REAL PHI

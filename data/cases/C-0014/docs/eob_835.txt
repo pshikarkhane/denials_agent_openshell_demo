@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Reid Medical Group
-Trace number: SYN-EFT-89090801
-Remittance date: 2026-08-20
+Trace number: 89090801
+Remittance date: 2026-08-21
 
 PATIENT
   Name: James Thomas
-  Patient ID: P-2725
+  Patient ID: P-8379
   MRN: SYN-631923
   Member ID: MBR174311698
-  Date of birth: 1977-10-03
-  SSN: 918-99-8923
+  Date of birth: 1977-10-04
+  SSN: XXX-XX-8923
 
 CLAIM
-  Claim number: 8707368
+  Claim number: 2767405
   Claim status: DENIED
   Date of service: 2026-07-15
-  Date claim received by payer: 2026-07-23
-  Diagnosis (ICD-10): M17.12
+  Date claim received by payer: 2026-07-26
+  Diagnosis (ICD-10): M23.221
   Place of service: 11
-  Rendering provider: Dr. Maria Prince (ID SYN-RP-7368)
-  Referring provider: Dr. Susan Smith
+  Rendering provider: Dr. Susan Smith (ID RP-7405)
+  Referring provider: Dr. Maria Prince
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     27447       4652.38    0.00       0.00       CO-197 4652.38 RARC N54
-        (Total knee arthroplasty)
+  1     29881       3881.89    0.00       0.00       CO-197 3881.89
+        (Knee arthroscopy with meniscectomy)
 
-TOTALS  Billed 4652.38  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 3881.89  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

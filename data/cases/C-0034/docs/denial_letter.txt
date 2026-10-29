@@ -2,14 +2,14 @@ MERIDIAN COMMUNITY HEALTH PLAN
 Payer ID: MERIDIAN_COMM
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-25
+Date of notice: 2026-08-24
 To: Brown Medical Group
-Member: Henry Garrison   Patient ID: P-9804   Member ID: MBR294597119
+Member: Henry Garrison   Patient ID: P-3443   Member ID: MBR294597119
 
 Claim number: 1946462
 Date of service: 2026-07-24
-Service: 85025 - Complete blood count with differential
-Billed amount: 338.96
+Service: 99213 - Established patient visit, low
+Billed amount: 175.10
 
 DETERMINATION
 Reason code (CARC): PR-1  Amount applied to the patient's deductible.
@@ -17,10 +17,10 @@ Remark code (RARC): none
 The billed amount was applied to the member's deductible. This amount is the member's responsibility.
 
 Appeal Rights
-You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-02-21.
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-02-20.
 Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
 
 Corrected Claims
-A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-08-25.
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-08-24.
 
 SYNTHETIC DATA - NOT REAL PHI

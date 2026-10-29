@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Warner Medical Group
-Trace number: SYN-EFT-78954627
-Remittance date: 2026-05-27
+Trace number: 78954627
+Remittance date: 2026-05-19
 
 PATIENT
   Name: Charlene May
-  Patient ID: P-8278
+  Patient ID: P-5768
   MRN: SYN-591038
   Member ID: MBR934142660
-  Date of birth: 1976-10-06
-  SSN: 982-15-2786
+  Date of birth: 1976-10-07
+  SSN: XXX-XX-2786
 
 CLAIM
-  Claim number: 6593149
+  Claim number: 8453247
   Claim status: DENIED
   Date of service: 2026-05-01
-  Date claim received by payer: 2026-05-04
+  Date claim received by payer: 2026-05-05
   Diagnosis (ICD-10): D64.9
   Place of service: 11
-  Rendering provider: Dr. Kenneth Barber (ID SYN-RP-3149)
-  Referring provider: Dr. Kaylee Lucas
+  Rendering provider: Dr. Kenneth Barber (ID RP-3247)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     63030       3866.17    0.00       0.00       CO-11 3866.17 RARC M76
-        (Lumbar laminotomy/discectomy)
+  1     93000       174.02     0.00       0.00       CO-11 174.02 RARC M76
+        (ECG with interpretation)
 
-TOTALS  Billed 3866.17  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 174.02  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -2,25 +2,25 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-03-11
+Date of notice: 2026-03-08
 To: Hogan Medical Group
-Member: Stacy Williams   Patient ID: P-7040   Member ID: MBR791828354
+Member: Stacy Williams   Patient ID: P-9344   Member ID: MBR791828354
 
-Claim number: 7707606
+Claim number: 7185291
 Date of service: 2026-02-06
-Service: 27447 - Total knee arthroplasty
-Billed amount: 3408.94
+Service: 29881 - Knee arthroscopy with meniscectomy
+Billed amount: 4505.77
 
 DETERMINATION
 Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
-Remark code (RARC): N54
+Remark code (RARC): none
 No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-07-09.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-07-06.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-09-07.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-09-04.
 
 SYNTHETIC DATA - NOT REAL PHI

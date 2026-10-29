@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-05-27
+Date of notice: 2026-05-19
 To: Warner Medical Group
-Member: Charlene May   Patient ID: P-8278   Member ID: MBR934142660
+Member: Charlene May   Patient ID: P-5768   Member ID: MBR934142660
 
-Claim number: 6593149
+Claim number: 8453247
 Date of service: 2026-05-01
-Service: 63030 - Lumbar laminotomy/discectomy
-Billed amount: 3866.17
+Service: 93000 - ECG with interpretation
+Billed amount: 174.02
 
 DETERMINATION
 Reason code (CARC): CO-11  The diagnosis is inconsistent with the procedure.
 Remark code (RARC): M76
-The diagnosis code(s) D64.9 are not consistent with procedure 63030 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+The diagnosis code(s) D64.9 are not consistent with procedure 93000 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-08-25.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-08-17.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-11-23.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-11-15.
 
 SYNTHETIC DATA - NOT REAL PHI

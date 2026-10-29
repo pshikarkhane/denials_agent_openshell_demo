@@ -5,70 +5,74 @@
   "payer_id": "MERIDIAN_COMM",
   "policy_id": "MP-IMG-007",
   "patient": {
-    "synthetic_id": "P-5266"
+    "synthetic_id": "P-7169"
   },
   "claim": {
-    "claim_no": "7780010",
+    "claim_no": "5368894",
     "cpt": "72148",
     "icd10": [
-      "M54.17",
-      "M51.17"
+      "M54.16"
     ],
     "dos": "2026-04-20",
-    "billed": 1538.18
+    "billed": 1582.37
   },
   "denial": {
     "carc": "CO-50",
     "rarc": "N115",
-    "denial_date": "2026-05-28"
+    "denial_date": "2026-05-30"
   },
-  "appeal_deadline": "2026-11-24",
+  "appeal_deadline": "2026-11-26",
+  "action_deadline": "2026-11-26",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§3.2(a)",
+      "section": "§2.1(a)",
       "text": ">=6 weeks conservative therapy",
-      "status": "unmet",
+      "status": "met",
+      "basis": "evidence",
       "evidence": [
-        "notes/2026-03-23_pcp.txt",
+        "notes/2026-02-09_pcp.txt",
         "supporting/pt_log.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§3.2(b)",
+      "section": "§2.1(b)",
       "text": "Neuro deficit or red flag documented",
-      "status": "met",
+      "status": "unmet",
+      "basis": "evidence",
       "evidence": [
-        "notes/2026-04-17_ortho.txt"
+        "notes/2026-04-10_ortho.txt"
       ]
     },
     {
       "id": "C3",
-      "section": "§3.2(c)",
+      "section": "§2.1(c)",
       "text": "No imaging of the same region within 12 months",
       "status": "met",
+      "basis": "documented_absence",
       "evidence": [
+        "notes/2026-04-10_ortho.txt",
         "supporting/prior_imaging.txt"
       ]
     }
   ],
   "correct_decision": "DO_NOT_APPEAL",
   "traps": [
-    "notes_disagree_therapy_duration"
+    "deadline_passed"
   ],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "7780010",
+      "value": "5368894",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-5266",
+      "value": "P-7169",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
@@ -83,8 +87,7 @@
     {
       "key": "icd10",
       "value": [
-        "M54.17",
-        "M51.17"
+        "M54.16"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -99,7 +102,7 @@
     },
     {
       "key": "billed",
-      "value": 1538.18,
+      "value": 1582.37,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -127,7 +130,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-05-28",
+      "value": "2026-05-30",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -135,8 +138,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-05-02",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-05-02",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-05-05",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -148,14 +165,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-11-24",
+      "value": "2026-11-26",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2026-11-26",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-07-07",
+      "value": "2026-12-12",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -168,13 +192,6 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2027-05-28",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "N115",
       "source_file": "denial_letter.txt",
@@ -182,25 +199,32 @@
       "evidence": null
     },
     {
+      "key": "corrected_claim_deadline",
+      "value": "2027-05-30",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "planned_document",
-      "value": "notes/2026-03-23_pcp.txt",
-      "source_file": "notes/2026-03-23_pcp.txt",
+      "value": "notes/2026-02-09_pcp.txt",
+      "source_file": "notes/2026-02-09_pcp.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "planned_document",
-      "value": "notes/2026-04-17_ortho.txt",
-      "source_file": "notes/2026-04-17_ortho.txt",
+      "value": "notes/2026-04-10_ortho.txt",
+      "source_file": "notes/2026-04-10_ortho.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "therapy_start_date",
-      "value": "2026-03-23",
-      "source_file": "notes/2026-03-23_pcp.txt",
-      "line": 20,
-      "evidence": "Conservative therapy (NSAIDs, home exercise program and physical therapy referral) was started on 2026-03-23."
+      "value": "2026-02-09",
+      "source_file": "notes/2026-02-09_pcp.txt",
+      "line": 4,
+      "evidence": "Date of encounter: 2026-02-09"
     },
     {
       "key": "planned_document",
@@ -211,17 +235,17 @@
     },
     {
       "key": "therapy_duration_days",
-      "value": 25,
+      "value": 60,
       "source_file": "supporting/pt_log.txt",
-      "line": 15,
-      "evidence": "Treatment period: 2026-03-23 to 2026-04-17 (25 days)"
+      "line": 25,
+      "evidence": "Treatment period: 2026-02-09 to 2026-04-10 (60 days)"
     },
     {
       "key": "ortho_exam_has_neuro_deficit",
-      "value": true,
-      "source_file": "notes/2026-04-17_ortho.txt",
+      "value": false,
+      "source_file": "notes/2026-04-10_ortho.txt",
       "line": 11,
-      "evidence": "Neurological exam: bilateral lower extremity paresthesias with positive straight leg raise on the left at 40 degrees."
+      "evidence": "Neurological exam: no focal motor or sensory deficit and no red-flag signs or symptoms."
     },
     {
       "key": "planned_document",
@@ -232,59 +256,45 @@
     },
     {
       "key": "last_lumbar_imaging_date",
-      "value": "2023-11-14",
-      "source_file": "supporting/prior_imaging.txt",
-      "line": 3,
-      "evidence": "Study date: 2023-11-14"
-    },
-    {
-      "key": "planned_document",
-      "value": "notes/2026-04-13_pcp_followup.txt",
-      "source_file": "notes/2026-04-13_pcp_followup.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "conflicting_therapy_duration_days",
-      "value": 7,
-      "source_file": "notes/2026-04-13_pcp_followup.txt",
-      "line": 11,
-      "evidence": "Patient reports about 7 days of physical therapy so far."
-    },
-    {
-      "key": "authoritative_duration_source",
-      "value": "supporting/pt_log.txt",
-      "source_file": "supporting/pt_log.txt",
-      "line": null,
-      "evidence": null
+      "value": "2024-04-07",
+      "source_file": "notes/2026-04-10_ortho.txt",
+      "line": 9,
+      "evidence": "Imaging history: Lumbar radiographs 2024-04-07; no other lumbar imaging since."
     },
     {
       "key": "criterion_C1_quote",
-      "value": "Conservative therapy (NSAIDs, home exercise program and physical therapy referral) was started on 2026-03-23.",
-      "source_file": "notes/2026-03-23_pcp.txt",
+      "value": "Started NSAIDs, a home exercise program and a physical therapy referral at this visit.",
+      "source_file": "notes/2026-02-09_pcp.txt",
       "line": 20,
-      "evidence": "Conservative therapy (NSAIDs, home exercise program and physical therapy referral) was started on 2026-03-23."
+      "evidence": "Started NSAIDs, a home exercise program and a physical therapy referral at this visit."
     },
     {
       "key": "criterion_C2_quote",
-      "value": "Neurological exam: bilateral lower extremity paresthesias with positive straight leg raise on the left at 40 degrees.",
-      "source_file": "notes/2026-04-17_ortho.txt",
+      "value": "Neurological exam: no focal motor or sensory deficit and no red-flag signs or symptoms.",
+      "source_file": "notes/2026-04-10_ortho.txt",
       "line": 11,
-      "evidence": "Neurological exam: bilateral lower extremity paresthesias with positive straight leg raise on the left at 40 degrees."
-    },
-    {
-      "key": "criterion_C1_quote",
-      "value": "Treatment period: 2026-03-23 to 2026-04-17 (25 days)",
-      "source_file": "supporting/pt_log.txt",
-      "line": 15,
-      "evidence": "Treatment period: 2026-03-23 to 2026-04-17 (25 days)"
+      "evidence": "Neurological exam: no focal motor or sensory deficit and no red-flag signs or symptoms."
     },
     {
       "key": "criterion_C3_quote",
-      "value": "Study date: 2023-11-14",
+      "value": "Imaging history: Lumbar radiographs 2024-04-07; no other lumbar imaging since.",
+      "source_file": "notes/2026-04-10_ortho.txt",
+      "line": 9,
+      "evidence": "Imaging history: Lumbar radiographs 2024-04-07; no other lumbar imaging since."
+    },
+    {
+      "key": "criterion_C1_quote",
+      "value": "Treatment period: 2026-02-09 to 2026-04-10 (60 days)",
+      "source_file": "supporting/pt_log.txt",
+      "line": 25,
+      "evidence": "Treatment period: 2026-02-09 to 2026-04-10 (60 days)"
+    },
+    {
+      "key": "criterion_C3_quote",
+      "value": "Study date: 2024-04-07",
       "source_file": "supporting/prior_imaging.txt",
       "line": 3,
-      "evidence": "Study date: 2023-11-14"
+      "evidence": "Study date: 2024-04-07"
     }
   ]
 }

@@ -6,19 +6,25 @@ Effective date: 2026-04-10
 Version history: Version 3.0, effective 2026-04-10. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy establishes the principles under which Meridian Community Health Plan evaluates whether multiple services submitted on the same claim should be combined into a single payable unit or recognized as separately reimbursable. It applies to professional and facility claims where bundling edits and distinct procedural service considerations may affect the determination of covered charges.
+This policy explains how Meridian Community Health Plan evaluates claims that may be subject to bundling edits and when a distinct procedural service may be separately recognized. It applies to providers submitting claims for services that could otherwise be combined under standard bundling conventions.
 
-Section 3.1
-When two or more services that would ordinarily be bundled are performed during separate sessions or at distinct anatomical sites, the submitting provider must clearly document the independent nature of each service in the medical record. The documentation must identify the separate encounter, timing, or location that supports treating the services as distinct rather than components of a single procedure. Services lacking such supporting documentation will be evaluated as a bundled unit.
+Section 2.1
+A service may be considered for separate reimbursement when the documentation shows that it was performed as a distinct session or at a separate site. The submitted records must clearly establish the separate nature of the service rather than its being an integral part of another reported procedure. Meridian Community Health Plan reviews this documentation to confirm that the service qualifies as distinct.
 
-Section 3.3
-Where a bundling edit results in a denied line, the provider may support separate reimbursement by appending a distinct-procedural-service modifier to that denied line. The modifier must be substantiated by the medical record and accurately reflect that the service was separate and independent from the primary procedure. Appending the modifier without supporting documentation does not override the applicable bundling edit.
+Section 2.2
+A distinct-procedural-service modifier must be appended to the line that was denied under the bundling edit. The modifier indicates that the provider is asserting the service is distinct and warrants separate consideration. Without the modifier appended to the denied line, the service will not be evaluated as a distinct procedural service.
+
+Section 3  Code pairs subject to this edit
+CPT 97140 (Manual therapy) is bundled into CPT 97110 (Therapeutic exercise) when both are billed for the same session; CPT 97140 (Manual therapy) is bundled into CPT 97530 (Therapeutic activities) when both are billed for the same session. A distinct-procedural-service modifier on the denied line is required to request separate payment.
+
+Section 4  Corrections and resubmission
+An appeal does not cure missing or invalid claim data. When a claim is denied for missing or invalid required information, the provider should submit a corrected claim. The corrected-claim deadline is stated in Section 7.3.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 180 days from the date of the claim determination notice.
 7.2 Timely filing limit: 180 days from the date of service.
 7.3 Corrected claims: must be received within 365 days of the date of the notice.
 7.4 Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
-7.5 Distinct procedural service modifier: 59 (or XS) on the secondary line.
+7.5 Distinct procedural service modifier: 59 (or XS) on the denied line.
 
 SYNTHETIC DATA - NOT REAL PHI

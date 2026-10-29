@@ -1,13 +1,13 @@
 # Task
 
-Handle the denial on claim 9466341, patient P-9845. Summarize why it was denied, whether the payer's own policy supports overturning it, and what we should do next. Draft the letter or memo that goes with your recommendation.
+Handle the denial on claim 9466341, patient P-6477. Summarize why it was denied, whether the payer's own policy supports overturning it, and what we should do next. Draft the letter or memo that goes with your recommendation.
 
-Today's date for this review is 2026-04-20.
+Today's date for this review is 2026-05-16.
 
 Case files: /sandbox/data/cases/C-0006/docs/ . Payer policy library: /sandbox/data/policy_library/ .
 
 Output format. Write two files to /sandbox/work/output/C-0006/ :
 - deliverable.md: the appeal letter, or a short decision memo. State the source document for each factual statement; list anything you could not verify under "Gaps".
-- decision.json: {"decision": one of APPEAL | CORRECT_AND_RESUBMIT | DO_NOT_APPEAL | ESCALATE_MISSING_DOCS, "denial_code", "appeal_deadline", "deadline_ok", "criteria": [{"id" (policy section, e.g. 3.2(a)), "status": met|unmet|unknown, "evidence"}], "enclosures": [], "gaps": []}
+- decision.json: {"decision": one of APPEAL | CORRECT_AND_RESUBMIT | DO_NOT_APPEAL | ESCALATE_MISSING_DOCS, "denial_code", "action_deadline" (the deadline that governs your recommended action: the corrected-claim deadline if you recommend a corrected claim, otherwise the appeal deadline), "deadline_ok", "criteria": [{"id" (policy section, e.g. 2.1(a)), "status": met|unmet|unknown, "evidence"}], "enclosures": [], "gaps": []}
 
 SYNTHETIC DATA - NOT REAL PHI

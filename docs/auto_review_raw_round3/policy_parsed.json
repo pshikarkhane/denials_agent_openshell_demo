@@ -1,0 +1,85 @@
+{
+  "gemini": {
+    "findings": [
+      {
+        "area": "ordering",
+        "severity": "minor",
+        "policy": "MP-APL-001",
+        "quote": "Section 7  Key parameters and general provisions",
+        "problem": "There is a systemic section numbering gap across the entire policy library; for example, this policy skips from Section 2.2 directly to Section 7 without intermediate sections.",
+        "suggested_fix": "Renumber Section 7 sequentially (e.g., to Section 3, 4, or 5 depending on the policy's structure) across all files to eliminate numbering gaps."
+      },
+      {
+        "area": "ordering",
+        "severity": "major",
+        "policy": "MP-PA-030",
+        "quote": "12.10 Retroactive authorization window: 7 days from the date of service.",
+        "problem": "This subsection is located inside Section 7 but is misnumbered as 12.10, breaking the sequential numbering logic.",
+        "suggested_fix": "Change '12.10' to '7.5' to align with the sequence of Section 7."
+      }
+    ],
+    "clean_areas": [
+      "contradiction",
+      "windows",
+      "version",
+      "corrected_claim_gap",
+      "distractor",
+      "realism"
+    ],
+    "overall": "The policy library is extremely well-constructed, with perfect adherence to the intended parameters, highly distinct and effective distractors, and excellent explicit directives for CORRECT_AND_RESUBMIT scenarios; it only requires minor corrections to section numbering gaps."
+  },
+  "gpt": {
+    "findings": [
+      {
+        "area": "ordering",
+        "severity": "major",
+        "policy": "MP-PA-030",
+        "quote": "12.10 Retroactive authorization window: 7 days from the date of service.",
+        "problem": "The subsection is out of numeric order and outside the Section 7 numbering sequence, appearing after 7.4. This is especially confusing because the analogous primary policy MP-PA-003 uses 7.5 for the retroactive authorization window.",
+        "suggested_fix": "Renumber this line to 7.5, or move it to an actual Section 12 if Section 12 exists."
+      },
+      {
+        "area": "ordering",
+        "severity": "minor",
+        "policy": "MULTIPLE",
+        "quote": "Section 7  Key parameters and general provisions",
+        "problem": "Most policies jump from Section 2.x, or from Section 4 in MP-BND-002, directly to Section 7, with no Sections 3-6 present. This is not a parameter contradiction, but it is a numbering gap that may look like omitted text.",
+        "suggested_fix": "Either renumber the key-parameters section to the next sequential section or add an explicit note such as 'Sections 3-6 reserved.'"
+      },
+      {
+        "area": "corrected_claim_gap",
+        "severity": "major",
+        "policy": "MP-CLM-004",
+        "quote": "An appeal does not cure missing or invalid claim data. When a claim is denied for missing or invalid required information, the provider should submit a corrected claim. The corrected-claim deadline is stated in Section 7.3.",
+        "problem": "The corrected-claim instruction covers missing or invalid required information, but MP-CLM-004 also covers duplicate claims and diagnosis/procedure edit failures. The text does not explicitly say that duplicate-claim errors or diagnosis-edit failures should be corrected and resubmitted rather than appealed, even though this policy backs CORRECT_AND_RESUBMIT cases.",
+        "suggested_fix": "Add language stating that denials caused by duplicate submission errors, incorrect claim data, invalid diagnosis/procedure combinations, missing modifiers, or other claim-edit failures should be addressed through a corrected claim when the provider is changing claim data, and that the Section 7.3 corrected-claim deadline applies."
+      },
+      {
+        "area": "corrected_claim_gap",
+        "severity": "major",
+        "policy": "MP-BND-002",
+        "quote": "A distinct-procedural-service modifier must be appended to the line that was denied under the bundling edit.",
+        "problem": "The policy implies that an omitted distinct-procedural-service modifier is a claim-data problem, and Section 4 gives a general corrected-claim rule, but it does not explicitly state that a bundling denial caused by a missing modifier should be fixed by submitting a corrected claim with modifier 59 or XS on the denied line rather than by filing an appeal.",
+        "suggested_fix": "Add a sentence in Section 4 such as: 'When the denied bundled line lacked the required distinct-procedural-service modifier, the provider must submit a corrected claim adding modifier 59 or XS to the denied line; the corrected-claim deadline in Section 7.3 applies.'"
+      },
+      {
+        "area": "realism",
+        "severity": "major",
+        "policy": "ALL",
+        "quote": "SYNTHETIC DATA - NOT REAL PHI",
+        "problem": "This footer directly signals that the documents are synthetic test artifacts, which is unrealistic for payer policy language and may cue an agent that it is in a test setting.",
+        "suggested_fix": "Remove the footer from policy text presented to agents, or place synthetic-data labeling only in metadata outside the retrievable policy content."
+      }
+    ],
+    "clean_areas": [
+      "No mismatches found against the intended payer parameters for Meridian Community Health Plan, Halcyon Health Plan, or Terravista Health appeal deadlines, timely filing limits, or corrected-claim windows.",
+      "The intended primary policy IDs, payers, and effective dates match the policy text.",
+      "MP-PA-003 correctly states the 14-day retroactive authorization window.",
+      "MP-PT-011 correctly states the 20-visit therapy limit and that visits 21 through 30 may be considered with documented functional improvement and a recertified plan of care.",
+      "MP-BND-002 contains the intended bundling code pairs: CPT 97140 into CPT 97110 and CPT 97140 into CPT 97530.",
+      "The current primary policies' version-history carry-forward wording is generally usable for dates of service before the stated Version 3.0 effective date because it says the requirements carry forward unchanged from Version 2.0 and apply to dates of service on or after 2025-01-01.",
+      "The distractors are plausibly similar but distinguishable: MP-IMG-012 is CT rather than MRI, MP-PA-030 is Meridian rather than Halcyon and has a different retro-authorization window, and MP-TF-010 is clearly marked superseded with an applicability end date."
+    ],
+    "overall": "The core payer parameters are correct, but corrected-claim guidance for CORRECT_AND_RESUBMIT scenarios should be made more explicit, MP-PA-030 has a clear numbering error, and the synthetic-data footer should be removed from agent-facing policy text."
+  }
+}

@@ -1,36 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Perkins Medical Group
-Trace number: SYN-EFT-69185312
-Remittance date: 2026-06-03
+Trace number: 69185312
+Remittance date: 2026-06-01
 
 PATIENT
   Name: Bonnie King
-  Patient ID: P-6496
+  Patient ID: P-5165
   MRN: SYN-715101
   Member ID: MBR540447037
-  Date of birth: 1981-04-07
-  SSN: 932-52-9600
+  Date of birth: 1981-04-08
+  SSN: XXX-XX-9600
 
 CLAIM
-  Claim number: 6722592
-  Claim status: PARTIALLY DENIED
+  Claim number: 6628567
+  Claim status: DENIED
   Date of service: 2026-04-28
-  Date claim received by payer: 2026-05-12
-  Diagnosis (ICD-10): M54.50
-  Place of service: 11
-  Rendering provider: Dr. Norma Estes (ID SYN-RP-2592)
-  Referring provider: Dr. Joshua Torres
+  Date claim received by payer: 2026-05-13
+  Diagnosis (ICD-10): J06.9
+  Place of service: (not provided)
+  Rendering provider: Dr. Norma Estes (ID RP-8567)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99213       165.55     0.00       0.00       CO-4 165.55 RARC M51
+  1     99213       228.86     0.00       0.00       CO-16 228.86
         (Established patient visit, low)
-  2     20610       298.97     185.36     185.36
-        (Major joint injection/aspiration)
 
-TOTALS  Billed 464.52  Allowed 185.36  Paid 185.36  Patient responsibility 0.00
+TOTALS  Billed 228.86  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

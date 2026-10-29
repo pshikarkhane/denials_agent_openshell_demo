@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Price Medical Group
+Claim number: 4458484
+Patient ID: P-6225
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-07-14
+Service: 93000 - ECG with interpretation
+
+SUBMISSION HISTORY
+  2026-09-04  Submitted to clearinghouse (submission 1 of 1)
+  2026-09-04  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-11-16  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-12-06  Adjudicated by payer: adverse determination (CARC CO-29)
+
+SYNTHETIC DATA - NOT REAL PHI

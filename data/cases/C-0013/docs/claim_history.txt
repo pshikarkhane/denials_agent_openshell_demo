@@ -1,0 +1,20 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Hogan Medical Group
+Claim number: 7185291
+Patient ID: P-9344
+Payer ID: HALCYON_PLAN
+Date of service: 2026-02-06
+Service: 29881 - Knee arthroscopy with meniscectomy
+
+SUBMISSION HISTORY
+  2026-02-09  Submitted to clearinghouse (submission 1 of 1)
+  2026-02-09  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-02-11  Received by payer
+  Earlier submissions: none recorded
+  Retroactive authorization request: received 2026-02-07
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-03-08  Adjudicated by payer: adverse determination (CARC CO-197)
+
+SYNTHETIC DATA - NOT REAL PHI

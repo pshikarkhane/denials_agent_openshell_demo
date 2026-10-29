@@ -1,0 +1,203 @@
+{
+  "C-0005__gemini": {
+    "findings": [
+      {
+        "area": "consistency",
+        "severity": "major",
+        "file": "docs/notes/2026-04-11_pcp_followup.txt",
+        "quote": "Patient reports about 59 days of physical therapy so far.",
+        "problem": "The encounter date is April 11, 2026, and the initial visit starting therapy was March 23, 2026. Only 19 days elapsed between these dates, making the '59 days' statement chronologically impossible and highly unrealistic.",
+        "suggested_fix": "Change the date of the PCP follow-up note to late May (e.g., 2026-05-21) so the 59-day figure mathematically aligns with the elapsed time from March 23. This preserves the intended 'notes_disagree_therapy_duration' trap (59 days vs the PT log's 73 days) without breaking timeline logic."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "solvability"
+    ],
+    "overall": "The case is structurally sound and the correct policy/decision is uniquely identifiable, but a severe chronological error in the mid-treatment note needs correction to ensure realistic cross-file consistency."
+  },
+  "C-0005__gpt": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "major",
+        "file": "docs/notes/2026-04-11_pcp_followup.txt",
+        "quote": "Patient reports about 59 days of physical therapy so far.",
+        "problem": "This is chronologically implausible because the same note says symptoms were first discussed at the prior visit on 2026-03-23, only 19 days earlier, and the PT log lists start of care as 2026-03-23. A billing/RCM reviewer would likely view this as an obvious documentation error rather than a subtle conflict.",
+        "suggested_fix": "Revise the follow-up note to a plausible conflicting statement, such as an approximate shorter duration near the MRI order date, or change this to 'about 2 weeks of physical therapy so far' for the 2026-04-11 note."
+      },
+      {
+        "area": "evidence",
+        "severity": "minor",
+        "file": "docs/notes/2026-04-11_pcp_followup.txt",
+        "quote": "Patient reports about 59 days of physical therapy so far.",
+        "problem": "The intended therapy-duration trap is visible, but it is not a strong trap because 59 days still supports the >=6 weeks criterion rather than undermining it. The real support remains in the PT log, but this conflicting note could lead an agent to cite a clearly erroneous statement as additional support.",
+        "suggested_fix": "If the trap is meant to test reconciliation against the PT log, make the conflicting note plausible and directionally conflicting, for example 'about 5 weeks of physical therapy so far' in a later pre-MRI note, while keeping the PT log as the authoritative source showing more than 6 weeks."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is solvable and the intended APPEAL decision is defensible, but the therapy-duration distractor is unrealistically obvious and not very effective because it still supports the same criterion."
+  },
+  "C-0007__gemini": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/notes/2026-04-10_ortho.txt",
+        "quote": "Neurological exam: no focal motor or sensory deficit; no red-flag symptoms documented.",
+        "problem": "The use of the word 'documented' by a clinician describing their own live physical exam findings sounds unnatural and closely mirrors the auditor-like language of the policy ('red flag finding must be documented'). A physician would typically just state the absence of the clinical findings.",
+        "suggested_fix": "Change the text to 'Neurological exam: no focal motor or sensory deficit; no red flag signs or symptoms present.'"
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "This is a high-quality, perfectly solvable case with consistent dates and clear evidence, needing only a slight tweak to make the clinical note sound more natural."
+  },
+  "C-0007__gpt": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is internally consistent, realistic enough for an RCM denial-appeal task, contains no apparent answer leaks, and supports the intended DO_NOT_APPEAL decision from the visible documents."
+  },
+  "C-0030__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The test case is exceptionally clean, internally consistent, and accurately maps to the answer key without any leaks, logical flaws, or unrealistic clinical details."
+  },
+  "C-0030__gpt": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/eob_835.txt",
+        "quote": "SSN: XXX-XX-9308",
+        "problem": "A billing/RCM professional may find an SSN field in a simplified 835/remittance extract unusual and unnecessary; actual ERA outputs generally rely on member/patient identifiers and do not commonly display even masked SSNs in this way.",
+        "suggested_fix": "Remove the SSN line from the remittance extract, or replace it with a more typical payer/member identifier field already present elsewhere."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is solvable and internally consistent with no answer leaks; only a minor realism issue appears in the remittance formatting."
+  },
+  "C-0039__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The test case is exceptionally clean, with solid clinical documentation, accurate deadline math, clear evidence matching, and no leaks or cross-file inconsistencies."
+  },
+  "C-0039__gpt": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "major",
+        "file": "docs/denial_letter.txt",
+        "quote": "Remark code (RARC): none",
+        "problem": "CARC CO-16 usually requires a companion remark code identifying the missing or invalid information. A denial/EOB showing CO-16 with no RARC would look odd to many billing/RCM professionals, especially when the missing item is specifically the rendering provider identifier.",
+        "suggested_fix": "Add a plausible RARC, such as a rendering-provider primary identifier missing/incomplete/invalid remark, and mirror it consistently in the denial letter, EOB/835, and answer key."
+      },
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/notes/2026-05-16_pcp.txt",
+        "quote": "Routine follow-up as scheduled on 2026-05-16.",
+        "problem": "The plan schedules routine follow-up on the same date as the encounter, which reads like a copy-forward or date-generation error. It is not material to the denial decision but makes the clinical note slightly less realistic.",
+        "suggested_fix": "Change to a future follow-up date or to a nonspecific instruction such as 'Routine follow-up as scheduled' or 'Follow up as needed.'"
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is solvable and internally consistent with no answer leak, but the CO-16-without-RARC presentation is the main realism issue to correct."
+  },
+  "C-0056__gemini": {
+    "findings": [
+      {
+        "area": "consistency",
+        "severity": "minor",
+        "file": "docs/supporting/pt_progress_note.txt",
+        "quote": "Date of encounter: 2026-05-14",
+        "problem": "The progress note lists an encounter date of 2026-05-14, but the PT log (`pt_log.txt`) shows visits on 05-13 and 05-17 with no visit on 05-14. While notes can be written after the fact, the 'Date of encounter' typically matches a specific billed visit date from the log.",
+        "suggested_fix": "Change the date of encounter on the progress note to 2026-05-13 to align exactly with Visit 19 in the log."
+      },
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/supporting/pt_log.txt",
+        "quote": "Visit 4 | 2026-03-15",
+        "problem": "The therapy log shows visits occurring on a strict 4-day rotating interval that consistently includes weekends (e.g., Sundays 03-15, 04-12, 04-19, 05-17). Outpatient PT is typically scheduled on consistent weekdays (e.g., Tuesdays and Thursdays) rather than rotating through Sundays.",
+        "suggested_fix": "Adjust the visit dates in the log to follow a more realistic twice-a-week weekday schedule."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "solvability"
+    ],
+    "overall": "The case is highly realistic and logically sound, with just two minor polish issues regarding the exact dates on the therapy log and progress note."
+  },
+  "C-0056__gpt": {
+    "findings": [
+      {
+        "area": "evidence",
+        "severity": "major",
+        "file": "docs/supporting/pt_log.txt",
+        "quote": "Visits completed to date: 21",
+        "problem": "The policy criterion is that the denied visit falls within visits 21 through 30 of the calendar year, but this log only establishes 21 visits in this episode/at this practice starting 2026-03-03. It does not explicitly rule out other outpatient therapy visits earlier in the 2026 calendar year or elsewhere, so C3 is not fully supported as written.",
+        "suggested_fix": "Revise the log to state that these are the patient's calendar-year outpatient therapy benefit visits for 2026, or add payer/benefit history confirming no other 2026 PT/OT/ST visits before 2026-03-03 and that 2026-05-21 was calendar-year visit 21."
+      },
+      {
+        "area": "solvability",
+        "severity": "major",
+        "file": "policy_library/MP-PT-011.txt",
+        "quote": "This provision applies when the denied visit falls within visits 21 through 30 of the calendar year.",
+        "problem": "Because the agent-visible evidence does not conclusively establish the calendar-year visit number, the intended APPEAL decision depends on an inference rather than documents alone. A careful agent could defensibly mark this criterion unknown and choose ESCALATE_MISSING_DOCS.",
+        "suggested_fix": "Add explicit calendar-year visit-count evidence to the record so the APPEAL decision is fully supported without assumptions."
+      },
+      {
+        "area": "consistency",
+        "severity": "minor",
+        "file": "docs/supporting/pt_progress_note.txt",
+        "quote": "Core and hip strength now graded 4/5, up from 3/5.",
+        "problem": "This conflicts with the initial evaluation, which says: \"Strength 4/5 in hip extensors and core musculature.\" The inconsistency does not undermine the main functional-improvement evidence, but it is a clinical-record mismatch.",
+        "suggested_fix": "Either change the initial evaluation baseline strength to 3/5 or change the progress note so it does not claim strength improved from 3/5."
+      }
+    ],
+    "clean_areas": [
+      "realism",
+      "leak"
+    ],
+    "overall": "The case is mostly coherent and the correct policy is easy to identify, but the calendar-year visit-count evidence needs to be made explicit to fully support the intended appeal outcome."
+  }
+}

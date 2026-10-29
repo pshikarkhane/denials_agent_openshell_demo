@@ -16,7 +16,7 @@ PAYERS = {
 }
 RETRO_AUTH_WINDOW_DAYS = 14   # HALCYON_PLAN, MP-PA-003
 PT_VISIT_LIMIT = 20           # HALCYON_PLAN, MP-PT-011
-PT_VISIT_CAP_WITH_EXCEPTION = 30
+PT_VISIT_CAP = 30             # visits 21..30 may be considered with documented improvement + recertification
 
 # 8 primary policy documents (spec 3.4) plus 3 near-duplicate distractors.
 POLICIES = {
@@ -55,12 +55,11 @@ DEV_PER_CATEGORY = 1
 CPT = {
     "72148": "MRI lumbar spine without contrast", "27447": "Total knee arthroplasty",
     "29881": "Knee arthroscopy with meniscectomy", "63030": "Lumbar laminotomy/discectomy",
-    "99213": "Established patient visit, low", "99214": "Established patient visit, moderate",
+    "99213": "Established patient visit, low",
     "73721": "MRI lower-extremity joint without contrast", "93000": "ECG with interpretation",
     "85025": "Complete blood count with differential", "97110": "Therapeutic exercise",
     "97112": "Neuromuscular re-education", "97140": "Manual therapy", "97530": "Therapeutic activities",
-    "20610": "Major joint injection/aspiration", "76942": "Ultrasound guidance for needle placement",
-    "36415": "Venipuncture",
+    "20610": "Major joint injection/aspiration", "36415": "Venipuncture",
 }
 ICD10 = {
     "M54.16": "Radiculopathy, lumbar", "M54.17": "Radiculopathy, lumbosacral", "M51.16": "Disc disorder w/ radiculopathy, lumbar",
@@ -70,7 +69,7 @@ ICD10 = {
     "E11.9": "Type 2 diabetes without complications", "I10": "Essential hypertension", "J06.9": "Acute upper respiratory infection",
     "J02.9": "Acute pharyngitis", "E78.5": "Hyperlipidemia", "M25.561": "Pain in right knee", "M25.562": "Pain in left knee",
     "M25.511": "Pain in right shoulder", "M54.50": "Low back pain, unspecified", "M62.81": "Muscle weakness",
-    "R07.9": "Chest pain, unspecified", "D64.9": "Anemia, unspecified",
+    "R07.9": "Chest pain, unspecified", "D64.9": "Anemia, unspecified", "R53.83": "Other fatigue",
 }
 _PT_DX = ["M54.16", "M54.50", "M25.511", "M25.561", "M25.562", "M62.81", "M51.16"]
 VALID_PAIRS = {
@@ -78,12 +77,10 @@ VALID_PAIRS = {
     "27447": ["M17.11", "M17.12"], "29881": ["M23.221", "M23.222"],
     "63030": ["M51.16", "M51.17", "M51.26"],
     "99213": ["E11.9", "I10", "J06.9", "J02.9", "E78.5", "M54.50"],
-    "99214": ["E11.9", "I10", "J06.9", "J02.9", "E78.5", "M54.50"],
     "73721": ["M25.561", "M25.562", "M23.221", "M23.222"],
-    "93000": ["R07.9", "I10"], "85025": ["D64.9", "E11.9", "I10"],
+    "93000": ["R07.9", "I10"], "85025": ["D64.9", "R53.83"],
     "97110": _PT_DX, "97112": _PT_DX, "97530": _PT_DX, "97140": _PT_DX,
     "20610": ["M17.11", "M17.12", "M25.561", "M25.562", "M25.511"],
-    "76942": ["M17.11", "M17.12", "M25.561", "M25.562"],
     "36415": ["E11.9", "D64.9", "I10", "E78.5"],
 }
 
@@ -132,3 +129,11 @@ CARC_TEXT = {
     "CO-11": "The diagnosis is inconsistent with the procedure.",
     "CO-151": "Payment adjusted because the information submitted does not support this many services or this frequency.",
 }
+
+# Bundling pairs (column-1 code, denied column-2 code). Replaces 20610/76942 (CPT directs US-guided injections to 20611).
+# Candidates considered (all use codes already in the table; ALL need coder confirmation):
+#   1. 97530 + 97140  therapeutic activities + manual therapy, same session: the pair most often cited in NCCI discussions for
+#                     therapy, distinct-service modifier 59/XS plausible when the work is separate.   <- chosen
+#   2. 97112 + 97140  neuromuscular re-education + manual therapy: plausible, but I am less sure an edit exists.
+#   3. 97110 + 97530  therapeutic exercise + therapeutic activities: plausible, lowest confidence an edit exists.
+BUNDLE_PAIRS = [("97110", "97140"), ("97530", "97140")]

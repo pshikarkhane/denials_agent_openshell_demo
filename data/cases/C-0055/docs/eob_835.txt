@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Meyer Medical Group
-Trace number: SYN-EFT-14446241
-Remittance date: 2026-07-05
+Trace number: 14446241
+Remittance date: 2026-07-10
 
 PATIENT
   Name: John Salas
-  Patient ID: P-7709
+  Patient ID: P-7211
   MRN: SYN-734692
   Member ID: MBR641084572
-  Date of birth: 1954-06-18
-  SSN: 926-94-4288
+  Date of birth: 1954-06-19
+  SSN: XXX-XX-4288
 
 CLAIM
-  Claim number: 2452125
+  Claim number: 7870925
   Claim status: DENIED
   Date of service: 2026-06-04
-  Date claim received by payer: 2026-06-09
+  Date claim received by payer: 2026-06-12
   Diagnosis (ICD-10): D64.9
   Place of service: 11
-  Rendering provider: Dr. Peter Graham (ID SYN-RP-2125)
+  Rendering provider: Dr. Michael Wright (Radiology) (ID RP-0925)
   Referring provider: Dr. Phillip White
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     63030       3768.95    0.00       0.00       CO-11 3768.95 RARC M76
-        (Lumbar laminotomy/discectomy)
+  1     72148       1764.63    0.00       0.00       CO-11 1764.63 RARC M76
+        (MRI lumbar spine without contrast)
 
-TOTALS  Billed 3768.95  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1764.63  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

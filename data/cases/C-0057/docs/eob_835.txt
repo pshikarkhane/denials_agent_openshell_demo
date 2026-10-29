@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Fox Medical Group
-Trace number: SYN-EFT-70312218
-Remittance date: 2026-06-21
+Trace number: 70312218
+Remittance date: 2026-07-06
 
 PATIENT
   Name: John Jones
-  Patient ID: P-4798
+  Patient ID: P-2891
   MRN: SYN-952511
   Member ID: MBR849484603
-  Date of birth: 1975-05-10
-  SSN: 900-92-6300
+  Date of birth: 1975-05-11
+  SSN: XXX-XX-6300
 
 CLAIM
-  Claim number: 3044287
+  Claim number: 4890221
   Claim status: DENIED
-  Date of service: 2026-05-30
-  Date claim received by payer: 2026-06-04
-  Diagnosis (ICD-10): M54.16
+  Date of service: 2026-06-01
+  Date claim received by payer: 2026-06-08
+  Diagnosis (ICD-10): M25.511
   Place of service: 11
-  Rendering provider: Dr. Lawrence Jensen (ID SYN-RP-4287)
+  Rendering provider: Marcus Schultz, PT (ID RP-0221)
   Referring provider: Dr. Tammy Williams
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97112       146.93     0.00       0.00       CO-151 146.93 RARC N640
-        (Neuromuscular re-education)
+  1     97110       97.55      0.00       0.00       CO-151 97.55 RARC N640
+        (Therapeutic exercise)
 
-TOTALS  Billed 146.93  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 97.55  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,0 +1,822 @@
+{
+  "gemini": {
+    "lines": [
+      {
+        "id": "A1",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for knee arthroplasty with corresponding laterality for knee osteoarthritis."
+      },
+      {
+        "id": "A2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for knee arthroplasty with corresponding laterality for knee osteoarthritis."
+      },
+      {
+        "id": "A3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing mapping arthroscopy with meniscectomy to a meniscus tear."
+      },
+      {
+        "id": "A4",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible procedural mapping for lumbar discectomy targeting lumbar disc disorder."
+      },
+      {
+        "id": "A5",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible procedural mapping for lumbar discectomy targeting lumbosacral disc disorder."
+      },
+      {
+        "id": "A6",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lumbar MRI targeting lumbar disc issues."
+      },
+      {
+        "id": "A7",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lumbar MRI targeting lumbosacral disc issues."
+      },
+      {
+        "id": "A8",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lumbar MRI evaluating disc displacement."
+      },
+      {
+        "id": "A9",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lumbar MRI evaluating radiculopathy."
+      },
+      {
+        "id": "A10",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lumbar MRI evaluating lumbosacral radiculopathy."
+      },
+      {
+        "id": "A11",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lower extremity MRI evaluating meniscus tear."
+      },
+      {
+        "id": "A12",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lower extremity MRI evaluating meniscus tear."
+      },
+      {
+        "id": "A13",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lower extremity MRI evaluating knee pain."
+      },
+      {
+        "id": "A14",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for lower extremity MRI evaluating knee pain."
+      },
+      {
+        "id": "A15",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Plausible indication for ultrasound guidance when paired with an unlisted primary injection code."
+      },
+      {
+        "id": "A16",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Plausible indication for ultrasound guidance when paired with an unlisted primary injection code."
+      },
+      {
+        "id": "A17",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "CBC is not typically indicated for routine evaluation or management of uncomplicated essential hypertension."
+      },
+      {
+        "id": "A18",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as an ECG can be used to evaluate target organ damage (like LVH) in hypertensive patients."
+      },
+      {
+        "id": "A19",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as therapeutic exercise targets musculoskeletal shoulder pain."
+      },
+      {
+        "id": "A20",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as therapeutic exercise targets musculoskeletal knee pain."
+      },
+      {
+        "id": "A21",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as therapeutic exercise targets musculoskeletal knee pain."
+      },
+      {
+        "id": "A22",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as therapeutic exercise is a standard intervention for lumbar radiculopathy."
+      },
+      {
+        "id": "A23",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as therapeutic exercise targets muscle weakness."
+      },
+      {
+        "id": "A24",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as neuromuscular re-education is applicable to joint pain."
+      },
+      {
+        "id": "A25",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as neuromuscular re-education is applicable to radiculopathy."
+      },
+      {
+        "id": "A26",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for manual therapy addressing disc issues."
+      },
+      {
+        "id": "A27",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing for manual therapy addressing radiculopathy."
+      },
+      {
+        "id": "A28",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible E/M level (low complexity) for treating a single stable chronic condition like hyperlipidemia."
+      },
+      {
+        "id": "A29",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible E/M level (low complexity) for treating an acute uncomplicated illness like pharyngitis."
+      },
+      {
+        "id": "A30",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible E/M level (low complexity) for treating an acute uncomplicated URI."
+      },
+      {
+        "id": "A31",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible E/M level (low complexity) for standard low back pain."
+      },
+      {
+        "id": "A32",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "A single stable chronic illness without complications typically supports low MDM (99213), making a moderate MDM (99214) potentially overcoded."
+      },
+      {
+        "id": "A33",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "Management of a single stable chronic illness like hypertension typically nets low MDM (99213), suggesting 99214 is likely overcoded."
+      },
+      {
+        "id": "A34",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "An acute uncomplicated illness like pharyngitis generally supports low MDM (99213), meaning a level 4 visit (99214) is upcoded."
+      },
+      {
+        "id": "A35",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "An acute uncomplicated illness like a URI generally supports low MDM (99213), meaning a level 4 visit (99214) is upcoded."
+      },
+      {
+        "id": "A36",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Plausible pairing as complex low back pain could reach moderate MDM."
+      },
+      {
+        "id": "B1",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Deliberately invalid pairing intended for category 11; mismatch effectively serves test scenario."
+      },
+      {
+        "id": "B2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Deliberately invalid pairing intended for category 11; mismatch effectively serves test scenario."
+      },
+      {
+        "id": "B3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Deliberately invalid pairing intended for category 11; mismatch effectively serves test scenario."
+      },
+      {
+        "id": "B4",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Deliberately invalid pairing intended for category 11; mismatch effectively serves test scenario."
+      },
+      {
+        "id": "C1",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-11 pairs adequately with RARC M76 for a diagnosis/procedure inconsistency."
+      },
+      {
+        "id": "C2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-151 pairs appropriately with RARC N640 for exceeding frequency limitations."
+      },
+      {
+        "id": "C3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-16 correctly maps with RARC MA130 for unprocessable/missing information scenarios."
+      },
+      {
+        "id": "C4",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-18 maps suitably with RARC N522 for duplicate claim scenarios."
+      },
+      {
+        "id": "C5",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "CO-197 indicates authorization was totally absent, but RARC N54 incorrectly implies an authorization exists but the claim contradicts it."
+      },
+      {
+        "id": "C6",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-29 accurately covers timely filing denials without necessarily requiring a supplemental RARC."
+      },
+      {
+        "id": "C7",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "CO-4 indicates a missing or invalid modifier, but RARC M51 specifies an invalid procedure code (RARC M78 is meant for modifiers)."
+      },
+      {
+        "id": "C8",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-50 pairs adequately with N115 regarding medical necessity derived from a local policy."
+      },
+      {
+        "id": "C9",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CARC CO-97 naturally pairs with RARC N20 for bundling or unbundling (NCCI) scenarios."
+      },
+      {
+        "id": "C10",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "PR-1 is standard for patient deductible responsibility and typically does not require a RARC."
+      },
+      {
+        "id": "D1",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "Per CPT guidelines, comprehensive code 20611 must be used for joint injection with ultrasound guidance; modifier 59 cannot unbundle 76942 from 20610 for the same joint."
+      },
+      {
+        "id": "D2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Modifier 59/XS is plausibly allowed to separate 97140 and 97110 if performed in separate 15-minute timeframes or on separate anatomical regions."
+      },
+      {
+        "id": "E1",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-50."
+      },
+      {
+        "id": "E2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-50."
+      },
+      {
+        "id": "E3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-197."
+      },
+      {
+        "id": "E4",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-197."
+      },
+      {
+        "id": "E5",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-29."
+      },
+      {
+        "id": "E6",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-29."
+      },
+      {
+        "id": "E7",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC PR-1."
+      },
+      {
+        "id": "E8",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-4/CO-16."
+      },
+      {
+        "id": "E9",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-97."
+      },
+      {
+        "id": "E10",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-18."
+      },
+      {
+        "id": "E11",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-11."
+      },
+      {
+        "id": "E12",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Scenario perfectly aligns with CARC CO-151."
+      }
+    ],
+    "combination_flags": [
+      {
+        "codes": "M54.16 + M51.16",
+        "confidence": "high",
+        "reason": "Excludes1 conflict: Radiculopathy (M54.1-) has an Excludes1 note prohibiting assignment alongside disc disorder with radiculopathy (M51.1-)."
+      },
+      {
+        "codes": "M54.17 + M51.17",
+        "confidence": "high",
+        "reason": "Excludes1 conflict: Radiculopathy (M54.1-) has an Excludes1 note prohibiting assignment alongside disc disorder with radiculopathy (M51.1-)."
+      },
+      {
+        "codes": "M54.16 + M51.26",
+        "confidence": "medium",
+        "reason": "Improper combination: lumbar disc displacement generating radiculopathy should be coded definitively using the single combination code M51.16."
+      }
+    ]
+  },
+  "gpt": {
+    "lines": [
+      {
+        "id": "A1",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Knee arthroplasty has a plausible diagnosis relationship to ipsilateral primary knee osteoarthritis."
+      },
+      {
+        "id": "A2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Knee arthroplasty has a plausible diagnosis relationship to ipsilateral primary knee osteoarthritis."
+      },
+      {
+        "id": "A3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Knee arthroscopy with meniscectomy plausibly relates to an old medial meniscus tear."
+      },
+      {
+        "id": "A4",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar laminotomy/discectomy plausibly relates to lumbar disc disorder with radiculopathy."
+      },
+      {
+        "id": "A5",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar laminotomy/discectomy plausibly relates to lumbosacral disc disorder with radiculopathy."
+      },
+      {
+        "id": "A6",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar MRI without contrast plausibly relates to lumbar disc disorder with radiculopathy."
+      },
+      {
+        "id": "A7",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar MRI without contrast plausibly relates to lumbosacral disc disorder with radiculopathy."
+      },
+      {
+        "id": "A8",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar MRI without contrast plausibly relates to lumbar disc displacement."
+      },
+      {
+        "id": "A9",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar MRI without contrast plausibly relates to lumbar radiculopathy."
+      },
+      {
+        "id": "A10",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lumbar MRI without contrast plausibly relates to lumbosacral radiculopathy."
+      },
+      {
+        "id": "A11",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lower-extremity joint MRI plausibly relates to a knee meniscus tear."
+      },
+      {
+        "id": "A12",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Lower-extremity joint MRI plausibly relates to a knee meniscus tear."
+      },
+      {
+        "id": "A13",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Knee pain can plausibly support a lower-extremity joint MRI depending on documentation."
+      },
+      {
+        "id": "A14",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Knee pain can plausibly support a lower-extremity joint MRI depending on documentation."
+      },
+      {
+        "id": "A15",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Knee osteoarthritis can plausibly relate to ultrasound-guided needle placement, though 76942 usually needs an associated primary procedure."
+      },
+      {
+        "id": "A16",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Knee pain can plausibly relate to ultrasound-guided needle placement, though 76942 usually needs an associated primary procedure."
+      },
+      {
+        "id": "A17",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "CBC with differential tied only to essential hypertension is a weaker CPT/ICD fit absent medication monitoring, symptoms, or comorbidity detail."
+      },
+      {
+        "id": "A18",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "ECG can plausibly relate to hypertension evaluation or monitoring depending on clinical context."
+      },
+      {
+        "id": "A19",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Therapeutic exercise plausibly relates to shoulder pain/rehabilitation."
+      },
+      {
+        "id": "A20",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Therapeutic exercise plausibly relates to knee pain/rehabilitation."
+      },
+      {
+        "id": "A21",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Therapeutic exercise plausibly relates to knee pain/rehabilitation."
+      },
+      {
+        "id": "A22",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Therapeutic exercise plausibly relates to lumbar radiculopathy rehabilitation."
+      },
+      {
+        "id": "A23",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Therapeutic exercise plausibly relates to muscle weakness."
+      },
+      {
+        "id": "A24",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Neuromuscular re-education plausibly relates to knee pain/functional impairment."
+      },
+      {
+        "id": "A25",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Neuromuscular re-education plausibly relates to lumbar radiculopathy rehabilitation."
+      },
+      {
+        "id": "A26",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Manual therapy plausibly relates to lumbar disc disorder with radiculopathy."
+      },
+      {
+        "id": "A27",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "Manual therapy plausibly relates to lumbar radiculopathy."
+      },
+      {
+        "id": "A28",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to hyperlipidemia management."
+      },
+      {
+        "id": "A29",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to evaluation of acute pharyngitis."
+      },
+      {
+        "id": "A30",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to evaluation of an acute URI."
+      },
+      {
+        "id": "A31",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to low back pain evaluation."
+      },
+      {
+        "id": "A32",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to diabetes management; level depends on documentation."
+      },
+      {
+        "id": "A33",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to hypertension management; level depends on documentation."
+      },
+      {
+        "id": "A34",
+        "verdict": "no concern",
+        "confidence": "low",
+        "reason": "An E/M visit can relate to acute pharyngitis, though a moderate level would depend on documented complexity."
+      },
+      {
+        "id": "A35",
+        "verdict": "no concern",
+        "confidence": "low",
+        "reason": "An E/M visit can relate to acute URI, though a moderate level would depend on documented complexity."
+      },
+      {
+        "id": "A36",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "Established patient E/M can plausibly relate to low back pain evaluation; level depends on documentation."
+      },
+      {
+        "id": "B1",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "Acute pharyngitis is not a plausible diagnosis fit for total knee arthroplasty."
+      },
+      {
+        "id": "B2",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "Unspecified anemia is not a plausible primary diagnosis fit for lumbar laminotomy/discectomy."
+      },
+      {
+        "id": "B3",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "Acute URI is not a plausible diagnosis fit for lumbar laminotomy/discectomy."
+      },
+      {
+        "id": "B4",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "Unspecified anemia alone is a weak fit for ECG absent cardiopulmonary symptoms or related findings."
+      },
+      {
+        "id": "C1",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "CO-11 fits diagnosis/procedure inconsistency and M76 broadly points to a diagnosis-condition issue."
+      },
+      {
+        "id": "C2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-151 with N640 plausibly fits frequency or visit-limit denials."
+      },
+      {
+        "id": "C3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-16 with MA130 plausibly fits missing or invalid claim information."
+      },
+      {
+        "id": "C4",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "CO-18 with N522 plausibly fits duplicate claim/service messaging."
+      },
+      {
+        "id": "C5",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "CO-197 fits absent authorization, but N54 more commonly suggests inconsistency with authorized services rather than no authorization."
+      },
+      {
+        "id": "C6",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-29 fits timely filing expiration and no RARC is not inherently concerning."
+      },
+      {
+        "id": "C7",
+        "verdict": "suspect",
+        "confidence": "medium",
+        "reason": "CO-4 fits modifier inconsistency, but M51 appears more procedure-code-focused than modifier-specific."
+      },
+      {
+        "id": "C8",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-50 with N115 plausibly fits medical-necessity denials tied to coverage policy."
+      },
+      {
+        "id": "C9",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-97 with N20 plausibly fits bundled or included services."
+      },
+      {
+        "id": "C10",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "PR-1 without a RARC plausibly fits deductible patient responsibility."
+      },
+      {
+        "id": "D1",
+        "verdict": "suspect",
+        "confidence": "high",
+        "reason": "For ultrasound-guided major-joint injection, CPT rules generally point to 20611 rather than 20610 plus 76942, so modifier 59 is usually not a fix unless guidance was for a truly separate service."
+      },
+      {
+        "id": "D2",
+        "verdict": "no concern",
+        "confidence": "medium",
+        "reason": "97140 with 97110 is a common bundling/edit issue, and modifier 59/XS can be plausible when manual therapy is distinct by region, time, or encounter."
+      },
+      {
+        "id": "E1",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-50 matches a medical-necessity denial; record support describes the appeal posture."
+      },
+      {
+        "id": "E2",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-50 matches a medical-necessity denial where the record does not support the service."
+      },
+      {
+        "id": "E3",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-197 matches absent prior authorization, with retro-authorization availability affecting appeal strategy."
+      },
+      {
+        "id": "E4",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-197 matches absent prior authorization, with non-retro-eligibility affecting appeal strategy."
+      },
+      {
+        "id": "E5",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-29 matches timely filing denial; proof of timely filing describes the appeal posture."
+      },
+      {
+        "id": "E6",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-29 matches timely filing expiration when no proof exists."
+      },
+      {
+        "id": "E7",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "PR-1 matches deductible patient responsibility."
+      },
+      {
+        "id": "E8",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-4 and CO-16 are both plausible for missing or invalid modifier/information scenarios."
+      },
+      {
+        "id": "E9",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-97 matches bundled or included service denials."
+      },
+      {
+        "id": "E10",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-18 matches duplicate claim/service denials."
+      },
+      {
+        "id": "E11",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-11 matches diagnosis inconsistent with procedure."
+      },
+      {
+        "id": "E12",
+        "verdict": "no concern",
+        "confidence": "high",
+        "reason": "CO-151 matches frequency or visit-limit exceeded scenarios."
+      }
+    ],
+    "combination_flags": [
+      {
+        "codes": "M54.16 + M51.16",
+        "confidence": "high",
+        "reason": "Likely ICD-10 Excludes1/duplication issue because lumbar radiculopathy is separately listed with lumbar disc disorder with radiculopathy."
+      },
+      {
+        "codes": "M54.17 + M51.17",
+        "confidence": "high",
+        "reason": "Likely ICD-10 Excludes1/duplication issue because lumbosacral radiculopathy is separately listed with lumbosacral disc disorder with radiculopathy."
+      },
+      {
+        "codes": "M54.16 + M51.17",
+        "confidence": "medium",
+        "reason": "Potential Excludes1/overlap issue because an M54.1 radiculopathy code is paired with an M51.1 disc-disorder-with-radiculopathy code, though regions differ."
+      },
+      {
+        "codes": "M54.17 + M51.16",
+        "confidence": "medium",
+        "reason": "Potential Excludes1/overlap issue because an M54.1 radiculopathy code is paired with an M51.1 disc-disorder-with-radiculopathy code, though regions differ."
+      },
+      {
+        "codes": "M54.16 + M54.17",
+        "confidence": "low",
+        "reason": "May be duplicative or overlapping lumbar versus lumbosacral radiculopathy on the same lumbar MRI claim, though not a clear Excludes1 conflict."
+      }
+    ]
+  }
+}

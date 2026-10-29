@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Warner Medical Group
+Claim number: 8453247
+Patient ID: P-5768
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-05-01
+Service: 93000 - ECG with interpretation
+
+SUBMISSION HISTORY
+  2026-05-04  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-04  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-05-05  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-05-19  Adjudicated by payer: adverse determination (CARC CO-11)
+
+SYNTHETIC DATA - NOT REAL PHI

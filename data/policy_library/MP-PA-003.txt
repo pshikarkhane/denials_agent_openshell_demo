@@ -6,16 +6,16 @@ Effective date: 2026-04-01
 Version history: Version 3.0, effective 2026-04-01. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy establishes the standards under which Halcyon Health Plan evaluates requests for prior authorization and retroactive authorization of covered services. It applies to participating and non-participating providers who seek approval for services that are subject to authorization requirements under the member's benefit plan.
+This policy establishes the framework under which Halcyon Health Plan evaluates requests for prior authorization and retroactive authorization of covered services. It applies to participating and non-participating providers who seek approval for services rendered to plan members.
 
 Section 2.1
-Certain services identified by Halcyon Health Plan require prior authorization before they are rendered to the member. Providers must obtain approval from the plan in advance of delivering any service designated as requiring prior authorization, and failure to secure such approval may result in denial of the associated claim. The requesting provider is responsible for confirming whether a given service is subject to this requirement prior to furnishing care.
+The service under review requires prior authorization from Halcyon Health Plan before it is furnished to the member. Providers must obtain this authorization in accordance with the plan's established processes. Services identified as requiring prior authorization are subject to the review provisions set forth in this policy.
 
-Section 4.1
-A request for retroactive authorization may be considered when the service was urgent or emergent in nature and the member's clinical condition made it impractical to obtain authorization before care was delivered. The provider must demonstrate that the circumstances required immediate treatment and that seeking advance approval would have delayed necessary care or placed the member at risk. Supporting clinical documentation must accompany the request to substantiate the urgent or emergent nature of the service.
+Section 2.2
+Retroactive authorization may be considered when the service was urgent or emergent in nature, such that obtaining authorization beforehand was not feasible. The provider must demonstrate that the urgent or emergent circumstances prevented authorization from being secured prior to the service being rendered.
 
-Section 4.2
-A retroactive authorization request must be submitted to Halcyon Health Plan within 14 days of the date of service. Requests received after this timeframe may be denied for failure to meet the submission window, absent a demonstrated extenuating circumstance acceptable to the plan. The provider bears responsibility for ensuring that the request and all required documentation are received by the plan within the applicable period.
+Section 2.3
+A request for retroactive authorization must be submitted within 14 days of the date of service. Requests meeting this 14-day submission window will be accepted for review under this policy.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 120 days from the date of the claim determination notice.

@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Hogan Medical Group
-Trace number: SYN-EFT-84559340
-Remittance date: 2026-03-11
+Trace number: 84559340
+Remittance date: 2026-03-08
 
 PATIENT
   Name: Stacy Williams
-  Patient ID: P-7040
+  Patient ID: P-9344
   MRN: SYN-694292
   Member ID: MBR791828354
-  Date of birth: 1973-02-15
-  SSN: 906-85-9408
+  Date of birth: 1973-02-16
+  SSN: XXX-XX-9408
 
 CLAIM
-  Claim number: 7707606
+  Claim number: 7185291
   Claim status: DENIED
   Date of service: 2026-02-06
-  Date claim received by payer: 2026-02-09
-  Diagnosis (ICD-10): M17.11
+  Date claim received by payer: 2026-02-11
+  Diagnosis (ICD-10): M23.221
   Place of service: 11
-  Rendering provider: Dr. Jeff Ramos (ID SYN-RP-7606)
-  Referring provider: Dr. Austin Andrews
+  Rendering provider: Dr. Austin Andrews (ID RP-5291)
+  Referring provider: Dr. Jeff Ramos
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     27447       3408.94    0.00       0.00       CO-197 3408.94 RARC N54
-        (Total knee arthroplasty)
+  1     29881       4505.77    0.00       0.00       CO-197 4505.77
+        (Knee arthroscopy with meniscectomy)
 
-TOTALS  Billed 3408.94  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 4505.77  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

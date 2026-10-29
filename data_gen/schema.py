@@ -46,10 +46,16 @@ class Denial(_Strict):
 
 
 class PolicyCriterion(_Strict):
+    """status: same vocabulary as decision.json. basis says how the status can be established from the files:
+    - evidence: files contain supporting or contradicting evidence.
+    - documented_absence: a file STATES that something does not exist (e.g. "No prior lumbar imaging on file."); status is met/unmet.
+    - missing_evidence: a file refers to a document that should exist but was not received; status is unknown and the
+      correct decision is ESCALATE_MISSING_DOCS. unknown <=> missing_evidence."""
     id: str
     section: str
     text: str
-    status: Literal["met", "unmet", "unknown"]  # same vocabulary as decision.json criteria[].status
+    status: Literal["met", "unmet", "unknown"]
+    basis: Literal["evidence", "documented_absence", "missing_evidence"] = "evidence"
     evidence: list[str]
 
 
@@ -72,6 +78,9 @@ class Truth(_Strict):
     claim: Claim
     denial: Denial
     appeal_deadline: date
+    # Deadline of the correct action: appeal deadline for APPEAL / DO_NOT_APPEAL / ESCALATE_MISSING_DOCS (the date the
+    # appeal option closes), corrected-claim deadline for CORRECT_AND_RESUBMIT. Deadline traps are measured on it.
+    action_deadline: date
     policy_criteria: list[PolicyCriterion] = Field(min_length=1)
     correct_decision: Decision
     traps: list[Trap] = Field(max_length=2)

@@ -1,0 +1,137 @@
+[
+ {
+  "severity": "info",
+  "where": "C-0005",
+  "message": "title 'Advanced Imaging: Lumbar Spine MRI Medical Necessity' matches ['MP-IMG-007']; after payer filter: ['MP-IMG-007']"
+ },
+ {
+  "severity": "info",
+  "where": "C-0007",
+  "message": "title 'Advanced Imaging: Lumbar Spine MRI Medical Necessity' matches ['MP-IMG-007']; after payer filter: ['MP-IMG-007']"
+ },
+ {
+  "severity": "info",
+  "where": "C-0030",
+  "message": "title 'Timely Filing of Claims' matches ['MP-TF-001', 'MP-TF-010']; after payer filter: ['MP-TF-001', 'MP-TF-010']  <-- TIE"
+ },
+ {
+  "severity": "info",
+  "where": "C-0039",
+  "message": "title 'Claim Submission Requirements, Duplicate Claims and Edit Rules' matches ['MP-CLM-004']; after payer filter: ['MP-CLM-004']"
+ },
+ {
+  "severity": "info",
+  "where": "C-0056",
+  "message": "title 'Outpatient Therapy Visit Limits' matches ['MP-PT-011']; after payer filter: ['MP-PT-011']"
+ },
+ {
+  "severity": "info",
+  "where": "C-0056",
+  "message": "PT visits 21 over 79 days; gap min/max 2/5 days"
+ },
+ {
+  "severity": "info",
+  "where": "MP-APL-001.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 4x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-BEN-002.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-BND-002.txt",
+  "message": "sections 1-6 mention 'corrected claim' 1x, 'appeal' 1x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-CLM-004.txt",
+  "message": "sections 1-6 mention 'corrected claim' 3x, 'appeal' 1x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-IMG-007.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-IMG-012.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-PA-003.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-PA-030.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-PT-011.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-TF-001.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-TF-010.txt",
+  "message": "sections 1-6 mention 'corrected claim' 0x, 'appeal' 0x"
+ },
+ {
+  "severity": "info",
+  "where": "MP-CLM-004",
+  "message": "policy distinguishes appeal from corrected claim"
+ },
+ {
+  "severity": "info",
+  "where": "MP-CLM-004",
+  "message": "section text mentions corrected claims"
+ },
+ {
+  "severity": "info",
+  "where": "MP-BND-002",
+  "message": "policy distinguishes appeal from corrected claim"
+ },
+ {
+  "severity": "info",
+  "where": "MP-BND-002",
+  "message": "section text mentions corrected claims"
+ },
+ {
+  "severity": "info",
+  "where": "schema",
+  "message": "Truth top-level fields: ['case_id', 'category', 'split', 'payer_id', 'policy_id', 'patient', 'claim', 'denial', 'appeal_deadline', 'action_deadline', 'policy_criteria', 'correct_decision', 'traps', 'required_enclosures', 'facts']; action_deadline present: True"
+ },
+ {
+  "severity": "info",
+  "where": "traps",
+  "message": "deadline traps measured on action_deadline in all 60 cases: yes"
+ },
+ {
+  "severity": "info",
+  "where": "traps",
+  "message": "6 of 13 CORRECT_AND_RESUBMIT cases have an appeal deadline that is already past at the as-of date (intentional lure): ['C-0036', 'C-0037', 'C-0040', 'C-0044', 'C-0051', 'C-0053']"
+ },
+ {
+  "severity": "info",
+  "where": "traps",
+  "message": "cases with more than one hard trap: []"
+ },
+ {
+  "severity": "info",
+  "where": "C-0005",
+  "message": "notice 2026-07-17, as-of 2026-08-04 (18 days after notice), appeal deadline 2027-01-13 (162 days after as-of); DOS 2026-06-18; evidence docs dated ['notes/2026-03-23_pcp.txt', 'notes/2026-06-04_ortho.txt', 'supporting/pt_log.txt', 'notes/2026-04-13_pcp_followup.txt']"
+ },
+ {
+  "severity": "info",
+  "where": "C-0005",
+  "message": "as-of date is more than 5 months after the denial notice while all documents are dated 2026-04..2026-07: the agent is told it is 2027-01-03"
+ }
+]

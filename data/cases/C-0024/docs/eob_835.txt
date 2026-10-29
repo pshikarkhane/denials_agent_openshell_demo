@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Oliver Medical Group
-Trace number: SYN-EFT-94057209
-Remittance date: 2026-08-24
+Trace number: 94057209
+Remittance date: 2026-08-25
 
 PATIENT
   Name: Joshua Jackson
-  Patient ID: P-6726
+  Patient ID: P-7866
   MRN: SYN-414754
   Member ID: MBR458202251
-  Date of birth: 1968-02-12
-  SSN: 967-72-6171
+  Date of birth: 1968-02-13
+  SSN: XXX-XX-6171
 
 CLAIM
-  Claim number: 5062212
+  Claim number: 6864220
   Claim status: DENIED
-  Date of service: 2026-04-19
-  Date claim received by payer: 2026-08-09
-  Diagnosis (ICD-10): M25.561
+  Date of service: 2026-04-20
+  Date claim received by payer: 2026-08-10
+  Diagnosis (ICD-10): R07.9
   Place of service: 11
-  Rendering provider: Dr. Mary Davis (ID SYN-RP-2212)
-  Referring provider: Dr. Richard Harris
+  Rendering provider: Dr. Mary Davis (ID RP-4220)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     73721       1580.38    0.00       0.00       CO-29 1580.38
-        (MRI lower-extremity joint without contrast)
+  1     93000       177.28     0.00       0.00       CO-29 177.28
+        (ECG with interpretation)
 
-TOTALS  Billed 1580.38  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 177.28  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

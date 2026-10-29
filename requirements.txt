@@ -1,4 +1,5 @@
 pydantic==2.14.1
 Faker==40.44.0
 pytest==9.2.0
+pyspellchecker==0.9.1
 # Python 3.13 (see .python-version); create with: python3.13 -m venv .venv

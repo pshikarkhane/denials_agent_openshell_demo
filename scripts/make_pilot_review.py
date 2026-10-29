@@ -30,7 +30,7 @@ def checks(t, f, files):
                    "and do the PCP/follow-up notes avoid contradicting it?")
     if cat == 12:
         out.append(f"Visit limit: `supporting/pt_log.txt` shows visit {f['denied_visit_number']} on the date of service. Is that over the limit of {f['visit_limit']} "
-                   f"and within the exception cap of {f['visit_cap_with_exception']}?")
+                   f"and not above the cap of {f['visit_cap']}?")
         out.append("Exception criteria: does the progress note show measurable functional improvement and does the referral note recertify the plan of care? "
                    "Is the note content plausible for PT?")
     if cat == 6:

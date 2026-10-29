@@ -1,8 +1,9 @@
 """Validate generated truth.json files and the manifest (DEMO_SPEC section 3.7, checks that apply pre-rendering).
 
 Findings are ERRORs (exit 1) or REVIEWs (need a human; exit 0 unless --strict). Unknown codes are never
-silently passed: they become REVIEW findings and are also written to data/validation_report.json.
-Usage: python -m data_gen.validate_data [--data data] [--strict]
+silently passed: they become REVIEW findings. STRICTLY READ-ONLY: nothing is written under the data directory;
+the report goes to stdout (and to --report PATH, which must be outside the data directory, e.g. under docs/).
+Usage: python -m data_gen.validate_data [--data data] [--strict] [--truth-only] [--report docs/validation_report.json]
 """
 import argparse
 import json
@@ -15,14 +16,15 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from data_gen import reference as R
-from data_gen.gen_cases import STD_DOCS, dataset_hash
+from data_gen.gen_cases import HARD_TRAPS, STD_DOCS, dataset_hash
 from data_gen.schema import Decision, Trap, Truth
 from data_gen.validate_docs import (check_agent_visible, check_documents, check_manifest_datagen, check_mount_safety,
                                     check_policy_library)
 
 SSN = re.compile(r"\b(\d{3})-(\d{2})-(\d{4})\b")
 NOTE_DATE = re.compile(r"^notes/(\d{4}-\d{2}-\d{2})_")
-REQUIRED_FACTS = ["corrected_claim_deadline", "policy_effective_date", "claim_no", "patient_id", "cpt", "icd10", "dos", "billed", "payer_id", "policy_id", "carc",
+EXCLUDES1 = (re.compile(r"^M54\.1"), re.compile(r"^M51\.1"))  # radiculopathy vs disc disorder with radiculopathy (at least this pair)
+REQUIRED_FACTS = ["action_deadline", "clearinghouse_accepted_date", "payer_received_date", "corrected_claim_deadline", "policy_effective_date", "claim_no", "patient_id", "cpt", "icd10", "dos", "billed", "payer_id", "policy_id", "carc",
                   "denial_date", "claim_submitted_date", "appeal_window_days", "appeal_deadline", "as_of_date"]
 
 
@@ -63,7 +65,8 @@ def check_case(t, rep, raw_text=""):
     same = {"claim_no": t.claim.claim_no, "patient_id": t.patient.synthetic_id, "cpt": t.claim.cpt,
             "icd10": t.claim.icd10, "dos": t.claim.dos.isoformat(), "billed": t.claim.billed,
             "payer_id": t.payer_id, "policy_id": t.policy_id, "carc": t.denial.carc,
-            "denial_date": t.denial.denial_date.isoformat(), "appeal_deadline": t.appeal_deadline.isoformat()}
+            "denial_date": t.denial.denial_date.isoformat(), "appeal_deadline": t.appeal_deadline.isoformat(),
+            "action_deadline": t.action_deadline.isoformat()}
     for k, v in same.items():
         if f[k] != v:
             rep.error(w, f"fact '{k}'={f[k]!r} disagrees with structured field {v!r}")
@@ -103,18 +106,27 @@ def check_case(t, rep, raw_text=""):
             rep.error(w, "ESCALATE_MISSING_DOCS case has no 'unknown' criterion")
     elif "unknown" in status:
         rep.error(w, "'unknown' criterion on a case that is not ESCALATE_MISSING_DOCS")
-
+    # absence model: unknown <=> missing_evidence; documented_absence is met/unmet and must be backed by a quote
+    for c in t.policy_criteria:
+        if (c.status == "unknown") != (c.basis == "missing_evidence"):
+            rep.error(w, f"criterion {c.id}: status {c.status!r} and basis {c.basis!r} disagree (unknown <=> missing_evidence)")
     # dates ordered + deadline math
     dos, sub, den = t.claim.dos, _d(f["claim_submitted_date"]), t.denial.denial_date
-    as_of, dl = _d(f["as_of_date"]), t.appeal_deadline
-    if not dos <= sub <= den:
-        rep.error(w, f"expected DOS <= submitted <= denial, got {dos}, {sub}, {den}")
+    rcv = _d(f["payer_received_date"])
+    as_of, dl = _d(f["as_of_date"]), t.action_deadline
+    if not dos <= sub <= rcv <= den:
+        rep.error(w, f"expected DOS <= submitted <= payer received <= denial, got {dos}, {sub}, {rcv}, {den}")
+    if f["clearinghouse_accepted_date"] != f["claim_submitted_date"]:
+        rep.error(w, "clearinghouse acceptance must be on the submission date")
+    want_action = _d(f["corrected_claim_deadline"]) if t.correct_decision == Decision.CORRECT_AND_RESUBMIT else t.appeal_deadline
+    if t.action_deadline != want_action:
+        rep.error(w, f"action_deadline {t.action_deadline} must be the {'corrected-claim' if t.correct_decision == Decision.CORRECT_AND_RESUBMIT else 'appeal'} deadline {want_action}")
     if not den < as_of:
         rep.error(w, f"as_of {as_of} must be after denial {den}")
     if f["appeal_window_days"] != payer["appeal_days"]:
         rep.error(w, f"appeal window {f['appeal_window_days']} != payer window {payer['appeal_days']}")
-    if dl != den + timedelta(days=payer["appeal_days"]):
-        rep.error(w, f"appeal_deadline {dl} != denial {den} + {payer['appeal_days']}d")
+    if t.appeal_deadline != den + timedelta(days=payer["appeal_days"]):
+        rep.error(w, f"appeal_deadline {t.appeal_deadline} != denial {den} + {payer['appeal_days']}d")
     if _d(f["corrected_claim_deadline"]) != den + timedelta(days=payer["corrected_claim_days"]):
         rep.error(w, "corrected_claim_deadline math is wrong")
     if "timely_filing_deadline" in f and _d(f["timely_filing_deadline"]) != dos + timedelta(days=payer["timely_filing_days"]):
@@ -131,7 +143,7 @@ def check_case(t, rep, raw_text=""):
             if m and _d(m.group(1)) > dos:
                 rep.error(w, f"criterion {c.id} cites note {e} dated after DOS {dos}")
     for e in t.required_enclosures:
-        if e not in planned:
+        if e not in known:
             rep.error(w, f"enclosure '{e}' is not a planned document")
     for x in t.facts:
         if x.source_file not in known | {"task.md", "policy_library"}:
@@ -144,6 +156,11 @@ def check_case(t, rep, raw_text=""):
     # traps
     if len(set(t.traps)) != len(t.traps) or len(t.traps) > 2:
         rep.error(w, f"traps must be unique and at most 2: {[x.value for x in t.traps]}")
+    hard = [x for x in t.traps if x in HARD_TRAPS]
+    if len(hard) > 1:
+        rep.error(w, f"stacked hard traps (at most one allowed): {[x.value for x in hard]}")
+    if (Trap.CRITERION_NO_SUPPORTING_DOC in t.traps) != (t.correct_decision == Decision.ESCALATE_MISSING_DOCS):
+        rep.error(w, "criterion_no_supporting_doc must be present exactly on ESCALATE_MISSING_DOCS cases")
     left = (dl - as_of).days
     if Trap.DEADLINE_WITHIN_7_DAYS in t.traps and not 1 <= left <= 7:
         rep.error(w, f"deadline_within_7_days but {left} days remain")
@@ -161,8 +178,6 @@ def check_case(t, rep, raw_text=""):
             rep.error(w, "note_after_dos trap without a post-DOS note")
     if Trap.DISTRACTOR_POLICY_SIMILAR_NAME in t.traps and f.get("distractor_policy_id") != R.DISTRACTORS.get(t.policy_id):
         rep.error(w, "distractor trap fact does not match registry")
-    if Trap.CRITERION_NO_SUPPORTING_DOC in t.traps and any(c.id == "C3" and c.evidence for c in t.policy_criteria):
-        rep.error(w, "criterion_no_supporting_doc trap but C3 still has evidence")
     eff = R.POLICY_EFFECTIVE.get(t.policy_id)
     if eff is None or f["policy_effective_date"] != eff.isoformat():
         rep.error(w, "policy_effective_date missing or disagrees with reference.py")
@@ -176,6 +191,10 @@ def check_case(t, rep, raw_text=""):
             rep.error(w, "C1 status disagrees with therapy_duration_days >= 42")
     if t.category == 5 and _d(f["clearinghouse_accepted_date"]) > dos + timedelta(days=payer["timely_filing_days"]):
         rep.error(w, "cat 5 proof of filing is after the filing limit")
+    if t.category == 6 and sub <= dos + timedelta(days=payer["timely_filing_days"]):
+        rep.error(w, "cat 6 submission is within the filing limit, so the claim would not be expired")
+    if t.category == 12 and f["denied_visit_number"] != R.PT_VISIT_LIMIT + 1:
+        rep.error(w, f"cat 12 denied visit must be the first over the limit ({R.PT_VISIT_LIMIT + 1}), got {f['denied_visit_number']}")
     if t.category in (5, 6) and not _d(f["payer_received_date"]) > dos + timedelta(days=payer["timely_filing_days"]):
         rep.error(w, "payer received date is within the filing limit, so CO-29 would be wrong")
     if t.category == 3 and (_d(f["retro_request_date"]) - dos).days > R.RETRO_AUTH_WINDOW_DAYS:
@@ -209,6 +228,13 @@ def check_case(t, rep, raw_text=""):
         check_pair(t.claim.cpt, f["corrected_icd10"], True, "corrected pairing")
     if "column1_code" in f:
         check_pair(f["column1_code"], t.claim.icd10, True, "bundling column-1 pairing")
+
+    # ICD-10 Excludes1 (at least M54.1x with M51.1x) on any diagnosis list
+    for label, codes in (("claim", t.claim.icd10), ("corrected", f.get("corrected_icd10", []) if t.category == 11 else [])):
+        if any(EXCLUDES1[0].match(c) for c in codes) and any(EXCLUDES1[1].match(c) for c in codes):
+            rep.error(w, f"{label} diagnoses {codes} violate ICD-10 Excludes1 (M54.1x with M51.1x)")
+    if t.category in (1, 2) and len(t.claim.icd10) != 1:
+        rep.error(w, "categories 1-2 must carry exactly one diagnosis")
 
     # SSN-looking strings: anything in a non-9xx range is an error; 9xx is allowed but surfaced
     for m in SSN.finditer(raw_text):
@@ -285,13 +311,16 @@ def validate(data_dir, check_docs=True):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", default="data")
-    ap.add_argument("--truth-only", action="store_true", help="skip document/policy-library checks")
     ap.add_argument("--strict", action="store_true", help="treat REVIEW findings as failures")
+    ap.add_argument("--truth-only", action="store_true", help="skip document/policy-library checks")
+    ap.add_argument("--report", help="also write a JSON report here (must be outside the data directory)")
     a = ap.parse_args(argv)
     rep, ts = validate(a.data, check_docs=not a.truth_only)
-    out = Path(a.data) / "validation_report.json"
-    if Path(a.data).exists():
-        out.write_text(json.dumps({"cases": len(ts), "errors": rep.errors, "reviews": rep.reviews}, indent=2) + "\n")
+    if a.report:
+        rp, dp = Path(a.report).resolve(), Path(a.data).resolve()
+        if dp in rp.parents or rp == dp:
+            raise SystemExit("--report must not be inside the data directory (validate_data is read-only there)")
+        rp.write_text(json.dumps({"cases": len(ts), "errors": rep.errors, "reviews": rep.reviews}, indent=2) + "\n")
     for e in rep.errors:
         print(f"ERROR   {e['where']}: {e['message']}")
     for r in rep.reviews:

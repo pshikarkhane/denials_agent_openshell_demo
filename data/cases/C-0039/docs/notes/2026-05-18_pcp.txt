@@ -1,0 +1,24 @@
+Burns Medical Group
+PRIMARY CARE VISIT NOTE
+Patient: Jordan Mcdonald   DOB: 1962-10-05   MRN: SYN-751677   Patient ID: P-6876
+Date of encounter: 2026-05-18
+Provider: Dr. Joshua Sullivan
+------------------------------------------------------------
+Reason for visit
+Follow-up for ongoing low back pain. Patient reports gradual improvement since the prior visit.
+
+History
+The patient is a 63-year-old man with low back pain, unspecified (M54.50). He describes a dull, aching discomfort across the lower lumbar region without radiation into the legs. No numbness, tingling, or weakness. No bowel or bladder dysfunction. He denies recent trauma, fever, or unexplained weight loss. Pain is worse with prolonged sitting and improves with walking and gentle stretching. He has been using the home exercises previously recommended and finds them helpful.
+
+Exam
+Comfortable, in no acute distress. Normal gait. Lumbar spine with mild paraspinal tenderness, no midline bony tenderness. Range of motion mildly limited on flexion. Straight leg raise negative bilaterally. Strength 5/5 in both lower extremities. Sensation intact. Deep tendon reflexes symmetric.
+
+Assessment
+Low back pain, unspecified (M54.50), mechanical in nature and improving. No red flag features identified.
+
+Plan
+Continue home stretching and core strengthening exercises. Encourage regular walking and activity as tolerated. Use over-the-counter analgesics as needed for discomfort. Imaging not indicated at this time. Return sooner if new leg weakness, numbness, or bowel or bladder changes develop. Routine follow-up as needed.
+------------------------------------------------------------
+Electronically signed: Dr. Joshua Sullivan
+
+SYNTHETIC DATA - NOT REAL PHI

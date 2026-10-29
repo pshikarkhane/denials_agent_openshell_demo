@@ -5,66 +5,69 @@
   "payer_id": "TERRAVISTA_HEALTH",
   "policy_id": "MP-TF-001",
   "patient": {
-    "synthetic_id": "P-8650"
+    "synthetic_id": "P-5014"
   },
   "claim": {
-    "claim_no": "6681849",
-    "cpt": "99214",
+    "claim_no": "8834557",
+    "cpt": "73721",
     "icd10": [
-      "M54.50"
+      "M25.562"
     ],
     "dos": "2026-07-10",
-    "billed": 197.24
+    "billed": 1034.29
   },
   "denial": {
     "carc": "CO-29",
     "rarc": null,
-    "denial_date": "2026-11-16"
+    "denial_date": "2026-11-25"
   },
-  "appeal_deadline": "2027-02-14",
+  "appeal_deadline": "2027-02-23",
+  "action_deadline": "2027-02-23",
   "policy_criteria": [
     {
       "id": "C1",
       "section": "§2.1",
       "text": "Claim submitted within 90 days of DOS",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
-        "supporting/clearinghouse_277ca.txt"
+        "claim_history.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§2.3",
-      "text": "Proof of timely filing (clearinghouse acceptance) available",
+      "section": "§2.2",
+      "text": "Proof of clearinghouse acceptance within the filing limit is available",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
-        "supporting/clearinghouse_277ca.txt"
+        "claim_history.txt"
       ]
     }
   ],
   "correct_decision": "APPEAL",
   "traps": [],
   "required_enclosures": [
-    "supporting/clearinghouse_277ca.txt"
+    "claim_history.txt"
   ],
   "facts": [
     {
       "key": "claim_no",
-      "value": "6681849",
+      "value": "8834557",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-8650",
+      "value": "P-5014",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "99214",
+      "value": "73721",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -72,7 +75,7 @@
     {
       "key": "icd10",
       "value": [
-        "M54.50"
+        "M25.562"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -87,7 +90,7 @@
     },
     {
       "key": "billed",
-      "value": 197.24,
+      "value": 1034.29,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -115,16 +118,30 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-11-16",
+      "value": "2026-11-25",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
     },
     {
       "key": "claim_submitted_date",
-      "value": "2026-08-13",
-      "source_file": "supporting/clearinghouse_277ca.txt",
-      "line": null,
+      "value": "2026-09-05",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-09-05",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-11-06",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -136,14 +153,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2027-02-14",
+      "value": "2027-02-23",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2027-02-23",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-12-06",
+      "value": "2026-12-03",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -157,7 +181,7 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2027-05-15",
+      "value": "2027-05-24",
       "source_file": "denial_letter.txt",
       "line": 24,
       "evidence": null
@@ -177,25 +201,18 @@
       "evidence": null
     },
     {
-      "key": "planned_document",
-      "value": "supporting/clearinghouse_277ca.txt",
-      "source_file": "supporting/clearinghouse_277ca.txt",
-      "line": null,
-      "evidence": null
+      "key": "criterion_C1_quote",
+      "value": "2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED",
+      "source_file": "claim_history.txt",
+      "line": 11,
+      "evidence": "2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED"
     },
     {
-      "key": "clearinghouse_accepted_date",
-      "value": "2026-08-13",
-      "source_file": "supporting/clearinghouse_277ca.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "payer_received_date",
-      "value": "2026-11-02",
-      "source_file": "denial_letter.txt",
-      "line": 17,
-      "evidence": null
+      "key": "criterion_C2_quote",
+      "value": "2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED",
+      "source_file": "claim_history.txt",
+      "line": 11,
+      "evidence": "2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED"
     }
   ]
 }

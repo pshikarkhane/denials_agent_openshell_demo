@@ -5,38 +5,41 @@
   "payer_id": "MERIDIAN_COMM",
   "policy_id": "MP-BND-002",
   "patient": {
-    "synthetic_id": "P-3204"
+    "synthetic_id": "P-4827"
   },
   "claim": {
-    "claim_no": "5857278",
+    "claim_no": "3257083",
     "cpt": "97140",
     "icd10": [
-      "M54.16"
+      "M51.16"
     ],
     "dos": "2026-07-22",
-    "billed": 85.88
+    "billed": 161.19
   },
   "denial": {
     "carc": "CO-97",
     "rarc": "N20",
-    "denial_date": "2026-08-24"
+    "denial_date": "2026-08-19"
   },
-  "appeal_deadline": "2027-02-20",
+  "appeal_deadline": "2027-02-15",
+  "action_deadline": "2027-08-19",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§3.1",
+      "section": "§2.1",
       "text": "Services documented as distinct (separate session/site)",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "notes/2026-07-22_procedure.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§3.3",
+      "section": "§2.2",
       "text": "Distinct-procedural-service modifier appended to the denied line",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "eob_835.txt"
       ]
@@ -44,21 +47,20 @@
   ],
   "correct_decision": "CORRECT_AND_RESUBMIT",
   "traps": [
-    "deadline_within_7_days",
-    "note_after_dos"
+    "deadline_within_7_days"
   ],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "5857278",
+      "value": "3257083",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-3204",
+      "value": "P-4827",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
@@ -73,7 +75,7 @@
     {
       "key": "icd10",
       "value": [
-        "M54.16"
+        "M51.16"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -88,7 +90,7 @@
     },
     {
       "key": "billed",
-      "value": 85.88,
+      "value": 161.19,
       "source_file": "eob_835.txt",
       "line": 31,
       "evidence": null
@@ -116,7 +118,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-08-24",
+      "value": "2026-08-19",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -124,8 +126,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-08-03",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-08-03",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-08-04",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -137,14 +153,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2027-02-20",
+      "value": "2027-02-15",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
+      "key": "action_deadline",
+      "value": "2027-08-19",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "as_of_date",
-      "value": "2027-02-16",
+      "value": "2027-08-12",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -157,17 +180,17 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2027-08-24",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "N20",
       "source_file": "denial_letter.txt",
       "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2027-08-19",
+      "source_file": "denial_letter.txt",
+      "line": 24,
       "evidence": null
     },
     {
@@ -179,14 +202,14 @@
     },
     {
       "key": "column1_code",
-      "value": "97110",
+      "value": "97530",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
     },
     {
       "key": "column1_billed_amount",
-      "value": 308.36,
+      "value": 278.55,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -202,20 +225,6 @@
       "key": "modifier_present",
       "value": false,
       "source_file": "eob_835.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "planned_document",
-      "value": "notes/2026-08-20_followup.txt",
-      "source_file": "notes/2026-08-20_followup.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "post_dos_note",
-      "value": "notes/2026-08-20_followup.txt",
-      "source_file": "notes/2026-08-20_followup.txt",
       "line": null,
       "evidence": null
     }

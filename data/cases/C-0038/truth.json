@@ -5,59 +5,60 @@
   "payer_id": "TERRAVISTA_HEALTH",
   "policy_id": "MP-CLM-004",
   "patient": {
-    "synthetic_id": "P-6496"
+    "synthetic_id": "P-5165"
   },
   "claim": {
-    "claim_no": "6722592",
+    "claim_no": "6628567",
     "cpt": "99213",
     "icd10": [
-      "M54.50"
+      "J06.9"
     ],
     "dos": "2026-04-28",
-    "billed": 165.55
+    "billed": 228.86
   },
   "denial": {
-    "carc": "CO-4",
-    "rarc": "M51",
-    "denial_date": "2026-06-03"
+    "carc": "CO-16",
+    "rarc": null,
+    "denial_date": "2026-06-01"
   },
-  "appeal_deadline": "2026-09-01",
+  "appeal_deadline": "2026-08-30",
+  "action_deadline": "2026-11-28",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§3.1",
+      "section": "§2.1",
       "text": "Claim as submitted contained all required data elements and modifiers",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "eob_835.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§3.4",
+      "section": "§2.2",
       "text": "Corrected claim can be filed within the payer corrected-claim window",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "denial_letter.txt"
       ]
     }
   ],
   "correct_decision": "CORRECT_AND_RESUBMIT",
-  "traps": [
-    "deadline_within_7_days"
-  ],
+  "traps": [],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "6722592",
+      "value": "6628567",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-6496",
+      "value": "P-5165",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
@@ -72,7 +73,7 @@
     {
       "key": "icd10",
       "value": [
-        "M54.50"
+        "J06.9"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -87,7 +88,7 @@
     },
     {
       "key": "billed",
-      "value": 165.55,
+      "value": 228.86,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -108,14 +109,14 @@
     },
     {
       "key": "carc",
-      "value": "CO-4",
+      "value": "CO-16",
       "source_file": "denial_letter.txt",
       "line": 15,
       "evidence": null
     },
     {
       "key": "denial_date",
-      "value": "2026-06-03",
+      "value": "2026-06-01",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -123,8 +124,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-05-12",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-05-12",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-05-13",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -136,14 +151,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-09-01",
+      "value": "2026-08-30",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
+      "key": "action_deadline",
+      "value": "2026-11-28",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "as_of_date",
-      "value": "2026-08-27",
+      "value": "2026-06-27",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -157,22 +179,15 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2026-11-30",
+      "value": "2026-11-28",
       "source_file": "denial_letter.txt",
       "line": 24,
       "evidence": null
     },
     {
-      "key": "rarc",
-      "value": "M51",
-      "source_file": "denial_letter.txt",
-      "line": 16,
-      "evidence": null
-    },
-    {
       "key": "planned_document",
-      "value": "notes/2026-04-12_pcp.txt",
-      "source_file": "notes/2026-04-12_pcp.txt",
+      "value": "notes/2026-04-07_pcp.txt",
+      "source_file": "notes/2026-04-07_pcp.txt",
       "line": null,
       "evidence": null
     },
@@ -185,37 +200,23 @@
     },
     {
       "key": "missing_item",
-      "value": "modifier 25 missing on visit billed same day as a procedure",
+      "value": "place of service code missing",
       "source_file": "denial_letter.txt",
       "line": 17,
       "evidence": null
     },
     {
       "key": "missing_field",
-      "value": "modifier_25",
+      "value": "place_of_service",
       "source_file": "eob_835.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "correct_fix",
-      "value": "append modifier 25",
+      "value": "add place of service code",
       "source_file": "policy_library",
       "line": null,
-      "evidence": null
-    },
-    {
-      "key": "same_day_procedure_cpt",
-      "value": "20610",
-      "source_file": "eob_835.txt",
-      "line": 31,
-      "evidence": null
-    },
-    {
-      "key": "same_day_procedure_billed",
-      "value": 298.97,
-      "source_file": "eob_835.txt",
-      "line": 31,
       "evidence": null
     }
   ]

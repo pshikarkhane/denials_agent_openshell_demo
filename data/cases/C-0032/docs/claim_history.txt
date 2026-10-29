@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Morales Medical Group
+Claim number: 3163105
+Patient ID: P-7628
+Payer ID: MERIDIAN_COMM
+Date of service: 2026-06-26
+Service: 99213 - Established patient visit, low
+
+SUBMISSION HISTORY
+  2026-07-09  Submitted to clearinghouse (submission 1 of 1)
+  2026-07-09  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-07-11  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-07-25  Adjudicated by payer: adverse determination (CARC PR-1)
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-07
+Date of notice: 2026-08-03
 To: Johnston Medical Group
-Member: Michael Johnson   Patient ID: P-3641   Member ID: MBR284435778
+Member: Michael Johnson   Patient ID: P-5383   Member ID: MBR284435778
 
-Claim number: 3568115
+Claim number: 3704835
 Date of service: 2026-04-01
-Service: 99214 - Established patient visit, moderate
-Billed amount: 279.40
+Service: 99213 - Established patient visit, low
+Billed amount: 236.93
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-07-24, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-05.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-01.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-03.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-30.
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,0 +1,19 @@
+Hester Medical Group
+ORTHOPEDIC CONSULTATION NOTE
+Patient: Shannon Eaton   DOB: 1970-01-31   MRN: SYN-282701   Patient ID: P-7169
+Date of encounter: 2026-04-10
+Provider: Dr. Nicholas Williams
+------------------------------------------------------------
+Reason for visit: Persistent low back and left leg pain for specialist evaluation of suspected lumbar radiculopathy.
+
+History: The patient reports aching low back pain radiating into the left buttock, posterior thigh, and calf. Symptoms began insidiously and were first documented on 2026-02-09. She describes intermittent tingling along the left leg, worse with prolonged sitting and bending, and partially relieved by walking and lying flat. Conservative measures including activity modification, oral analgesics, and a home stretching program have provided only modest relief. She denies bowel or bladder dysfunction, saddle numbness, fever, unexplained weight loss, or night pain. No history of trauma. Imaging history: Lumbar radiographs 2024-04-07; no other lumbar imaging since.
+
+Exam: Antalgic gait favoring the left. Lumbar range of motion limited by pain on extension and left lateral bending. Left straight leg raise reproduces radiating leg symptoms. Strength 5/5 in both lower limbs; sensation intact; reflexes symmetric. Neurological exam: no focal motor or sensory deficit and no red-flag signs or symptoms.
+
+Assessment: Left lumbar radiculopathy (M54.16), clinically consistent with nerve root irritation without neurologic deficit.
+
+Plan: Order lumbar spine MRI to evaluate for nerve root compression. Continue current analgesia and activity modification. Return sooner if progressive weakness, numbness, or bladder or bowel changes develop.
+------------------------------------------------------------
+Electronically signed: Dr. Nicholas Williams
+
+SYNTHETIC DATA - NOT REAL PHI

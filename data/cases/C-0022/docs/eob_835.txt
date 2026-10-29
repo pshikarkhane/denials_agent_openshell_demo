@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Allen Medical Group
-Trace number: SYN-EFT-70880193
-Remittance date: 2026-11-16
+Trace number: 70880193
+Remittance date: 2026-11-25
 
 PATIENT
   Name: Marie Atkins
-  Patient ID: P-8650
+  Patient ID: P-5014
   MRN: SYN-466595
   Member ID: MBR348244094
-  Date of birth: 1945-10-29
-  SSN: 952-80-5349
+  Date of birth: 1945-10-30
+  SSN: XXX-XX-5349
 
 CLAIM
-  Claim number: 6681849
+  Claim number: 8834557
   Claim status: DENIED
   Date of service: 2026-07-10
-  Date claim received by payer: 2026-11-02
-  Diagnosis (ICD-10): M54.50
+  Date claim received by payer: 2026-11-06
+  Diagnosis (ICD-10): M25.562
   Place of service: 11
-  Rendering provider: Dr. Matthew Gray (ID SYN-RP-1849)
-  Referring provider: Dr. Stacie Perry
+  Rendering provider: Dr. Savannah Brewer (Radiology) (ID RP-4557)
+  Referring provider: Dr. Matthew Gray
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99214       197.24     0.00       0.00       CO-29 197.24
-        (Established patient visit, moderate)
+  1     73721       1034.29    0.00       0.00       CO-29 1034.29
+        (MRI lower-extremity joint without contrast)
 
-TOTALS  Billed 197.24  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1034.29  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,36 +1,36 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Miller Medical Group
-Trace number: SYN-EFT-83774548
-Remittance date: 2026-08-24
+Trace number: 83774548
+Remittance date: 2026-08-19
 
 PATIENT
   Name: Mario Austin
-  Patient ID: P-3204
+  Patient ID: P-4827
   MRN: SYN-811274
   Member ID: MBR634601915
-  Date of birth: 1984-03-10
-  SSN: 920-92-8430
+  Date of birth: 1984-03-11
+  SSN: XXX-XX-8430
 
 CLAIM
-  Claim number: 5857278
+  Claim number: 3257083
   Claim status: PARTIALLY DENIED
   Date of service: 2026-07-22
-  Date claim received by payer: 2026-08-03
-  Diagnosis (ICD-10): M54.16
+  Date claim received by payer: 2026-08-04
+  Diagnosis (ICD-10): M51.16
   Place of service: 11
-  Rendering provider: Dr. Warren Hoover (ID SYN-RP-7278)
+  Rendering provider: Adrienne Smith, PT (ID RP-7083)
   Referring provider: Dr. James Allen
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97110       308.36     191.18     191.18
-        (Therapeutic exercise)
-  2     97140       85.88      0.00       0.00       CO-97 85.88 RARC N20
+  1     97530       278.55     172.70     172.70
+        (Therapeutic activities)
+  2     97140       161.19     0.00       0.00       CO-97 161.19 RARC N20
         (Manual therapy)
 
-TOTALS  Billed 394.24  Allowed 191.18  Paid 191.18  Patient responsibility 0.00
+TOTALS  Billed 439.74  Allowed 172.70  Paid 172.70  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

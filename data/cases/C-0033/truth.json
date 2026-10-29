@@ -5,66 +5,67 @@
   "payer_id": "MERIDIAN_COMM",
   "policy_id": "MP-BEN-002",
   "patient": {
-    "synthetic_id": "P-9176"
+    "synthetic_id": "P-8726"
   },
   "claim": {
-    "claim_no": "8058144",
-    "cpt": "99213",
+    "claim_no": "9373148",
+    "cpt": "85025",
     "icd10": [
-      "E78.5"
+      "D64.9"
     ],
     "dos": "2026-07-07",
-    "billed": 130.26
+    "billed": 294.15
   },
   "denial": {
     "carc": "PR-1",
     "rarc": null,
-    "denial_date": "2026-08-15"
+    "denial_date": "2026-08-03"
   },
-  "appeal_deadline": "2027-02-11",
+  "appeal_deadline": "2027-01-30",
+  "action_deadline": "2027-01-30",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§5.1",
+      "section": "§2.1",
       "text": "Member deductible was already satisfied before DOS",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "supporting/benefit_summary.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§5.2",
+      "section": "§2.2",
       "text": "Payer applied the deductible in error",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "supporting/benefit_summary.txt"
       ]
     }
   ],
   "correct_decision": "DO_NOT_APPEAL",
-  "traps": [
-    "deadline_passed"
-  ],
+  "traps": [],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "8058144",
+      "value": "9373148",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-9176",
+      "value": "P-8726",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "99213",
+      "value": "85025",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -72,7 +73,7 @@
     {
       "key": "icd10",
       "value": [
-        "E78.5"
+        "D64.9"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -87,7 +88,7 @@
     },
     {
       "key": "billed",
-      "value": 130.26,
+      "value": 294.15,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -115,7 +116,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-08-15",
+      "value": "2026-08-03",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -123,8 +124,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-07-17",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-07-17",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-07-19",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -136,14 +151,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2027-02-11",
+      "value": "2027-01-30",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2027-01-30",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2027-03-11",
+      "value": "2026-08-26",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -157,7 +179,7 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2027-08-15",
+      "value": "2027-08-03",
       "source_file": "denial_letter.txt",
       "line": 24,
       "evidence": null
@@ -171,28 +193,28 @@
     },
     {
       "key": "allowed_amount",
-      "value": 78.02,
+      "value": 152.0,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
     },
     {
       "key": "deductible_total",
-      "value": 1500,
+      "value": 2500,
       "source_file": "supporting/benefit_summary.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "deductible_met_before_dos",
-      "value": 1270,
+      "value": 810,
       "source_file": "supporting/benefit_summary.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "pr1_amount",
-      "value": 78.02,
+      "value": 152.0,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null

@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Fox Medical Group
+Claim number: 4890221
+Patient ID: P-2891
+Payer ID: HALCYON_PLAN
+Date of service: 2026-06-01
+Service: 97110 - Therapeutic exercise
+
+SUBMISSION HISTORY
+  2026-06-06  Submitted to clearinghouse (submission 1 of 1)
+  2026-06-06  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-08  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-07-06  Adjudicated by payer: adverse determination (CARC CO-151)
+
+SYNTHETIC DATA - NOT REAL PHI

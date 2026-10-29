@@ -6,16 +6,16 @@ Effective date: 2026-04-15
 Version history: Version 3.0, effective 2026-04-15. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy establishes the clinical criteria under which Meridian Community Health Plan considers magnetic resonance imaging of the lumbar spine to be medically necessary. It is intended to guide coverage determinations and promote appropriate use of advanced imaging for members presenting with low back symptoms.
+This policy establishes the clinical criteria under which Meridian Community Health Plan considers magnetic resonance imaging of the lumbar spine to be medically necessary. It applies to requests for advanced lumbar spine imaging submitted for coverage review under the plan's utilization management program.
 
-Section 3.2(a)
-The member must have completed at least 6 weeks of conservative therapy prior to the requested imaging. Documentation in the medical record should reflect the nature and duration of this conservative management, confirming that the full 6 weeks has been attempted without adequate clinical improvement.
+Section 2.1(a)
+The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken.
 
-Section 3.2(b)
-A qualifying neurological deficit or recognized red flag finding must be documented in the clinical record to support the request. The documentation should clearly describe the deficit or red flag so that its presence can be verified during the medical necessity review.
+Section 2.1(b)
+A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study.
 
-Section 3.2(c)
-Coverage requires that the same region of the lumbar spine has not been imaged within the preceding 12 months, unless clinically justified. The medical record should confirm the absence of prior imaging of that region within this 12 month period.
+Section 2.1(c)
+There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 180 days from the date of the claim determination notice.

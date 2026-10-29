@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Goodman Medical Group
+Claim number: 9373148
+Patient ID: P-8726
+Payer ID: MERIDIAN_COMM
+Date of service: 2026-07-07
+Service: 85025 - Complete blood count with differential
+
+SUBMISSION HISTORY
+  2026-07-17  Submitted to clearinghouse (submission 1 of 1)
+  2026-07-17  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-07-19  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-08-03  Adjudicated by payer: adverse determination (CARC PR-1)
+
+SYNTHETIC DATA - NOT REAL PHI

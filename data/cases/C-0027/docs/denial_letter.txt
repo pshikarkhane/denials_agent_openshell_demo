@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-11-06
+Date of notice: 2026-11-19
 To: Alvarez Medical Group
-Member: Michael Hunt   Patient ID: P-7207   Member ID: MBR156948638
+Member: Michael Hunt   Patient ID: P-7772   Member ID: MBR156948638
 
-Claim number: 9898968
-Date of service: 2026-06-20
-Service: 73721 - MRI lower-extremity joint without contrast
-Billed amount: 1283.25
+Claim number: 7356578
+Date of service: 2026-06-22
+Service: 93000 - ECG with interpretation
+Billed amount: 115.91
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-10-19, after the 90-day filing limit. The filing deadline for this date of service was 2026-09-18 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-11-01, after the 90-day filing limit. The filing deadline for this date of service was 2026-09-20 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-02-04.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-02-17.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-05-05.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-05-18.
 
 SYNTHETIC DATA - NOT REAL PHI

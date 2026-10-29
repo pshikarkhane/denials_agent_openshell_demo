@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Williams Medical Group
+Claim number: 7934025
+Patient ID: P-3400
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-07-09
+Service: 73721 - MRI lower-extremity joint without contrast
+
+SUBMISSION HISTORY
+  2026-11-16  Submitted to clearinghouse (submission 1 of 1)
+  2026-11-16  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-11-17  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-12-04  Adjudicated by payer: adverse determination (CARC CO-29)
+
+SYNTHETIC DATA - NOT REAL PHI

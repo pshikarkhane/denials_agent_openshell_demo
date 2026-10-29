@@ -2,25 +2,25 @@ MERIDIAN COMMUNITY HEALTH PLAN
 Payer ID: MERIDIAN_COMM
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-18
+Date of notice: 2026-09-01
 To: Silva Medical Group
-Member: Christine Miller   Patient ID: P-6394   Member ID: MBR760063255
+Member: Christine Miller   Patient ID: P-1761   Member ID: MBR760063255
 
-Claim number: 5765634
+Claim number: 6523800
 Date of service: 2026-07-24
 Service: 72148 - MRI lumbar spine without contrast
-Billed amount: 1869.77
+Billed amount: 1981.19
 
 DETERMINATION
 Reason code (CARC): CO-50  The service was not deemed medically necessary by the plan.
-Remark code (RARC): N115
+Remark code (RARC): N386
 The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity).
 
 Appeal Rights
-You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-02-14.
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-02-28.
 Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
 
 Corrected Claims
-A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-08-18.
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-09-01.
 
 SYNTHETIC DATA - NOT REAL PHI

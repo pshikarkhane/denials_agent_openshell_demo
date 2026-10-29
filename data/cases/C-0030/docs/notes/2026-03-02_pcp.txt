@@ -1,0 +1,24 @@
+Johnston Medical Group
+PRIMARY CARE VISIT NOTE
+Patient: Michael Johnson   DOB: 1961-05-09   MRN: SYN-926375   Patient ID: P-5383
+Date of encounter: 2026-03-02
+Provider: Dr. Thomas Williams
+------------------------------------------------------------
+Reason for visit
+Follow-up of essential hypertension (I10). Patient reports feeling well with no new complaints.
+
+History
+He has been taking his antihypertensive medication regularly and tolerating it without side effects. He denies chest pain, shortness of breath, palpitations, headaches, dizziness, or visual changes. He has been walking most days and has reduced his salt intake. No lightheadedness on standing. Home readings have trended down and are consistently within a reasonable range. He sleeps adequately and denies excess alcohol use. No tobacco use.
+
+Exam
+Alert, comfortable, in no distress. Blood pressure well controlled in the office today. Heart rate regular. Lungs clear to auscultation bilaterally. Cardiovascular exam shows normal rate and rhythm without murmurs. No peripheral edema. No carotid bruits. Neurologic exam grossly intact.
+
+Assessment
+Essential hypertension (I10), well controlled on the current regimen. Blood pressure lower today than prior readings, reflecting good adherence and lifestyle changes.
+
+Plan
+Continue the current antihypertensive medication at the same dose. Maintain low-salt diet and regular physical activity. Continue home blood pressure monitoring and bring the log to the next visit. Check basic metabolic panel. Return for routine follow-up or sooner if readings rise or symptoms develop.
+------------------------------------------------------------
+Electronically signed: Dr. Thomas Williams
+
+SYNTHETIC DATA - NOT REAL PHI

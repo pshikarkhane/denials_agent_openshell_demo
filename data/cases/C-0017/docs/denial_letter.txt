@@ -2,25 +2,25 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-03-21
+Date of notice: 2026-04-08
 To: Alvarado Medical Group
-Member: Kelsey Riggs   Patient ID: P-1221   Member ID: MBR714626984
+Member: Kelsey Riggs   Patient ID: P-2085   Member ID: MBR714626984
 
-Claim number: 2791209
-Date of service: 2026-03-01
+Claim number: 1226505
+Date of service: 2026-03-02
 Service: 27447 - Total knee arthroplasty
-Billed amount: 4867.27
+Billed amount: 3444.29
 
 DETERMINATION
 Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
-Remark code (RARC): N54
+Remark code (RARC): none
 No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-07-19.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-08-06.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-09-17.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-10-05.
 
 SYNTHETIC DATA - NOT REAL PHI

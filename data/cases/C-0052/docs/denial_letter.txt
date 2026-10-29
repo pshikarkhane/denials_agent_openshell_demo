@@ -2,14 +2,14 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-06-12
+Date of notice: 2026-06-24
 To: Scott Medical Group
-Member: William Hart   Patient ID: P-4693   Member ID: MBR163794722
+Member: William Hart   Patient ID: P-3412   Member ID: MBR163794722
 
-Claim number: 4409934
+Claim number: 4782529
 Date of service: 2026-05-11
 Service: 27447 - Total knee arthroplasty
-Billed amount: 3272.36
+Billed amount: 3487.91
 
 DETERMINATION
 Reason code (CARC): CO-11  The diagnosis is inconsistent with the procedure.
@@ -17,10 +17,10 @@ Remark code (RARC): M76
 The diagnosis code(s) J02.9 are not consistent with procedure 27447 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-09-10.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-09-22.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-09.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-21.
 
 SYNTHETIC DATA - NOT REAL PHI

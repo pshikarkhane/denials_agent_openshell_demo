@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Cooley Medical Group
-Trace number: SYN-EFT-70639327
-Remittance date: 2026-07-02
+Trace number: 70639327
+Remittance date: 2026-07-13
 
 PATIENT
   Name: Kathryn Phillips
-  Patient ID: P-1589
+  Patient ID: P-1648
   MRN: SYN-219329
   Member ID: MBR908845363
-  Date of birth: 1955-09-26
-  SSN: 901-37-2126
+  Date of birth: 1955-09-27
+  SSN: XXX-XX-2126
 
 CLAIM
-  Claim number: 5544314
+  Claim number: 1604222
   Claim status: DENIED
-  Date of service: 2026-06-06
-  Date claim received by payer: 2026-06-17
-  Diagnosis (ICD-10): D64.9
+  Date of service: 2026-06-08
+  Date claim received by payer: 2026-06-22
+  Diagnosis (ICD-10): E78.5
   Place of service: 11
-  Rendering provider: Dr. Diane Butler (ID SYN-RP-4314)
-  Referring provider: Dr. Erin Collins
+  Rendering provider: Dr. Diane Butler (ID RP-4222)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     93000       119.07     0.00       0.00       CO-11 119.07 RARC M76
+  1     93000       108.00     0.00       0.00       CO-11 108.00 RARC M76
         (ECG with interpretation)
 
-TOTALS  Billed 119.07  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 108.00  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

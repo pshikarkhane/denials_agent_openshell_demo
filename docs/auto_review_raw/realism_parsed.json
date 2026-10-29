@@ -1,297 +1,159 @@
 {
   "C-0005__gemini": {
-    "findings": [
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "Rendering provider: Dr. Jimmy Johnson",
-        "problem": "The EOB lists the patient's Primary Care Physician (Dr. Jimmy Johnson) as the rendering provider for the MRI (CPT 72148). While both the PCP and Ortho belong to the same multi-specialty group (Gutierrez Medical Group), it is highly unusual for a PCP to be the rendering provider for an advanced imaging service, which is typically rendered by a radiologist or an imaging facility.",
-        "suggested_fix": "Change the rendering provider on the EOB to a radiologist (e.g., Dr. Sarah Smith) or an imaging facility to better reflect standard billing practices."
-      }
-    ],
+    "findings": [],
     "clean_areas": [
+      "realism",
       "leak",
       "evidence",
       "consistency",
       "solvability"
     ],
-    "overall": "The test case is well-constructed, logically sound, and solvable, with only a minor realism quirk regarding the rendering provider on the EOB."
+    "overall": "The test case is exceptionally clean, clinically accurate, perfectly consistent across all files, and features a well-designed, realistic distractor regarding the patient's reported therapy duration."
   },
   "C-0005__gpt": {
     "findings": [
       {
-        "area": "evidence",
-        "severity": "blocker",
-        "file": "policy_library/MP-IMG-007.txt",
-        "quote": "The medical record should confirm the absence of prior imaging of that region within this 12 month period.",
-        "problem": "Answer key marks criterion C3/Section 3.2(c) as met, but no agent-visible clinical note, denial, remit, or supporting document affirmatively states that there was no lumbar spine imaging in the prior 12 months. Absence of an imaging report in the packet is not the same as medical-record confirmation, especially because the policy explicitly requires confirmation.",
-        "suggested_fix": "Add affirmative documentation in an agent-visible record, e.g. in the ortho plan or MRI order: \"Chart review confirms no lumbar spine imaging of the same region within the prior 12 months.\" Alternatively mark this criterion unknown and change the intended decision accordingly."
-      },
-      {
-        "area": "solvability",
-        "severity": "blocker",
-        "file": "policy_library/MP-IMG-007.txt",
-        "quote": "Coverage requires that the same region of the lumbar spine has not been imaged within the preceding 12 months, unless clinically justified.",
-        "problem": "The correct policy is uniquely identifiable, but the intended APPEAL decision is not fully defensible from the documents alone because one required coverage criterion cannot be verified. A careful agent could reasonably choose ESCALATE_MISSING_DOCS or list a gap rather than submit a clean appeal.",
-        "suggested_fix": "Provide explicit no-prior-imaging evidence in the case documents, or adjust the answer key so Section 3.2(c) is unknown and the expected decision reflects the missing documentation."
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/supporting/pt_log.txt",
+        "quote": "Visit 21 | 2026-06-01 | neuromuscular re-education\n\nTreatment period: 2026-03-23 to 2026-06-04 (73 days)",
+        "problem": "The attendance log lists the last attended PT visit on 2026-06-01 but then states a treatment period through 2026-06-04, with no visit or discharge/status entry on 2026-06-04. This is not fatal because the duration still exceeds 6 weeks, but it may look slightly artificial.",
+        "suggested_fix": "Either add a PT visit/status entry on 2026-06-04 or change the treatment period to end on 2026-06-01; the criterion would still be met."
       }
     ],
     "clean_areas": [
-      "realism",
       "leak",
-      "consistency"
+      "evidence",
+      "consistency",
+      "solvability"
     ],
-    "overall": "The case is realistic and internally consistent with no obvious answer leak, but it is currently blocked because the no-prior-imaging criterion is marked met without affirmative support in the agent-visible record."
+    "overall": "The case is solvable and internally consistent, with only a minor realism issue in the PT log date range."
   },
   "C-0007__gemini": {
-    "findings": [
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "Rendering provider: Dr. Claire Walker (ID SYN-RP-0010)\n  Referring provider: Dr. Nicholas Williams",
-        "problem": "Dr. Claire Walker is the patient's primary care physician, and Dr. Nicholas Williams (Orthopedics) ordered the MRI. It is clinically and administratively unrealistic for the PCP to be listed as the rendering provider for an MRI scan, which would typically be rendered by a radiologist or an imaging facility.",
-        "suggested_fix": "Change the rendering provider on the EOB to a radiologist (e.g., 'Dr. Sarah Jones') or an imaging center."
-      },
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/notes/2026-03-23_pcp.txt",
-        "quote": "Conservative therapy (NSAIDs, home exercise program and physical therapy referral) was started on 2026-03-23.",
-        "problem": "Using the exact current date in the past tense ('was started on 2026-03-23') within a note authored on that very same day sounds robotic and betrays the synthetic generation. Clinicians typically use relative terms for same-day actions.",
-        "suggested_fix": "Change to natural clinical phrasing, such as 'Initiating conservative therapy (NSAIDs, home exercise program, and physical therapy referral) today.'"
-      }
-    ],
+    "findings": [],
     "clean_areas": [
-      "leak",
+      "realism",
+      "leaks",
       "evidence",
       "consistency",
       "solvability"
     ],
-    "overall": "This is a high-quality, perfectly solvable case with tight cross-file consistency and a solid distractor trap, requiring only minor polish to make the billing details and clinical phrasing feel fully authentic."
+    "overall": "The test case is flawlessly constructed, with highly realistic clinical and billing documents, impeccable calendar math for the therapy dates, and a perfectly clear, logically sound resolution."
   },
   "C-0007__gpt": {
-    "findings": [
-      {
-        "area": "evidence",
-        "severity": "major",
-        "file": "docs/supporting/prior_imaging.txt",
-        "quote": "Study date: 2023-11-14",
-        "problem": "The answer key treats criterion 3.2(c) as met, but this file is only a single prior lumbar radiograph report. It does not affirmatively state that there was no lumbar imaging within the 12 months before the 2026-04-20 MRI. Absence of another imaging report in the packet is weaker than the policy requirement that the record confirm absence of same-region imaging within 12 months.",
-        "suggested_fix": "Change this supporting file to an imaging-history summary, e.g. 'Imaging history reviewed: no lumbar spine imaging from 2025-04-20 through 2026-04-20; last lumbar imaging was radiographs on 2023-11-14.'"
-      },
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "Rendering provider: Dr. Claire Walker (ID SYN-RP-0010)",
-        "problem": "For CPT 72148, an MRI lumbar spine, listing the primary care physician as the rendering provider is somewhat odd. The clinical record shows Dr. Nicholas Williams ordered the MRI, but neither note suggests Dr. Claire Walker rendered/interpreted imaging.",
-        "suggested_fix": "Use an imaging facility or radiology provider as the rendering provider, and list Dr. Nicholas Williams or Dr. Claire Walker as ordering/referring provider as appropriate."
-      },
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "SSN: 970-79-8005",
-        "problem": "Including an SSN in an 835-style remittance is atypical and may stand out to billing/RCM users, even though the data are synthetic.",
-        "suggested_fix": "Omit the SSN field or replace it with a more typical subscriber/member identifier already present in the file."
-      }
-    ],
-    "clean_areas": [
-      "leak",
-      "consistency",
-      "solvability"
-    ],
-    "overall": "The case is generally solvable and does not leak the intended decision, but the prior-imaging evidence should be strengthened to truly support the criterion marked met."
-  },
-  "C-0030__gemini": {
-    "findings": [
-      {
-        "area": "consistency",
-        "severity": "minor",
-        "file": "policy_library/MP-TF-010.txt",
-        "quote": "within 60 days of the date of service ... 7.2 Timely filing limit: 90 days from the date of service.",
-        "problem": "The superseded distractor policy contains an internal contradiction, citing a 60-day limit in Section 2.1 but a 90-day limit in Section 7.2.",
-        "suggested_fix": "Change '60 days' to '90 days' in Section 2.1 of MP-TF-010.txt, or change '90 days' to '60 days' in Section 7.2 to make the policy internally consistent."
-      }
-    ],
+    "findings": [],
     "clean_areas": [
       "realism",
       "leak",
       "evidence",
+      "consistency",
       "solvability"
     ],
-    "overall": "An exceptionally clean and well-constructed timely filing case with flawless date math (both for deadlines and patient age) and strong clinical/administrative alignment."
+    "overall": "The case appears internally consistent, realistic enough for an RCM denial-appeal task, free of answer leaks beyond intended evidence, and solvable from the provided documents."
+  },
+  "C-0030__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The test case is well-constructed, logically sound, and appropriately utilizes standard timely filing logic with a perfectly integrated superseded-policy distractor."
   },
   "C-0030__gpt": {
     "findings": [
       {
-        "area": "solvability",
-        "severity": "major",
-        "file": "task.md",
-        "quote": "\"decision\": one of APPEAL | CORRECT_AND_RESUBMIT | DO_NOT_APPEAL | ESCALATE_MISSING_DOCS",
-        "problem": "The intended answer is DO_NOT_APPEAL because no proof of timely filing is present, but the task explicitly allows ESCALATE_MISSING_DOCS. Since the visible files do not state that a clearinghouse acceptance report was searched for and is unavailable, an agent could defensibly escalate for the missing proof rather than conclude it is unavailable.",
-        "suggested_fix": "Add a billing note or denial-workqueue note stating that no clearinghouse acceptance report, submission log, or earlier transmission evidence is available after review. Alternatively, clarify in task.md that the agent must decide from the provided case file set and should not escalate for documents not present unless the file indicates they exist."
-      },
-      {
-        "area": "realism",
+        "area": "leak",
         "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "835 REMITTANCE ADVICE (SYNTHETIC RENDERING)",
-        "problem": "The phrase \u201cSYNTHETIC RENDERING\u201d in the document title is not a realistic payer/835 label. The expected synthetic footer is fine, but this header makes the document feel artificial.",
-        "suggested_fix": "Use a more realistic title such as \u201c835 REMITTANCE ADVICE\u201d and keep the synthetic-data notice only in the footer."
-      },
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "SSN: 972-53-9308",
-        "problem": "A full SSN appearing in a simplified 835/EOB extract is unusual and unnecessary for the denial task, even though the data are synthetic.",
-        "suggested_fix": "Remove the SSN field or mask it, e.g. \u201cSSN: XXX-XX-9308.\u201d"
-      },
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/notes/2026-03-13_pcp.txt",
-        "quote": "Abdomen soft, nontagender.",
-        "problem": "Typographical error in the clinical note; likely intended to be \u201cnontender.\u201d It does not affect the decision but looks like synthetic/polish noise.",
-        "suggested_fix": "Change to \u201cAbdomen soft, nontender.\u201d"
+        "file": "policy_library/MP-TF-010.txt",
+        "quote": "Status: SUPERSEDED. Replaced by MP-TF-001 (current version effective 2026-03-15). Version 1.0, effective 2024-01-01; this version last applied to dates of service on or before 2024-12-31.",
+        "problem": "The similar-name distractor policy explicitly names the correct current policy ID, which makes the distractor trap very easy rather than requiring the agent to resolve it from payer, title, service, and effective date.",
+        "suggested_fix": "Keep the superseded status and applicability dates, but remove the explicit 'Replaced by MP-TF-001' cross-reference, or make the replacement reference less direct."
       }
     ],
     "clean_areas": [
-      "leak",
-      "evidence",
-      "consistency"
-    ],
-    "overall": "The core denial logic and cross-file facts are consistent, but the missing timely-filing proof creates a decision ambiguity between DO_NOT_APPEAL and ESCALATE_MISSING_DOCS unless the file explicitly states that no proof is available."
-  },
-  "C-0039__gemini": {
-    "findings": [
-      {
-        "area": "realism",
-        "severity": "major",
-        "file": "docs/notes/2026-06-02_pcp.txt",
-        "quote": "for the past several visits' worth of symptoms, evaluated on 2026-06-02.",
-        "problem": "The phrasing is nonsensical and clearly an artifact of poor AI text generation. It breaks the immersion of a clinical note.",
-        "suggested_fix": "Change the sentence to something clinically natural, such as 'Sore throat and scratchy sensation for the past several days.'"
-      },
-      {
-        "area": "realism",
-        "severity": "minor",
-        "file": "docs/notes/2026-06-28_visit.txt",
-        "quote": "Service performed on 2026-06-28: Established patient visit, low.",
-        "problem": "This sentence appended to the end of the Plan section sounds artificially injected to match billing data rather than natural provider documentation.",
-        "suggested_fix": "Reword to sound like a natural clinical sign-off, e.g., 'Encounter completed on 2026-06-28 for low-complexity established patient.'"
-      }
-    ],
-    "clean_areas": [
-      "leak",
+      "realism",
       "evidence",
       "consistency",
       "solvability"
     ],
-    "overall": "The test case is logically sound, perfectly consistent, and highly solvable, but features some glaringly artificial phrasing in the clinical notes that should be smoothed out for realism."
+    "overall": "The case is generally clean and defensible for DO_NOT_APPEAL; the only issue is a minor policy-library hint that makes the distractor policy less effective."
+  },
+  "C-0039__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leaks",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The test case is exceptionally well-constructed, with perfectly consistent dates and documentation, presenting a highly realistic and solvable scenario for submitting a corrected claim."
   },
   "C-0039__gpt": {
     "findings": [
       {
         "area": "realism",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "SSN: 961-57-7282",
-        "problem": "A remittance/EOB-style 835 rendering that includes a full SSN is unusual and may look odd to billing/RCM users; 835s typically use member/subscriber identifiers rather than displaying a full SSN.",
-        "suggested_fix": "Remove the SSN line or replace it with a masked/irrelevant subscriber identifier."
+        "severity": "major",
+        "file": "docs/denial_letter.txt",
+        "quote": "Remark code (RARC): none",
+        "problem": "CO-16 is normally accompanied by a remark code identifying the missing or invalid information. A billing/RCM professional would likely find a CO-16 denial with no RARC odd, especially when the missing item is known.",
+        "suggested_fix": "Add a plausible RARC or payer remark, such as an N-code indicating missing/invalid rendering provider/NPI, and mirror it in the 835."
       },
       {
         "area": "realism",
+        "severity": "major",
+        "file": "docs/eob_835.txt",
+        "quote": "1     99213       172.84     0.00       0.00       CO-16 172.84",
+        "problem": "The 835 service line uses CO-16 without any accompanying remark code. This is unrealistic for an 835/remittance advice because CO-16 generally requires additional remark-code detail.",
+        "suggested_fix": "Include the same plausible RARC/remark on the service line or claim level, consistent with the denial letter."
+      },
+      {
+        "area": "evidence",
         "severity": "minor",
-        "file": "docs/notes/2026-06-02_pcp.txt",
-        "quote": "Reason for visit: Sore throat and scratchy sensation for the past several visits' worth of symptoms, evaluated on 2026-06-02.",
-        "problem": "The phrase \u201cpast several visits' worth of symptoms\u201d is awkward and not clinically natural, especially for a reason-for-visit statement.",
-        "suggested_fix": "Revise to a more typical note phrase such as: \u201cReason for visit: Sore throat and scratchy sensation for several days.\u201d"
+        "file": "task.md",
+        "quote": "Today's date for this review is 2026-09-02.",
+        "problem": "Criterion C2 is marked met because the corrected-claim deadline is still open, but the cited evidence in the answer key lists only the denial letter. The deadline is in the denial letter, but the as-of date needed to determine that the window remains open is in task.md.",
+        "suggested_fix": "Include task.md as evidence for C2, or word C2 as simply documenting the corrected-claim deadline rather than determining current timeliness."
       }
     ],
     "clean_areas": [
       "leak",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is solvable and internally consistent, with no obvious answer leak, but the CO-16-without-RARC presentation is unrealistic and the C2 evidence citation should include the task date."
+  },
+  "C-0056__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leaks",
       "evidence",
       "consistency",
       "solvability"
     ],
-    "overall": "The case is generally clean and solvable, with only minor realism polish issues in the EOB and one clinical-note phrase."
-  },
-  "C-0056__gemini": {
-    "findings": [
-      {
-        "area": "leak",
-        "severity": "major",
-        "file": "docs/notes/2026-06-29_followup.txt",
-        "quote": "This visit took place after the date of service 2026-05-21.",
-        "problem": "The clinical note contains a meta-statement explicitly flagging its own date relative to the claim's date of service. This directly leaks the 'note_after_dos' trap to the agent and is highly unrealistic for a medical record.",
-        "suggested_fix": "Remove the sentence 'This visit took place after the date of service 2026-05-21.' entirely."
-      },
-      {
-        "area": "consistency",
-        "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "Rendering provider: Dr. Daniel Sanders",
-        "problem": "The EOB lists Dr. Daniel Sanders as the rendering provider for the PT visit on 2026-05-21, but the PT log shows David Fisher, PT performed the service. Dr. Sanders did not see the patient until the follow-up visit over a month later on 2026-06-29.",
-        "suggested_fix": "Change the rendering provider on the EOB to 'David Fisher, PT' to match the PT log."
-      }
-    ],
-    "clean_areas": [
-      "realism",
-      "evidence",
-      "solvability"
-    ],
-    "overall": "A solid test case overall, but it requires the removal of an unrealistic meta-comment that flags the trap for the agent, along with a minor correction to the rendering provider name on the EOB."
+    "overall": "The test case is exceptionally clean, well-constructed, and highly realistic with perfect cross-file consistency and no identified issues."
   },
   "C-0056__gpt": {
     "findings": [
       {
-        "area": "evidence",
-        "severity": "major",
-        "file": "policy_library/MP-PT-011.txt",
-        "quote": "Coverage of additional therapy under an approved exception is available only when the visit count remains within the exception cap of 30.",
-        "problem": "The answer key marks the visit-cap criterion met based only on 28 visits, but the policy text also requires the therapy to be under an approved exception. No agent-visible file documents that an exception was approved or requested.",
-        "suggested_fix": "Add an agent-visible benefits/authorization/exception approval document showing the exception was approved before the denied DOS, or revise the policy wording so the exception is established by meeting the documented criteria rather than requiring a separate approved exception."
-      },
-      {
-        "area": "solvability",
-        "severity": "major",
-        "file": "policy_library/MP-PT-011.txt",
-        "quote": "Visit cap with documented exception: 30 visits per calendar year.",
-        "problem": "The intended APPEAL decision is somewhat under-supported because the documents show the visit count is within 30, but do not show a documented/approved exception. A careful agent could defensibly mark this as unknown or a gap rather than fully met.",
-        "suggested_fix": "Provide explicit documentation of the exception status, or make the intended criterion simply 'visit count is 30 or fewer' without requiring a documented exception."
-      },
-      {
-        "area": "realism",
-        "severity": "major",
-        "file": "docs/supporting/pt_progress_note.txt",
-        "quote": "Functional improvement: lumbar flexion improved from 36 to 61 degrees and sit-to-stand time improved from 18 to 12 seconds.",
-        "problem": "The claim diagnosis and therapy record are for left knee pain, but the key functional ROM improvement cited is lumbar flexion. That is clinically odd and may make the evidence look copied from a low-back case rather than a knee PT case.",
-        "suggested_fix": "Change the measure to a knee-relevant metric, such as left knee flexion improving from 110 to 125 degrees, stair tolerance, LEFS score, single-leg stance time, or sit-to-stand alone."
-      },
-      {
-        "area": "leak",
-        "severity": "major",
-        "file": "docs/notes/2026-06-29_followup.txt",
-        "quote": "This visit took place after the date of service 2026-05-21.",
-        "problem": "This explicitly points out the post-DOS nature of the note and effectively reveals the note_after_dos trap. The date of encounter already makes this visible without the artificial hint.",
-        "suggested_fix": "Remove this sentence and let the agent infer timing from 'Date of encounter: 2026-06-29' compared with the claim DOS."
-      },
-      {
-        "area": "realism",
+        "area": "consistency",
         "severity": "minor",
-        "file": "docs/eob_835.txt",
-        "quote": "SSN: 959-95-5363",
-        "problem": "A full SSN appearing in a rendered 835-style remittance is unusual and may stand out to billing/RCM users, even though the file is synthetic.",
-        "suggested_fix": "Remove the SSN field or mask it, e.g. 'SSN: XXX-XX-5363'."
+        "file": "docs/notes/2026-03-03_initial_eval.txt; docs/notes/2026-03-26_referral.txt",
+        "quote": "began approximately two months ago after lifting a heavy box at home. / Symptoms began insidiously without a clear inciting injury.",
+        "problem": "The onset history conflicts between the initial PT evaluation and the physician recertification note. This does not affect the appeal criteria, but a clinical or RCM reviewer may notice the inconsistency.",
+        "suggested_fix": "Make the onset history consistent across notes, e.g. either both describe onset after lifting a heavy box or both describe insidious onset."
       }
     ],
     "clean_areas": [
-      "consistency"
+      "realism",
+      "leak",
+      "evidence",
+      "solvability"
     ],
-    "overall": "The case is mostly coherent and the correct policy is identifiable, but the missing approved-exception evidence and the overt post-DOS hint should be fixed before using it for scoring."
+    "overall": "The case is solvable and the intended APPEAL decision is well supported; only a minor clinical-history inconsistency should be cleaned up."
   }
 }

@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Johnston Medical Group
-Trace number: SYN-EFT-83231976
-Remittance date: 2026-08-07
+Trace number: 83231976
+Remittance date: 2026-08-03
 
 PATIENT
   Name: Michael Johnson
-  Patient ID: P-3641
+  Patient ID: P-5383
   MRN: SYN-926375
   Member ID: MBR284435778
-  Date of birth: 1961-05-08
-  SSN: 972-53-9308
+  Date of birth: 1961-05-09
+  SSN: XXX-XX-9308
 
 CLAIM
-  Claim number: 3568115
+  Claim number: 3704835
   Claim status: DENIED
   Date of service: 2026-04-01
-  Date claim received by payer: 2026-07-24
-  Diagnosis (ICD-10): E11.9
+  Date claim received by payer: 2026-07-15
+  Diagnosis (ICD-10): I10
   Place of service: 11
-  Rendering provider: Dr. Thomas Williams (ID SYN-RP-8115)
-  Referring provider: Dr. Alyssa Wood
+  Rendering provider: Dr. Thomas Williams (ID RP-4835)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99214       279.40     0.00       0.00       CO-29 279.40
-        (Established patient visit, moderate)
+  1     99213       236.93     0.00       0.00       CO-29 236.93
+        (Established patient visit, low)
 
-TOTALS  Billed 279.40  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 236.93  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,29 +1,31 @@
 Gutierrez Medical Group - PHYSICAL THERAPY ATTENDANCE LOG
 Patient: Brenda Wilson  MRN: SYN-599999
-Start of care: 2026-04-08
+Start of care: 2026-03-23
 Therapist: Edwin Gonzales, PT
 
-Visit 1 | 2026-04-08 | neuromuscular re-education
-Visit 2 | 2026-04-12 | therapeutic activities
-Visit 3 | 2026-04-15 | manual therapy
-Visit 4 | 2026-04-19 | therapeutic exercise
-Visit 5 | 2026-04-22 | neuromuscular re-education
-Visit 6 | 2026-04-26 | therapeutic activities
-Visit 7 | 2026-04-29 | manual therapy
-Visit 8 | 2026-05-03 | therapeutic exercise
-Visit 9 | 2026-05-06 | neuromuscular re-education
-Visit 10 | 2026-05-10 | therapeutic activities
-Visit 11 | 2026-05-13 | manual therapy
-Visit 12 | 2026-05-17 | therapeutic exercise
-Visit 13 | 2026-05-20 | neuromuscular re-education
-Visit 14 | 2026-05-24 | therapeutic activities
-Visit 15 | 2026-05-27 | manual therapy
-Visit 16 | 2026-05-31 | therapeutic exercise
-Visit 17 | 2026-06-03 | neuromuscular re-education
-Visit 18 | 2026-06-07 | therapeutic activities
-Visit 19 | 2026-06-10 | manual therapy
+Visit 1 | 2026-03-23 | neuromuscular re-education
+Visit 2 | 2026-03-27 | therapeutic activities
+Visit 3 | 2026-03-30 | manual therapy
+Visit 4 | 2026-04-03 | therapeutic exercise
+Visit 5 | 2026-04-06 | neuromuscular re-education
+Visit 6 | 2026-04-10 | therapeutic activities
+Visit 7 | 2026-04-13 | manual therapy
+Visit 8 | 2026-04-17 | therapeutic exercise
+Visit 9 | 2026-04-20 | neuromuscular re-education
+Visit 10 | 2026-04-24 | therapeutic activities
+Visit 11 | 2026-04-27 | manual therapy
+Visit 12 | 2026-05-01 | therapeutic exercise
+Visit 13 | 2026-05-04 | neuromuscular re-education
+Visit 14 | 2026-05-08 | therapeutic activities
+Visit 15 | 2026-05-11 | manual therapy
+Visit 16 | 2026-05-15 | therapeutic exercise
+Visit 17 | 2026-05-18 | neuromuscular re-education
+Visit 18 | 2026-05-22 | therapeutic activities
+Visit 19 | 2026-05-25 | manual therapy
+Visit 20 | 2026-05-29 | therapeutic exercise
+Visit 21 | 2026-06-01 | neuromuscular re-education
 
-Treatment period: 2026-04-08 to 2026-06-12 (65 days)
-Visits completed to date: 19
+Treatment period: 2026-03-23 to 2026-06-04 (73 days)
+Visits completed to date: 21
 
 SYNTHETIC DATA - NOT REAL PHI

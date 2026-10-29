@@ -5,66 +5,67 @@
   "payer_id": "TERRAVISTA_HEALTH",
   "policy_id": "MP-CLM-004",
   "patient": {
-    "synthetic_id": "P-7709"
+    "synthetic_id": "P-7211"
   },
   "claim": {
-    "claim_no": "2452125",
-    "cpt": "63030",
+    "claim_no": "7870925",
+    "cpt": "72148",
     "icd10": [
       "D64.9"
     ],
     "dos": "2026-06-04",
-    "billed": 3768.95
+    "billed": 1764.63
   },
   "denial": {
     "carc": "CO-11",
     "rarc": "M76",
-    "denial_date": "2026-07-05"
+    "denial_date": "2026-07-10"
   },
-  "appeal_deadline": "2026-10-03",
+  "appeal_deadline": "2026-10-08",
+  "action_deadline": "2027-01-06",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§4.2",
+      "section": "§2.4",
       "text": "Billed diagnosis supports the billed procedure per payer edit",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
         "denial_letter.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§4.3",
+      "section": "§2.5",
       "text": "Clinical note documents a diagnosis that supports the procedure",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "notes/2026-06-04_visit.txt"
       ]
     }
   ],
   "correct_decision": "CORRECT_AND_RESUBMIT",
-  "traps": [
-    "deadline_within_7_days"
-  ],
+  "traps": [],
   "required_enclosures": [],
   "facts": [
     {
       "key": "claim_no",
-      "value": "2452125",
+      "value": "7870925",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-7709",
+      "value": "P-7211",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "63030",
+      "value": "72148",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -87,7 +88,7 @@
     },
     {
       "key": "billed",
-      "value": 3768.95,
+      "value": 1764.63,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -115,7 +116,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-07-05",
+      "value": "2026-07-10",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -123,8 +124,22 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-06-09",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-06-09",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-06-12",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -136,14 +151,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-10-03",
+      "value": "2026-10-08",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
+      "key": "action_deadline",
+      "value": "2027-01-06",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "as_of_date",
-      "value": "2026-09-28",
+      "value": "2026-07-31",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -156,17 +178,17 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2027-01-01",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "M76",
       "source_file": "denial_letter.txt",
       "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2027-01-06",
+      "source_file": "denial_letter.txt",
+      "line": 24,
       "evidence": null
     },
     {

@@ -2,25 +2,25 @@ HALCYON HEALTH PLAN
 Payer ID: HALCYON_PLAN
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-06-15
+Date of notice: 2026-06-16
 To: Waters Medical Group
-Member: Jesus Baldwin   Patient ID: P-7876   Member ID: MBR810968252
+Member: Jesus Baldwin   Patient ID: P-3244   Member ID: MBR810968252
 
-Claim number: 1548494
-Date of service: 2026-05-24
+Claim number: 8041510
+Date of service: 2026-05-25
 Service: 27447 - Total knee arthroplasty
-Billed amount: 2928.70
+Billed amount: 5190.19
 
 DETERMINATION
 Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
-Remark code (RARC): N54
+Remark code (RARC): none
 No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
 
 Appeal Rights
-You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-13.
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-14.
 Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-12.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-13.
 
 SYNTHETIC DATA - NOT REAL PHI

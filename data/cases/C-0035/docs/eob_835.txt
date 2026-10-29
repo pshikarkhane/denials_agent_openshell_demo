@@ -1,35 +1,35 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Barber Medical Group
-Trace number: SYN-EFT-45508640
-Remittance date: 2026-06-25
+Trace number: 45508640
+Remittance date: 2026-07-06
 
 PATIENT
   Name: Cheryl Anderson
-  Patient ID: P-5137
+  Patient ID: P-2319
   MRN: SYN-270310
   Member ID: MBR486338910
-  Date of birth: 1969-07-30
-  SSN: 916-76-5612
+  Date of birth: 1969-07-31
+  SSN: XXX-XX-5612
 
 CLAIM
-  Claim number: 7166320
+  Claim number: 5236600
   Claim status: PROCESSED - PATIENT RESPONSIBILITY APPLIED
-  Date of service: 2026-05-30
-  Date claim received by payer: 2026-06-09
-  Diagnosis (ICD-10): J06.9
+  Date of service: 2026-06-01
+  Date claim received by payer: 2026-06-14
+  Diagnosis (ICD-10): D64.9
   Place of service: 11
-  Rendering provider: Dr. Jerry Singh (ID SYN-RP-6320)
-  Referring provider: Dr. Russell Johnson
+  Rendering provider: Dr. Jerry Singh (ID RP-6600)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99213       174.18     97.08      0.00       PR-1 97.08
-        (Established patient visit, low)
+  1     85025       221.23     126.42     0.00       PR-1 126.42
+        (Complete blood count with differential)
 
-TOTALS  Billed 174.18  Allowed 97.08  Paid 0.00  Patient responsibility 97.08
-  Amount not allowed (billed minus allowed): 77.10
+TOTALS  Billed 221.23  Allowed 126.42  Paid 0.00  Patient responsibility 126.42
+  Amount not allowed (billed minus allowed): 94.81
 
 SYNTHETIC DATA - NOT REAL PHI

@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Gonzalez Medical Group
-Trace number: SYN-EFT-25568851
-Remittance date: 2026-07-01
+Trace number: 25568851
+Remittance date: 2026-07-14
 
 PATIENT
   Name: Cathy Torres
-  Patient ID: P-6849
+  Patient ID: P-3782
   MRN: SYN-303125
   Member ID: MBR800586141
-  Date of birth: 1978-02-23
-  SSN: 939-76-3134
+  Date of birth: 1978-02-24
+  SSN: XXX-XX-3134
 
 CLAIM
-  Claim number: 8645632
+  Claim number: 6989686
   Claim status: DENIED
   Date of service: 2026-06-05
-  Date claim received by payer: 2026-06-12
-  Diagnosis (ICD-10): M62.81
+  Date claim received by payer: 2026-06-14
+  Diagnosis (ICD-10): M25.561
   Place of service: 11
-  Rendering provider: Dr. Jason Thomas (ID SYN-RP-5632)
+  Rendering provider: Jennifer Robertson, PT (ID RP-9686)
   Referring provider: Dr. James Burgess
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97110       159.97     0.00       0.00       CO-151 159.97 RARC N640
-        (Therapeutic exercise)
+  1     97530       109.31     0.00       0.00       CO-151 109.31 RARC N640
+        (Therapeutic activities)
 
-TOTALS  Billed 159.97  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 109.31  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

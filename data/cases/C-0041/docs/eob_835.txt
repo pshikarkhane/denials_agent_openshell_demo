@@ -1,27 +1,27 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Haley Medical Group
-Trace number: SYN-EFT-71299660
-Remittance date: 2026-05-26
+Trace number: 71299660
+Remittance date: 2026-06-02
 
 PATIENT
   Name: Tracey Ellison
-  Patient ID: P-1772
+  Patient ID: P-4508
   MRN: SYN-339405
   Member ID: MBR217027101
-  Date of birth: 1987-12-07
-  SSN: 915-84-8240
+  Date of birth: 1987-12-08
+  SSN: XXX-XX-8240
 
 CLAIM
-  Claim number: 9543611
+  Claim number: 1791068
   Claim status: PARTIALLY DENIED
   Date of service: 2026-04-22
-  Date claim received by payer: 2026-05-06
+  Date claim received by payer: 2026-05-07
   Diagnosis (ICD-10): M51.16
   Place of service: 11
-  Rendering provider: Dr. Steven Johnson (ID SYN-RP-3611)
+  Rendering provider: Steven Evans, PT (ID RP-1068)
   Referring provider: Dr. Eileen Goodman
 
 SERVICE LINES

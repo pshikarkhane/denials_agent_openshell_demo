@@ -1,0 +1,20 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Waters Medical Group
+Claim number: 8041510
+Patient ID: P-3244
+Payer ID: HALCYON_PLAN
+Date of service: 2026-05-25
+Service: 27447 - Total knee arthroplasty
+
+SUBMISSION HISTORY
+  2026-05-29  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-29  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-05-30  Received by payer
+  Earlier submissions: none recorded
+  Retroactive authorization request: received 2026-05-26
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-06-16  Adjudicated by payer: adverse determination (CARC CO-197)
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -1,33 +1,33 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Mitchell Medical Group
-Trace number: SYN-EFT-80664641
-Remittance date: 2026-07-31
+Trace number: 80664641
+Remittance date: 2026-08-17
 
 PATIENT
   Name: Eric Craig
-  Patient ID: P-2823
+  Patient ID: P-1220
   MRN: SYN-258135
   Member ID: MBR881124382
-  Date of birth: 1981-02-03
-  SSN: 986-87-2606
+  Date of birth: 1981-02-04
+  SSN: XXX-XX-2606
 
 CLAIM
-  Claim number: 3312632
+  Claim number: 2867652
   Claim status: DENIED
   Date of service: 2026-07-09
-  Date claim received by payer: 2026-07-17
-  Diagnosis (ICD-10): M51.16
+  Date claim received by payer: 2026-07-19
+  Diagnosis (ICD-10): M17.11
   Place of service: 11
-  Rendering provider: Dr. Steven Bailey (ID SYN-RP-2632)
-  Referring provider: Dr. Dawn Thompson
+  Rendering provider: Dr. Dawn Thompson (ID RP-7652)
+  Referring provider: Dr. Steven Bailey
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     63030       4474.50    0.00       0.00       CO-197 4474.50 RARC N54
-        (Lumbar laminotomy/discectomy)
+  1     27447       4474.50    0.00       0.00       CO-197 4474.50
+        (Total knee arthroplasty)
 
 TOTALS  Billed 4474.50  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 

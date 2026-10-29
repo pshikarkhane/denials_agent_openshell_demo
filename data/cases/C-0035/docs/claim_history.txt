@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Barber Medical Group
+Claim number: 5236600
+Patient ID: P-2319
+Payer ID: MERIDIAN_COMM
+Date of service: 2026-06-01
+Service: 85025 - Complete blood count with differential
+
+SUBMISSION HISTORY
+  2026-06-11  Submitted to clearinghouse (submission 1 of 1)
+  2026-06-11  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-14  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-07-06  Adjudicated by payer: adverse determination (CARC PR-1)
+
+SYNTHETIC DATA - NOT REAL PHI

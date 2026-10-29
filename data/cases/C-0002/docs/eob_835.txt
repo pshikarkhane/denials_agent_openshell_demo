@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Rodriguez Medical Group
-Trace number: SYN-EFT-89401421
-Remittance date: 2026-09-06
+Trace number: 89401421
+Remittance date: 2026-09-03
 
 PATIENT
   Name: Henry Rose
-  Patient ID: P-1297
+  Patient ID: P-9029
   MRN: SYN-194710
   Member ID: MBR325332698
-  Date of birth: 1989-01-22
-  SSN: 931-70-6044
+  Date of birth: 1989-01-23
+  SSN: XXX-XX-6044
 
 CLAIM
-  Claim number: 4181463
+  Claim number: 1304478
   Claim status: DENIED
-  Date of service: 2026-07-26
-  Date claim received by payer: 2026-08-08
-  Diagnosis (ICD-10): M51.26, M54.16
+  Date of service: 2026-07-27
+  Date claim received by payer: 2026-08-11
+  Diagnosis (ICD-10): M54.16
   Place of service: 11
-  Rendering provider: Dr. Jeffrey Golden (ID SYN-RP-1463)
+  Rendering provider: Dr. Abigail Shannon (Radiology) (ID RP-4478)
   Referring provider: Dr. Kevin Howard
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     72148       1669.03    0.00       0.00       CO-50 1669.03 RARC N115
+  1     72148       1757.85    0.00       0.00       CO-50 1757.85 RARC N115
         (MRI lumbar spine without contrast)
 
-TOTALS  Billed 1669.03  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 1757.85  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

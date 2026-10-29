@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-08-24
+Date of notice: 2026-08-25
 To: Oliver Medical Group
-Member: Joshua Jackson   Patient ID: P-6726   Member ID: MBR458202251
+Member: Joshua Jackson   Patient ID: P-7866   Member ID: MBR458202251
 
-Claim number: 5062212
-Date of service: 2026-04-19
-Service: 73721 - MRI lower-extremity joint without contrast
-Billed amount: 1580.38
+Claim number: 6864220
+Date of service: 2026-04-20
+Service: 93000 - ECG with interpretation
+Billed amount: 177.28
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-08-09, after the 90-day filing limit. The filing deadline for this date of service was 2026-07-18 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-08-10, after the 90-day filing limit. The filing deadline for this date of service was 2026-07-19 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-22.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-23.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-20.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-21.
 
 SYNTHETIC DATA - NOT REAL PHI

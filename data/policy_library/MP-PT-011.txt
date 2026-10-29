@@ -6,16 +6,16 @@ Effective date: 2026-04-20
 Version history: Version 3.0, effective 2026-04-20. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy describes the conditions under which Halcyon Health Plan provides coverage for outpatient physical, occupational, and speech therapy services furnished to eligible members. It establishes the clinical documentation standards and review criteria used to determine whether continued therapy visits are considered medically necessary and eligible for reimbursement.
+This policy establishes the clinical standards under which Halcyon Health Plan evaluates coverage for outpatient physical, occupational, and speech therapy services. It is intended to promote consistent review of therapy care and to clarify the documentation expected to support continued treatment.
 
-Section 4.2
-Coverage of continued outpatient therapy requires that the clinical record document measurable functional improvement attributable to the services provided. The treating therapist must describe objective and comparable findings that demonstrate meaningful progress toward the established treatment goals. In the absence of documented measurable functional improvement, ongoing therapy may be determined to be maintenance in nature and not eligible for coverage.
+Section 2.1
+Coverage requires that the medical record demonstrate measurable functional improvement resulting from the therapy provided. The documentation must show objective changes in the member's functional status that are attributable to the course of treatment.
 
-Section 4.3
-Continued coverage requires that the supervising physician have recertified the plan of care at the intervals specified by the plan. The recertification must confirm that the ongoing therapy remains appropriate to the member's condition and consistent with the stated treatment objectives. Documentation supporting the physician recertification must be retained in the member's clinical record and made available upon request.
+Section 2.2
+The treating physician must have recertified the plan of care for the member. This recertification must be reflected in the clinical record as support for continued therapy services.
 
-Section 4.4
-Coverage of additional therapy under an approved exception is available only when the visit count remains within the exception cap of 30. Requests that would cause the member's cumulative covered visits to exceed the exception cap of 30 will not be eligible for coverage under this provision. The treating provider must monitor the running visit count to ensure services are furnished within this limit.
+Section 2.3
+This provision applies when the denied visit falls within visits 21 through 30 of the calendar year. The requirements of this policy are evaluated with respect to visits occurring in that range. Visits 21 through 30 may be considered when functional improvement is documented and the plan of care is recertified. Visits beyond 30 are not covered.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 120 days from the date of the claim determination notice.
@@ -23,6 +23,6 @@ Section 7  Key parameters and general provisions
 7.3 Corrected claims: must be received within 180 days of the date of the notice.
 7.4 Appeals address: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
 7.5 Outpatient therapy visit limit: 20 visits per calendar year.
-7.6 Visit cap with documented exception: 30 visits per calendar year.
+7.6 Maximum visits with documented functional improvement and a recertified plan of care: 30 visits per calendar year.
 
 SYNTHETIC DATA - NOT REAL PHI

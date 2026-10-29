@@ -1,0 +1,191 @@
+{
+  "C-0005__gemini": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/denial_letter.txt",
+        "quote": "Remark code (RARC): N386",
+        "problem": "RARC N386 specifically translates to 'This decision was based on a National Coverage Determination (NCD).' Using it for a commercial health plan's internal medical policy denial is slightly unrealistic in a strict coding sense, though payers sometimes misuse RARCs. A more generic medical necessity RARC (like M25 or N115) would be more typical for a commercial policy.",
+        "suggested_fix": "Change the RARC to M25, or omit it entirely as the combination of CO-50 and the custom denial text is sufficient."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "This is an exceptionally well-constructed case with perfect date math, flawless cross-file consistency, and thoughtfully designed traps."
+  },
+  "C-0005__gpt": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/notes/2026-03-23_pcp.txt",
+        "quote": "Low back pain with left-sided radicular leg symptoms, most consistent with a left lumbar radiculopathy (M51.26).",
+        "problem": "The diagnosis wording and ICD-10 code are slightly mismatched: M51.26 is lumbar intervertebral disc displacement, while lumbar radiculopathy is typically coded as M54.16. An RCM reviewer might notice this, though it does not affect solvability because the claim and later ortho note consistently use M51.26 for disc pathology/radicular symptoms.",
+        "suggested_fix": "Revise the assessment to align with the billed code, e.g. \"left lumbar disc displacement with radicular symptoms (M51.26),\" or change the ICD-10 if true radiculopathy is intended."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is generally clean and defensible; only a minor clinical coding realism issue appears in the PCP assessment wording."
+  },
+  "C-0007__gemini": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/notes/2026-04-10_ortho.txt",
+        "quote": "Symptoms began insidiously and were first documented on 2026-02-09.",
+        "problem": "Clinicians typically describe symptom onset naturalistically rather than referencing exact documentation stamps in the HPI. Stating 'were first documented on 2026-02-09' sounds robotic and overly tailored for an AI test.",
+        "suggested_fix": "Change to 'Symptoms began insidiously about two months ago.'"
+      },
+      {
+        "area": "realism",
+        "severity": "minor",
+        "file": "docs/notes/2026-02-09_pcp.txt",
+        "quote": "Visit date 2026-02-09.",
+        "problem": "Appending the exact visit date to the end of the 'Reason for visit' narrative is highly unnatural in clinical documentation, especially since it is already natively established in the note's header.",
+        "suggested_fix": "Remove 'Visit date 2026-02-09.' from the Reason for visit text."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The test case is technically flawless, perfectly mapping evidence to criteria and properly enforcing the deadline trap, with only minor polish needed on the realism of the clinical note phrasing."
+  },
+  "C-0007__gpt": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is internally consistent, realistic enough for an RCM denial-appeal task, contains no apparent answer leaks, and the intended DO_NOT_APPEAL decision is defensible from the visible documents because the appeal deadline has passed and the MRI medical-necessity criteria are not fully met."
+  },
+  "C-0030__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leaks",
+      "evidence match",
+      "cross-file consistency",
+      "solvability"
+    ],
+    "overall": "This is a meticulously constructed and perfectly clean test case for a missed timely-filing deadline, featuring consistent date math, realistic documents, and appropriate distractor policies without any leaks."
+  },
+  "C-0030__gpt": {
+    "findings": [
+      {
+        "area": "evidence",
+        "severity": "major",
+        "file": "docs/claim_history.txt",
+        "quote": "2026-07-14  Clearinghouse acceptance (277CA): ACCEPTED",
+        "problem": "The answer key marks C2, phrased as 'Proof of timely filing (clearinghouse acceptance) available,' as unmet based on documented absence. However, the visible claim history does contain clearinghouse acceptance documentation. The claim was not timely because the acceptance was after the 90-day deadline and there were no earlier submissions, but the criterion wording could be read as asking whether clearinghouse acceptance exists at all.",
+        "suggested_fix": "Reword C2 in the answer key/expected criteria to 'Proof of clearinghouse acceptance within 90 days of DOS, or on/before 2026-06-30, is available.' Keep the unmet status and cite both the late acceptance date and 'Earlier submissions: none recorded.'"
+      }
+    ],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is generally realistic, internally consistent, and solvable as a do-not-appeal timely-filing denial, but the expected C2 criterion is worded ambiguously because a clearinghouse acceptance exists even though it is late."
+  },
+  "C-0039__gemini": {
+    "findings": [],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "This is a clean, well-constructed case with consistent dates, realistic documents, and a clear, unambiguous path to the CORRECT_AND_RESUBMIT decision."
+  },
+  "C-0039__gpt": {
+    "findings": [
+      {
+        "area": "realism",
+        "severity": "major",
+        "file": "docs/denial_letter.txt",
+        "quote": "Reason code (CARC): CO-16  The claim lacks information needed for adjudication.\nRemark code (RARC): none",
+        "problem": "CARC CO-16 conventionally requires at least one accompanying remark code to identify the missing/incomplete information. An RCM professional may find a CO-16 denial with 'RARC: none' odd, especially because this is also represented as an 835/remittance scenario.",
+        "suggested_fix": "Add an appropriate RARC for missing/incomplete/invalid rendering provider identifier to both the denial notice and remittance, or use a denial code that does not require a RARC."
+      },
+      {
+        "area": "evidence",
+        "severity": "minor",
+        "file": "truth.json",
+        "quote": "\"id\": \"C2\",\n\"section\": \"\u00a72.2\",\n\"text\": \"Corrected claim can be filed within the payer corrected-claim window\",\n\"status\": \"met\",\n\"basis\": \"evidence\",\n\"evidence\": [\n  \"denial_letter.txt\"\n]",
+        "problem": "The denial letter supports the corrected-claim deadline, but the conclusion that it can still be filed within the window also depends on the review date in task.md. The evidence is present, but the answer key under-cites it.",
+        "suggested_fix": "Add task.md as supporting evidence for C2, because it states the review date is 2026-09-02."
+      }
+    ],
+    "clean_areas": [
+      "leak",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The case is generally coherent and solvable with no apparent leaks or consistency problems, but the CO-16-without-RARC presentation is a notable realism issue."
+  },
+  "C-0056__gemini": {
+    "findings": [
+      {
+        "area": "evidence",
+        "severity": "major",
+        "file": "truth.json",
+        "quote": "\"required_enclosures\": [\n    \"supporting/pt_progress_note.txt\",\n    \"notes/2026-03-26_referral.txt\"\n  ]",
+        "problem": "The file `supporting/pt_log.txt` is cited as evidence for criterion C3 ('Denied visit is within visits 21 through 30') but is omitted from `required_enclosures`. This mismatch is likely to distort scoring, as an agent appealing the case will correctly include the attendance log to prove the visit count.",
+        "suggested_fix": "Add `\"supporting/pt_log.txt\"` to the `required_enclosures` array in the answer key."
+      }
+    ],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "consistency",
+      "solvability"
+    ],
+    "overall": "The test case is exceptionally clean, realistic, and internally consistent, requiring only a single fix to the answer key's required enclosures array to ensure accurate scoring."
+  },
+  "C-0056__gpt": {
+    "findings": [
+      {
+        "area": "consistency",
+        "severity": "minor",
+        "file": "docs/notes/2026-03-03_initial_eval.txt; docs/notes/2026-03-26_referral.txt",
+        "quote": "began approximately two months ago after lifting a heavy box at home",
+        "problem": "The initial evaluation attributes onset to lifting a heavy box, but the later physician recertification says symptoms began insidiously without a clear inciting injury. This is a clinical history inconsistency. It does not affect the appeal criteria, but a reviewer could notice it.",
+        "suggested_fix": "Make the onset history consistent across notes, e.g. change the referral to 'began after lifting a heavy box at home' or make both notes describe an insidious onset."
+      },
+      {
+        "area": "consistency",
+        "severity": "minor",
+        "file": "docs/notes/2026-03-26_referral.txt",
+        "quote": "The patient is demonstrating measurable progress toward established goals",
+        "problem": "The physician recertification states measurable progress but does not include objective measurements; the objective measurements appear later in the PT progress note. This is not contradictory and C2 is still supported, but the phrasing could feel slightly conclusory for a physician recertification note.",
+        "suggested_fix": "Either remove the conclusory measurable-progress sentence from the recertification note or add a brief objective example if intended."
+      }
+    ],
+    "clean_areas": [
+      "realism",
+      "leak",
+      "evidence",
+      "solvability"
+    ],
+    "overall": "The case is solvable and the intended APPEAL decision is well supported; only minor clinical-note consistency/polish issues were found."
+  }
+}

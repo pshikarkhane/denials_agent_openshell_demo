@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Allen Medical Group
+Claim number: 8834557
+Patient ID: P-5014
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-07-10
+Service: 73721 - MRI lower-extremity joint without contrast
+
+SUBMISSION HISTORY
+  2026-09-05  Submitted to clearinghouse (submission 1 of 1)
+  2026-09-05  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-11-06  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-11-25  Adjudicated by payer: adverse determination (CARC CO-29)
+
+SYNTHETIC DATA - NOT REAL PHI

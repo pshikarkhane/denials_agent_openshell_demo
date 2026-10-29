@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Garcia Medical Group
+Claim number: 9380508
+Patient ID: P-6785
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-04-14
+Service: 73721 - MRI lower-extremity joint without contrast
+
+SUBMISSION HISTORY
+  2026-08-11  Submitted to clearinghouse (submission 1 of 1)
+  2026-08-11  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-08-12  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-08-27  Adjudicated by payer: adverse determination (CARC CO-29)
+
+SYNTHETIC DATA - NOT REAL PHI

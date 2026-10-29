@@ -1,0 +1,11 @@
+# Clinical vocabulary accepted by the note spellcheck (one word per line, lower case). Add legitimate terms here; typos are NOT added.
+abduction adduction afebrile ambulation ambulatory analgesia analgesic analgesics anesthesia antalgia antalgic anterior arthralgia arthroscopy
+arthroscopic auscultation bilaterally bradycardia bursitis cervical crepitus dermatomal diaphoresis dorsal dorsiflexion dorsiflexors dyspnea
+ecg electrocardiogram effusion erythema erythematous exudate exudates extensor febrile flexion gait glycemic goniometer goniometry hallucis
+hamstring hemoglobin hyperglycemia hyperlipidemia hyperreflexia hypoglycemia hyporeflexia hypertension inflammatories inflammatory
+kyphosis lateral longus lumbar lumbosacral lymphadenopathy malaise medial meniscal meniscus metformin mobilization musculoskeletal myalgia
+neuromuscular neuropathy neurovascular nontender nonfocal nonradiating nonpalpable nsaid nsaids orthopedic oropharynx osteoarthritis
+palpable palpation paraspinal paresthesia paresthesias patellar pharyngitis plantar polydipsia polyuria posterior proprioception prone
+quadriceps radicular radiculopathy radiograph radiographs recertification recertify recertified recertifies reassess reassessed
+reassessment sciatic sciatica spondylosis stenosis strengthening supine tachycardia tendinopathy tendonitis tenderness therapeutic
+thoracic tonsillar tonsillitis tingling unremarkable vitals vitals ambulating antalgia dorsum eversion inversion plantarflexion

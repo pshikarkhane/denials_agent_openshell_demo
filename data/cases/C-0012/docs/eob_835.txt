@@ -1,32 +1,32 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Halcyon Health Plan
 Payer ID: HALCYON_PLAN
 Payee: Hernandez Medical Group
-Trace number: SYN-EFT-97231315
-Remittance date: 2026-05-02
+Trace number: 97231315
+Remittance date: 2026-05-11
 
 PATIENT
   Name: Ryan Garcia
-  Patient ID: P-9856
+  Patient ID: P-5647
   MRN: SYN-977704
   Member ID: MBR958311024
-  Date of birth: 1948-08-02
-  SSN: 922-17-8250
+  Date of birth: 1948-08-03
+  SSN: XXX-XX-8250
 
 CLAIM
   Claim number: 9810792
   Claim status: DENIED
   Date of service: 2026-04-03
-  Date claim received by payer: 2026-04-09
+  Date claim received by payer: 2026-04-11
   Diagnosis (ICD-10): M17.11
   Place of service: 11
-  Rendering provider: Dr. Mark Miller (ID SYN-RP-0792)
-  Referring provider: Dr. Andrew Ramirez
+  Rendering provider: Dr. Andrew Ramirez (ID RP-0792)
+  Referring provider: Dr. Mark Miller
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     27447       3009.11    0.00       0.00       CO-197 3009.11 RARC N54
+  1     27447       3009.11    0.00       0.00       CO-197 3009.11
         (Total knee arthroplasty)
 
 TOTALS  Billed 3009.11  Allowed 0.00  Paid 0.00  Patient responsibility 0.00

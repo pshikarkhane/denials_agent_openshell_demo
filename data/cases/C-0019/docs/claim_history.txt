@@ -1,0 +1,20 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Yang Medical Group
+Claim number: 5058907
+Patient ID: P-9528
+Payer ID: HALCYON_PLAN
+Date of service: 2026-05-05
+Service: 29881 - Knee arthroscopy with meniscectomy
+
+SUBMISSION HISTORY
+  2026-05-17  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-17  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-05-19  Received by payer
+  Earlier submissions: none recorded
+  Retroactive authorization request: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-06-03  Adjudicated by payer: adverse determination (CARC CO-197)
+
+SYNTHETIC DATA - NOT REAL PHI

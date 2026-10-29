@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Scott Medical Group
+Claim number: 4782529
+Patient ID: P-3412
+Payer ID: TERRAVISTA_HEALTH
+Date of service: 2026-05-11
+Service: 27447 - Total knee arthroplasty
+
+SUBMISSION HISTORY
+  2026-05-25  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-25  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-05-26  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-06-24  Adjudicated by payer: adverse determination (CARC CO-11)
+
+SYNTHETIC DATA - NOT REAL PHI

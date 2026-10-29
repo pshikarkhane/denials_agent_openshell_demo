@@ -5,48 +5,54 @@
   "payer_id": "MERIDIAN_COMM",
   "policy_id": "MP-IMG-007",
   "patient": {
-    "synthetic_id": "P-9845"
+    "synthetic_id": "P-6477"
   },
   "claim": {
     "claim_no": "9466341",
     "cpt": "72148",
     "icd10": [
-      "M54.17",
-      "M51.17"
+      "M54.17"
     ],
     "dos": "2026-03-19",
-    "billed": 1890.69
+    "billed": 1809.48
   },
   "denial": {
     "carc": "CO-50",
     "rarc": "N115",
-    "denial_date": "2026-04-15"
+    "denial_date": "2026-04-22"
   },
-  "appeal_deadline": "2026-10-12",
+  "appeal_deadline": "2026-10-19",
+  "action_deadline": "2026-10-19",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§3.2(a)",
+      "section": "§2.1(a)",
       "text": ">=6 weeks conservative therapy",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
-        "notes/2026-02-15_pcp.txt",
+        "notes/2026-02-16_pcp.txt",
         "supporting/pt_log.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§3.2(b)",
+      "section": "§2.1(b)",
       "text": "Neuro deficit or red flag documented",
       "status": "unmet",
-      "evidence": []
+      "basis": "evidence",
+      "evidence": [
+        "notes/2026-03-05_ortho.txt"
+      ]
     },
     {
       "id": "C3",
-      "section": "§3.2(c)",
+      "section": "§2.1(c)",
       "text": "No imaging of the same region within 12 months",
       "status": "met",
+      "basis": "documented_absence",
       "evidence": [
+        "notes/2026-03-05_ortho.txt",
         "supporting/prior_imaging.txt"
       ]
     }
@@ -66,7 +72,7 @@
     },
     {
       "key": "patient_id",
-      "value": "P-9845",
+      "value": "P-6477",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
@@ -81,8 +87,7 @@
     {
       "key": "icd10",
       "value": [
-        "M54.17",
-        "M51.17"
+        "M54.17"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -97,7 +102,7 @@
     },
     {
       "key": "billed",
-      "value": 1890.69,
+      "value": 1809.48,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -125,7 +130,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-04-15",
+      "value": "2026-04-22",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -133,27 +138,48 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-03-22",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-03-22",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-03-23",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
       "key": "appeal_window_days",
       "value": 180,
       "source_file": "denial_letter.txt",
-      "line": 20,
+      "line": 12,
       "evidence": null
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-10-12",
+      "value": "2026-10-19",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2026-10-19",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-04-20",
+      "value": "2026-05-16",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -166,13 +192,6 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2027-04-15",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "N115",
       "source_file": "denial_letter.txt",
@@ -180,23 +199,30 @@
       "evidence": null
     },
     {
+      "key": "corrected_claim_deadline",
+      "value": "2027-04-22",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "planned_document",
-      "value": "notes/2026-02-15_pcp.txt",
-      "source_file": "notes/2026-02-15_pcp.txt",
+      "value": "notes/2026-02-16_pcp.txt",
+      "source_file": "notes/2026-02-16_pcp.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "planned_document",
-      "value": "notes/2026-03-12_ortho.txt",
-      "source_file": "notes/2026-03-12_ortho.txt",
+      "value": "notes/2026-03-05_ortho.txt",
+      "source_file": "notes/2026-03-05_ortho.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "therapy_start_date",
-      "value": "2026-02-15",
-      "source_file": "notes/2026-02-15_pcp.txt",
+      "value": "2026-02-16",
+      "source_file": "notes/2026-02-16_pcp.txt",
       "line": null,
       "evidence": null
     },
@@ -209,7 +235,7 @@
     },
     {
       "key": "therapy_duration_days",
-      "value": 25,
+      "value": 17,
       "source_file": "supporting/pt_log.txt",
       "line": null,
       "evidence": null
@@ -217,7 +243,7 @@
     {
       "key": "ortho_exam_has_neuro_deficit",
       "value": false,
-      "source_file": "notes/2026-03-12_ortho.txt",
+      "source_file": "notes/2026-03-05_ortho.txt",
       "line": null,
       "evidence": null
     },
@@ -230,8 +256,8 @@
     },
     {
       "key": "last_lumbar_imaging_date",
-      "value": "2024-08-13",
-      "source_file": "supporting/prior_imaging.txt",
+      "value": "2023-10-12",
+      "source_file": "notes/2026-03-05_ortho.txt",
       "line": null,
       "evidence": null
     }

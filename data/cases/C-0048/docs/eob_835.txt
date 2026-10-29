@@ -1,34 +1,34 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Terravista Health
 Payer ID: TERRAVISTA_HEALTH
 Payee: Shepard Medical Group
-Trace number: SYN-EFT-25550536
-Remittance date: 2026-09-18
+Trace number: 25550536
+Remittance date: 2026-09-15
 
 PATIENT
   Name: Joe Reid
-  Patient ID: P-2443
+  Patient ID: P-8502
   MRN: SYN-841118
   Member ID: MBR804804811
-  Date of birth: 1967-03-24
-  SSN: 981-25-8623
+  Date of birth: 1967-03-25
+  SSN: XXX-XX-8623
 
 CLAIM
-  Claim number: 3195790
+  Claim number: 2478541
   Claim status: DENIED
   Date of service: 2026-07-20
-  Date claim received by payer: 2026-08-28
-  Diagnosis (ICD-10): I10
+  Date claim received by payer: 2026-08-30
+  Diagnosis (ICD-10): E11.9
   Place of service: 11
-  Rendering provider: Dr. Jason Camacho (ID SYN-RP-5790)
-  Referring provider: Dr. Kristen Garcia
+  Rendering provider: Dr. Jason Camacho (ID RP-8541)
+  Referring provider: (not applicable)
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     99214       282.76     0.00       0.00       CO-18 282.76 RARC N522
-        (Established patient visit, moderate)
+  1     99213       151.39     0.00       0.00       CO-18 151.39
+        (Established patient visit, low)
 
-TOTALS  Billed 282.76  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+TOTALS  Billed 151.39  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

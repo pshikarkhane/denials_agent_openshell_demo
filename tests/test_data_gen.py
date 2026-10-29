@@ -203,3 +203,35 @@ def test_policy_effective_trap_matches_dos(truths):
     for t in truths:
         eff = R.POLICY_EFFECTIVE[t.policy_id]
         assert (t.claim.dos < eff) == ("policy_effective_after_dos" in [x.value for x in t.traps])
+
+
+# ---- step 2/5 generator rules
+
+def test_no_stacked_traps_and_action_deadline(truths):
+    from data_gen.gen_cases import HARD_TRAPS
+    for t in truths:
+        assert sum(x in HARD_TRAPS for x in t.traps) <= 1 and len(t.traps) <= 2
+        want = [f.value for f in t.facts if f.key == "corrected_claim_deadline"][0] \
+            if t.correct_decision == Decision.CORRECT_AND_RESUBMIT else t.appeal_deadline.isoformat()
+        assert t.action_deadline.isoformat() == want
+
+
+def test_criterion_trap_only_on_escalate(truths):
+    for t in truths:
+        has = "criterion_no_supporting_doc" in [x.value for x in t.traps]
+        assert has == (t.correct_decision == Decision.ESCALATE_MISSING_DOCS)
+
+
+def test_coding_data_rules(truths):
+    for t in truths:
+        if t.category in (1, 2):
+            assert len(t.claim.icd10) == 1
+        if t.denial.carc in ("CO-197", "CO-4", "CO-18", "CO-16"):
+            assert t.denial.rarc is None
+        assert t.claim.cpt != "99214"
+        if t.category == 9:
+            f = {x.key: x.value for x in t.facts}
+            assert (f["column1_code"], t.claim.cpt) in R.BUNDLE_PAIRS and ("20610", "76942") not in R.BUNDLE_PAIRS
+        if t.category == 12:
+            assert [x.value for x in t.facts if x.key == "denied_visit_number"][0] == R.PT_VISIT_LIMIT + 1
+

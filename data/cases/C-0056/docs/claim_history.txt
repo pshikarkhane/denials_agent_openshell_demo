@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: King Medical Group
+Claim number: 6605517
+Patient ID: P-6525
+Payer ID: HALCYON_PLAN
+Date of service: 2026-05-21
+Service: 97112 - Neuromuscular re-education
+
+SUBMISSION HISTORY
+  2026-05-28  Submitted to clearinghouse (submission 1 of 1)
+  2026-05-28  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-05-31  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-06-30  Adjudicated by payer: adverse determination (CARC CO-151)
+
+SYNTHETIC DATA - NOT REAL PHI

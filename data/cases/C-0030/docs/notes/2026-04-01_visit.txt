@@ -1,18 +1,23 @@
 Johnston Medical Group
 OFFICE VISIT NOTE
-Patient: Michael Johnson   DOB: 1961-05-08   MRN: SYN-926375   Patient ID: P-3641
+Patient: Michael Johnson   DOB: 1961-05-09   MRN: SYN-926375   Patient ID: P-5383
 Date of encounter: 2026-04-01
 Provider: Dr. Thomas Williams
 ------------------------------------------------------------
-Reason for visit: Routine follow-up for Type 2 diabetes without complications (E11.9). Patient reports feeling well overall with no new concerns.
+Reason for visit
+Routine follow-up for essential hypertension (I10). Patient reports feeling well overall with no new complaints.
 
-History: The patient is a 64-year-old man with longstanding type 2 diabetes managed with oral medication and lifestyle measures. He denies polyuria, polydipsia, blurred vision, numbness, or tingling. He reports good adherence to his medication and has been more consistent with home glucose monitoring. Diet remains a challenge, with occasional high-carbohydrate meals. He walks regularly for exercise. No hypoglycemic episodes reported.
+History
+The patient has a known history of essential hypertension managed on his current regimen. He reports good adherence to medications and denies chest pain, shortness of breath, palpitations, headache, or visual changes. He monitors blood pressure at home, with readings generally in the 130s over low 80s. He continues to work on reducing dietary sodium and has increased his walking routine. No dizziness or lightheadedness reported.
 
-Exam: Alert, comfortable, in no distress. Blood pressure well controlled. Heart regular rate and rhythm. Lungs clear. Abdomen soft, nontender. Feet examined with intact sensation to monofilament bilaterally, no ulcers or skin breakdown, pulses palpable.
+Exam
+Blood pressure 134/82, heart rate 72 and regular, weight stable. General: well-appearing, no acute distress. Cardiovascular: regular rate and rhythm, no murmurs, no peripheral edema. Lungs: clear to auscultation bilaterally. Neurologic: grossly intact.
 
-Assessment: Type 2 diabetes without complications (E11.9), reasonably controlled with current regimen. No evidence of neuropathy or foot complications on today's exam.
+Assessment
+Essential hypertension (I10), stable and adequately controlled on current therapy. No signs of end-organ complications at this visit.
 
-Plan: Continue current oral medication at the present dose. Reinforce dietary counseling and continued physical activity. Order routine A1c and metabolic panel. Encourage ongoing home glucose logging. Return for routine follow-up or sooner if symptoms arise. Service performed on 2026-04-01: Established patient visit, moderate.
+Plan
+Continue current antihypertensive medication without changes. Reinforce low-sodium diet, regular aerobic activity, and weight management. Continue home blood pressure monitoring and maintain a log. Obtain basic metabolic panel. Return for routine follow-up or sooner if symptoms develop.
 ------------------------------------------------------------
 Electronically signed: Dr. Thomas Williams
 

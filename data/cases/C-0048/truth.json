@@ -5,30 +5,33 @@
   "payer_id": "TERRAVISTA_HEALTH",
   "policy_id": "MP-CLM-004",
   "patient": {
-    "synthetic_id": "P-2443"
+    "synthetic_id": "P-8502"
   },
   "claim": {
-    "claim_no": "3195790",
-    "cpt": "99214",
+    "claim_no": "2478541",
+    "cpt": "99213",
     "icd10": [
-      "I10"
+      "E11.9"
     ],
     "dos": "2026-07-20",
-    "billed": 282.76
+    "billed": 151.39
   },
   "denial": {
     "carc": "CO-18",
-    "rarc": "N522",
-    "denial_date": "2026-09-18"
+    "rarc": null,
+    "denial_date": "2026-09-15"
   },
-  "appeal_deadline": "2026-12-17",
+  "appeal_deadline": "2026-12-14",
+  "action_deadline": "2026-12-14",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§2.4",
+      "section": "§2.3",
       "text": "Denied claim is not a duplicate of an already-adjudicated claim",
       "status": "unmet",
+      "basis": "evidence",
       "evidence": [
+        "claim_history.txt",
         "supporting/original_remit.txt"
       ]
     }
@@ -41,21 +44,21 @@
   "facts": [
     {
       "key": "claim_no",
-      "value": "3195790",
+      "value": "2478541",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-2443",
+      "value": "P-8502",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "99214",
+      "value": "99213",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -63,7 +66,7 @@
     {
       "key": "icd10",
       "value": [
-        "I10"
+        "E11.9"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -78,7 +81,7 @@
     },
     {
       "key": "billed",
-      "value": 282.76,
+      "value": 151.39,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -106,7 +109,7 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-09-18",
+      "value": "2026-09-15",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
@@ -114,27 +117,48 @@
     {
       "key": "claim_submitted_date",
       "value": "2026-08-28",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-08-28",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-08-30",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
       "key": "appeal_window_days",
       "value": 90,
       "source_file": "denial_letter.txt",
-      "line": 9,
+      "line": 17,
       "evidence": null
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-12-17",
+      "value": "2026-12-14",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2026-12-14",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2027-01-05",
+      "value": "2026-12-24",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -148,16 +172,9 @@
     },
     {
       "key": "corrected_claim_deadline",
-      "value": "2027-03-17",
+      "value": "2027-03-14",
       "source_file": "denial_letter.txt",
       "line": 24,
-      "evidence": null
-    },
-    {
-      "key": "rarc",
-      "value": "N522",
-      "source_file": "denial_letter.txt",
-      "line": 16,
       "evidence": null
     },
     {
@@ -169,7 +186,7 @@
     },
     {
       "key": "original_claim_no",
-      "value": "3195757",
+      "value": "2478453",
       "source_file": "denial_letter.txt",
       "line": 17,
       "evidence": null
@@ -183,10 +200,17 @@
     },
     {
       "key": "original_paid_amount",
-      "value": 169.66,
+      "value": 90.83,
       "source_file": "denial_letter.txt",
       "line": 17,
       "evidence": null
+    },
+    {
+      "key": "criterion_C1_quote",
+      "value": "Prior adjudicated claims for this service: claim 2478453 paid 2026-08-08 amount 90.83",
+      "source_file": "claim_history.txt",
+      "line": 14,
+      "evidence": "Prior adjudicated claims for this service: claim 2478453 paid 2026-08-08 amount 90.83"
     }
   ]
 }

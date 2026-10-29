@@ -5,47 +5,51 @@
   "payer_id": "HALCYON_PLAN",
   "policy_id": "MP-PT-011",
   "patient": {
-    "synthetic_id": "P-4798"
+    "synthetic_id": "P-2891"
   },
   "claim": {
-    "claim_no": "3044287",
-    "cpt": "97112",
+    "claim_no": "4890221",
+    "cpt": "97110",
     "icd10": [
-      "M54.16"
+      "M25.511"
     ],
-    "dos": "2026-05-30",
-    "billed": 146.93
+    "dos": "2026-06-01",
+    "billed": 97.55
   },
   "denial": {
     "carc": "CO-151",
     "rarc": "N640",
-    "denial_date": "2026-06-21"
+    "denial_date": "2026-07-06"
   },
-  "appeal_deadline": "2026-10-19",
+  "appeal_deadline": "2026-11-03",
+  "action_deadline": "2026-11-03",
   "policy_criteria": [
     {
       "id": "C1",
-      "section": "§4.2",
+      "section": "§2.1",
       "text": "Measurable functional improvement documented",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "supporting/pt_progress_note.txt"
       ]
     },
     {
       "id": "C2",
-      "section": "§4.3",
+      "section": "§2.2",
       "text": "Physician recertified the plan of care",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
-        "notes/2026-03-03_referral.txt"
+        "notes/2026-04-13_referral.txt"
       ]
     },
     {
       "id": "C3",
-      "section": "§4.4",
-      "text": "Visit count is within the exception cap of 30",
+      "section": "§2.3",
+      "text": "Denied visit is within visits 21 through 30 of the calendar year",
       "status": "met",
+      "basis": "evidence",
       "evidence": [
         "supporting/pt_log.txt"
       ]
@@ -53,30 +57,31 @@
   ],
   "correct_decision": "APPEAL",
   "traps": [
-    "note_after_dos"
+    "deadline_within_7_days"
   ],
   "required_enclosures": [
     "supporting/pt_progress_note.txt",
-    "notes/2026-03-03_referral.txt"
+    "notes/2026-04-13_referral.txt",
+    "supporting/pt_log.txt"
   ],
   "facts": [
     {
       "key": "claim_no",
-      "value": "3044287",
+      "value": "4890221",
       "source_file": "denial_letter.txt",
       "line": 9,
       "evidence": null
     },
     {
       "key": "patient_id",
-      "value": "P-4798",
+      "value": "P-2891",
       "source_file": "eob_835.txt",
       "line": 11,
       "evidence": null
     },
     {
       "key": "cpt",
-      "value": "97112",
+      "value": "97110",
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -84,7 +89,7 @@
     {
       "key": "icd10",
       "value": [
-        "M54.16"
+        "M25.511"
       ],
       "source_file": "eob_835.txt",
       "line": 22,
@@ -92,14 +97,14 @@
     },
     {
       "key": "dos",
-      "value": "2026-05-30",
+      "value": "2026-06-01",
       "source_file": "eob_835.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "billed",
-      "value": 146.93,
+      "value": 97.55,
       "source_file": "eob_835.txt",
       "line": 29,
       "evidence": null
@@ -127,16 +132,30 @@
     },
     {
       "key": "denial_date",
-      "value": "2026-06-21",
+      "value": "2026-07-06",
       "source_file": "denial_letter.txt",
       "line": 5,
       "evidence": null
     },
     {
       "key": "claim_submitted_date",
-      "value": "2026-06-04",
-      "source_file": "eob_835.txt",
-      "line": 21,
+      "value": "2026-06-06",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "clearinghouse_accepted_date",
+      "value": "2026-06-06",
+      "source_file": "claim_history.txt",
+      "line": 10,
+      "evidence": null
+    },
+    {
+      "key": "payer_received_date",
+      "value": "2026-06-08",
+      "source_file": "claim_history.txt",
+      "line": 12,
       "evidence": null
     },
     {
@@ -148,14 +167,21 @@
     },
     {
       "key": "appeal_deadline",
-      "value": "2026-10-19",
+      "value": "2026-11-03",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "action_deadline",
+      "value": "2026-11-03",
       "source_file": "denial_letter.txt",
       "line": 20,
       "evidence": null
     },
     {
       "key": "as_of_date",
-      "value": "2026-07-25",
+      "value": "2026-11-02",
       "source_file": "task.md",
       "line": 5,
       "evidence": null
@@ -168,13 +194,6 @@
       "evidence": null
     },
     {
-      "key": "corrected_claim_deadline",
-      "value": "2026-12-18",
-      "source_file": "denial_letter.txt",
-      "line": 24,
-      "evidence": null
-    },
-    {
       "key": "rarc",
       "value": "N640",
       "source_file": "denial_letter.txt",
@@ -182,9 +201,16 @@
       "evidence": null
     },
     {
+      "key": "corrected_claim_deadline",
+      "value": "2027-01-02",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
       "key": "planned_document",
-      "value": "notes/2026-02-05_initial_eval.txt",
-      "source_file": "notes/2026-02-05_initial_eval.txt",
+      "value": "notes/2026-03-16_initial_eval.txt",
+      "source_file": "notes/2026-03-16_initial_eval.txt",
       "line": null,
       "evidence": null
     },
@@ -204,21 +230,21 @@
     },
     {
       "key": "planned_document",
-      "value": "notes/2026-03-03_referral.txt",
-      "source_file": "notes/2026-03-03_referral.txt",
+      "value": "notes/2026-04-13_referral.txt",
+      "source_file": "notes/2026-04-13_referral.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "therapy_start_date",
-      "value": "2026-02-05",
+      "value": "2026-03-16",
       "source_file": "supporting/pt_log.txt",
       "line": null,
       "evidence": null
     },
     {
       "key": "therapy_duration_days",
-      "value": 114,
+      "value": 77,
       "source_file": "supporting/pt_log.txt",
       "line": null,
       "evidence": null
@@ -231,7 +257,7 @@
       "evidence": null
     },
     {
-      "key": "visit_cap_with_exception",
+      "key": "visit_cap",
       "value": 30,
       "source_file": "policy_library",
       "line": null,
@@ -239,22 +265,8 @@
     },
     {
       "key": "denied_visit_number",
-      "value": 28,
+      "value": 21,
       "source_file": "supporting/pt_log.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "planned_document",
-      "value": "notes/2026-06-13_followup.txt",
-      "source_file": "notes/2026-06-13_followup.txt",
-      "line": null,
-      "evidence": null
-    },
-    {
-      "key": "post_dos_note",
-      "value": "notes/2026-06-13_followup.txt",
-      "source_file": "notes/2026-06-13_followup.txt",
       "line": null,
       "evidence": null
     }

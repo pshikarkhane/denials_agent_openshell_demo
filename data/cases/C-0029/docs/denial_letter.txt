@@ -2,25 +2,25 @@ TERRAVISTA HEALTH
 Payer ID: TERRAVISTA_HEALTH
 NOTICE OF CLAIM DETERMINATION
 
-Date of notice: 2026-11-15
+Date of notice: 2026-10-22
 To: Gibson Medical Group
-Member: Nicholas Powell   Patient ID: P-8590   Member ID: MBR799958493
+Member: Nicholas Powell   Patient ID: P-4736   Member ID: MBR799958493
 
-Claim number: 3534625
+Claim number: 8772333
 Date of service: 2026-06-03
-Service: 73721 - MRI lower-extremity joint without contrast
-Billed amount: 1521.68
+Service: 99213 - Established patient visit, low
+Billed amount: 195.93
 
 DETERMINATION
 Reason code (CARC): CO-29  The time limit for filing has expired.
 Remark code (RARC): none
-Our records show the claim was received on 2026-10-27, after the 90-day filing limit. The filing deadline for this date of service was 2026-09-01 (Medical Policy: Timely Filing of Claims).
+Our records show the claim was received on 2026-10-03, after the 90-day filing limit. The filing deadline for this date of service was 2026-09-01 (Medical Policy: Timely Filing of Claims).
 
 Appeal Rights
-You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-02-13.
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2027-01-20.
 Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
 
 Corrected Claims
-A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-05-14.
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-04-20.
 
 SYNTHETIC DATA - NOT REAL PHI

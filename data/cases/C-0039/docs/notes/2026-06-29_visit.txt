@@ -1,0 +1,24 @@
+Burns Medical Group
+OFFICE VISIT NOTE
+Patient: Jordan Mcdonald   DOB: 1962-10-05   MRN: SYN-751677   Patient ID: P-6876
+Date of encounter: 2026-06-29
+Provider: Dr. Joshua Sullivan
+------------------------------------------------------------
+Reason for visit
+Evaluation of low back pain present for some time, gradually worsening with prolonged sitting and bending.
+
+History
+The patient reports a dull ache across the lower lumbar region without radiation into the legs. No numbness, tingling, or weakness. No bowel or bladder changes. No fever, unintended weight loss, or recent trauma. Pain improves somewhat with movement and over-the-counter acetaminophen. He works a desk job and has reduced his usual walking routine. No prior back surgery.
+
+Exam
+Alert, comfortable, in no acute distress. Gait normal. Lumbar paraspinal muscles tender to palpation bilaterally with mild spasm. Range of motion limited by discomfort on flexion. Straight leg raise negative bilaterally. Lower extremity strength 5/5, sensation intact, deep tendon reflexes symmetric. No midline bony tenderness.
+
+Assessment
+Low back pain, unspecified (M54.50). Presentation is consistent with mechanical musculoskeletal strain without red flag features or neurologic deficit.
+
+Plan
+Continue acetaminophen as needed and add a short course of an anti-inflammatory if tolerated. Reviewed gentle stretching, core strengthening, and posture correction at the workstation. Encouraged gradual return to walking. Advised to report leg weakness, numbness, or bladder changes promptly. Return visit arranged if symptoms persist or worsen.
+------------------------------------------------------------
+Electronically signed: Dr. Joshua Sullivan
+
+SYNTHETIC DATA - NOT REAL PHI

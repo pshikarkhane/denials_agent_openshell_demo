@@ -6,18 +6,19 @@ Effective date: 2026-03-01
 Version history: Version 3.0, effective 2026-03-01. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
 
 Section 1  Purpose and scope
-This policy establishes the structured process by which providers may challenge adverse claim determinations issued by Meridian Community Health Plan. It defines the sequential levels of review available and the procedural standards that govern each stage of the appeals process.
+This policy establishes the structured process by which providers may contest adverse claim determinations issued by Meridian Community Health Plan. It defines the available levels of appeal and the corresponding timeframes within which each request must be submitted.
 
 Section 2.1
-A provider may request a first-level appeal of an adverse claim determination, and such request must be submitted within the appeal window specified in Section 7. The appeal should identify the determination being challenged and include supporting documentation relevant to the disputed claim. Appeals received outside the applicable window may be declined as untimely.
+A provider may request a first-level appeal of an adverse claim determination. Such a request must be submitted within the appeal window specified in Section 7.
 
 Section 2.2
-A provider who disagrees with the outcome of a first-level appeal may request a second-level review, and such request must be submitted within the same stated window referenced in Section 7. The second-level review provides an additional evaluation of the disputed determination by reviewers who were not involved in the first-level decision. The provider may submit new or additional information in support of the second-level request.
+A provider who disagrees with the first-level outcome may request a second-level review. This request must be submitted within the second-level window specified in Section 7.
 
 Section 7  Key parameters and general provisions
 7.1 Appeal deadline: 180 days from the date of the claim determination notice.
 7.2 Timely filing limit: 180 days from the date of service.
 7.3 Corrected claims: must be received within 365 days of the date of the notice.
 7.4 Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
+7.5 Second-level review: must be requested within 180 days of the date of the first-level appeal decision notice.
 
 SYNTHETIC DATA - NOT REAL PHI

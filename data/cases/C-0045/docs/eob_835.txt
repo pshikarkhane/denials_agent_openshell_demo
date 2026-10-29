@@ -1,36 +1,36 @@
-835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+835 REMITTANCE ADVICE
 
 Payer: Meridian Community Health Plan
 Payer ID: MERIDIAN_COMM
 Payee: Humphrey Medical Group
-Trace number: SYN-EFT-86017811
-Remittance date: 2026-08-11
+Trace number: 86017811
+Remittance date: 2026-08-28
 
 PATIENT
   Name: Dustin Roberts
-  Patient ID: P-5762
+  Patient ID: P-2016
   MRN: SYN-893725
   Member ID: MBR742469895
-  Date of birth: 1977-07-08
-  SSN: 937-97-6605
+  Date of birth: 1977-07-09
+  SSN: XXX-XX-6605
 
 CLAIM
-  Claim number: 8408667
+  Claim number: 5877122
   Claim status: PARTIALLY DENIED
   Date of service: 2026-07-22
-  Date claim received by payer: 2026-07-27
-  Diagnosis (ICD-10): M54.16
+  Date claim received by payer: 2026-07-30
+  Diagnosis (ICD-10): M54.50
   Place of service: 11
-  Rendering provider: Dr. Michelle Fields (ID SYN-RP-8667)
+  Rendering provider: Robert Fitzgerald, PT (ID RP-7122)
   Referring provider: Dr. Kurt Walters
 
 SERVICE LINES
   Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
-  1     97110       301.29     186.80     186.80
-        (Therapeutic exercise)
-  2     97140       145.43     0.00       0.00       CO-97 145.43 RARC N20
+  1     97530       217.27     134.71     134.71
+        (Therapeutic activities)
+  2     97140       88.82      0.00       0.00       CO-97 88.82 RARC N20
         (Manual therapy)
 
-TOTALS  Billed 446.72  Allowed 186.80  Paid 186.80  Patient responsibility 0.00
+TOTALS  Billed 306.09  Allowed 134.71  Paid 134.71  Patient responsibility 0.00
 
 SYNTHETIC DATA - NOT REAL PHI

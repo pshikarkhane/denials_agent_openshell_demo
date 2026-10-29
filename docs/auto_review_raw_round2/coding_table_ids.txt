@@ -1,0 +1,74 @@
+
+### Table A: CPT + ICD-10 pairings that are supposed to be valid
+A1. 27447 (Total knee arthroplasty) + M17.11 (Primary OA, right knee)  | categories [3, 11]
+A2. 27447 (Total knee arthroplasty) + M17.12 (Primary OA, left knee)  | categories [3, 4]
+A3. 29881 (Knee arthroscopy with meniscectomy) + M23.221 (Old meniscus tear, post horn medial, right knee)  | categories [4]
+A4. 63030 (Lumbar laminotomy/discectomy) + M51.16 (Disc disorder w/ radiculopathy, lumbar)  | categories [3, 4, 11]
+A5. 63030 (Lumbar laminotomy/discectomy) + M51.17 (Disc disorder w/ radiculopathy, lumbosacral)  | categories [4, 11]
+A6. 72148 (MRI lumbar spine without contrast) + M51.16 (Disc disorder w/ radiculopathy, lumbar)  | categories [1, 2]
+A7. 72148 (MRI lumbar spine without contrast) + M51.17 (Disc disorder w/ radiculopathy, lumbosacral)  | categories [1, 2]
+A8. 72148 (MRI lumbar spine without contrast) + M51.26 (Other disc displacement, lumbar)  | categories [1, 2]
+A9. 72148 (MRI lumbar spine without contrast) + M54.16 (Radiculopathy, lumbar)  | categories [1]
+A10. 72148 (MRI lumbar spine without contrast) + M54.17 (Radiculopathy, lumbosacral)  | categories [1, 2]
+A11. 73721 (MRI lower-extremity joint without contrast) + M23.221 (Old meniscus tear, post horn medial, right knee)  | categories [6]
+A12. 73721 (MRI lower-extremity joint without contrast) + M23.222 (Old meniscus tear, post horn medial, left knee)  | categories [5, 6]
+A13. 73721 (MRI lower-extremity joint without contrast) + M25.561 (Pain in right knee)  | categories [5]
+A14. 73721 (MRI lower-extremity joint without contrast) + M25.562 (Pain in left knee)  | categories [10]
+A15. 76942 (Ultrasound guidance for needle placement) + M17.12 (Primary OA, left knee)  | categories [9]
+A16. 76942 (Ultrasound guidance for needle placement) + M25.562 (Pain in left knee)  | categories [9]
+A17. 85025 (Complete blood count with differential) + I10 (Essential hypertension)  | categories [7]
+A18. 93000 (ECG with interpretation) + I10 (Essential hypertension)  | categories [11]
+A19. 97110 (Therapeutic exercise) + M25.511 (Pain in right shoulder)  | categories [8]
+A20. 97110 (Therapeutic exercise) + M25.561 (Pain in right knee)  | categories [12]
+A21. 97110 (Therapeutic exercise) + M25.562 (Pain in left knee)  | categories [8, 12]
+A22. 97110 (Therapeutic exercise) + M54.16 (Radiculopathy, lumbar)  | categories [10]
+A23. 97110 (Therapeutic exercise) + M62.81 (Muscle weakness)  | categories [12]
+A24. 97112 (Neuromuscular re-education) + M25.561 (Pain in right knee)  | categories [12]
+A25. 97112 (Neuromuscular re-education) + M54.16 (Radiculopathy, lumbar)  | categories [12]
+A26. 97140 (Manual therapy) + M51.16 (Disc disorder w/ radiculopathy, lumbar)  | categories [9]
+A27. 97140 (Manual therapy) + M54.16 (Radiculopathy, lumbar)  | categories [9]
+A28. 99213 (Established patient visit, low) + E78.5 (Hyperlipidemia)  | categories [7]
+A29. 99213 (Established patient visit, low) + J02.9 (Acute pharyngitis)  | categories [8]
+A30. 99213 (Established patient visit, low) + J06.9 (Acute upper respiratory infection)  | categories [7]
+A31. 99213 (Established patient visit, low) + M54.50 (Low back pain, unspecified)  | categories [8]
+A32. 99214 (Established patient visit, moderate) + E11.9 (Type 2 diabetes without complications)  | categories [6, 10]
+A33. 99214 (Established patient visit, moderate) + I10 (Essential hypertension)  | categories [6, 7, 8, 10]
+A34. 99214 (Established patient visit, moderate) + J02.9 (Acute pharyngitis)  | categories [5]
+A35. 99214 (Established patient visit, moderate) + J06.9 (Acute upper respiratory infection)  | categories [5]
+A36. 99214 (Established patient visit, moderate) + M54.50 (Low back pain, unspecified)  | categories [5, 7]
+
+### Table B: Pairings that are deliberately INVALID (category 11: the diagnosis is inconsistent with the procedure)
+B1. 27447 (Total knee arthroplasty) + J02.9 (Acute pharyngitis)
+B2. 63030 (Lumbar laminotomy/discectomy) + D64.9 (Anemia, unspecified)
+B3. 63030 (Lumbar laminotomy/discectomy) + J06.9 (Acute upper respiratory infection)
+B4. 93000 (ECG with interpretation) + D64.9 (Anemia, unspecified)
+
+### Table C: CARC / RARC pairings by scenario
+C1. CO-11 (The diagnosis is inconsistent with the procedure.) with RARC M76  | scenario(s): Diagnosis inconsistent with procedure
+C2. CO-151 (Payment adjusted because the information submitted does not support this many services or this frequency.) with RARC N640  | scenario(s): Frequency / visit-limit exceeded
+C3. CO-16 (The claim lacks information needed for adjudication.) with RARC MA130  | scenario(s): Missing/invalid information or modifier
+C4. CO-18 (Exact duplicate of a claim/service already adjudicated.) with RARC N522  | scenario(s): Duplicate claim
+C5. CO-197 (Precertification/authorization/notification was absent.) with RARC N54  | scenario(s): No prior auth, retro-auth available; No prior auth, not retro-eligible
+C6. CO-29 (The time limit for filing has expired.) with RARC none  | scenario(s): Timely filing, proof exists; Timely filing, expired, no proof
+C7. CO-4 (The procedure code is inconsistent with the modifier used, or a required modifier is missing.) with RARC M51  | scenario(s): Missing/invalid information or modifier
+C8. CO-50 (The service was not deemed medically necessary by the plan.) with RARC N115  | scenario(s): Medical necessity, record supports; Medical necessity, record does not support
+C9. CO-97 (The benefit for this service is included in the payment for another service already adjudicated.) with RARC N20  | scenario(s): Bundling / NCCI-style
+C10. PR-1 (Amount applied to the patient's deductible.) with RARC none  | scenario(s): Patient responsibility (deductible)
+
+### Table D: Bundling pairs (column 1 code / denied column 2 code, distinct-service modifier 59)
+D1. 20610 (Major joint injection/aspiration) bundled with denied 76942 (Ultrasound guidance for needle placement)  | 2 case(s)
+D2. 97110 (Therapeutic exercise) bundled with denied 97140 (Manual therapy)  | 3 case(s)
+
+### Table E: Category / CARC scenario pairings from the spec
+E1. 1. Medical necessity, record supports: CO-50
+E2. 2. Medical necessity, record does not support: CO-50
+E3. 3. No prior auth, retro-auth available: CO-197
+E4. 4. No prior auth, not retro-eligible: CO-197
+E5. 5. Timely filing, proof exists: CO-29
+E6. 6. Timely filing, expired, no proof: CO-29
+E7. 7. Patient responsibility (deductible): PR-1
+E8. 8. Missing/invalid information or modifier: CO-4/CO-16
+E9. 9. Bundling / NCCI-style: CO-97
+E10. 10. Duplicate claim: CO-18
+E11. 11. Diagnosis inconsistent with procedure: CO-11
+E12. 12. Frequency / visit-limit exceeded: CO-151

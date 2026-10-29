@@ -1,0 +1,35 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Patrick Medical Group
+Trace number: SYN-EFT-49822615
+Remittance date: 2026-06-05
+
+PATIENT
+  Name: Thomas Brown
+  Patient ID: P-6270
+  MRN: SYN-559948
+  Member ID: MBR236895042
+  Date of birth: 1952-08-04
+  SSN: 902-28-1460
+
+CLAIM
+  Claim number: 5144256
+  Claim status: PROCESSED - PATIENT RESPONSIBILITY APPLIED
+  Date of service: 2026-05-08
+  Date claim received by payer: 2026-05-14
+  Diagnosis (ICD-10): I10
+  Place of service: 11
+  Rendering provider: Dr. Craig Kim (ID SYN-RP-4256)
+  Referring provider: Dr. Wyatt Stuart
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     99214       223.65     150.00     0.00       PR-1 150.00
+        (Established patient visit, moderate)
+
+TOTALS  Billed 223.65  Allowed 150.00  Paid 0.00  Patient responsibility 150.00
+  Amount not allowed (billed minus allowed): 73.65
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -1,0 +1,36 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Holland Medical Group
+Trace number: SYN-EFT-47715840
+Remittance date: 2026-06-17
+
+PATIENT
+  Name: Joshua Bruce
+  Patient ID: P-3080
+  MRN: SYN-761500
+  Member ID: MBR743631684
+  Date of birth: 1951-06-24
+  SSN: 915-69-1805
+
+CLAIM
+  Claim number: 6474534
+  Claim status: PARTIALLY DENIED
+  Date of service: 2026-05-16
+  Date claim received by payer: 2026-05-21
+  Diagnosis (ICD-10): M17.12
+  Place of service: 11
+  Rendering provider: Dr. Eric Crosby (ID SYN-RP-4534)
+  Referring provider: Dr. Jason Michael
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     20610       228.39     141.60     141.60
+        (Major joint injection/aspiration)
+  2     76942  59   102.03     0.00       0.00       CO-97 102.03 RARC N20
+        (Ultrasound guidance for needle placement)
+
+TOTALS  Billed 330.42  Allowed 141.60  Paid 141.60  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -1,0 +1,26 @@
+HALCYON HEALTH PLAN
+Payer ID: HALCYON_PLAN
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-07-31
+To: Mitchell Medical Group
+Member: Eric Craig   Patient ID: P-2823   Member ID: MBR881124382
+
+Claim number: 3312632
+Date of service: 2026-07-09
+Service: 63030 - Lumbar laminotomy/discectomy
+Billed amount: 4474.50
+
+DETERMINATION
+Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
+Remark code (RARC): N54
+No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
+
+Appeal Rights
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-11-28.
+Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-27.
+
+SYNTHETIC DATA - NOT REAL PHI

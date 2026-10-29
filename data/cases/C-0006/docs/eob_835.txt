@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Gross Medical Group
+Trace number: SYN-EFT-26934742
+Remittance date: 2026-04-15
+
+PATIENT
+  Name: Brandy Hill
+  Patient ID: P-9845
+  MRN: SYN-726629
+  Member ID: MBR666129120
+  Date of birth: 1972-03-16
+  SSN: 935-23-2689
+
+CLAIM
+  Claim number: 9466341
+  Claim status: DENIED
+  Date of service: 2026-03-19
+  Date claim received by payer: 2026-03-22
+  Diagnosis (ICD-10): M54.17, M51.17
+  Place of service: 11
+  Rendering provider: Dr. Joshua Moss (ID SYN-RP-6341)
+  Referring provider: Dr. Diane Andrews
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     72148       1890.69    0.00       0.00       CO-50 1890.69 RARC N115
+        (MRI lumbar spine without contrast)
+
+TOTALS  Billed 1890.69  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

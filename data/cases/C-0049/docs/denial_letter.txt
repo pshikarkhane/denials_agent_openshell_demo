@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-08-13
+To: Coleman Medical Group
+Member: Susan Herman   Patient ID: P-3034   Member ID: MBR581717445
+
+Claim number: 9423624
+Date of service: 2026-06-14
+Service: 73721 - MRI lower-extremity joint without contrast
+Billed amount: 1590.07
+
+DETERMINATION
+Reason code (CARC): CO-18  Exact duplicate of a claim/service already adjudicated.
+Remark code (RARC): N522
+This claim duplicates claim 9423558, which was paid on 2026-07-07 in the amount of 954.04.
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-11.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-09.
+
+SYNTHETIC DATA - NOT REAL PHI

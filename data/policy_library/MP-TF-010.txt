@@ -1,0 +1,23 @@
+TIMELY FILING OF CLAIMS
+Policy ID: MP-TF-010
+Payer: Terravista Health
+Payer ID: TERRAVISTA_HEALTH
+Effective date: 2024-01-01
+Version history: Version 1.0 (superseded). Replaced by Version 2.0 effective 2025-01-01; applies only to dates of service before 2025-01-01.
+
+Section 1  Purpose and scope
+This policy establishes the standards under which Terravista Health accepts and adjudicates claims based on the timeliness of their submission. It applies to all participating and non-participating providers who render covered services to members enrolled in plans administered by Terravista Health.
+
+Section 2.1
+Providers must submit all claims for covered services to Terravista Health within 60 days of the date of service. Claims received after this 60-day window will be considered untimely and may be denied, with the provider held responsible for the resulting charges unless a valid exception applies. For services spanning multiple dates, the filing period is measured from the final date of service associated with the claim.
+
+Section 2.3
+Providers must retain documentation that demonstrates timely submission, such as a clearinghouse acceptance confirmation that validates receipt of the claim. This proof of timely filing must be available upon request and submitted to Terravista Health when a provider disputes a denial based on untimely filing. Acceptable evidence establishes that the claim entered the submission pipeline within the required filing period.
+
+Section 7  Key parameters and general provisions
+7.1 Appeal deadline: 90 days from the date of the claim determination notice.
+7.2 Timely filing limit: 90 days from the date of service.
+7.3 Corrected claims: must be received within 180 days of the date of the notice.
+7.4 Appeals address: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+SYNTHETIC DATA - NOT REAL PHI

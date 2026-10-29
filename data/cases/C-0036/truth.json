@@ -1,0 +1,206 @@
+{
+  "case_id": "C-0036",
+  "category": 8,
+  "split": "test",
+  "payer_id": "TERRAVISTA_HEALTH",
+  "policy_id": "MP-CLM-004",
+  "patient": {
+    "synthetic_id": "P-8936"
+  },
+  "claim": {
+    "claim_no": "2946087",
+    "cpt": "99214",
+    "icd10": [
+      "I10"
+    ],
+    "dos": "2026-07-13",
+    "billed": 221.69
+  },
+  "denial": {
+    "carc": "CO-16",
+    "rarc": "MA130",
+    "denial_date": "2026-08-05"
+  },
+  "appeal_deadline": "2026-11-03",
+  "policy_criteria": [
+    {
+      "id": "C1",
+      "section": "§3.1",
+      "text": "Claim as submitted contained all required data elements and modifiers",
+      "status": "unmet",
+      "evidence": [
+        "eob_835.txt"
+      ]
+    },
+    {
+      "id": "C2",
+      "section": "§3.4",
+      "text": "Corrected claim can be filed within the payer corrected-claim window",
+      "status": "met",
+      "evidence": [
+        "denial_letter.txt"
+      ]
+    }
+  ],
+  "correct_decision": "CORRECT_AND_RESUBMIT",
+  "traps": [],
+  "required_enclosures": [],
+  "facts": [
+    {
+      "key": "claim_no",
+      "value": "2946087",
+      "source_file": "denial_letter.txt",
+      "line": 9,
+      "evidence": null
+    },
+    {
+      "key": "patient_id",
+      "value": "P-8936",
+      "source_file": "eob_835.txt",
+      "line": 11,
+      "evidence": null
+    },
+    {
+      "key": "cpt",
+      "value": "99214",
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "icd10",
+      "value": [
+        "I10"
+      ],
+      "source_file": "eob_835.txt",
+      "line": 22,
+      "evidence": null
+    },
+    {
+      "key": "dos",
+      "value": "2026-07-13",
+      "source_file": "eob_835.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "billed",
+      "value": 221.69,
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "payer_id",
+      "value": "TERRAVISTA_HEALTH",
+      "source_file": "denial_letter.txt",
+      "line": 2,
+      "evidence": null
+    },
+    {
+      "key": "policy_id",
+      "value": "MP-CLM-004",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "carc",
+      "value": "CO-16",
+      "source_file": "denial_letter.txt",
+      "line": 15,
+      "evidence": null
+    },
+    {
+      "key": "denial_date",
+      "value": "2026-08-05",
+      "source_file": "denial_letter.txt",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "claim_submitted_date",
+      "value": "2026-07-17",
+      "source_file": "eob_835.txt",
+      "line": 21,
+      "evidence": null
+    },
+    {
+      "key": "appeal_window_days",
+      "value": 90,
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "appeal_deadline",
+      "value": "2026-11-03",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "as_of_date",
+      "value": "2026-09-01",
+      "source_file": "task.md",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "policy_effective_date",
+      "value": "2026-04-05",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2027-02-01",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
+      "key": "rarc",
+      "value": "MA130",
+      "source_file": "denial_letter.txt",
+      "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-05-31_pcp.txt",
+      "source_file": "notes/2026-05-31_pcp.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-07-13_visit.txt",
+      "source_file": "notes/2026-07-13_visit.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "missing_item",
+      "value": "rendering provider identifier missing on claim",
+      "source_file": "denial_letter.txt",
+      "line": 17,
+      "evidence": null
+    },
+    {
+      "key": "missing_field",
+      "value": "rendering_provider",
+      "source_file": "eob_835.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "correct_fix",
+      "value": "add rendering provider identifier",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    }
+  ]
+}

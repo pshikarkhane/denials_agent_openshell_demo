@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-07-08
+To: Gill Medical Group
+Member: Joshua Russell   Patient ID: P-5629   Member ID: MBR589941183
+
+Claim number: 3827620
+Date of service: 2026-05-12
+Service: 97110 - Therapeutic exercise
+Billed amount: 98.20
+
+DETERMINATION
+Reason code (CARC): CO-18  Exact duplicate of a claim/service already adjudicated.
+Remark code (RARC): N522
+This claim duplicates claim 3827587, which was paid on 2026-06-01 in the amount of 58.92.
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-06.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-04.
+
+SYNTHETIC DATA - NOT REAL PHI

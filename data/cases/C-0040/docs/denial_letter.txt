@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-07-29
+To: Watson Medical Group
+Member: Mary Oconnell   Patient ID: P-6246   Member ID: MBR934391503
+
+Claim number: 4148533
+Date of service: 2026-06-29
+Service: 97110 - Therapeutic exercise
+Billed amount: 157.16
+
+DETERMINATION
+Reason code (CARC): CO-4  The procedure code is inconsistent with the modifier used, or a required modifier is missing.
+Remark code (RARC): M51
+The claim is missing required information: therapy modifier GP missing (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-27.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-25.
+
+SYNTHETIC DATA - NOT REAL PHI

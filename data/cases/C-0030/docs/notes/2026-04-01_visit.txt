@@ -1,0 +1,19 @@
+Johnston Medical Group
+OFFICE VISIT NOTE
+Patient: Michael Johnson   DOB: 1961-05-08   MRN: SYN-926375   Patient ID: P-3641
+Date of encounter: 2026-04-01
+Provider: Dr. Thomas Williams
+------------------------------------------------------------
+Reason for visit: Routine follow-up for Type 2 diabetes without complications (E11.9). Patient reports feeling well overall with no new concerns.
+
+History: The patient is a 64-year-old man with longstanding type 2 diabetes managed with oral medication and lifestyle measures. He denies polyuria, polydipsia, blurred vision, numbness, or tingling. He reports good adherence to his medication and has been more consistent with home glucose monitoring. Diet remains a challenge, with occasional high-carbohydrate meals. He walks regularly for exercise. No hypoglycemic episodes reported.
+
+Exam: Alert, comfortable, in no distress. Blood pressure well controlled. Heart regular rate and rhythm. Lungs clear. Abdomen soft, nontender. Feet examined with intact sensation to monofilament bilaterally, no ulcers or skin breakdown, pulses palpable.
+
+Assessment: Type 2 diabetes without complications (E11.9), reasonably controlled with current regimen. No evidence of neuropathy or foot complications on today's exam.
+
+Plan: Continue current oral medication at the present dose. Reinforce dietary counseling and continued physical activity. Order routine A1c and metabolic panel. Encourage ongoing home glucose logging. Return for routine follow-up or sooner if symptoms arise. Service performed on 2026-04-01: Established patient visit, moderate.
+------------------------------------------------------------
+Electronically signed: Dr. Thomas Williams
+
+SYNTHETIC DATA - NOT REAL PHI

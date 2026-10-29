@@ -1,0 +1,283 @@
+{
+  "case_id": "C-0056",
+  "category": 12,
+  "split": "dev",
+  "payer_id": "HALCYON_PLAN",
+  "policy_id": "MP-PT-011",
+  "patient": {
+    "synthetic_id": "P-6474"
+  },
+  "claim": {
+    "claim_no": "8190522",
+    "cpt": "97110",
+    "icd10": [
+      "M25.562"
+    ],
+    "dos": "2026-05-21",
+    "billed": 158.47
+  },
+  "denial": {
+    "carc": "CO-151",
+    "rarc": "N640",
+    "denial_date": "2026-06-21"
+  },
+  "appeal_deadline": "2026-10-19",
+  "policy_criteria": [
+    {
+      "id": "C1",
+      "section": "§4.2",
+      "text": "Measurable functional improvement documented",
+      "status": "met",
+      "evidence": [
+        "supporting/pt_progress_note.txt"
+      ]
+    },
+    {
+      "id": "C2",
+      "section": "§4.3",
+      "text": "Physician recertified the plan of care",
+      "status": "met",
+      "evidence": [
+        "notes/2026-04-03_referral.txt"
+      ]
+    },
+    {
+      "id": "C3",
+      "section": "§4.4",
+      "text": "Visit count is within the exception cap of 30",
+      "status": "met",
+      "evidence": [
+        "supporting/pt_log.txt"
+      ]
+    }
+  ],
+  "correct_decision": "APPEAL",
+  "traps": [
+    "note_after_dos"
+  ],
+  "required_enclosures": [
+    "supporting/pt_progress_note.txt",
+    "notes/2026-04-03_referral.txt"
+  ],
+  "facts": [
+    {
+      "key": "claim_no",
+      "value": "8190522",
+      "source_file": "denial_letter.txt",
+      "line": 9,
+      "evidence": null
+    },
+    {
+      "key": "patient_id",
+      "value": "P-6474",
+      "source_file": "eob_835.txt",
+      "line": 11,
+      "evidence": null
+    },
+    {
+      "key": "cpt",
+      "value": "97110",
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "icd10",
+      "value": [
+        "M25.562"
+      ],
+      "source_file": "eob_835.txt",
+      "line": 22,
+      "evidence": null
+    },
+    {
+      "key": "dos",
+      "value": "2026-05-21",
+      "source_file": "eob_835.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "billed",
+      "value": 158.47,
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "payer_id",
+      "value": "HALCYON_PLAN",
+      "source_file": "denial_letter.txt",
+      "line": 2,
+      "evidence": null
+    },
+    {
+      "key": "policy_id",
+      "value": "MP-PT-011",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "carc",
+      "value": "CO-151",
+      "source_file": "denial_letter.txt",
+      "line": 15,
+      "evidence": null
+    },
+    {
+      "key": "denial_date",
+      "value": "2026-06-21",
+      "source_file": "denial_letter.txt",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "claim_submitted_date",
+      "value": "2026-05-28",
+      "source_file": "eob_835.txt",
+      "line": 21,
+      "evidence": null
+    },
+    {
+      "key": "appeal_window_days",
+      "value": 120,
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "appeal_deadline",
+      "value": "2026-10-19",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "as_of_date",
+      "value": "2026-07-08",
+      "source_file": "task.md",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "policy_effective_date",
+      "value": "2026-04-20",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2026-12-18",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
+      "key": "rarc",
+      "value": "N640",
+      "source_file": "denial_letter.txt",
+      "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-03-06_initial_eval.txt",
+      "source_file": "notes/2026-03-06_initial_eval.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "supporting/pt_log.txt",
+      "source_file": "supporting/pt_log.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "supporting/pt_progress_note.txt",
+      "source_file": "supporting/pt_progress_note.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-04-03_referral.txt",
+      "source_file": "notes/2026-04-03_referral.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "therapy_start_date",
+      "value": "2026-03-06",
+      "source_file": "supporting/pt_log.txt",
+      "line": 3,
+      "evidence": "Start of care: 2026-03-06"
+    },
+    {
+      "key": "therapy_duration_days",
+      "value": 76,
+      "source_file": "supporting/pt_log.txt",
+      "line": 35,
+      "evidence": "Treatment period: 2026-03-06 to 2026-05-21"
+    },
+    {
+      "key": "visit_limit",
+      "value": 20,
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "visit_cap_with_exception",
+      "value": 30,
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "denied_visit_number",
+      "value": 28,
+      "source_file": "supporting/pt_log.txt",
+      "line": 33,
+      "evidence": "Visit 28 | 2026-05-21"
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-06-29_followup.txt",
+      "source_file": "notes/2026-06-29_followup.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "post_dos_note",
+      "value": "notes/2026-06-29_followup.txt",
+      "source_file": "notes/2026-06-29_followup.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "criterion_C1_quote",
+      "value": "Functional improvement: lumbar flexion improved from 36 to 61 degrees and sit-to-stand time improved from 18 to 12 seconds.",
+      "source_file": "supporting/pt_progress_note.txt",
+      "line": 11,
+      "evidence": "Functional improvement: lumbar flexion improved from 36 to 61 degrees and sit-to-stand time improved from 18 to 12 seconds."
+    },
+    {
+      "key": "criterion_C2_quote",
+      "value": "I recertify the physical therapy plan of care as of 2026-04-03.",
+      "source_file": "notes/2026-04-03_referral.txt",
+      "line": 15,
+      "evidence": "I recertify the physical therapy plan of care as of 2026-04-03."
+    },
+    {
+      "key": "criterion_C3_quote",
+      "value": "Visits completed to date: 28",
+      "source_file": "supporting/pt_log.txt",
+      "line": 36,
+      "evidence": "Visits completed to date: 28"
+    }
+  ]
+}

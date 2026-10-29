@@ -1,0 +1,208 @@
+{
+  "case_id": "C-0042",
+  "category": 9,
+  "split": "test",
+  "payer_id": "MERIDIAN_COMM",
+  "policy_id": "MP-BND-002",
+  "patient": {
+    "synthetic_id": "P-3341"
+  },
+  "claim": {
+    "claim_no": "3204025",
+    "cpt": "76942",
+    "icd10": [
+      "M25.562"
+    ],
+    "dos": "2026-04-30",
+    "billed": 126.52
+  },
+  "denial": {
+    "carc": "CO-97",
+    "rarc": "N20",
+    "denial_date": "2026-05-28"
+  },
+  "appeal_deadline": "2026-11-24",
+  "policy_criteria": [
+    {
+      "id": "C1",
+      "section": "§3.1",
+      "text": "Services documented as distinct (separate session/site)",
+      "status": "met",
+      "evidence": [
+        "notes/2026-04-30_procedure.txt"
+      ]
+    },
+    {
+      "id": "C2",
+      "section": "§3.3",
+      "text": "Distinct-procedural-service modifier appended to the denied line",
+      "status": "met",
+      "evidence": [
+        "eob_835.txt"
+      ]
+    }
+  ],
+  "correct_decision": "APPEAL",
+  "traps": [],
+  "required_enclosures": [
+    "notes/2026-04-30_procedure.txt"
+  ],
+  "facts": [
+    {
+      "key": "claim_no",
+      "value": "3204025",
+      "source_file": "denial_letter.txt",
+      "line": 9,
+      "evidence": null
+    },
+    {
+      "key": "patient_id",
+      "value": "P-3341",
+      "source_file": "eob_835.txt",
+      "line": 11,
+      "evidence": null
+    },
+    {
+      "key": "cpt",
+      "value": "76942",
+      "source_file": "eob_835.txt",
+      "line": 31,
+      "evidence": null
+    },
+    {
+      "key": "icd10",
+      "value": [
+        "M25.562"
+      ],
+      "source_file": "eob_835.txt",
+      "line": 22,
+      "evidence": null
+    },
+    {
+      "key": "dos",
+      "value": "2026-04-30",
+      "source_file": "eob_835.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "billed",
+      "value": 126.52,
+      "source_file": "eob_835.txt",
+      "line": 31,
+      "evidence": null
+    },
+    {
+      "key": "payer_id",
+      "value": "MERIDIAN_COMM",
+      "source_file": "denial_letter.txt",
+      "line": 2,
+      "evidence": null
+    },
+    {
+      "key": "policy_id",
+      "value": "MP-BND-002",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "carc",
+      "value": "CO-97",
+      "source_file": "denial_letter.txt",
+      "line": 15,
+      "evidence": null
+    },
+    {
+      "key": "denial_date",
+      "value": "2026-05-28",
+      "source_file": "denial_letter.txt",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "claim_submitted_date",
+      "value": "2026-05-13",
+      "source_file": "eob_835.txt",
+      "line": 21,
+      "evidence": null
+    },
+    {
+      "key": "appeal_window_days",
+      "value": 180,
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "appeal_deadline",
+      "value": "2026-11-24",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "as_of_date",
+      "value": "2026-06-07",
+      "source_file": "task.md",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "policy_effective_date",
+      "value": "2026-04-10",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2027-05-28",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
+      "key": "rarc",
+      "value": "N20",
+      "source_file": "denial_letter.txt",
+      "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-04-30_procedure.txt",
+      "source_file": "notes/2026-04-30_procedure.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "column1_code",
+      "value": "20610",
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "column1_billed_amount",
+      "value": 339.13,
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "modifier_required",
+      "value": "59",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "modifier_present",
+      "value": true,
+      "source_file": "eob_835.txt",
+      "line": null,
+      "evidence": null
+    }
+  ]
+}

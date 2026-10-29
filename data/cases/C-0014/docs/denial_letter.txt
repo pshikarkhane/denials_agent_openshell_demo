@@ -1,0 +1,26 @@
+HALCYON HEALTH PLAN
+Payer ID: HALCYON_PLAN
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-08-20
+To: Reid Medical Group
+Member: James Thomas   Patient ID: P-2725   Member ID: MBR174311698
+
+Claim number: 8707368
+Date of service: 2026-07-15
+Service: 27447 - Total knee arthroplasty
+Billed amount: 4652.38
+
+DETERMINATION
+Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
+Remark code (RARC): N54
+No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
+
+Appeal Rights
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-12-18.
+Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-16.
+
+SYNTHETIC DATA - NOT REAL PHI

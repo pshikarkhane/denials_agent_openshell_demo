@@ -1,0 +1,19 @@
+Burns Medical Group
+PRIMARY CARE VISIT NOTE
+Patient: Jordan Mcdonald   DOB: 1962-10-04   MRN: SYN-751677   Patient ID: P-9277
+Date of encounter: 2026-06-02
+Provider: Dr. Joshua Sullivan
+------------------------------------------------------------
+Reason for visit: Sore throat and scratchy sensation for the past several visits' worth of symptoms, evaluated on 2026-06-02.
+
+History: The patient reports a gradual onset of throat discomfort, worse with swallowing. He notes mild hoarseness and a dry cough. He denies high fever, difficulty breathing, drooling, or neck swelling. No recent sick contacts identified. He has not noticed a rash. Appetite is slightly reduced due to pain. No significant past surgical history relevant to today's complaint. Current medications reviewed and reconciled without changes.
+
+Exam: Vitals stable, afebrile. Oropharynx shows mild erythema without exudate or tonsillar asymmetry. No anterior or posterior cervical lymphadenopathy appreciated. Lungs clear to auscultation bilaterally. Heart regular rate and rhythm. No respiratory distress.
+
+Assessment: Acute pharyngitis, J02.9, most consistent with a viral etiology given the absence of exudate and systemic features.
+
+Plan: Supportive care advised, including hydration, warm fluids, throat lozenges, and saline gargles. Over-the-counter analgesics recommended for comfort. The patient was counseled on warning signs that warrant earlier return. Follow-up established patient visit arranged if symptoms persist or worsen.
+------------------------------------------------------------
+Electronically signed: Dr. Joshua Sullivan
+
+SYNTHETIC DATA - NOT REAL PHI

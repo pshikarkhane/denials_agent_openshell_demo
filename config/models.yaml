@@ -1,0 +1,26 @@
+# All model IDs and endpoints live here; nothing is hard-coded elsewhere.
+# The API key is NEVER stored in this file: set NVIDIA_INFERENCE_API_KEY in the environment.
+api:
+  base_url: https://inference-api.nvidia.com/v1
+  key_env: NVIDIA_INFERENCE_API_KEY
+
+# Agent model (the variable under test). Resolved from GET /v1/models on 2026-10-28.
+# NOTE: this is a PREVIEW build of Nemotron 3.5 Super. nemotron-3.5-super-vl and
+# nemotron-3-super-v3 were also listed but not chosen.
+# Every eval report must record the exact model IDs used (agent + judges).
+agent:
+  model_id: nvidia/nvidia/nemotron-3.5-super-text-preview
+
+# Judge panel (spec 6.3). Different families, none Nemotron.
+judges:
+  gemini: gcp/google/gemini-3.1-pro-preview
+  claude: azure/anthropic/claude-opus-4-8
+  gpt: azure/openai/gpt-5.5
+
+# Model that writes synthetic documents (policy library, clinical notes). Must NOT be the agent model.
+# Verified in Phase 0 (judge smoke test). It shares a family with a judge; documents are graded against truth, not
+# against this model's output, so self-preference is not a concern here. Recorded in data/manifest.json.
+datagen:
+  model_id: azure/anthropic/claude-opus-4-8
+  temperature: 0.7
+  max_tokens: 3000

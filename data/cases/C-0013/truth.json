@@ -1,0 +1,235 @@
+{
+  "case_id": "C-0013",
+  "category": 3,
+  "split": "test",
+  "payer_id": "HALCYON_PLAN",
+  "policy_id": "MP-PA-003",
+  "patient": {
+    "synthetic_id": "P-7040"
+  },
+  "claim": {
+    "claim_no": "7707606",
+    "cpt": "27447",
+    "icd10": [
+      "M17.11"
+    ],
+    "dos": "2026-02-06",
+    "billed": 3408.94
+  },
+  "denial": {
+    "carc": "CO-197",
+    "rarc": "N54",
+    "denial_date": "2026-03-11"
+  },
+  "appeal_deadline": "2026-07-09",
+  "policy_criteria": [
+    {
+      "id": "C1",
+      "section": "§2.1",
+      "text": "Service requires prior authorization",
+      "status": "met",
+      "evidence": [
+        "denial_letter.txt"
+      ]
+    },
+    {
+      "id": "C2",
+      "section": "§4.1",
+      "text": "Service was urgent/emergent so auth could not be obtained beforehand",
+      "status": "met",
+      "evidence": [
+        "notes/2026-02-05_urgent_eval.txt"
+      ]
+    },
+    {
+      "id": "C3",
+      "section": "§4.2",
+      "text": "Retro-auth requested within 14 days of DOS",
+      "status": "met",
+      "evidence": [
+        "supporting/retro_auth_request.txt"
+      ]
+    }
+  ],
+  "correct_decision": "APPEAL",
+  "traps": [
+    "deadline_within_7_days",
+    "policy_effective_after_dos"
+  ],
+  "required_enclosures": [
+    "notes/2026-02-05_urgent_eval.txt",
+    "supporting/retro_auth_request.txt"
+  ],
+  "facts": [
+    {
+      "key": "claim_no",
+      "value": "7707606",
+      "source_file": "denial_letter.txt",
+      "line": 9,
+      "evidence": null
+    },
+    {
+      "key": "patient_id",
+      "value": "P-7040",
+      "source_file": "eob_835.txt",
+      "line": 11,
+      "evidence": null
+    },
+    {
+      "key": "cpt",
+      "value": "27447",
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "icd10",
+      "value": [
+        "M17.11"
+      ],
+      "source_file": "eob_835.txt",
+      "line": 22,
+      "evidence": null
+    },
+    {
+      "key": "dos",
+      "value": "2026-02-06",
+      "source_file": "eob_835.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "billed",
+      "value": 3408.94,
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "payer_id",
+      "value": "HALCYON_PLAN",
+      "source_file": "denial_letter.txt",
+      "line": 2,
+      "evidence": null
+    },
+    {
+      "key": "policy_id",
+      "value": "MP-PA-003",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "carc",
+      "value": "CO-197",
+      "source_file": "denial_letter.txt",
+      "line": 15,
+      "evidence": null
+    },
+    {
+      "key": "denial_date",
+      "value": "2026-03-11",
+      "source_file": "denial_letter.txt",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "claim_submitted_date",
+      "value": "2026-02-09",
+      "source_file": "eob_835.txt",
+      "line": 21,
+      "evidence": null
+    },
+    {
+      "key": "appeal_window_days",
+      "value": 120,
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "appeal_deadline",
+      "value": "2026-07-09",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "as_of_date",
+      "value": "2026-07-07",
+      "source_file": "task.md",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "policy_effective_date",
+      "value": "2026-04-01",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2026-09-07",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
+      "key": "rarc",
+      "value": "N54",
+      "source_file": "denial_letter.txt",
+      "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "auth_required",
+      "value": true,
+      "source_file": "denial_letter.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "auth_on_file",
+      "value": false,
+      "source_file": "denial_letter.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "retro_auth_window_days",
+      "value": 14,
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-02-05_urgent_eval.txt",
+      "source_file": "notes/2026-02-05_urgent_eval.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "supporting/retro_auth_request.txt",
+      "source_file": "supporting/retro_auth_request.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "service_type",
+      "value": "urgent",
+      "source_file": "notes/2026-02-05_urgent_eval.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "retro_request_date",
+      "value": "2026-02-12",
+      "source_file": "supporting/retro_auth_request.txt",
+      "line": null,
+      "evidence": null
+    }
+  ]
+}

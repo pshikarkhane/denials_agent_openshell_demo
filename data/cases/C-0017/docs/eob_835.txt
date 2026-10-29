@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Halcyon Health Plan
+Payer ID: HALCYON_PLAN
+Payee: Alvarado Medical Group
+Trace number: SYN-EFT-26921115
+Remittance date: 2026-03-21
+
+PATIENT
+  Name: Kelsey Riggs
+  Patient ID: P-1221
+  MRN: SYN-907511
+  Member ID: MBR714626984
+  Date of birth: 1956-04-15
+  SSN: 942-62-2642
+
+CLAIM
+  Claim number: 2791209
+  Claim status: DENIED
+  Date of service: 2026-03-01
+  Date claim received by payer: 2026-03-05
+  Diagnosis (ICD-10): M17.12
+  Place of service: 11
+  Rendering provider: Dr. Jeffrey Ellis (ID SYN-RP-1209)
+  Referring provider: Dr. Melissa Page
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     27447       4867.27    0.00       0.00       CO-197 4867.27 RARC N54
+        (Total knee arthroplasty)
+
+TOTALS  Billed 4867.27  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

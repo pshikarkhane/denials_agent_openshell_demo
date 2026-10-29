@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-07-27
+To: Burns Medical Group
+Member: Jordan Mcdonald   Patient ID: P-9277   Member ID: MBR883497256
+
+Claim number: 8636194
+Date of service: 2026-06-28
+Service: 99213 - Established patient visit, low
+Billed amount: 245.17
+
+DETERMINATION
+Reason code (CARC): CO-16  The claim lacks information needed for adjudication.
+Remark code (RARC): MA130
+The claim is missing required information: place of service code missing (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-10-25.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-23.
+
+SYNTHETIC DATA - NOT REAL PHI

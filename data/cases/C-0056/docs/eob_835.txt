@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Halcyon Health Plan
+Payer ID: HALCYON_PLAN
+Payee: King Medical Group
+Trace number: SYN-EFT-93254380
+Remittance date: 2026-06-21
+
+PATIENT
+  Name: Amanda Sullivan
+  Patient ID: P-6474
+  MRN: SYN-921446
+  Member ID: MBR384950373
+  Date of birth: 1983-10-22
+  SSN: 959-95-5363
+
+CLAIM
+  Claim number: 8190522
+  Claim status: DENIED
+  Date of service: 2026-05-21
+  Date claim received by payer: 2026-05-28
+  Diagnosis (ICD-10): M25.562
+  Place of service: 11
+  Rendering provider: Dr. Daniel Sanders (ID SYN-RP-0522)
+  Referring provider: Dr. Elizabeth Hobbs
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     97110       158.47     0.00       0.00       CO-151 158.47 RARC N640
+        (Therapeutic exercise)
+
+TOTALS  Billed 158.47  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

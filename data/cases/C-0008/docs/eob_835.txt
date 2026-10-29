@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Smith Medical Group
+Trace number: SYN-EFT-73627517
+Remittance date: 2026-05-09
+
+PATIENT
+  Name: Keith Horne
+  Patient ID: P-1457
+  MRN: SYN-470830
+  Member ID: MBR737172087
+  Date of birth: 1962-09-28
+  SSN: 947-49-9440
+
+CLAIM
+  Claim number: 9401260
+  Claim status: DENIED
+  Date of service: 2026-04-16
+  Date claim received by payer: 2026-04-21
+  Diagnosis (ICD-10): M51.16, M54.17
+  Place of service: 11
+  Rendering provider: Dr. Benjamin Smith (ID SYN-RP-1260)
+  Referring provider: Dr. Kevin Williams
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     72148       1580.19    0.00       0.00       CO-50 1580.19 RARC N115
+        (MRI lumbar spine without contrast)
+
+TOTALS  Billed 1580.19  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

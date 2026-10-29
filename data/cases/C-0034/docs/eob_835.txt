@@ -1,0 +1,35 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Brown Medical Group
+Trace number: SYN-EFT-28089259
+Remittance date: 2026-08-25
+
+PATIENT
+  Name: Henry Garrison
+  Patient ID: P-9804
+  MRN: SYN-698598
+  Member ID: MBR294597119
+  Date of birth: 1958-08-23
+  SSN: 941-45-6064
+
+CLAIM
+  Claim number: 1946462
+  Claim status: PROCESSED - PATIENT RESPONSIBILITY APPLIED
+  Date of service: 2026-07-24
+  Date claim received by payer: 2026-08-07
+  Diagnosis (ICD-10): I10
+  Place of service: 11
+  Rendering provider: Dr. Holly Sanchez (ID SYN-RP-6462)
+  Referring provider: Dr. David Wilson
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     85025       338.96     235.58     0.00       PR-1 235.58
+        (Complete blood count with differential)
+
+TOTALS  Billed 338.96  Allowed 235.58  Paid 0.00  Patient responsibility 235.58
+  Amount not allowed (billed minus allowed): 103.38
+
+SYNTHETIC DATA - NOT REAL PHI

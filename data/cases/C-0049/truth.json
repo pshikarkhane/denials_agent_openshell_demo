@@ -1,0 +1,192 @@
+{
+  "case_id": "C-0049",
+  "category": 10,
+  "split": "dev",
+  "payer_id": "TERRAVISTA_HEALTH",
+  "policy_id": "MP-CLM-004",
+  "patient": {
+    "synthetic_id": "P-3034"
+  },
+  "claim": {
+    "claim_no": "9423624",
+    "cpt": "73721",
+    "icd10": [
+      "M25.562"
+    ],
+    "dos": "2026-06-14",
+    "billed": 1590.07
+  },
+  "denial": {
+    "carc": "CO-18",
+    "rarc": "N522",
+    "denial_date": "2026-08-13"
+  },
+  "appeal_deadline": "2026-11-11",
+  "policy_criteria": [
+    {
+      "id": "C1",
+      "section": "§2.4",
+      "text": "Denied claim is not a duplicate of an already-adjudicated claim",
+      "status": "unmet",
+      "evidence": [
+        "supporting/original_remit.txt"
+      ]
+    }
+  ],
+  "correct_decision": "DO_NOT_APPEAL",
+  "traps": [
+    "deadline_passed"
+  ],
+  "required_enclosures": [],
+  "facts": [
+    {
+      "key": "claim_no",
+      "value": "9423624",
+      "source_file": "denial_letter.txt",
+      "line": 9,
+      "evidence": null
+    },
+    {
+      "key": "patient_id",
+      "value": "P-3034",
+      "source_file": "eob_835.txt",
+      "line": 11,
+      "evidence": null
+    },
+    {
+      "key": "cpt",
+      "value": "73721",
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "icd10",
+      "value": [
+        "M25.562"
+      ],
+      "source_file": "eob_835.txt",
+      "line": 22,
+      "evidence": null
+    },
+    {
+      "key": "dos",
+      "value": "2026-06-14",
+      "source_file": "eob_835.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "billed",
+      "value": 1590.07,
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "payer_id",
+      "value": "TERRAVISTA_HEALTH",
+      "source_file": "denial_letter.txt",
+      "line": 2,
+      "evidence": null
+    },
+    {
+      "key": "policy_id",
+      "value": "MP-CLM-004",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "carc",
+      "value": "CO-18",
+      "source_file": "denial_letter.txt",
+      "line": 15,
+      "evidence": null
+    },
+    {
+      "key": "denial_date",
+      "value": "2026-08-13",
+      "source_file": "denial_letter.txt",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "claim_submitted_date",
+      "value": "2026-07-30",
+      "source_file": "eob_835.txt",
+      "line": 21,
+      "evidence": null
+    },
+    {
+      "key": "appeal_window_days",
+      "value": 90,
+      "source_file": "denial_letter.txt",
+      "line": 12,
+      "evidence": null
+    },
+    {
+      "key": "appeal_deadline",
+      "value": "2026-11-11",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "as_of_date",
+      "value": "2026-12-02",
+      "source_file": "task.md",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "policy_effective_date",
+      "value": "2026-04-05",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2027-02-09",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
+      "key": "rarc",
+      "value": "N522",
+      "source_file": "denial_letter.txt",
+      "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "supporting/original_remit.txt",
+      "source_file": "supporting/original_remit.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "original_claim_no",
+      "value": "9423558",
+      "source_file": "denial_letter.txt",
+      "line": 17,
+      "evidence": null
+    },
+    {
+      "key": "original_paid_date",
+      "value": "2026-07-07",
+      "source_file": "denial_letter.txt",
+      "line": 17,
+      "evidence": null
+    },
+    {
+      "key": "original_paid_amount",
+      "value": 954.04,
+      "source_file": "denial_letter.txt",
+      "line": 17,
+      "evidence": null
+    }
+  ]
+}

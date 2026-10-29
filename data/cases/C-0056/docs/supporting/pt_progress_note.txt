@@ -1,0 +1,19 @@
+King Medical Group
+PHYSICAL THERAPY PROGRESS NOTE
+Patient: Amanda Sullivan   DOB: 1983-10-22   MRN: SYN-921446   Patient ID: P-6474
+Date of encounter: 2026-05-14
+Provider: David Fisher, PT
+------------------------------------------------------------
+Reason for visit: Progress reassessment for chronic left knee pain (M25.562) and associated lumbar stiffness limiting daily activity, with therapy initiated on 2026-03-06.
+
+History: Patient reports steady reduction in pain intensity and improved tolerance for standing, walking, and stair negotiation. She notes less difficulty rising from low chairs and resuming light household tasks. Home exercise adherence has been consistent, with no new injuries or flares reported since the prior visit.
+
+Exam: On 2026-05-14, gait was symmetrical with reduced guarding. Left knee flexion and extension strength measured 4+/5. Palpation revealed decreased tenderness about the medial joint line. Functional improvement: lumbar flexion improved from 36 to 61 degrees and sit-to-stand time improved from 18 to 12 seconds. Single-leg stance tolerance increased bilaterally.
+
+Assessment: Patient demonstrates meaningful progress toward established goals with improved range, strength, and functional mobility. Pain is well controlled and no longer limiting most daily tasks. Prognosis remains favorable, and she continues to benefit from skilled intervention.
+
+Plan: Continue current plan of care with progressive strengthening, mobility drills, and balance training. Advance home exercise program and reassess functional metrics at the next visit. Patient verbalized understanding and agreement with the plan.
+------------------------------------------------------------
+Electronically signed: David Fisher, PT
+
+SYNTHETIC DATA - NOT REAL PHI

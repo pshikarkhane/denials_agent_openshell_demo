@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Terravista Health
+Payer ID: TERRAVISTA_HEALTH
+Payee: Gibson Medical Group
+Trace number: SYN-EFT-36191505
+Remittance date: 2026-11-15
+
+PATIENT
+  Name: Nicholas Powell
+  Patient ID: P-8590
+  MRN: SYN-935469
+  Member ID: MBR799958493
+  Date of birth: 1974-11-22
+  SSN: 980-27-6803
+
+CLAIM
+  Claim number: 3534625
+  Claim status: DENIED
+  Date of service: 2026-06-03
+  Date claim received by payer: 2026-10-27
+  Diagnosis (ICD-10): M23.221
+  Place of service: 11
+  Rendering provider: Dr. Leslie Wright (ID SYN-RP-4625)
+  Referring provider: Dr. Courtney Huffman
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     73721       1521.68    0.00       0.00       CO-29 1521.68
+        (MRI lower-extremity joint without contrast)
+
+TOTALS  Billed 1521.68  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

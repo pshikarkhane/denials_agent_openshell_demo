@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Halcyon Health Plan
+Payer ID: HALCYON_PLAN
+Payee: Stafford Medical Group
+Trace number: SYN-EFT-56190321
+Remittance date: 2026-06-24
+
+PATIENT
+  Name: Caitlin Roberson
+  Patient ID: P-3072
+  MRN: SYN-835159
+  Member ID: MBR282773352
+  Date of birth: 1955-10-12
+  SSN: 960-37-6930
+
+CLAIM
+  Claim number: 1054916
+  Claim status: DENIED
+  Date of service: 2026-05-29
+  Date claim received by payer: 2026-06-01
+  Diagnosis (ICD-10): M51.16
+  Place of service: 11
+  Rendering provider: Dr. Michelle Ramsey (ID SYN-RP-4916)
+  Referring provider: Dr. Jeremy Stone
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     63030       3474.23    0.00       0.00       CO-197 3474.23 RARC N54
+        (Lumbar laminotomy/discectomy)
+
+TOTALS  Billed 3474.23  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

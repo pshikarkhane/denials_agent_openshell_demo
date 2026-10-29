@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-06-18
+To: Porter Medical Group
+Member: Mary Lyons   Patient ID: P-1776   Member ID: MBR959599908
+
+Claim number: 6777220
+Date of service: 2026-04-26
+Service: 97110 - Therapeutic exercise
+Billed amount: 101.41
+
+DETERMINATION
+Reason code (CARC): CO-18  Exact duplicate of a claim/service already adjudicated.
+Remark code (RARC): N522
+This claim duplicates claim 6777165, which was paid on 2026-05-23 in the amount of 60.85.
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-09-16.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-15.
+
+SYNTHETIC DATA - NOT REAL PHI

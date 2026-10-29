@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Halcyon Health Plan
+Payer ID: HALCYON_PLAN
+Payee: Reilly Medical Group
+Trace number: SYN-EFT-74368550
+Remittance date: 2026-08-23
+
+PATIENT
+  Name: Jack Ortiz
+  Patient ID: P-6252
+  MRN: SYN-498912
+  Member ID: MBR873004545
+  Date of birth: 1963-02-11
+  SSN: 952-69-7158
+
+CLAIM
+  Claim number: 9894441
+  Claim status: DENIED
+  Date of service: 2026-07-26
+  Date claim received by payer: 2026-08-06
+  Diagnosis (ICD-10): M51.17
+  Place of service: 11
+  Rendering provider: Dr. Beth Evans (ID SYN-RP-4441)
+  Referring provider: Dr. Carlos Smith
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     63030       4258.48    0.00       0.00       CO-197 4258.48 RARC N54
+        (Lumbar laminotomy/discectomy)
+
+TOTALS  Billed 4258.48  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

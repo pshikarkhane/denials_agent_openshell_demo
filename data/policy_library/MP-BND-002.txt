@@ -1,0 +1,24 @@
+CLAIM BUNDLING AND DISTINCT PROCEDURAL SERVICE MODIFIERS
+Policy ID: MP-BND-002
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Effective date: 2026-04-10
+Version history: Version 3.0, effective 2026-04-10. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
+
+Section 1  Purpose and scope
+This policy establishes the principles under which Meridian Community Health Plan evaluates whether multiple services submitted on the same claim should be combined into a single payable unit or recognized as separately reimbursable. It applies to professional and facility claims where bundling edits and distinct procedural service considerations may affect the determination of covered charges.
+
+Section 3.1
+When two or more services that would ordinarily be bundled are performed during separate sessions or at distinct anatomical sites, the submitting provider must clearly document the independent nature of each service in the medical record. The documentation must identify the separate encounter, timing, or location that supports treating the services as distinct rather than components of a single procedure. Services lacking such supporting documentation will be evaluated as a bundled unit.
+
+Section 3.3
+Where a bundling edit results in a denied line, the provider may support separate reimbursement by appending a distinct-procedural-service modifier to that denied line. The modifier must be substantiated by the medical record and accurately reflect that the service was separate and independent from the primary procedure. Appending the modifier without supporting documentation does not override the applicable bundling edit.
+
+Section 7  Key parameters and general provisions
+7.1 Appeal deadline: 180 days from the date of the claim determination notice.
+7.2 Timely filing limit: 180 days from the date of service.
+7.3 Corrected claims: must be received within 365 days of the date of the notice.
+7.4 Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
+7.5 Distinct procedural service modifier: 59 (or XS) on the secondary line.
+
+SYNTHETIC DATA - NOT REAL PHI

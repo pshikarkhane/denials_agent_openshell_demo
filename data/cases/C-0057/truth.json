@@ -1,0 +1,262 @@
+{
+  "case_id": "C-0057",
+  "category": 12,
+  "split": "test",
+  "payer_id": "HALCYON_PLAN",
+  "policy_id": "MP-PT-011",
+  "patient": {
+    "synthetic_id": "P-4798"
+  },
+  "claim": {
+    "claim_no": "3044287",
+    "cpt": "97112",
+    "icd10": [
+      "M54.16"
+    ],
+    "dos": "2026-05-30",
+    "billed": 146.93
+  },
+  "denial": {
+    "carc": "CO-151",
+    "rarc": "N640",
+    "denial_date": "2026-06-21"
+  },
+  "appeal_deadline": "2026-10-19",
+  "policy_criteria": [
+    {
+      "id": "C1",
+      "section": "§4.2",
+      "text": "Measurable functional improvement documented",
+      "status": "met",
+      "evidence": [
+        "supporting/pt_progress_note.txt"
+      ]
+    },
+    {
+      "id": "C2",
+      "section": "§4.3",
+      "text": "Physician recertified the plan of care",
+      "status": "met",
+      "evidence": [
+        "notes/2026-03-03_referral.txt"
+      ]
+    },
+    {
+      "id": "C3",
+      "section": "§4.4",
+      "text": "Visit count is within the exception cap of 30",
+      "status": "met",
+      "evidence": [
+        "supporting/pt_log.txt"
+      ]
+    }
+  ],
+  "correct_decision": "APPEAL",
+  "traps": [
+    "note_after_dos"
+  ],
+  "required_enclosures": [
+    "supporting/pt_progress_note.txt",
+    "notes/2026-03-03_referral.txt"
+  ],
+  "facts": [
+    {
+      "key": "claim_no",
+      "value": "3044287",
+      "source_file": "denial_letter.txt",
+      "line": 9,
+      "evidence": null
+    },
+    {
+      "key": "patient_id",
+      "value": "P-4798",
+      "source_file": "eob_835.txt",
+      "line": 11,
+      "evidence": null
+    },
+    {
+      "key": "cpt",
+      "value": "97112",
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "icd10",
+      "value": [
+        "M54.16"
+      ],
+      "source_file": "eob_835.txt",
+      "line": 22,
+      "evidence": null
+    },
+    {
+      "key": "dos",
+      "value": "2026-05-30",
+      "source_file": "eob_835.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "billed",
+      "value": 146.93,
+      "source_file": "eob_835.txt",
+      "line": 29,
+      "evidence": null
+    },
+    {
+      "key": "payer_id",
+      "value": "HALCYON_PLAN",
+      "source_file": "denial_letter.txt",
+      "line": 2,
+      "evidence": null
+    },
+    {
+      "key": "policy_id",
+      "value": "MP-PT-011",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "carc",
+      "value": "CO-151",
+      "source_file": "denial_letter.txt",
+      "line": 15,
+      "evidence": null
+    },
+    {
+      "key": "denial_date",
+      "value": "2026-06-21",
+      "source_file": "denial_letter.txt",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "claim_submitted_date",
+      "value": "2026-06-04",
+      "source_file": "eob_835.txt",
+      "line": 21,
+      "evidence": null
+    },
+    {
+      "key": "appeal_window_days",
+      "value": 120,
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "appeal_deadline",
+      "value": "2026-10-19",
+      "source_file": "denial_letter.txt",
+      "line": 20,
+      "evidence": null
+    },
+    {
+      "key": "as_of_date",
+      "value": "2026-07-25",
+      "source_file": "task.md",
+      "line": 5,
+      "evidence": null
+    },
+    {
+      "key": "policy_effective_date",
+      "value": "2026-04-20",
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "corrected_claim_deadline",
+      "value": "2026-12-18",
+      "source_file": "denial_letter.txt",
+      "line": 24,
+      "evidence": null
+    },
+    {
+      "key": "rarc",
+      "value": "N640",
+      "source_file": "denial_letter.txt",
+      "line": 16,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-02-05_initial_eval.txt",
+      "source_file": "notes/2026-02-05_initial_eval.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "supporting/pt_log.txt",
+      "source_file": "supporting/pt_log.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "supporting/pt_progress_note.txt",
+      "source_file": "supporting/pt_progress_note.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-03-03_referral.txt",
+      "source_file": "notes/2026-03-03_referral.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "therapy_start_date",
+      "value": "2026-02-05",
+      "source_file": "supporting/pt_log.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "therapy_duration_days",
+      "value": 114,
+      "source_file": "supporting/pt_log.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "visit_limit",
+      "value": 20,
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "visit_cap_with_exception",
+      "value": 30,
+      "source_file": "policy_library",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "denied_visit_number",
+      "value": 28,
+      "source_file": "supporting/pt_log.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "planned_document",
+      "value": "notes/2026-06-13_followup.txt",
+      "source_file": "notes/2026-06-13_followup.txt",
+      "line": null,
+      "evidence": null
+    },
+    {
+      "key": "post_dos_note",
+      "value": "notes/2026-06-13_followup.txt",
+      "source_file": "notes/2026-06-13_followup.txt",
+      "line": null,
+      "evidence": null
+    }
+  ]
+}

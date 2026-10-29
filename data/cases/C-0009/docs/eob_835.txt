@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Tucker Medical Group
+Trace number: SYN-EFT-62678823
+Remittance date: 2026-04-19
+
+PATIENT
+  Name: Andrea Boyd
+  Patient ID: P-3768
+  MRN: SYN-458882
+  Member ID: MBR977213252
+  Date of birth: 1983-01-17
+  SSN: 966-80-3643
+
+CLAIM
+  Claim number: 8584867
+  Claim status: DENIED
+  Date of service: 2026-03-14
+  Date claim received by payer: 2026-03-20
+  Diagnosis (ICD-10): M54.17, M51.26
+  Place of service: 11
+  Rendering provider: Dr. Vincent Davis (ID SYN-RP-4867)
+  Referring provider: Dr. Richard Stewart
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     72148       1738.73    0.00       0.00       CO-50 1738.73 RARC N115
+        (MRI lumbar spine without contrast)
+
+TOTALS  Billed 1738.73  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

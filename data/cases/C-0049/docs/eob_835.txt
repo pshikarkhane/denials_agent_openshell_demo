@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Terravista Health
+Payer ID: TERRAVISTA_HEALTH
+Payee: Coleman Medical Group
+Trace number: SYN-EFT-98643974
+Remittance date: 2026-08-13
+
+PATIENT
+  Name: Susan Herman
+  Patient ID: P-3034
+  MRN: SYN-423208
+  Member ID: MBR581717445
+  Date of birth: 1974-09-02
+  SSN: 980-37-2395
+
+CLAIM
+  Claim number: 9423624
+  Claim status: DENIED
+  Date of service: 2026-06-14
+  Date claim received by payer: 2026-07-30
+  Diagnosis (ICD-10): M25.562
+  Place of service: 11
+  Rendering provider: Dr. Barbara Watson (ID SYN-RP-3624)
+  Referring provider: Dr. Rebecca Garcia
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     73721       1590.07    0.00       0.00       CO-18 1590.07 RARC N522
+        (MRI lower-extremity joint without contrast)
+
+TOTALS  Billed 1590.07  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

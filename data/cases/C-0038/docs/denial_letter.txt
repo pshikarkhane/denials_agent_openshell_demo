@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-06-03
+To: Perkins Medical Group
+Member: Bonnie King   Patient ID: P-6496   Member ID: MBR540447037
+
+Claim number: 6722592
+Date of service: 2026-04-28
+Service: 99213 - Established patient visit, low
+Billed amount: 165.55
+
+DETERMINATION
+Reason code (CARC): CO-4  The procedure code is inconsistent with the modifier used, or a required modifier is missing.
+Remark code (RARC): M51
+The claim is missing required information: modifier 25 missing on visit billed same day as a procedure (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-09-01.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-11-30.
+
+SYNTHETIC DATA - NOT REAL PHI

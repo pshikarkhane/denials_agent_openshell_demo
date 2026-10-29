@@ -1,0 +1,26 @@
+PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION
+Policy ID: MP-PA-030
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Effective date: 2026-04-01
+Version history: Version 1.0, current.
+
+Section 1  Purpose and scope
+This policy establishes the framework Meridian Community Health Plan uses to review requests for prior authorization and retroactive authorization of covered services. It describes the circumstances under which authorization must be obtained before care is delivered and the limited situations in which authorization may be considered after the fact.
+
+Section 2.1
+Certain services designated by Meridian Community Health Plan require prior authorization before they are rendered, and the ordering or treating provider must obtain approval in advance of the service being delivered. When a service appears on the plan's prior authorization list, failure to secure authorization prior to delivery may result in denial of the associated claim.
+
+Section 4.1
+Retroactive authorization may be considered only when the service was urgent or emergent in nature, such that the clinical situation required immediate intervention and authorization could not reasonably be obtained beforehand. The provider must document the urgent or emergent circumstances that prevented a timely prior authorization request.
+
+Section 4.2
+A request for retroactive authorization must be submitted within 7 days of the date of service. Requests received after this 7 day window will not be eligible for retroactive review and the associated claim may be denied.
+
+Section 7  Key parameters and general provisions
+7.1 Appeal deadline: 180 days from the date of the claim determination notice.
+7.2 Timely filing limit: 180 days from the date of service.
+7.3 Corrected claims: must be received within 365 days of the date of the notice.
+7.4 Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
+
+SYNTHETIC DATA - NOT REAL PHI

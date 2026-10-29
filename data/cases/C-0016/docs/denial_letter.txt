@@ -1,0 +1,26 @@
+HALCYON HEALTH PLAN
+Payer ID: HALCYON_PLAN
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-06-24
+To: Williams Medical Group
+Member: Eric Ellis   Patient ID: P-1885   Member ID: MBR352193588
+
+Claim number: 8689217
+Date of service: 2026-05-19
+Service: 29881 - Knee arthroscopy with meniscectomy
+Billed amount: 4885.03
+
+DETERMINATION
+Reason code (CARC): CO-197  Precertification/authorization/notification was absent.
+Remark code (RARC): N54
+No prior authorization was on file for this service, which requires authorization (Medical Policy: Prior Authorization and Retroactive Authorization).
+
+Appeal Rights
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-22.
+Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-21.
+
+SYNTHETIC DATA - NOT REAL PHI

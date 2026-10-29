@@ -1,0 +1,26 @@
+MERIDIAN COMMUNITY HEALTH PLAN
+Payer ID: MERIDIAN_COMM
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-05-26
+To: Haley Medical Group
+Member: Tracey Ellison   Patient ID: P-1772   Member ID: MBR217027101
+
+Claim number: 9543611
+Date of service: 2026-04-22
+Service: 97140 - Manual therapy
+Billed amount: 174.43
+
+DETERMINATION
+Reason code (CARC): CO-97  The benefit for this service is included in the payment for another service already adjudicated.
+Remark code (RARC): N20
+This service is considered included in the payment for procedure 97110 billed on the same claim (Medical Policy: Claim Bundling and Distinct Procedural Service Modifiers).
+
+Appeal Rights
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2026-11-22.
+Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
+
+Corrected Claims
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-05-26.
+
+SYNTHETIC DATA - NOT REAL PHI

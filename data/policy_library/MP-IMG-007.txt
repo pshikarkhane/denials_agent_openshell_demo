@@ -1,0 +1,26 @@
+ADVANCED IMAGING: LUMBAR SPINE MRI MEDICAL NECESSITY
+Policy ID: MP-IMG-007
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Effective date: 2026-04-15
+Version history: Version 3.0, effective 2026-04-15. The requirements below carry forward unchanged from Version 2.0 (effective 2025-01-01) and apply to dates of service on or after 2025-01-01.
+
+Section 1  Purpose and scope
+This policy establishes the clinical criteria under which Meridian Community Health Plan considers magnetic resonance imaging of the lumbar spine to be medically necessary. It is intended to guide coverage determinations and promote appropriate use of advanced imaging for members presenting with low back symptoms.
+
+Section 3.2(a)
+The member must have completed at least 6 weeks of conservative therapy prior to the requested imaging. Documentation in the medical record should reflect the nature and duration of this conservative management, confirming that the full 6 weeks has been attempted without adequate clinical improvement.
+
+Section 3.2(b)
+A qualifying neurological deficit or recognized red flag finding must be documented in the clinical record to support the request. The documentation should clearly describe the deficit or red flag so that its presence can be verified during the medical necessity review.
+
+Section 3.2(c)
+Coverage requires that the same region of the lumbar spine has not been imaged within the preceding 12 months, unless clinically justified. The medical record should confirm the absence of prior imaging of that region within this 12 month period.
+
+Section 7  Key parameters and general provisions
+7.1 Appeal deadline: 180 days from the date of the claim determination notice.
+7.2 Timely filing limit: 180 days from the date of service.
+7.3 Corrected claims: must be received within 365 days of the date of the notice.
+7.4 Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
+
+SYNTHETIC DATA - NOT REAL PHI

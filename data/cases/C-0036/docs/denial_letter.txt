@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-08-05
+To: Murphy Medical Group
+Member: Melanie Fuller   Patient ID: P-8936   Member ID: MBR992853792
+
+Claim number: 2946087
+Date of service: 2026-07-13
+Service: 99214 - Established patient visit, moderate
+Billed amount: 221.69
+
+DETERMINATION
+Reason code (CARC): CO-16  The claim lacks information needed for adjudication.
+Remark code (RARC): MA130
+The claim is missing required information: rendering provider identifier missing on claim (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-03.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-02-01.
+
+SYNTHETIC DATA - NOT REAL PHI

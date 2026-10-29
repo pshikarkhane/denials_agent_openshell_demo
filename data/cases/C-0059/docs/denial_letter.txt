@@ -1,0 +1,26 @@
+HALCYON HEALTH PLAN
+Payer ID: HALCYON_PLAN
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-05-19
+To: Snow Medical Group
+Member: Bethany Freeman   Patient ID: P-2758   Member ID: MBR224008559
+
+Claim number: 6733762
+Date of service: 2026-04-16
+Service: 97110 - Therapeutic exercise
+Billed amount: 111.67
+
+DETERMINATION
+Reason code (CARC): CO-151  Payment adjusted because the information submitted does not support this many services or this frequency.
+Remark code (RARC): N640
+The number of visits for this benefit period exceeds the plan's outpatient therapy visit limit (Medical Policy: Outpatient Therapy Visit Limits).
+
+Appeal Rights
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-09-16.
+Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-11-15.
+
+SYNTHETIC DATA - NOT REAL PHI

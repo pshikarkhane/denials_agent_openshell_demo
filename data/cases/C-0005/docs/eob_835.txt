@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Meridian Community Health Plan
+Payer ID: MERIDIAN_COMM
+Payee: Gutierrez Medical Group
+Trace number: SYN-EFT-31248297
+Remittance date: 2026-07-09
+
+PATIENT
+  Name: Brenda Wilson
+  Patient ID: P-6144
+  MRN: SYN-599999
+  Member ID: MBR475438256
+  Date of birth: 1979-02-24
+  SSN: 955-40-3060
+
+CLAIM
+  Claim number: 8313484
+  Claim status: DENIED
+  Date of service: 2026-06-18
+  Date claim received by payer: 2026-06-24
+  Diagnosis (ICD-10): M51.17, M51.26
+  Place of service: 11
+  Rendering provider: Dr. Jimmy Johnson (ID SYN-RP-3484)
+  Referring provider: Dr. Brett Henry
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     72148       1777.58    0.00       0.00       CO-50 1777.58 RARC N115
+        (MRI lumbar spine without contrast)
+
+TOTALS  Billed 1777.58  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

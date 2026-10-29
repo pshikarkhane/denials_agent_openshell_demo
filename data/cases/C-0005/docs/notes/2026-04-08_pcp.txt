@@ -1,0 +1,24 @@
+Gutierrez Medical Group
+PRIMARY CARE VISIT NOTE
+Patient: Brenda Wilson   DOB: 1979-02-24   MRN: SYN-599999   Patient ID: P-6144
+Date of encounter: 2026-04-08
+Provider: Dr. Jimmy Johnson
+------------------------------------------------------------
+Reason for visit
+Evaluation of low back pain with associated leg symptoms.
+
+History
+The patient is a 47-year-old woman reporting gradual onset of lower back pain radiating into the right leg. She describes aching discomfort that worsens with prolonged sitting and bending. She notes occasional tingling along the back of the thigh but denies bowel or bladder changes, saddle anesthesia, or significant weakness. No recent trauma or fever reported. She has not tried any structured treatment to date.
+
+Exam
+Vital signs within normal limits. There is tenderness to palpation over the right lumbar paraspinal muscles. Lumbar range of motion is limited by discomfort, particularly on forward flexion and extension. No midline spinal tenderness appreciated. Remainder of the limited exam is unremarkable.
+
+Assessment
+Low back pain with radicular leg symptoms, consistent with lumbar radiculopathy (M51.17). Presentation appears mechanical without red flag features.
+
+Plan
+Conservative therapy (NSAIDs, home exercise program and physical therapy referral) was started on 2026-04-08. The patient was counseled on activity modification, posture, and safe movement techniques. She was advised to return sooner if symptoms worsen, new weakness develops, or bowel or bladder changes occur. Condition will be reassessed later to gauge response.
+------------------------------------------------------------
+Electronically signed: Dr. Jimmy Johnson
+
+SYNTHETIC DATA - NOT REAL PHI

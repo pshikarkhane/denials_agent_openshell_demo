@@ -1,0 +1,26 @@
+HALCYON HEALTH PLAN
+Payer ID: HALCYON_PLAN
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-06-21
+To: King Medical Group
+Member: Amanda Sullivan   Patient ID: P-6474   Member ID: MBR384950373
+
+Claim number: 8190522
+Date of service: 2026-05-21
+Service: 97110 - Therapeutic exercise
+Billed amount: 158.47
+
+DETERMINATION
+Reason code (CARC): CO-151  Payment adjusted because the information submitted does not support this many services or this frequency.
+Remark code (RARC): N640
+The number of visits for this benefit period exceeds the plan's outpatient therapy visit limit (Medical Policy: Outpatient Therapy Visit Limits).
+
+Appeal Rights
+You may request an appeal within 120 days of the date of this notice. The appeal must be received by 2026-10-19.
+Send appeals to: Appeals Unit, P.O. Box 7200, Halcyon Bay, ST 00002
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-18.
+
+SYNTHETIC DATA - NOT REAL PHI

@@ -1,0 +1,26 @@
+TERRAVISTA HEALTH
+Payer ID: TERRAVISTA_HEALTH
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-07-02
+To: Cooley Medical Group
+Member: Kathryn Phillips   Patient ID: P-1589   Member ID: MBR908845363
+
+Claim number: 5544314
+Date of service: 2026-06-06
+Service: 93000 - ECG with interpretation
+Billed amount: 119.07
+
+DETERMINATION
+Reason code (CARC): CO-11  The diagnosis is inconsistent with the procedure.
+Remark code (RARC): M76
+The diagnosis code(s) D64.9 are not consistent with procedure 93000 (Medical Policy: Claim Submission Requirements, Duplicate Claims and Edit Rules).
+
+Appeal Rights
+You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-09-30.
+Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003
+
+Corrected Claims
+A corrected claim must be received within 180 days of the date of this notice, that is, by 2026-12-29.
+
+SYNTHETIC DATA - NOT REAL PHI

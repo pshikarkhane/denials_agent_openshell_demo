@@ -1,0 +1,26 @@
+MERIDIAN COMMUNITY HEALTH PLAN
+Payer ID: MERIDIAN_COMM
+NOTICE OF CLAIM DETERMINATION
+
+Date of notice: 2026-04-15
+To: Gross Medical Group
+Member: Brandy Hill   Patient ID: P-9845   Member ID: MBR666129120
+
+Claim number: 9466341
+Date of service: 2026-03-19
+Service: 72148 - MRI lumbar spine without contrast
+Billed amount: 1890.69
+
+DETERMINATION
+Reason code (CARC): CO-50  The service was not deemed medically necessary by the plan.
+Remark code (RARC): N115
+The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity).
+
+Appeal Rights
+You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2026-10-12.
+Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001
+
+Corrected Claims
+A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-04-15.
+
+SYNTHETIC DATA - NOT REAL PHI

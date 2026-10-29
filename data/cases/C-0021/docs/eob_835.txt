@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Terravista Health
+Payer ID: TERRAVISTA_HEALTH
+Payee: Price Medical Group
+Trace number: SYN-EFT-72268508
+Remittance date: 2026-11-03
+
+PATIENT
+  Name: Michele Jones
+  Patient ID: P-4377
+  MRN: SYN-878085
+  Member ID: MBR825803595
+  Date of birth: 1989-04-11
+  SSN: 984-53-7899
+
+CLAIM
+  Claim number: 9641320
+  Claim status: DENIED
+  Date of service: 2026-07-14
+  Date claim received by payer: 2026-10-20
+  Diagnosis (ICD-10): M23.222
+  Place of service: 11
+  Rendering provider: Dr. Andre Becker (ID SYN-RP-1320)
+  Referring provider: Dr. Austin Liu
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     73721       1376.74    0.00       0.00       CO-29 1376.74
+        (MRI lower-extremity joint without contrast)
+
+TOTALS  Billed 1376.74  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

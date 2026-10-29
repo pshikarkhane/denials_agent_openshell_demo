@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Terravista Health
+Payer ID: TERRAVISTA_HEALTH
+Payee: Powers Medical Group
+Trace number: SYN-EFT-17991826
+Remittance date: 2026-08-28
+
+PATIENT
+  Name: Jason Chapman
+  Patient ID: P-8359
+  MRN: SYN-738534
+  Member ID: MBR157152158
+  Date of birth: 1984-07-30
+  SSN: 975-12-1000
+
+CLAIM
+  Claim number: 8217006
+  Claim status: DENIED
+  Date of service: 2026-04-27
+  Date claim received by payer: 2026-08-09
+  Diagnosis (ICD-10): J02.9
+  Place of service: 11
+  Rendering provider: Dr. Michael Richards (ID SYN-RP-7006)
+  Referring provider: Dr. Christopher Nelson
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     99214       208.26     0.00       0.00       CO-29 208.26
+        (Established patient visit, moderate)
+
+TOTALS  Billed 208.26  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

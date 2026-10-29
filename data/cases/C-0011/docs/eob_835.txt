@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Halcyon Health Plan
+Payer ID: HALCYON_PLAN
+Payee: Waters Medical Group
+Trace number: SYN-EFT-81800839
+Remittance date: 2026-06-15
+
+PATIENT
+  Name: Jesus Baldwin
+  Patient ID: P-7876
+  MRN: SYN-794254
+  Member ID: MBR810968252
+  Date of birth: 1964-04-13
+  SSN: 991-22-7575
+
+CLAIM
+  Claim number: 1548494
+  Claim status: DENIED
+  Date of service: 2026-05-24
+  Date claim received by payer: 2026-05-28
+  Diagnosis (ICD-10): M17.11
+  Place of service: 11
+  Rendering provider: Dr. John Bell (ID SYN-RP-8494)
+  Referring provider: Dr. Carrie Craig
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     27447       2928.70    0.00       0.00       CO-197 2928.70 RARC N54
+        (Total knee arthroplasty)
+
+TOTALS  Billed 2928.70  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

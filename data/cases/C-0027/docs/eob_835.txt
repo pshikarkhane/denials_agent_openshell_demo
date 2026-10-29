@@ -1,0 +1,34 @@
+835 REMITTANCE ADVICE (SYNTHETIC RENDERING)
+
+Payer: Terravista Health
+Payer ID: TERRAVISTA_HEALTH
+Payee: Alvarez Medical Group
+Trace number: SYN-EFT-10151805
+Remittance date: 2026-11-06
+
+PATIENT
+  Name: Michael Hunt
+  Patient ID: P-7207
+  MRN: SYN-869149
+  Member ID: MBR156948638
+  Date of birth: 1966-08-27
+  SSN: 995-32-1288
+
+CLAIM
+  Claim number: 9898968
+  Claim status: DENIED
+  Date of service: 2026-06-20
+  Date claim received by payer: 2026-10-19
+  Diagnosis (ICD-10): M23.222
+  Place of service: 11
+  Rendering provider: Dr. Jennifer Burke (ID SYN-RP-8968)
+  Referring provider: Dr. Cheryl Walker
+
+SERVICE LINES
+  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment
+  1     73721       1283.25    0.00       0.00       CO-29 1283.25
+        (MRI lower-extremity joint without contrast)
+
+TOTALS  Billed 1283.25  Allowed 0.00  Paid 0.00  Patient responsibility 0.00
+
+SYNTHETIC DATA - NOT REAL PHI

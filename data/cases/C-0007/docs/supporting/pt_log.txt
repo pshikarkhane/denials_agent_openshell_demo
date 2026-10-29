@@ -1,0 +1,18 @@
+Hester Medical Group - PHYSICAL THERAPY ATTENDANCE LOG
+Patient: Shannon Eaton  MRN: SYN-282701
+Start of care: 2026-03-23
+Therapist: Andrew Lopez, PT
+
+Visit 1 | 2026-03-23 | neuromuscular re-education
+Visit 2 | 2026-03-27 | therapeutic activities
+Visit 3 | 2026-03-30 | manual therapy
+Visit 4 | 2026-04-03 | therapeutic exercise
+Visit 5 | 2026-04-06 | neuromuscular re-education
+Visit 6 | 2026-04-10 | therapeutic activities
+Visit 7 | 2026-04-13 | manual therapy
+Visit 8 | 2026-04-17 | therapeutic exercise
+
+Treatment period: 2026-03-23 to 2026-04-17 (25 days)
+Visits completed to date: 8
+
+SYNTHETIC DATA - NOT REAL PHI

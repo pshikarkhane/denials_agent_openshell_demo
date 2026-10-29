@@ -1,0 +1,469 @@
+{
+  "version": "phase1-v1",
+  "seed": 20261028,
+  "dataset_hash": "6135f125ddf23a3810a842fef7dcaa79d9b9fb585da3ac242f3b077a5a1099d2",
+  "hash_scope": "cases/** (truth.json, task.md, docs/**) and policy_library/**",
+  "counts": {
+    "cases": 60,
+    "dev": 12,
+    "test": 48
+  },
+  "cases": [
+    {
+      "case_id": "C-0001",
+      "category": 1,
+      "category_name": "Medical necessity, record supports",
+      "split": "test",
+      "path": "cases/C-0001/truth.json"
+    },
+    {
+      "case_id": "C-0002",
+      "category": 1,
+      "category_name": "Medical necessity, record supports",
+      "split": "test",
+      "path": "cases/C-0002/truth.json"
+    },
+    {
+      "case_id": "C-0003",
+      "category": 1,
+      "category_name": "Medical necessity, record supports",
+      "split": "test",
+      "path": "cases/C-0003/truth.json"
+    },
+    {
+      "case_id": "C-0004",
+      "category": 1,
+      "category_name": "Medical necessity, record supports",
+      "split": "test",
+      "path": "cases/C-0004/truth.json"
+    },
+    {
+      "case_id": "C-0005",
+      "category": 1,
+      "category_name": "Medical necessity, record supports",
+      "split": "dev",
+      "path": "cases/C-0005/truth.json"
+    },
+    {
+      "case_id": "C-0006",
+      "category": 2,
+      "category_name": "Medical necessity, record does not support",
+      "split": "test",
+      "path": "cases/C-0006/truth.json"
+    },
+    {
+      "case_id": "C-0007",
+      "category": 2,
+      "category_name": "Medical necessity, record does not support",
+      "split": "dev",
+      "path": "cases/C-0007/truth.json"
+    },
+    {
+      "case_id": "C-0008",
+      "category": 2,
+      "category_name": "Medical necessity, record does not support",
+      "split": "test",
+      "path": "cases/C-0008/truth.json"
+    },
+    {
+      "case_id": "C-0009",
+      "category": 2,
+      "category_name": "Medical necessity, record does not support",
+      "split": "test",
+      "path": "cases/C-0009/truth.json"
+    },
+    {
+      "case_id": "C-0010",
+      "category": 2,
+      "category_name": "Medical necessity, record does not support",
+      "split": "test",
+      "path": "cases/C-0010/truth.json"
+    },
+    {
+      "case_id": "C-0011",
+      "category": 3,
+      "category_name": "No prior auth, retro-auth available",
+      "split": "test",
+      "path": "cases/C-0011/truth.json"
+    },
+    {
+      "case_id": "C-0012",
+      "category": 3,
+      "category_name": "No prior auth, retro-auth available",
+      "split": "test",
+      "path": "cases/C-0012/truth.json"
+    },
+    {
+      "case_id": "C-0013",
+      "category": 3,
+      "category_name": "No prior auth, retro-auth available",
+      "split": "test",
+      "path": "cases/C-0013/truth.json"
+    },
+    {
+      "case_id": "C-0014",
+      "category": 3,
+      "category_name": "No prior auth, retro-auth available",
+      "split": "dev",
+      "path": "cases/C-0014/truth.json"
+    },
+    {
+      "case_id": "C-0015",
+      "category": 3,
+      "category_name": "No prior auth, retro-auth available",
+      "split": "test",
+      "path": "cases/C-0015/truth.json"
+    },
+    {
+      "case_id": "C-0016",
+      "category": 4,
+      "category_name": "No prior auth, not retro-eligible",
+      "split": "dev",
+      "path": "cases/C-0016/truth.json"
+    },
+    {
+      "case_id": "C-0017",
+      "category": 4,
+      "category_name": "No prior auth, not retro-eligible",
+      "split": "test",
+      "path": "cases/C-0017/truth.json"
+    },
+    {
+      "case_id": "C-0018",
+      "category": 4,
+      "category_name": "No prior auth, not retro-eligible",
+      "split": "test",
+      "path": "cases/C-0018/truth.json"
+    },
+    {
+      "case_id": "C-0019",
+      "category": 4,
+      "category_name": "No prior auth, not retro-eligible",
+      "split": "test",
+      "path": "cases/C-0019/truth.json"
+    },
+    {
+      "case_id": "C-0020",
+      "category": 4,
+      "category_name": "No prior auth, not retro-eligible",
+      "split": "test",
+      "path": "cases/C-0020/truth.json"
+    },
+    {
+      "case_id": "C-0021",
+      "category": 5,
+      "category_name": "Timely filing, proof exists",
+      "split": "test",
+      "path": "cases/C-0021/truth.json"
+    },
+    {
+      "case_id": "C-0022",
+      "category": 5,
+      "category_name": "Timely filing, proof exists",
+      "split": "test",
+      "path": "cases/C-0022/truth.json"
+    },
+    {
+      "case_id": "C-0023",
+      "category": 5,
+      "category_name": "Timely filing, proof exists",
+      "split": "dev",
+      "path": "cases/C-0023/truth.json"
+    },
+    {
+      "case_id": "C-0024",
+      "category": 5,
+      "category_name": "Timely filing, proof exists",
+      "split": "test",
+      "path": "cases/C-0024/truth.json"
+    },
+    {
+      "case_id": "C-0025",
+      "category": 5,
+      "category_name": "Timely filing, proof exists",
+      "split": "test",
+      "path": "cases/C-0025/truth.json"
+    },
+    {
+      "case_id": "C-0026",
+      "category": 6,
+      "category_name": "Timely filing, expired, no proof",
+      "split": "test",
+      "path": "cases/C-0026/truth.json"
+    },
+    {
+      "case_id": "C-0027",
+      "category": 6,
+      "category_name": "Timely filing, expired, no proof",
+      "split": "test",
+      "path": "cases/C-0027/truth.json"
+    },
+    {
+      "case_id": "C-0028",
+      "category": 6,
+      "category_name": "Timely filing, expired, no proof",
+      "split": "test",
+      "path": "cases/C-0028/truth.json"
+    },
+    {
+      "case_id": "C-0029",
+      "category": 6,
+      "category_name": "Timely filing, expired, no proof",
+      "split": "test",
+      "path": "cases/C-0029/truth.json"
+    },
+    {
+      "case_id": "C-0030",
+      "category": 6,
+      "category_name": "Timely filing, expired, no proof",
+      "split": "dev",
+      "path": "cases/C-0030/truth.json"
+    },
+    {
+      "case_id": "C-0031",
+      "category": 7,
+      "category_name": "Patient responsibility (deductible)",
+      "split": "test",
+      "path": "cases/C-0031/truth.json"
+    },
+    {
+      "case_id": "C-0032",
+      "category": 7,
+      "category_name": "Patient responsibility (deductible)",
+      "split": "test",
+      "path": "cases/C-0032/truth.json"
+    },
+    {
+      "case_id": "C-0033",
+      "category": 7,
+      "category_name": "Patient responsibility (deductible)",
+      "split": "dev",
+      "path": "cases/C-0033/truth.json"
+    },
+    {
+      "case_id": "C-0034",
+      "category": 7,
+      "category_name": "Patient responsibility (deductible)",
+      "split": "test",
+      "path": "cases/C-0034/truth.json"
+    },
+    {
+      "case_id": "C-0035",
+      "category": 7,
+      "category_name": "Patient responsibility (deductible)",
+      "split": "test",
+      "path": "cases/C-0035/truth.json"
+    },
+    {
+      "case_id": "C-0036",
+      "category": 8,
+      "category_name": "Missing/invalid information or modifier",
+      "split": "test",
+      "path": "cases/C-0036/truth.json"
+    },
+    {
+      "case_id": "C-0037",
+      "category": 8,
+      "category_name": "Missing/invalid information or modifier",
+      "split": "test",
+      "path": "cases/C-0037/truth.json"
+    },
+    {
+      "case_id": "C-0038",
+      "category": 8,
+      "category_name": "Missing/invalid information or modifier",
+      "split": "test",
+      "path": "cases/C-0038/truth.json"
+    },
+    {
+      "case_id": "C-0039",
+      "category": 8,
+      "category_name": "Missing/invalid information or modifier",
+      "split": "dev",
+      "path": "cases/C-0039/truth.json"
+    },
+    {
+      "case_id": "C-0040",
+      "category": 8,
+      "category_name": "Missing/invalid information or modifier",
+      "split": "test",
+      "path": "cases/C-0040/truth.json"
+    },
+    {
+      "case_id": "C-0041",
+      "category": 9,
+      "category_name": "Bundling / NCCI-style",
+      "split": "test",
+      "path": "cases/C-0041/truth.json"
+    },
+    {
+      "case_id": "C-0042",
+      "category": 9,
+      "category_name": "Bundling / NCCI-style",
+      "split": "test",
+      "path": "cases/C-0042/truth.json"
+    },
+    {
+      "case_id": "C-0043",
+      "category": 9,
+      "category_name": "Bundling / NCCI-style",
+      "split": "test",
+      "path": "cases/C-0043/truth.json"
+    },
+    {
+      "case_id": "C-0044",
+      "category": 9,
+      "category_name": "Bundling / NCCI-style",
+      "split": "test",
+      "path": "cases/C-0044/truth.json"
+    },
+    {
+      "case_id": "C-0045",
+      "category": 9,
+      "category_name": "Bundling / NCCI-style",
+      "split": "dev",
+      "path": "cases/C-0045/truth.json"
+    },
+    {
+      "case_id": "C-0046",
+      "category": 10,
+      "category_name": "Duplicate claim",
+      "split": "test",
+      "path": "cases/C-0046/truth.json"
+    },
+    {
+      "case_id": "C-0047",
+      "category": 10,
+      "category_name": "Duplicate claim",
+      "split": "test",
+      "path": "cases/C-0047/truth.json"
+    },
+    {
+      "case_id": "C-0048",
+      "category": 10,
+      "category_name": "Duplicate claim",
+      "split": "test",
+      "path": "cases/C-0048/truth.json"
+    },
+    {
+      "case_id": "C-0049",
+      "category": 10,
+      "category_name": "Duplicate claim",
+      "split": "dev",
+      "path": "cases/C-0049/truth.json"
+    },
+    {
+      "case_id": "C-0050",
+      "category": 10,
+      "category_name": "Duplicate claim",
+      "split": "test",
+      "path": "cases/C-0050/truth.json"
+    },
+    {
+      "case_id": "C-0051",
+      "category": 11,
+      "category_name": "Diagnosis inconsistent with procedure",
+      "split": "test",
+      "path": "cases/C-0051/truth.json"
+    },
+    {
+      "case_id": "C-0052",
+      "category": 11,
+      "category_name": "Diagnosis inconsistent with procedure",
+      "split": "test",
+      "path": "cases/C-0052/truth.json"
+    },
+    {
+      "case_id": "C-0053",
+      "category": 11,
+      "category_name": "Diagnosis inconsistent with procedure",
+      "split": "test",
+      "path": "cases/C-0053/truth.json"
+    },
+    {
+      "case_id": "C-0054",
+      "category": 11,
+      "category_name": "Diagnosis inconsistent with procedure",
+      "split": "test",
+      "path": "cases/C-0054/truth.json"
+    },
+    {
+      "case_id": "C-0055",
+      "category": 11,
+      "category_name": "Diagnosis inconsistent with procedure",
+      "split": "dev",
+      "path": "cases/C-0055/truth.json"
+    },
+    {
+      "case_id": "C-0056",
+      "category": 12,
+      "category_name": "Frequency / visit-limit exceeded",
+      "split": "dev",
+      "path": "cases/C-0056/truth.json"
+    },
+    {
+      "case_id": "C-0057",
+      "category": 12,
+      "category_name": "Frequency / visit-limit exceeded",
+      "split": "test",
+      "path": "cases/C-0057/truth.json"
+    },
+    {
+      "case_id": "C-0058",
+      "category": 12,
+      "category_name": "Frequency / visit-limit exceeded",
+      "split": "test",
+      "path": "cases/C-0058/truth.json"
+    },
+    {
+      "case_id": "C-0059",
+      "category": 12,
+      "category_name": "Frequency / visit-limit exceeded",
+      "split": "test",
+      "path": "cases/C-0059/truth.json"
+    },
+    {
+      "case_id": "C-0060",
+      "category": 12,
+      "category_name": "Frequency / visit-limit exceeded",
+      "split": "test",
+      "path": "cases/C-0060/truth.json"
+    }
+  ],
+  "datagen": {
+    "model_id": "azure/anthropic/claude-opus-4-8",
+    "agent_model_id": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+    "temperature": 0.7,
+    "max_tokens": 3000,
+    "prompts_sha256_by_file": {
+      "data_gen/gen_policies.py": "88a5f96463a7a028612858a095e30a550a2ba436916c81ae36aee5d7a79e31bc",
+      "data_gen/gen_clinical.py": "b8e855603b002b7942198b62dc5b01e5819e4eebc64e40921b18b5a7b97012bf"
+    },
+    "prompts_sha256": "9b58298ef1030b1ad2ba6858b525201255ad77000942e702b693d34f742ff428",
+    "prompts_git_sha": null,
+    "prompts_git_sha_note": "project is not a git repository; per-file sha256 of the prompt-bearing source is recorded instead"
+  },
+  "pilot_cases": [
+    "C-0005",
+    "C-0007",
+    "C-0030",
+    "C-0039",
+    "C-0056"
+  ],
+  "policy_library": {
+    "frozen": true,
+    "files": {
+      "MP-APL-001.txt": "a3dd1e15f1642f1b0d0bd050bfa73cd76a2b59c250cc715b644b279595ddc11c",
+      "MP-BEN-002.txt": "4e94a9b7dbc35da1ecffdb0f4b4a9f16a4097d66c385ef7c96255cc4267348f0",
+      "MP-BND-002.txt": "d73f681f261bfcd14bef3e77ea81845da54c62a5c4988ce1ad9442ee7ab290e0",
+      "MP-CLM-004.txt": "325b911441de5d00a278a6f45696ce1eea36b8f760dcbe4d7ea4e77a904d2fb5",
+      "MP-IMG-007.txt": "2cdc3e0ab47e542633cc440e9d725122ab193b24322065a1af7b4ce78e2bd3bd",
+      "MP-IMG-012.txt": "f9880dc3ae2b87366bb62bb552dd62a027d349caf3ae284d005d2779fd503c29",
+      "MP-PA-003.txt": "283fe0619008dc450c80cad0b061d58990cccf8ed66c546a94cf4cc4652d0160",
+      "MP-PA-030.txt": "0d0570eb2bcd567948514659d843f9321f5890ea905af8a16ffbe338dcee44f0",
+      "MP-PT-011.txt": "c79927698235a76cf2c4c24e1f3fd0f79450a49d4a18370e4f69a0eb97201b38",
+      "MP-TF-001.txt": "534a2e8894373ef46755eaa37cca6fb12fbe8d71b6a0d319b8ffbf25cbce147b",
+      "MP-TF-010.txt": "e8741b17a1e977b4e5167c0c8d5f05dc45fcc8e792679206788fc486c4f75357"
+    }
+  }
+}

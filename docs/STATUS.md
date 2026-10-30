@@ -1,5 +1,53 @@
 # STATUS (2026-10-30)
 
+## PHASE 4 (branch `phase4-agent`): pre-sandbox agent runner, no-tools baseline, scoring
+**Pre-sandbox run, 5 dev cases, not a benchmark.** This is NOT the Hermes integration. Details and numbers: [RUN_REPORT.md](RUN_REPORT.md); recording schema: [EVENTS_SPEC.md](EVENTS_SPEC.md).
+
+**Done**
+- `skills/common/deliverable_schema.py` (moved from `eval/`; `eval/deliverable_schema.py` is a backward-compatible re-export), so the sandbox image needs no `eval/` folder. `eval/run_eval.py` gained one convenience: `--source <run id>` resolves to `runs/<run id>`. `data/` and `data_gen/` untouched.
+- `agent/`: `prompts/system.md` (+ `baseline.md`; hash recorded per run, no category/trap/answer content), `tools.py` (six skills as OpenAI-style function tools generated from their pydantic schemas; system fields cannot be set by the model; errors returned as results; results capped at 14,000 characters with a truncation notice), `model_client.py` (agent model only, never a judge or the datagen model; any failure logged in full, key redacted, to `logs/model_errors.jsonl`), `run_case.py` (loop with max turns 14, wall clock 900 s, per-turn retry up to 3 with a repair nudge, malformed-call handling, self_check on every proposed answer with at most 2 revisions, final self_check recorded not enforced, `--cases pilot --repeats N --resume --dry-run --temperature`), `run_baseline.py`, `events.py` (events.jsonl + trace.json), `fake_model.py` (scripted and dry-run models), `staging.py` (clean copy: task.md, docs/**, policy library).
+- `config/models.yaml`: `agent.temperature: 0.2` and `agent.max_tokens: 8000` (my choice; `--temperature` overrides).
+- Runs (kept raw under `runs/`, gitignored): `smoke-r1`; first set `agent-p1-*` (found two harness issues, below); final set `agent-p2-r1`, `agent-p2-r2` and `agent-p2-r1/baseline`; judge runs `judge-agent-p2-r1`, `judge-agent-p2-r2`, `judge-baseline-p2`.
+
+**Verified**
+- `pytest`: 174 passed (25 new offline agent tests with a scripted fake model: normal run; malformed tool call then recovery; response without choices and three-failure end; empty response; tool-error recovery; max turns; path-guard attack refused and logged, including a hidden-argument attempt; revision loop, revision cap, format nudge, time limit; baseline parsing; events.jsonl and trace.json well-formed; staging never holds truth/rubric/gold/attacks; prompts reveal no category/trap/answer; key redaction; model-client failure logging). No network or key in tests.
+- Pilot results (final set, 10 agent runs + 5 baseline runs, full numbers in RUN_REPORT): all 10 agent runs submitted; decision correct 10/10; criterion pass rate 97.8% (panel), baseline 78.4%; upheld material hallucinations 1.3 per agent run (clean-case rate 40%) vs 0.4 for the baseline; 0 containment violations and 0 path-guard denials; tool-call failure rate 3.1%, malformed-call rate 0%, mean 10.1 turns, 9.7 tool calls, 98k tokens and 45 s per run; revision rate 0%; repeat-to-repeat difference in pass rate 1.3 points, same decision 5 of 5. The baseline's decision.json was invalid JSON in 2 of 5 runs.
+
+**Harness issues found and fixed (first pilot set, then everything re-run as `agent-p2`)**
+1. The model closed the answer markers with two brackets (`<<<DELIVERABLE>>`); one run hit max_turns. Parser is now tolerant and the prompts state the bracket count (format/clarity only).
+2. `self_check` flagged legitimate output. Changes, each checked against all existing corruption tests (still passing): (a) headings may be plain `Label:` lines or ALL-CAPS lines, not only markdown; (b) criterion ids may be a policy's 7.x parameter rows; (c) removed the heading requirements for "claim identification" and "deadline" (already covered by the identifier and deadline content checks).
+Not fixed (recorded): `parse_denial_eob` reports a blank modifier column as informational `blank_fields`; the agent quoted it ("may be correct") and the judges rightly called it unsupported (2 of 10 runs). Proposed fix: drop those entries. I did not apply it, to keep the run set consistent.
+
+**Not verified**
+- The agent has never run in OpenShell/Hermes. Results depend on this harness (14 turns, my tool descriptions, the revision loop), not on Hermes.
+- Only 5 dev cases and 2 repeats; no test cases were run. The Claude judge is the same model as the document generator (earlier decision, still open); judges also scored the baseline and agent with different tool access, which is intended.
+- Hallucination flags include real model embellishments ("NPI", sections 2.4/2.5 marked met on weak evidence) and one harness artefact; classified in RUN_REPORT.
+
+**Cost and time:** agent set p2 about 981k tokens over 10 runs (45 s average each); baseline 100k tokens over 5 runs (18 s); judging three sources took about 9-10 minutes per source in parallel and about 1.3M prompt + 0.3M completion tokens (Claude 572k+24k, Gemini 409k+161k, GPT 360k+115k). The first pilot set and one slow model call (a 300 s read timeout, 473 s run) are in `runs/agent-p1-*`.
+
+**What must change for the Hermes port**
+1. System prompt: `agent/prompts/system.md` moves into Hermes' agent/system-prompt or skill-instruction location (unknown until the VM is up); the final-answer delimiters become Hermes file writes of `deliverable.md` and `decision.json` under `/sandbox/work/output/<id>/`.
+2. Skill registration: the six skills need the real `SKILL.md` format and tool registration; the JSON schemas already generated in `agent/tools.py` are the mapping (hidden fields `case_root`, `policy_root`, `output_root`, `events_file`, `run_id`, `case_id`, `step` become environment/config).
+3. Tool-call format and model access: replace `agent/model_client.py` with the model route through `inference.local`; temperature, max_tokens and the model id come from the route; the retry/repair-nudge and malformed-call handling must be reproduced or replaced by what Hermes offers; result truncation (14,000 characters) and the 300 s read timeout need equivalents.
+4. Revision loop: the harness-driven self_check revisions (max 2) must become a Hermes loop step or an explicit prompt instruction.
+5. Trace source: build `events.jsonl` / `trace.json` from Hermes' own trace plus the skills' event log (`skills_events.jsonl`), keeping the schema in EVENTS_SPEC.md; the OCSF audit log is a separate stream.
+6. Paths and image: `CASE_ROOT`/`POLICY_ROOT` must point at clean per-case folders inside the sandbox; the image needs Python 3.13 and pydantic, the `skills/` folder, and no `eval/`, `data_gen/` or answer keys.
+
+**Decisions needed from you**
+1. Apply the `blank_fields` modifier fix (and re-run) or keep the noise?
+2. The skeleton lists every `2.x` section, and the agent marked irrelevant sections "met". Add a rule to the prompt ("only list sections that apply"), or keep the skeleton as is?
+3. Rubric strictness: criteria that name a specific evidence file (for example `eob_835.txt`) were failed by judges when the agent cited the equivalent `denial_letter.txt`. Relax the references (rubric generator change, not done here)?
+4. Keep `max_turns` 14? The longest successful run used 12 model calls of the 14 allowed; one first-set run hit the limit because of the bracket bug.
+5. Temperature 0.2 and `max_tokens` 8000 are my defaults; confirm or give the values to use.
+6. The work is committed on `phase4-agent` (one commit on top of Phase 3). Merge or adjust as you prefer.
+
+**Spec ambiguities (my choice in brackets)** "Run" = one repeat; each repeat has its own run id (`<base>-r1`, `-r2`) and the baseline lives under `<base>-r1/baseline/`. "Clean-case rate" = zero upheld material hallucinations (containment violations are 0 by construction). "Tool-call failure rate" = tool results with status error or denied divided by tool calls. The model returns its final files in the message (delimiters) because it has no file-write tool in this harness.
+
+**Reproduce:** `python -m agent.run_case --cases pilot --repeats 2 --run-id NAME` and `python -m agent.run_baseline --cases pilot --run-id NAME-r1`; score with `python -m eval.run_eval --source runs/NAME-r1 --run-id judge-NAME-r1` (baseline: `--source runs/NAME-r1/baseline`); report with `python scripts/make_run_report.py --agent ... --baseline ... --judge-agent ... --judge-baseline ... --notes docs/run_report_notes.md`. `--dry-run` runs offline.
+
+---
+# EARLIER STATUS
+
 ## PHASE 3 (branch `phase3-skills`): the six agent skills (plain, offline Python)
 Nothing under `data/`, `data_gen/` or `eval/` was changed (`git diff main...` touches only `skills/`, `tests/test_skills.py`, `scripts/run_skill_chain.py`, `docs/`). No model is called and no key is used by any skill or test.
 The skills are tools; the model still supplies the judgment (criterion statuses, decision, evidence choice, prose). Full contract: [SKILLS_SPEC.md](SKILLS_SPEC.md).

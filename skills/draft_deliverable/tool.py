@@ -1,5 +1,5 @@
 """draft_deliverable: VALIDATION HELPERS for the model's drafting. It does not write the deliverable. Actions:
-  validate_decision  validate decision.json against eval/deliverable_schema.py
+  validate_decision  validate decision.json against skills/common/deliverable_schema.py
   render_skeleton    deliverable.md skeleton (identifiers + computed facts + <<FILL: ...>> placeholders) for a letter or a memo
   verify_citations   every cited file / line / quote / policy id / section id must exist in the case documents or policy library"""
 import json
@@ -7,7 +7,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from eval.deliverable_schema import validate_decision_text
+from skills.common.deliverable_schema import validate_decision_text
 from skills.assess_appealability.tool import Input as AssessInput, run_tool as assess_run
 from skills.common.citations import Corpus, verify_citations
 from skills.common.io import SkillError, SkillInput

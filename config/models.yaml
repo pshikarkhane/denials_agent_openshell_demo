@@ -10,6 +10,8 @@ api:
 # Every eval report must record the exact model IDs used (agent + judges).
 agent:
   model_id: nvidia/nvidia/nemotron-3.5-super-text-preview
+  temperature: 0.2         # default sampling temperature for agent runs (override with --temperature)
+  max_tokens: 8000         # per model turn (the model spends tokens reasoning before it answers)
 
 # Judge panel (spec 6.3). Different families, none Nemotron.
 judges:

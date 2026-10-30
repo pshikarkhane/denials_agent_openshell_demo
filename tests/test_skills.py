@@ -151,7 +151,7 @@ def test_cli_prints_sorted_json_and_errors(staged):
 
 def test_skills_are_offline_and_never_touch_truth():
     src = "\n".join(p.read_text() for p in (DATA.parent / "skills").rglob("*.py"))
-    for banned in ("urllib", "requests", "socket", "chat_with_retry", "api_key", "API_KEY", "import data_gen", "from data_gen", "from eval.auto", "from eval.gen", "from eval.judge"):
+    for banned in ("urllib", "requests", "socket", "chat_with_retry", "api_key", "API_KEY", "import data_gen", "from data_gen", "import eval", "from eval"):
         assert banned not in src, banned
     assert "NVIDIA_INFERENCE" not in src
 

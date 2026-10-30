@@ -44,6 +44,8 @@ def main(argv=None):
     ap.add_argument("--run-id", default=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S"))
     a = ap.parse_args(argv)
     root = Path(a.data)
+    if a.source != "gold" and not Path(a.source).is_dir() and (ROOT / "runs" / a.source).is_dir():
+        a.source = str(ROOT / "runs" / a.source)          # allow --source <run id> for agent runs under runs/
     man, _ = load_truths(root)
     run(load_models(), root, a.source, a.cases or man["pilot_cases"], a.judges, a.run_id)
 

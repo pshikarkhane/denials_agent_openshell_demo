@@ -5,7 +5,7 @@ import re
 
 from pydantic import BaseModel
 
-from eval.deliverable_schema import normalize_section, validate_decision_text
+from skills.common.deliverable_schema import normalize_section, validate_decision_text
 from skills.assess_appealability.tool import Input as AssessInput, requirement_sections, run_tool as assess_run
 from skills.common.citations import Corpus, verify_citations
 from skills.common.io import SkillError, SkillInput
@@ -30,17 +30,28 @@ class Output(BaseModel):
     citations_failed: list[dict]
 
 
-LETTER_SECTIONS = {"claim identification": r"identif|claim", "remedy": r"remed|request", "enclosures": r"enclos", "deadline": r"deadline", "gaps": r"\bgaps?\b"}
-MEMO_SECTIONS = {"claim identification": r"identif|claim", "deadline": r"deadline", "next action": r"next action|next step|recommend", "gaps": r"\bgaps?\b"}
+# Identifiers and the deadline are checked by their own content checks (identifier_*, deadline_in_text), so no heading is required for them.
+LETTER_SECTIONS = {"remedy": r"remed|request", "enclosures": r"enclos", "gaps": r"\bgaps?\b"}
+MEMO_SECTIONS = {"next action": r"next action|next step|recommend", "gaps": r"\bgaps?\b"}
 LETTER_SIGNS = (r"^#\s*appeal letter", r"respectfully request[^.]*overturn", r"^\*\*to:\*\*[^\n]*appeals unit", r"^to:[^\n]*appeals unit")
 
 
+LABEL = re.compile(r"^\s*(?:[-*]\s*)?\**([A-Za-z][A-Za-z /&\-]{2,40}?)\**\s*:")
+
+
 def headings(text):
+    """Section headings: markdown headings, whole-line bold, ALL-CAPS lines, and plain-text `Label:` lines (a plain-text memo is a legitimate format)."""
     out = []
     for ln in text.splitlines():
         s = ln.strip()
         if s.startswith("#") or re.fullmatch(r"\*\*[^*]+\*\*:?", s):
             out.append(s.lstrip("#").strip("* :").lower())
+        elif s and len(s) <= 60 and s.upper() == s and re.search(r"[A-Z]{3}", s):
+            out.append(s.lower())
+        else:
+            m = LABEL.match(ln)
+            if m:
+                out.append(m.group(1).strip().lower())
     return out
 
 
@@ -89,7 +100,7 @@ def run_tool(inp, ctx):
             chk("policy_matches_retrieval", "policy retrieval was unambiguous", False, f"retrieval status {R.status}: {R.reason}", "state which policy you chose and why", sev="warn")
         pol = corpus.policies.get(dec.policy_id)
         for c in dec.criteria:
-            exists = bool(pol) and (c.id in pol.sections or any(k.startswith(c.id + "(") for k in pol.sections))
+            exists = bool(pol) and (c.id in pol.sections or any(k.startswith(c.id + "(") for k in pol.sections) or c.id in {a for a, _ in pol.params})
             chk(f"criterion_section_{c.id}", f"criterion {c.id} is a section of {dec.policy_id}", exists, "", "use section ids that exist in the policy (retrieve_payer_policy returns them)")
             if c.evidence:
                 chk(f"evidence_file_{c.id}", f"evidence file for {c.id} exists", corpus.has_file(c.evidence), c.evidence, "cite a file in the case documents or null")

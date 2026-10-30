@@ -86,9 +86,10 @@
       "family": "denial_reason",
       "check": "judge",
       "text": "Identifies the reason for the denial in words (CO-97) and the basis the payer gave",
-      "reference": "CO-97: The benefit for this service is included in the payment for another service already adjudicated.",
+      "reference": "CO-97: The benefit for this service is included in the payment for another service already adjudicated.; accepted sources (any one is enough): eob_835.txt, denial_letter.txt",
       "auto": null,
       "sources": [
+        "eob_835.txt",
         "denial_letter.txt"
       ]
     },

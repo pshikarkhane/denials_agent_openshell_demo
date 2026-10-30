@@ -109,10 +109,11 @@
       "family": "evidence_use",
       "check": "judge",
       "text": "States that §2.1 (Claim as submitted contained all required data elements and modifiers) is not satisfied and cites the record",
-      "reference": "§2.1 status=unmet, basis=evidence; files: eob_835.txt",
+      "reference": "§2.1 status=unmet, basis=evidence; accepted sources (any one is enough): eob_835.txt, denial_letter.txt",
       "auto": null,
       "sources": [
-        "eob_835.txt"
+        "eob_835.txt",
+        "denial_letter.txt"
       ]
     },
     {

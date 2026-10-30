@@ -104,6 +104,9 @@ def run_tool(inp, ctx):
             chk(f"criterion_section_{c.id}", f"criterion {c.id} is a section of {dec.policy_id}", exists, "", "use section ids that exist in the policy (retrieve_payer_policy returns them)")
             if c.evidence:
                 chk(f"evidence_file_{c.id}", f"evidence file for {c.id} exists", corpus.has_file(c.evidence), c.evidence, "cite a file in the case documents or null")
+            elif c.status == "met":
+                chk(f"met_without_evidence_{c.id}", f"criterion {c.id} is marked met but names no evidence file", False, "evidence is null",
+                    "name the specific file that supports it and state the fact it gives, or change the status", sev="warn")
         if pol:
             missing = [s for s in requirement_sections(pol) if s not in {c.id for c in dec.criteria}]
             chk("criteria_cover_requirements", "decision.json lists every requirement section of the policy", not missing, f"not listed: {missing}", "add the sections or state in Gaps why they do not apply", sev="warn")
@@ -113,9 +116,9 @@ def run_tool(inp, ctx):
         if dec.decision == "APPEAL":
             chk("appeal_has_enclosures", "an appeal lists its enclosures", bool(dec.enclosures), "", "list the supporting documents you enclose")
         statuses = {c.status for c in dec.criteria}
-        blank = [b["field"] for b in P.blank_fields if b["field"] in ("rendering_provider", "referring_provider", "place_of_service")]
+        blank = [b["field"] for b in P.missing_required if b["field"] in ("rendering_provider", "referring_provider", "place_of_service")]
         need_gap = dec.decision == "ESCALATE_MISSING_DOCS" or "unknown" in statuses or (corrected and bool(blank))
-        why = "decision is ESCALATE_MISSING_DOCS" if dec.decision == "ESCALATE_MISSING_DOCS" else ("a criterion is unknown" if "unknown" in statuses else f"the remit shows blank field(s) {blank}")
+        why = "decision is ESCALATE_MISSING_DOCS" if dec.decision == "ESCALATE_MISSING_DOCS" else ("a criterion is unknown" if "unknown" in statuses else f"the remit lacks required field(s) {blank}")
         chk("gaps_listed", "gaps are listed where a required value or document is absent", (not need_gap) or bool(dec.gaps), why if need_gap else "no absent required value detected", "list what is missing and what is needed to obtain it in decision.json gaps and in the Gaps section")
         required = LETTER_SECTIONS if dec.decision == "APPEAL" else MEMO_SECTIONS
         for name, rx in required.items():

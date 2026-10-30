@@ -85,9 +85,10 @@
       "family": "denial_reason",
       "check": "judge",
       "text": "Identifies the reason for the denial in words (CO-18) and the basis the payer gave",
-      "reference": "CO-18: Exact duplicate of a claim/service already adjudicated.",
+      "reference": "CO-18: Exact duplicate of a claim/service already adjudicated.; accepted sources (any one is enough): eob_835.txt, denial_letter.txt",
       "auto": null,
       "sources": [
+        "eob_835.txt",
         "denial_letter.txt"
       ]
     },

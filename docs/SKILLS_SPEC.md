@@ -37,11 +37,11 @@ Samples: `docs/samples/skill_events_sample.jsonl` (C-0005 chain), `docs/samples/
 
 ## 1. parse_denial_eob
 **Purpose.** Extract the denial facts from `docs/eob_835.txt`, `docs/denial_letter.txt` and `task.md`. Anything not found is `null` with a reason in `not_found`; nothing is guessed.
-Documents that disagree are listed in `consistency`; blank remit fields (`(not provided)`) are listed in `blank_fields`.
+Documents that disagree are listed in `consistency`; a required remit field that is absent (place of service, rendering or referring provider shown as `(not provided)`) is listed in `missing_required`; empty optional columns such as the modifier column are not reported.
 **Input.** Only the common arguments.
 **Output (main fields).** `payer{id,name}`, `claim_no`, `patient{id,name,member_id}`, `dos`, `cpt`, `service_description`, `icd10[]`, `service_lines[]`, `denied_line`,
 `amounts{billed,allowed,paid,denied_amount,patient_responsibility,claim_totals}`, `denial{carc,carc_text,rarc,reason_text,notice_date}`, `appeal{window_days,by_date,address}`,
-`corrected_claim{window_days,by_date}`, `policy_title`, `as_of_date` (the review date), `claim_details`, `letter_facts` (for example `missing_item`, `filing_deadline`), `blank_fields[]`, `not_found{}`, `consistency[]`.
+`corrected_claim{window_days,by_date}`, `policy_title`, `as_of_date` (the review date), `claim_details`, `letter_facts` (for example `missing_item`, `filing_deadline`), `missing_required[]`, `not_found{}`, `consistency[]`.
 **Example** (C-0030, subset):
 ```json
 {
@@ -197,7 +197,7 @@ choose `kind` = `letter` or `memo` after deciding), `verify_citations` (every `(
 ## 6. self_check
 **Purpose.** Deterministic checklist of `deliverable.md` + `decision.json` (inline text, or paths under `OUTPUT_ROOT`): decision.json valid; case id; identifiers (claim number, patient ID, CPT, date of service) present;
 denial code; `action_deadline` equals the computed deadline for the decision type and `deadline_ok` is right; the deadline appears in the text; the policy id exists and equals the retrieved policy; criterion section ids exist;
-evidence files and enclosures exist; an appeal lists enclosures; gaps are listed where a required value or document is absent (ESCALATE_MISSING_DOCS, an `unknown` criterion, or a blank remit field on a corrected claim);
+evidence files and enclosures exist; an appeal lists enclosures; a criterion marked `met` with no evidence file is a WARNING; gaps are listed where a required value or document is absent (ESCALATE_MISSING_DOCS, an `unknown` criterion, or a required remit field that is absent on a corrected claim);
 required sections are present (letter: remedy, enclosures, gaps; memo: next action, gaps; a heading may be markdown, bold, ALL-CAPS or a plain `Label:` line; identifiers and the deadline have their own content checks, so no heading is required for them); criterion ids may be policy sections or the policy's 7.x parameter rows; an appeal letter exists only for APPEAL; no `<<FILL>>` placeholders; all citations resolve.
 **Output.** `ok` (no failed ERROR check), `n_errors`, `n_warnings`, `checks[]` (`id, check, pass, severity` = `error` | `warn`, `detail`, `hint` = a short revision hint when it fails), `citations_failed[]`.
 **Example:** a gold memo passes with `ok: true`; moving `action_deadline` by one day fails `action_deadline` and `deadline_in_text`, with a hint like `use the appeal deadline 2026-11-01 (from assess_appealability)`.

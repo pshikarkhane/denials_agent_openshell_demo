@@ -22,12 +22,6 @@
      "window_days": 90
     },
     "as_of_date": "2026-10-25",
-    "blank_fields": [
-     {
-      "field": "line 1 modifier",
-      "reason": "modifier column is empty on the remit (may be correct)"
-     }
-    ],
     "claim_details": {
      "case_id_in_task": "C-0030",
      "claim_status": "DENIED",
@@ -60,6 +54,7 @@
      "filing_limit_days": 90,
      "payer_received_date": "2026-07-15"
     },
+    "missing_required": [],
     "not_found": {},
     "patient": {
      "id": "P-5383",

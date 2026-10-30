@@ -1,5 +1,5 @@
 """parse_denial_eob: deterministic extraction of the denial facts from eob_835.txt, denial_letter.txt and task.md.
-Fields that cannot be found are null with a reason (never guessed); blank fields on the remit are listed under blank_fields."""
+Fields that cannot be found are null with a reason (never guessed); a required remit field that is absent (shown as '(not provided)') is listed under missing_required."""
 import re
 
 from pydantic import BaseModel
@@ -51,7 +51,7 @@ class Output(BaseModel):
     as_of_date: str | None
     claim_details: dict
     letter_facts: dict
-    blank_fields: list[dict]
+    missing_required: list[dict]
     not_found: dict
     consistency: list[str]
 
@@ -206,13 +206,9 @@ def run_tool(inp, ctx):
         consistency.append("appeal-by date in the letter does not equal notice date + stated window")
     if cc["window_days"] and cc["by_date"] and notice and iso(add_days(to_date(notice), cc["window_days"])) != cc["by_date"]:
         consistency.append("corrected-claim date in the letter does not equal notice date + stated window")
-    blank = []
-    for field, key in (("place_of_service", "pos"), ("rendering_provider", "rendering"), ("referring_provider", "referring")):
-        if e.get(key) == "(not provided)":
-            blank.append({"field": field, "reason": "the remit shows '(not provided)'"})
-    for ln in lines:
-        if ln.modifier is None:
-            blank.append({"field": f"line {ln.line} modifier", "reason": "modifier column is empty on the remit (may be correct)"})
+    # only REQUIRED remit fields that are absent are reported; empty optional columns (for example the modifier column) are not information
+    missing = [{"field": field, "reason": f"required remit field is absent: the remit shows '(not provided)' for {field.replace('_', ' ')}"}
+               for field, key in (("place_of_service", "pos"), ("rendering_provider", "rendering"), ("referring_provider", "referring")) if e.get(key) == "(not provided)"]
     policy_title = L.get("policy_title")
     if policy_title is None:
         nf["policy_title"] = "the denial letter does not name a policy title"
@@ -232,4 +228,4 @@ def run_tool(inp, ctx):
         appeal=appeal, corrected_claim=cc, policy_title=policy_title, as_of_date=T.get("as_of"),
         claim_details={"payer_received_date": e.get("received"), "claim_status": e.get("status"), "place_of_service": e.get("pos"),
                        "rendering_provider": e.get("rendering"), "referring_provider": e.get("referring"), "case_id_in_task": T.get("case_id")},
-        letter_facts=L.get("facts", {}), blank_fields=blank, not_found=nf, consistency=consistency)
+        letter_facts=L.get("facts", {}), missing_required=missing, not_found=nf, consistency=consistency)

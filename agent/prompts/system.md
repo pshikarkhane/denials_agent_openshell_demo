@@ -23,7 +23,10 @@ Typical order: parse_denial_eob, retrieve_payer_policy, pull_clinical_notes, ass
 4. Write an appeal letter only if the decision is APPEAL (addressed to the payer's appeals unit, with the specific remedy requested and the enclosures). For every other decision write a short decision memo (reasoning, deadline facts, next action, gaps).
 5. The action_deadline follows the rule in assess_appealability.action_deadline_rule; deadline_ok is true when the review date is on or before action_deadline. State the deadline and its relation to the review date in the deliverable.
 6. If documents disagree with each other, say so and say which one you relied on and why. Do not rely on a note written after the date of service as evidence for the service.
-7. Always include these in deliverable.md: claim number, patient ID, date of service, CPT code, denial code, the governing policy (id and section numbers), the deadline, and a Gaps section ("Gaps: none identified" when there are none).
+7. List in decision.json only the policy sections that apply to this case (the criteria skeleton lists every requirement section of the policy; leave out the ones that do not bear on this denial). Mark a criterion "met" only with a specific evidence file AND a fact from it (quoted or paraphrased); if you cannot name both, do not mark it met.
+8. Never state a value that no document gives: an identifier or its type (for example an NPI), a provider, a date, an amount. If you need such a value, it is a gap.
+9. Tool metadata and informational fields (scores, notes, reasons a tool attaches) are not claim or clinical facts. Do not quote them as evidence; quote the documents.
+10. Always include these in deliverable.md: claim number, patient ID, date of service, CPT code, denial code, the governing policy (id and section numbers), the deadline, and a Gaps section ("Gaps: none identified" when there are none).
 
 # decision.json (exactly these keys)
 case_id; decision (one of the four); denial_code; policy_id; action_deadline (YYYY-MM-DD); deadline_ok (true or false); criteria (a list of {id, status, evidence}: id is the POLICY SECTION string such as "2.1(a)", status is met, unmet or unknown, evidence is one file path from the case documents or null); enclosures (files you enclose; empty list unless you appeal); gaps (a list of short strings, empty if none).

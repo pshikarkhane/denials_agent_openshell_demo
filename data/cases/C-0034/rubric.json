@@ -86,9 +86,10 @@
       "family": "denial_reason",
       "check": "judge",
       "text": "Identifies the reason for the denial in words (PR-1) and the basis the payer gave",
-      "reference": "PR-1: Amount applied to the patient's deductible.",
+      "reference": "PR-1: Amount applied to the patient's deductible.; accepted sources (any one is enough): eob_835.txt, denial_letter.txt",
       "auto": null,
       "sources": [
+        "eob_835.txt",
         "denial_letter.txt"
       ]
     },

@@ -87,9 +87,10 @@
       "family": "denial_reason",
       "check": "judge",
       "text": "Identifies the reason for the denial in words (CO-50) and the basis the payer gave",
-      "reference": "CO-50: The service was not deemed medically necessary by the plan.",
+      "reference": "CO-50: The service was not deemed medically necessary by the plan.; accepted sources (any one is enough): eob_835.txt, denial_letter.txt",
       "auto": null,
       "sources": [
+        "eob_835.txt",
         "denial_letter.txt"
       ]
     },

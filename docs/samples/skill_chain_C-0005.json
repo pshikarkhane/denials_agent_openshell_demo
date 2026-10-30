@@ -22,12 +22,6 @@
      "window_days": 180
     },
     "as_of_date": "2026-08-04",
-    "blank_fields": [
-     {
-      "field": "line 1 modifier",
-      "reason": "modifier column is empty on the remit (may be correct)"
-     }
-    ],
     "claim_details": {
      "case_id_in_task": "C-0005",
      "claim_status": "DENIED",
@@ -56,6 +50,7 @@
      "M51.26"
     ],
     "letter_facts": {},
+    "missing_required": [],
     "not_found": {},
     "patient": {
      "id": "P-1862",

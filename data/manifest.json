@@ -1,8 +1,8 @@
 {
   "version": "phase1-v2",
   "seed": 20261028,
-  "dataset_hash": "f18d7d58a8559bee34e7f4287a797c253556219593b5cfa4de1ce77a7720d8db",
-  "git_sha": "bc17ea23f575926106983a7bc6532bed5cb0d2df",
+  "dataset_hash": "8ed64a3351028cddf2be8758edeb821c502cd0604f696cfbeae6b9ac10903726",
+  "git_sha": "871d52ad79872127f6d2d81799eb4668b68cb78a",
   "git_dirty": true,
   "hash_scope": "cases/** (truth.json, task.md, docs/**) and policy_library/**",
   "counts": {

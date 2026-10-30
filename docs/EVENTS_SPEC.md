@@ -92,3 +92,17 @@ Summaries are at most about 200 characters. Example (first steps of the same run
  }
 ]
 ```
+
+## Schema changes in this version
+None: `events.jsonl` and `trace.json` are unchanged. What changed is tool *content*: `parse_denial_eob` results now carry `missing_required` (instead of `blank_fields`), and `self_check` results can include a warning check `met_without_evidence_<section>`.
+
+## Reading trace.json for a replay UI
+`trace.json` is a flat, ordered list; render it step by step. A step with `kind: "model"` is one model turn (its `result_summary` is either `tool calls: a, b` or the first words of the text), a `kind: "tool"` step is the tool that ran (arguments in `args_summary`, outcome in `result_summary`, `status` `ok`/`error`/`denied`), `self_check` and `revision` steps show the checking loop, and `run` steps open and close the run. Use `duration_ms` for timing bars. For detail on a step, look up the matching `tool_call` / `tool_result` / `model_response` event in `events.jsonl` by order (`seq`); tool results are in `data.result` (first 4000 characters).
+```python
+import json
+steps = json.load(open("docs/samples/agent_run_C-0030/trace.json"))
+for s in steps:
+    icon = {"model": "M", "tool": "T", "self_check": "S", "revision": "R", "run": "-"}[s["kind"]]
+    print(f'{s["n"]:>2} {icon} {s["name"]:<22} {s["status"]:<6} {s["duration_ms"]:>6} ms  {s["result_summary"][:70]}')
+```
+Complete sample runs (events, trace, deliverable, decision and the judge verdicts) are in `docs/samples/agent_run_C-0005/` and `docs/samples/agent_run_C-0030/`.

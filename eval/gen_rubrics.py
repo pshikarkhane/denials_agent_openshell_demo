@@ -58,6 +58,22 @@ class Builder:
         return c
 
 
+# Facts stated in BOTH the EOB and the denial letter may be cited from either: the denial reason (CARC/RARC on the EOB, reason text in the letter)
+# and the missing claim item of category 8 (the remit shows the absent field, the letter names it). Nothing else is relaxed: clinical evidence in notes,
+# claim_history facts, policy sections, deadlines (letter only), modifiers (EOB only), enclosures and traps keep their single named source.
+EQUIVALENT_STD = ("eob_835.txt", "denial_letter.txt")
+EQUIVALENT_CRITERIA = {(8, "C1")}
+
+
+def accepted_sources(category, cid, files):
+    """files -> files the grader should accept for criterion `cid` of a case of `category`."""
+    return list(EQUIVALENT_STD) if (category, cid) in EQUIVALENT_CRITERIA and all(x in EQUIVALENT_STD for x in files) else list(files)
+
+
+def _accepted_note(files):
+    return f"accepted sources (any one is enough): {', '.join(files)}"
+
+
 def _quotes(t, cid, files):
     return [f.evidence for f in t.facts if f.key == f"criterion_{cid}_quote" and f.source_file in files and f.evidence]
 
@@ -92,7 +108,7 @@ def build_rubric(t, root):
     carc_text = R.CARC_TEXT[t.denial.carc]
     if dec != "CORRECT_AND_RESUBMIT":
         b.add(4, "denial_reason", "judge", f"Identifies the reason for the denial in words ({t.denial.carc}) and the basis the payer gave",
-              f"{t.denial.carc}: {carc_text}", sources=["denial_letter.txt"])
+              f"{t.denial.carc}: {carc_text}; {_accepted_note(list(EQUIVALENT_STD))}", sources=list(EQUIVALENT_STD))
     pol_refs = ", ".join(sections)
     b.add(1, "policy_citation", "judge", f"Cites {t.policy_id} ({title}) and the specific section number for each criterion it relies on",
           f"{t.policy_id}; sections {pol_refs}", sources=[f"policy_library/{t.policy_id}.txt"])
@@ -120,7 +136,10 @@ def build_rubric(t, root):
             b.skipped.append(f"criterion {sec} ({c.text}): evidence file(s) not rendered yet: {missing}")
             continue
         quotes = _quotes(t, c.id, files)
-        ref = f"§{sec} status={c.status}, basis={c.basis}; files: {_names(files)}" + (f"; record text: {' | '.join(quotes)}" if quotes else "")
+        acc = accepted_sources(t.category, c.id, files)
+        ref = (f"§{sec} status={c.status}, basis={c.basis}; " + (_accepted_note(acc) if acc != files else f"files: {_names(files)}")
+               + (f"; record text: {' | '.join(quotes)}" if quotes else ""))
+        files = acc
         std_only = all(x in ("eob_835.txt", "denial_letter.txt") for x in files)
         if c.status == "unknown":
             b.add(1, "honesty_about_gaps", "judge", f"States that §{sec} ({c.text}) cannot be established from the record and why",

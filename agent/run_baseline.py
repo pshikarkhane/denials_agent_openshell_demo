@@ -93,23 +93,26 @@ def main(argv=None):
     ap.add_argument("--temperature", type=float, default=None)
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--repeats", type=int, default=1, help="repeats get run ids <run-id>-r1, <run-id>-r2 (1 repeat keeps the plain run id)")
     a = ap.parse_args(argv)
     cfg = load_models()
     man = json.loads((Path(a.data) / "manifest.json").read_text())
     cases = [a.case] if a.case else (man["pilot_cases"] if a.cases in (None, "pilot") else a.cases.split(","))
     run_id = a.run_id or ("dry-" if a.dry_run else "agent-") + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
-    for cid in cases:
-        out = ROOT / "runs" / run_id / "baseline" / cid
-        if a.resume and (out / "summary.json").exists():
-            print(cid, "skipped (finished)")
-            continue
-        if a.dry_run:
-            from agent.fake_model import ScriptedModel
-            model = ScriptedModel([text_response("not in the required format")] * 3)
-        else:
-            model = HostedModel(cfg, a.temperature)
-        s = run_baseline_case(model, cid, a.data, out, run_id)
-        print(run_id, "baseline", cid, s["status"], f"calls={s['turns']} fail={len(s['model_failures'])} {s['seconds']}s", flush=True)
+    for rep in range(1, a.repeats + 1):
+        rid = run_id if a.repeats == 1 else f"{run_id}-r{rep}"
+        for cid in cases:
+            out = ROOT / "runs" / rid / "baseline" / cid
+            if a.resume and (out / "summary.json").exists():
+                print(cid, "skipped (finished)")
+                continue
+            if a.dry_run:
+                from agent.fake_model import ScriptedModel
+                model = ScriptedModel([text_response("not in the required format")] * 3)
+            else:
+                model = HostedModel(cfg, a.temperature)
+            s = run_baseline_case(model, cid, a.data, out, rid)
+            print(rid, "baseline", cid, s["status"], f"calls={s['turns']} fail={len(s['model_failures'])} {s['seconds']}s", flush=True)
 
 
 if __name__ == "__main__":

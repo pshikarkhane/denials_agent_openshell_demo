@@ -87,9 +87,10 @@
       "family": "denial_reason",
       "check": "judge",
       "text": "Identifies the reason for the denial in words (CO-197) and the basis the payer gave",
-      "reference": "CO-197: Precertification/authorization/notification was absent.",
+      "reference": "CO-197: Precertification/authorization/notification was absent.; accepted sources (any one is enough): eob_835.txt, denial_letter.txt",
       "auto": null,
       "sources": [
+        "eob_835.txt",
         "denial_letter.txt"
       ]
     },

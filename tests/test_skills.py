@@ -176,7 +176,7 @@ def test_parse_matches_truth_for_all_60(staged, truths):
     assert bad == []
 
 
-def test_parse_policy_title_blank_fields_and_null_reasons(staged, truths):
+def test_parse_policy_title_missing_required_and_null_reasons(staged, truths):
     p = parse(A(staged, "C-0005"))
     assert p["policy_title"] == "Advanced Imaging: Lumbar Spine MRI Medical Necessity" and p["denial"]["rarc"] in ("N115", "N386")
     # category 7 / 10 letters name no policy: null with a reason, never guessed
@@ -187,7 +187,8 @@ def test_parse_policy_title_blank_fields_and_null_reasons(staged, truths):
             break
     # blank remit field is reported
     t39 = parse(A(staged, "C-0039"))
-    assert {"field": "rendering_provider", "reason": "the remit shows '(not provided)'"} in t39["blank_fields"] and t39["denial"]["rarc"] is None
+    assert [m["field"] for m in t39["missing_required"]] == ["rendering_provider"] and "required remit field is absent" in t39["missing_required"][0]["reason"] and t39["denial"]["rarc"] is None
+    assert "blank_fields" not in t39 and "modifier" not in json.dumps(t39["missing_required"]) and "may be correct" not in json.dumps(t39)
 
 
 def test_parse_reports_missing_documents_without_guessing(tmp_path, staged):
@@ -502,3 +503,34 @@ def test_assess_lists_documents_dated_after_dos(staged, tmp_path):
     (case / "docs" / "notes" / f"{late}_followup.txt").write_text("x\nSYNTHETIC DATA - NOT REAL PHI\n")
     a = assess({"case_root": str(case), "policy_root": str(staged / "policy_library")})
     assert a["documents_dated_after_dos"] == [{"path": f"notes/{late}_followup.txt", "date": late, "days_after_dos": 12}]
+
+
+def test_missing_required_matches_remit_for_all_60(staged, truths):
+    """missing_required lists exactly the remit fields shown as '(not provided)' and never an empty modifier column."""
+    for cid, t in truths.items():
+        text = (staged / "cases" / cid / "docs" / "eob_835.txt").read_text()
+        want = sorted(f for f, label in (("place_of_service", "Place of service"), ("rendering_provider", "Rendering provider"), ("referring_provider", "Referring provider"))
+                      if f"{label}: (not provided)" in text)
+        got = sorted(m["field"] for m in parse(A(staged, cid))["missing_required"])
+        assert got == want, cid
+
+
+def test_self_check_warns_when_met_has_no_evidence(staged):
+    d, dec = gold("C-0030")
+    j = json.loads(dec)
+    j["criteria"][0]["status"] = "met"
+    j["criteria"][0]["evidence"] = None
+    r = sc(staged, "C-0030", d, json.dumps(j))
+    w = [c for c in r["checks"] if c["id"].startswith("met_without_evidence") and not c["pass"]]
+    assert len(w) == 1 and w[0]["severity"] == "warn" and "met_without_evidence_2.1" not in failed_ids(r)
+
+
+def test_verify_citations_accepts_prose_source_notes_but_not_fake_files(staged):
+    d, dec = gold("C-0030")
+    ok = d + '\nSee (source: denial_letter.txt states "The filing deadline for this date of service was 2026-06-30") and (source: the denial letter cites "Timely Filing of Claims").\n'
+    r = draft({**A(staged, "C-0030"), "action": "verify_citations", "deliverable_text": ok, "decision_text": dec})
+    assert r["valid"], [c for c in r["citations"] if not c["pass"]]
+    bad = d + "\n(source: ghost_file.txt states something) and (source: notes/2031-01-01_ghost.txt) and (source: ghost)\n"
+    r = draft({**A(staged, "C-0030"), "action": "verify_citations", "deliverable_text": bad, "decision_text": dec})
+    failed = {c["text"] for c in r["citations"] if not c["pass"]}
+    assert "notes/2031-01-01_ghost.txt" in failed and "ghost" in failed and not r["valid"]

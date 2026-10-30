@@ -1,0 +1,263 @@
+[
+ {
+  "args_summary": "model nvidia/nvidia/nemotron-3.5-super-text-preview",
+  "duration_ms": 0,
+  "kind": "run",
+  "n": 1,
+  "name": "start",
+  "result_summary": "run started",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 645,
+  "kind": "model",
+  "n": 2,
+  "name": "turn 1",
+  "result_summary": "tool calls: parse_denial_eob",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{}",
+  "duration_ms": 17,
+  "kind": "tool",
+  "n": 3,
+  "name": "parse_denial_eob",
+  "result_summary": "{\"amounts\":{\"allowed\":0.0,\"billed\":2052.88,\"claim_totals\":{\"allowed\":0.0,\"billed\":2052.88,\"paid\":0.0,\"patient_responsibility\":0.0},\"denied_amount\":2052.88,\"paid\":0.0,\"patient_responsibility\":0.0},\"ap\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 1590,
+  "kind": "model",
+  "n": 4,
+  "name": "turn 2",
+  "result_summary": "tool calls: retrieve_payer_policy",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"cpt\": \"72148\", \"denial_code\": \"CO-50\", \"denial_text\": \"The service was not deemed medically necessary by the plan.\", \"dos\": \"2026-06-18\", \"icd10\": [\"M51.26\"]\u2026",
+  "duration_ms": 44,
+  "kind": "tool",
+  "n": 5,
+  "name": "retrieve_payer_policy",
+  "result_summary": "{\"candidates\":[{\"bm25\":17.7565,\"policy_id\":\"MP-IMG-007\",\"title\":\"Advanced Imaging: Lumbar Spine Mri Medical Necessity\",\"title_exact_match\":true,\"title_similarity\":1.0},{\"bm25\":14.9501,\"policy_id\":\"MP\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 645,
+  "kind": "model",
+  "n": 6,
+  "name": "turn 3",
+  "result_summary": "tool calls: pull_clinical_notes",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{}",
+  "duration_ms": 30,
+  "kind": "tool",
+  "n": 7,
+  "name": "pull_clinical_notes",
+  "result_summary": "{\"as_of_date\":\"2026-08-04\",\"date_from\":null,\"date_to\":\"2026-08-04\",\"documents\":[{\"chars\":1730,\"date\":\"2026-03-23\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 899,
+  "kind": "model",
+  "n": 8,
+  "name": "turn 4",
+  "result_summary": "tool calls: pull_clinical_notes",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"paths\": [\"notes/2026-03-23_pcp.txt\", \"notes/2026-04-13_pcp_followup.txt\", \"notes/2026-06-04_ortho.txt\", \"supporting/pt_log.txt\"]}",
+  "duration_ms": 29,
+  "kind": "tool",
+  "n": 9,
+  "name": "pull_clinical_notes",
+  "result_summary": "{\"as_of_date\":\"2026-08-04\",\"date_from\":null,\"date_to\":\"2026-08-04\",\"documents\":[{\"chars\":1730,\"date\":\"2026-03-23\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 3176,
+  "kind": "model",
+  "n": 10,
+  "name": "turn 5",
+  "result_summary": "tool calls: assess_appealability",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"policy_id\": \"MP-IMG-007\"}",
+  "duration_ms": 79,
+  "kind": "tool",
+  "n": 11,
+  "name": "assess_appealability",
+  "result_summary": "{\"action_deadline_rule\":\"action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, \u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 9401,
+  "kind": "model",
+  "n": 12,
+  "name": "turn 6",
+  "result_summary": "tool calls: draft_deliverable",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"action\": \"render_skeleton\", \"kind\": \"letter\"}",
+  "duration_ms": 157,
+  "kind": "tool",
+  "n": 13,
+  "name": "draft_deliverable",
+  "result_summary": "{\"action\":\"render_skeleton\",\"citations\":[],\"errors\":[],\"skeleton\":\"# Appeal Letter: Claim 6268311\\n\\n**To:** Appeals Unit, P.O. Box 5100, Meridian City, ST 00001\\n**From:** <<FILL: provider organizat\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 5590,
+  "kind": "model",
+  "n": 14,
+  "name": "turn 7",
+  "result_summary": "tool calls: draft_deliverable",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"action\": \"validate_decision\", \"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"acti\u2026",
+  "duration_ms": 2,
+  "kind": "tool",
+  "n": 15,
+  "name": "draft_deliverable",
+  "result_summary": "{\"action\":\"validate_decision\",\"citations\":[],\"errors\":[],\"skeleton\":null,\"summary\":{},\"valid\":true}",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 2868,
+  "kind": "model",
+  "n": 16,
+  "name": "turn 8",
+  "result_summary": "tool calls: draft_deliverable",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"action\": \"verify_citations\", \"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"actio\u2026",
+  "duration_ms": 60,
+  "kind": "tool",
+  "n": 17,
+  "name": "draft_deliverable",
+  "result_summary": "{\"action\":\"verify_citations\",\"citations\":[{\"kind\":\"policy_id\",\"pass\":true,\"reason\":\"\",\"text\":\"MP-IMG-007\"},{\"kind\":\"source\",\"pass\":true,\"reason\":\"\",\"text\":\"denial_letter.txt\"},{\"kind\":\"source\",\"pass\"\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 2124,
+  "kind": "model",
+  "n": 18,
+  "name": "turn 9",
+  "result_summary": "tool calls: pull_clinical_notes",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"paths\": [\"denial_letter.txt\", \"eob_835.txt\"]}",
+  "duration_ms": 14,
+  "kind": "tool",
+  "n": 19,
+  "name": "pull_clinical_notes",
+  "result_summary": "{\"error\":{\"code\":\"not_found\",\"message\":\"'denial_letter.txt' is not a clinical note or supporting document of this case\"}}",
+  "status": "error"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 1150,
+  "kind": "model",
+  "n": 20,
+  "name": "turn 10",
+  "result_summary": "tool calls: pull_clinical_notes",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"include_undated\": true}",
+  "duration_ms": 31,
+  "kind": "tool",
+  "n": 21,
+  "name": "pull_clinical_notes",
+  "result_summary": "{\"as_of_date\":\"2026-08-04\",\"date_from\":null,\"date_to\":\"2026-08-04\",\"documents\":[{\"chars\":1730,\"date\":\"2026-03-23\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 5304,
+  "kind": "model",
+  "n": 22,
+  "name": "turn 11",
+  "result_summary": "tool calls: draft_deliverable",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"action\": \"verify_citations\", \"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"actio\u2026",
+  "duration_ms": 78,
+  "kind": "tool",
+  "n": 23,
+  "name": "draft_deliverable",
+  "result_summary": "{\"action\":\"verify_citations\",\"citations\":[{\"kind\":\"policy_id\",\"pass\":true,\"reason\":\"\",\"text\":\"MP-IMG-007\"},{\"kind\":\"source\",\"pass\":true,\"reason\":\"\",\"text\":\"denial_letter.txt\"},{\"kind\":\"source\",\"pass\"\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 2884,
+  "kind": "model",
+  "n": 24,
+  "name": "turn 12",
+  "result_summary": "tool calls: self_check",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"action_deadline\\\":\\\"2027-01-13\\\",\\\"\u2026",
+  "duration_ms": 287,
+  "kind": "tool",
+  "n": 25,
+  "name": "self_check",
+  "result_summary": "{\"checks\":[{\"check\":\"decision.json matches the schema\",\"detail\":\"\",\"hint\":\"\",\"id\":\"decision_json_valid\",\"pass\":true,\"severity\":\"error\"},{\"check\":\"deliverable states the correct claim number\",\"detail\"\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 4004,
+  "kind": "model",
+  "n": 26,
+  "name": "turn 13",
+  "result_summary": "All checks pass. Here is the final deliverable. <<<DELIVERABLE>>> # Appeal Letter: Claim 6268311 **To:** Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 **From:** Revenue Cycle Appeals, Gutierre\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "",
+  "duration_ms": 271,
+  "kind": "self_check",
+  "n": 27,
+  "name": "proposal",
+  "result_summary": "ok=True errors=0 warnings=0",
+  "status": "ok"
+ },
+ {
+  "args_summary": "",
+  "duration_ms": 176,
+  "kind": "self_check",
+  "n": 28,
+  "name": "final",
+  "result_summary": "ok=True errors=0 warnings=0",
+  "status": "ok"
+ },
+ {
+  "args_summary": "",
+  "duration_ms": 0,
+  "kind": "run",
+  "n": 29,
+  "name": "end",
+  "result_summary": "status submitted; turns 13",
+  "status": "ok"
+ }
+]

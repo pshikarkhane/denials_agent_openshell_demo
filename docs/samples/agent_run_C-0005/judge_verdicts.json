@@ -1,0 +1,437 @@
+{
+ "hallucination": {
+  "case_id": "C-0005",
+  "discarded_flags": [],
+  "flags": [
+   {
+    "id": "F1",
+    "problems": [
+     "The denial letter does not state the date the claim was received.",
+     "The payer-received date is supported, but the cited source is wrong; denial_letter.txt does not state the payer received date."
+    ],
+    "quote": "the payer received it on 2026-06-26 (source: denial_letter.txt)",
+    "raised_by": [
+     "gemini",
+     "gpt"
+    ],
+    "severity": "minor",
+    "upheld": true,
+    "votes": {
+     "claude": {
+      "reason": "The 2026-06-26 received date comes from claim_history.txt and eob_835.txt, not denial_letter.txt; the denial letter does not state a received date. Wrong source citation for a date.",
+      "severity": "material",
+      "upheld": true
+     },
+     "gemini": {
+      "reason": "The received date is correct but is found in the EOB and claim history, not the denial letter.",
+      "severity": "minor",
+      "upheld": true
+     },
+     "gpt": {
+      "reason": "The payer-received date is supported by eob_835.txt and claim_history.txt, but not by denial_letter.txt as cited.",
+      "severity": "minor",
+      "upheld": true
+     }
+    }
+   },
+   {
+    "id": "F2",
+    "problems": [
+     "The last PT visit (Visit 21) was on 2026-06-01, not 2026-06-04. The visits run through 2026-06-01; 2026-06-04 is the end of the stated treatment period but not a visit date."
+    ],
+    "quote": "documents 21 PT visits from 2026-03-23 through 2026-06-04",
+    "raised_by": [
+     "claude"
+    ],
+    "severity": "minor",
+    "upheld": true,
+    "votes": {
+     "claude": {
+      "reason": "Visit 21 was on 2026-06-01; the log runs visits through 2026-06-01, not 2026-06-04. 2026-06-04 is the end of the treatment period, not a visit date. Misstates the visit date range.",
+      "severity": "material",
+      "upheld": true
+     },
+     "gemini": {
+      "reason": "The last visit was on 2026-06-01, though the overall treatment period ended on 2026-06-04. This is a trivial imprecision.",
+      "severity": "minor",
+      "upheld": true
+     },
+     "gpt": {
+      "reason": "The PT log lists Visit 21 on 2026-06-01; 2026-06-04 is the treatment-period end date, not a visit date. The 6-week criterion remains supported.",
+      "severity": "minor",
+      "upheld": true
+     }
+    }
+   },
+   {
+    "id": "F3",
+    "problems": [
+     "The notice date is in denial_letter.txt, but the review date is not; the source citation for the review date is unsupported."
+    ],
+    "quote": "- Review date: 2026-08-04; notice date: 2026-07-17 (source: denial_letter.txt)",
+    "raised_by": [
+     "gpt"
+    ],
+    "severity": "minor",
+    "upheld": true,
+    "votes": {
+     "claude": {
+      "reason": "The notice date 2026-07-17 is in denial_letter.txt; the review date 2026-08-04 is the task's as-of date (task.md), not denial_letter.txt, but the sentence primarily cites the notice date which is correctly sourced. The combined citation is loose but the review date is a stated review parameter, not a substantive claim misleading the reader.",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gemini": {
+      "reason": "The review date is not in the denial letter, making the citation at the end of the line technically overbroad.",
+      "severity": "minor",
+      "upheld": true
+     },
+     "gpt": {
+      "reason": "The notice date is in denial_letter.txt, but the review date 2026-08-04 comes from task.md, so the combined source citation is inaccurate.",
+      "severity": "minor",
+      "upheld": true
+     }
+    }
+   }
+  ],
+  "judge_failures": [],
+  "latency_s": {
+   "claude": 13.6,
+   "gemini": 94.3,
+   "gpt": 83.2
+  },
+  "stage1_flag_counts": {
+   "claude": 1,
+   "gemini": 1,
+   "gpt": 2
+  },
+  "tokens": {
+   "claude": {
+    "cache_creation_input_tokens": 32871,
+    "cache_read_input_tokens": 0,
+    "completion_tokens": 908,
+    "prompt_tokens": 32873,
+    "total_tokens": 33781
+   },
+   "gemini": {
+    "completion_tokens": 8888,
+    "prompt_tokens": 23652,
+    "total_tokens": 32540
+   },
+   "gpt": {
+    "completion_tokens": 7952,
+    "prompt_tokens": 20636,
+    "total_tokens": 28588
+   }
+  },
+  "upheld_material": 0,
+  "upheld_minor": 3
+ },
+ "note": "judge verdicts for this run: per-criterion panel verdicts and hallucination flags (host-side scoring; synthetic data)",
+ "panel": {
+  "auto": {
+   "DEC1": {
+    "detail": "decision=APPEAL expected=APPEAL",
+    "pass": true
+   },
+   "DLN1": {
+    "detail": "action_deadline=2027-01-13 deadline_ok=True expected=2027-01-13/True",
+    "pass": true
+   },
+   "EVD1": {
+    "detail": "ok",
+    "pass": true
+   },
+   "IDN1": {
+    "detail": "ok",
+    "pass": true
+   },
+   "POL1": {
+    "detail": "policy_id=MP-IMG-007 expected=MP-IMG-007",
+    "pass": true
+   },
+   "RSN1": {
+    "detail": "denial_code=CO-50 expected=CO-50",
+    "pass": true
+   }
+  },
+  "case_id": "C-0005",
+  "criteria_total": 15,
+  "decision_json_errors": [],
+  "fabricated_quotes": 0,
+  "failed_criteria": {
+   "TRP1": {
+    "auto": null,
+    "reference": "notes/2026-04-13_pcp_followup.txt says about 14 days; PT log: 73 days",
+    "text": "Notices the conflicting statement of therapy duration and resolves it using the PT log",
+    "votes": {
+     "claude": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable uses the PT log's 73 days but never notices or addresses the conflicting 14-day statement in the 2026-04-13 follow-up note.",
+      "verdict": "FAIL"
+     },
+     "gemini": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable does not notice or resolve the conflicting statement regarding therapy duration found in the 2026-04-13 follow-up note.",
+      "verdict": "FAIL"
+     },
+     "gpt": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable uses the PT log's 73-day duration but does not notice or address the conflicting 2026-04-13 note stating about 14 days of PT.",
+      "verdict": "FAIL"
+     }
+    }
+   }
+  },
+  "judge_failures": [],
+  "judge_pass_rates": {
+   "claude": 0.9333333333333333,
+   "gemini": 0.9333333333333333,
+   "gpt": 0.9333333333333333
+  },
+  "judges": {
+   "claude": {
+    "failed": false,
+    "secs": 11.402976036071777,
+    "usage": {
+     "cache_creation_input_tokens": 9004,
+     "cache_read_input_tokens": 0,
+     "completion_tokens": 1034,
+     "prompt_tokens": 9005,
+     "total_tokens": 10039
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The appeal deadline governs this action and is still open (review date 2026-08-04 is on or before 2027-01-13).",
+      "fabricated_quote": false,
+      "reason": "States action deadline and that it is still open.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "The physical therapy attendance log documents 21 PT visits from 2026-03-23 through 2026-06-04, a treatment period of 73 days (approximately 10 weeks) (source: supporting/pt_log.txt)",
+      "fabricated_quote": false,
+      "reason": "Supports \u00a72.1(a) with dated PT log evidence and PCP note.",
+      "verdict": "PASS"
+     },
+     "EVD3": {
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 documents a positive straight leg raise at 40 degrees, left leg paresthesias, and mildly reduced left ankle dorsiflexion strength (source: notes/2026-06-04_ortho.txt)",
+      "fabricated_quote": false,
+      "reason": "Supports \u00a72.1(b) with dated neurological deficit evidence.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 states: \"Imaging history: No prior lumbar imaging on file.\" (source: notes/2026-06-04_ortho.txt). Status: met.",
+      "fabricated_quote": false,
+      "reason": "Relies on explicit record statement for \u00a72.1(c).",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "Policy MP-IMG-007 (effective 2026-04-15, applies to this date of service) requires three criteria for lumbar spine MRI medical necessity:",
+      "fabricated_quote": false,
+      "reason": "Cites MP-IMG-007 and references sections 2.1(a), 2.1(b), 2.1(c) for each criterion.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "Policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (source: MP-IMG-007.txt)",
+      "fabricated_quote": false,
+      "reason": "Relies solely on MP-IMG-007, not the distractor policy.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "We request that the Appeals Unit overturn denial CO-50 for claim 6268311, reprocess the claim, and pay the billed amount of $2,052.88",
+      "fabricated_quote": false,
+      "reason": "Clear remedy addressed to Appeals Unit.",
+      "verdict": "PASS"
+     },
+     "REM2": {
+      "evidence_quote": "- notes/2026-06-04_ortho.txt\n- supporting/pt_log.txt",
+      "fabricated_quote": false,
+      "reason": "Lists required enclosures including PT log and ortho note.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable uses the PT log's 73 days but never notices or addresses the conflicting 14-day statement in the 2026-04-13 follow-up note.",
+      "verdict": "FAIL"
+     }
+    }
+   },
+   "gemini": {
+    "failed": false,
+    "secs": 26.338454961776733,
+    "usage": {
+     "completion_tokens": 2974,
+     "prompt_tokens": 6383,
+     "total_tokens": 9357
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The appeal deadline governs this action and is still open (review date 2026-08-04 is on or before 2027-01-13).",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly states the action deadline and confirms it is still open as of the review date.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "The physical therapy attendance log documents 21 PT visits from 2026-03-23 through 2026-06-04, a treatment period of 73 days (approximately 10 weeks)",
+      "fabricated_quote": false,
+      "reason": "The deliverable supports the conservative therapy requirement with specific, dated evidence from the PT log.",
+      "verdict": "PASS"
+     },
+     "EVD3": {
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 documents a positive straight leg raise at 40 degrees, left leg paresthesias, and mildly reduced left ankle dorsiflexion strength",
+      "fabricated_quote": false,
+      "reason": "The deliverable supports the neurological deficit requirement with specific, dated evidence from the orthopedic note.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 states: \"Imaging history: No prior lumbar imaging on file.\"",
+      "fabricated_quote": false,
+      "reason": "The deliverable relies on the explicit statement in the record regarding the absence of prior imaging.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "Policy MP-IMG-007 (effective 2026-04-15, applies to this date of service) requires three criteria for lumbar spine MRI medical necessity:\n\n**Section 2.1(a)",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly cites policy MP-IMG-007 and the specific section numbers for each criterion.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "Policy MP-IMG-007 (effective 2026-04-15, applies to this date of service) requires three criteria for lumbar spine MRI medical necessity",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly cites MP-IMG-007 and does not mention the distractor policy MP-IMG-012.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "We request that the Appeals Unit overturn denial CO-50 for claim 6268311, reprocess the claim, and pay the billed amount",
+      "fabricated_quote": false,
+      "reason": "The deliverable contains a clear requested remedy addressed to the Appeals Unit.",
+      "verdict": "PASS"
+     },
+     "REM2": {
+      "evidence_quote": "- notes/2026-03-23_pcp.txt\n- notes/2026-04-13_pcp_followup.txt\n- notes/2026-06-04_ortho.txt\n- supporting/pt_log.txt",
+      "fabricated_quote": false,
+      "reason": "The deliverable lists the required enclosures from the case file.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable does not notice or resolve the conflicting statement regarding therapy duration found in the 2026-04-13 follow-up note.",
+      "verdict": "FAIL"
+     }
+    }
+   },
+   "gpt": {
+    "failed": false,
+    "secs": 40.91746783256531,
+    "usage": {
+     "completion_tokens": 4487,
+     "prompt_tokens": 5570,
+     "total_tokens": 10057
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "- The appeal deadline governs this action and is still open (review date 2026-08-04 is on or before 2027-01-13).",
+      "fabricated_quote": false,
+      "reason": "The deliverable states the governing appeal deadline of 2027-01-13 and says it is still open as of the review date.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "The physical therapy attendance log documents 21 PT visits from 2026-03-23 through 2026-06-04, a treatment period of 73 days (approximately 10 weeks) (source: supporting/pt_log.txt).",
+      "fabricated_quote": false,
+      "reason": "The deliverable supports the six-week conservative therapy requirement with dated PT-log evidence showing a 73-day treatment period.",
+      "verdict": "PASS"
+     },
+     "EVD3": {
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 documents a positive straight leg raise at 40 degrees, left leg paresthesias, and mildly reduced left ankle dorsiflexion strength (source: notes/2026-06-04_ortho.txt).",
+      "fabricated_quote": false,
+      "reason": "The deliverable cites the 2026-06-04 orthopedic note and gives specific neurologic findings supporting \u00a72.1(b).",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 states: \"Imaging history: No prior lumbar imaging on file.\" (source: notes/2026-06-04_ortho.txt).",
+      "fabricated_quote": false,
+      "reason": "The deliverable relies on the record's explicit documented absence of prior lumbar imaging for \u00a72.1(c).",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "Policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (source: MP-IMG-007.txt)\n\n- Section 2.1(a): met \u2014 evidence: notes/2026-03-23_pcp.txt, supporting/pt_log.txt, notes/2026-06-04_ortho.txt\n- Section 2.1(b): met \u2014 evidence: notes/2026-06-04_ortho.txt\n- Section 2.1(c): met \u2014 evidence: notes/2026-06-04_ortho.txt",
+      "fabricated_quote": false,
+      "reason": "The deliverable cites MP-IMG-007 and identifies sections 2.1(a), 2.1(b), and 2.1(c) as the relied-on criteria.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "Policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (source: MP-IMG-007.txt)",
+      "fabricated_quote": false,
+      "reason": "The deliverable relies on MP-IMG-007, and there is no citation or reliance on MP-IMG-012.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "We request that the Appeals Unit overturn denial CO-50 for claim 6268311, reprocess the claim, and pay the billed amount of $2,052.88 for CPT 72148 (MRI lumbar spine without contrast) performed on 2026-06-18 for patient P-1862.",
+      "fabricated_quote": false,
+      "reason": "The deliverable clearly requests overturning the denial and reprocessing the claim, directed to the Appeals Unit.",
+      "verdict": "PASS"
+     },
+     "REM2": {
+      "evidence_quote": "## Enclosures\n\n- notes/2026-03-23_pcp.txt\n- notes/2026-04-13_pcp_followup.txt\n- notes/2026-06-04_ortho.txt\n- supporting/pt_log.txt",
+      "fabricated_quote": false,
+      "reason": "The listed enclosures include both required files: the orthopedic note and PT log.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable uses the PT log's 73-day duration but does not notice or address the conflicting 2026-04-13 note stating about 14 days of PT.",
+      "verdict": "FAIL"
+     }
+    }
+   }
+  },
+  "latency_s": {
+   "claude": 11.4,
+   "gemini": 26.3,
+   "gpt": 40.9
+  },
+  "panel": {
+   "DEC1": "PASS",
+   "DLN1": "PASS",
+   "DLN2": "PASS",
+   "EVD1": "PASS",
+   "EVD2": "PASS",
+   "EVD3": "PASS",
+   "HON1": "PASS",
+   "IDN1": "PASS",
+   "POL1": "PASS",
+   "POL2": "PASS",
+   "POLX1": "PASS",
+   "REM1": "PASS",
+   "REM2": "PASS",
+   "RSN1": "PASS",
+   "TRP1": "FAIL"
+  },
+  "panel_pass_rate": 0.9333333333333333,
+  "tokens": {
+   "claude": {
+    "cache_creation_input_tokens": 9004,
+    "cache_read_input_tokens": 0,
+    "completion_tokens": 1034,
+    "prompt_tokens": 9005,
+    "total_tokens": 10039
+   },
+   "gemini": {
+    "completion_tokens": 2974,
+    "prompt_tokens": 6383,
+    "total_tokens": 9357
+   },
+   "gpt": {
+    "completion_tokens": 4487,
+    "prompt_tokens": 5570,
+    "total_tokens": 10057
+   }
+  },
+  "unanimity_rate": 1.0
+ }
+}

@@ -12,7 +12,8 @@ Rules:
 1. Verify against the REFERENCE and the SOURCE DOCUMENTS. A criterion passes only if the deliverable (or decision.json, where the criterion is about it) clearly satisfies the requirement with correct facts.
 2. A PASS requires `evidence_quote`: an exact, verbatim passage copied from the DELIVERABLE or DECISION that shows the requirement is met. The quote must be ONE contiguous passage copied exactly as written (at most about 250 characters, including any markdown characters that are in the text). Do not join separate passages, do not paraphrase, and do not add or drop words inside the quote; if two passages are needed, quote the single best one. If you cannot quote such a passage, the verdict is FAIL. For criteria that require something NOT to happen (for example not citing a certain policy), quote the passage that shows the correct behavior (for example the policy the deliverable does cite).
 3. Wrong dates, numbers, identifiers, sections or file names fail the criterion. Missing items fail the criterion. Do not give partial credit.
-4. Keep `reason` to one or two sentences.
+4. If a REFERENCE says "accepted sources (any one is enough): ...", a citation of ANY ONE of those files satisfies the source requirement; never fail a criterion only because the deliverable cites a different accepted source. This applies only where the REFERENCE says so.
+5. Keep `reason` to one or two sentences.
 
 Respond with ONE JSON object and nothing else:
 {"results": [{"id": "<criterion id>", "verdict": "PASS" | "FAIL", "evidence_quote": "<exact quote or empty string>", "reason": "<short>"}]}

@@ -86,8 +86,15 @@ def verify_citations(text, corpus, policy_id=None):
                 add("source", item, bool(ids) and all(i in corpus.policies for i in ids), "" if ids else "policy reference without a policy id")
             elif SECTION.search(item):
                 continue  # section fragments are verified below
+            elif corpus.has_file(item):
+                add("source", item, True)
+            elif FILE.search(item):   # prose that names files ("denial_letter.txt states ..."): every named file must exist
+                for fm in FILE.finditer(item):
+                    add("source", fm.group(1), corpus.has_file(fm.group(1)), "" if corpus.has_file(fm.group(1)) else "no such file in the case documents or policy library")
+            elif len(item.split()) >= 4 or '"' in item:
+                add("source", item[:80], True, "prose source note (any quotes in it are verified separately)")
             else:
-                add("source", item, corpus.has_file(item), "" if corpus.has_file(item) else "no such file in the case documents or policy library")
+                add("source", item, False, "no such file in the case documents or policy library")
     for m in LINEREF.finditer(text):
         n_lines = corpus.line_count(m.group(1))
         ok = n_lines is not None and 1 <= int(m.group(2)) <= n_lines

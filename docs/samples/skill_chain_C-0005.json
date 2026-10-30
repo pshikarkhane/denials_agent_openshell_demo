@@ -1,0 +1,433 @@
+{
+ "case": "C-0005",
+ "steps": [
+  {
+   "output": {
+    "amounts": {
+     "allowed": 0.0,
+     "billed": 2052.88,
+     "claim_totals": {
+      "allowed": 0.0,
+      "billed": 2052.88,
+      "paid": 0.0,
+      "patient_responsibility": 0.0
+     },
+     "denied_amount": 2052.88,
+     "paid": 0.0,
+     "patient_responsibility": 0.0
+    },
+    "appeal": {
+     "address": "Appeals Unit, P.O. Box 5100, Meridian City, ST 00001",
+     "by_date": "2027-01-13",
+     "window_days": 180
+    },
+    "as_of_date": "2026-08-04",
+    "blank_fields": [
+     {
+      "field": "line 1 modifier",
+      "reason": "modifier column is empty on the remit (may be correct)"
+     }
+    ],
+    "claim_details": {
+     "case_id_in_task": "C-0005",
+     "claim_status": "DENIED",
+     "payer_received_date": "2026-06-26",
+     "place_of_service": "11",
+     "referring_provider": "Dr. Brett Henry",
+     "rendering_provider": "Dr. Bridget Santana (Radiology) (ID RP-8311)"
+    },
+    "claim_no": "6268311",
+    "consistency": [],
+    "corrected_claim": {
+     "by_date": "2027-07-17",
+     "window_days": 365
+    },
+    "cpt": "72148",
+    "denial": {
+     "carc": "CO-50",
+     "carc_text": "The service was not deemed medically necessary by the plan.",
+     "notice_date": "2026-07-17",
+     "rarc": "N386",
+     "reason_text": "The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity)."
+    },
+    "denied_line": 1,
+    "dos": "2026-06-18",
+    "icd10": [
+     "M51.26"
+    ],
+    "letter_facts": {},
+    "not_found": {},
+    "patient": {
+     "id": "P-1862",
+     "member_id": "MBR475438256",
+     "name": "Brenda Wilson"
+    },
+    "payer": {
+     "id": "MERIDIAN_COMM",
+     "member_id": null,
+     "name": "Meridian Community Health Plan"
+    },
+    "policy_title": "Advanced Imaging: Lumbar Spine MRI Medical Necessity",
+    "service_description": "MRI lumbar spine without contrast",
+    "service_lines": [
+     {
+      "adjustment_amount": 2052.88,
+      "adjustment_code": "CO-50",
+      "allowed": 0.0,
+      "billed": 2052.88,
+      "cpt": "72148",
+      "description": "MRI lumbar spine without contrast",
+      "line": 1,
+      "modifier": null,
+      "paid": 0.0,
+      "rarc": "N386"
+     }
+    ]
+   },
+   "step": 1,
+   "tool": "parse_denial_eob"
+  },
+  {
+   "output": {
+    "candidates": [
+     {
+      "bm25": 17.7565,
+      "policy_id": "MP-IMG-007",
+      "title": "Advanced Imaging: Lumbar Spine Mri Medical Necessity",
+      "title_exact_match": true,
+      "title_similarity": 1.0
+     },
+     {
+      "bm25": 14.9501,
+      "policy_id": "MP-IMG-012",
+      "title": "Advanced Imaging: Lumbar Spine Ct Medical Necessity",
+      "title_exact_match": false,
+      "title_similarity": 0.75
+     },
+     {
+      "bm25": 3.4004,
+      "policy_id": "MP-PA-030",
+      "title": "Prior Authorization and Retroactive Authorization",
+      "title_exact_match": false,
+      "title_similarity": 0.0
+     },
+     {
+      "bm25": 2.9402,
+      "policy_id": "MP-BEN-002",
+      "title": "Member Cost Sharing and Deductibles",
+      "title_exact_match": false,
+      "title_similarity": 0.0
+     },
+     {
+      "bm25": 2.9306,
+      "policy_id": "MP-BND-002",
+      "title": "Claim Bundling and Distinct Procedural Service Modifiers",
+      "title_exact_match": false,
+      "title_similarity": 0.0
+     },
+     {
+      "bm25": 1.0949,
+      "policy_id": "MP-APL-001",
+      "title": "Appeals Levels and Deadlines",
+      "title_exact_match": false,
+      "title_similarity": 0.0
+     }
+    ],
+    "date_notes": [],
+    "excluded": [
+     {
+      "policy_id": "MP-IMG-012",
+      "reason": "near-duplicate of MP-IMG-007 (title similarity 0.75) ranked lower: title differs from the letter"
+     }
+    ],
+    "policy": {
+     "appeals_address": "Appeals Unit, P.O. Box 5100, Meridian City, ST 00001",
+     "applies_from": "2025-01-01",
+     "applies_until": null,
+     "effective_date": "2026-04-15",
+     "file": "MP-IMG-007.txt",
+     "parameters": [
+      {
+       "label": "7.1",
+       "text": "Appeal deadline: 180 days from the date of the claim determination notice."
+      },
+      {
+       "label": "7.2",
+       "text": "Timely filing limit: 180 days from the date of service."
+      },
+      {
+       "label": "7.3",
+       "text": "Corrected claims: must be received within 365 days of the date of the notice."
+      },
+      {
+       "label": "7.4",
+       "text": "Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001"
+      }
+     ],
+     "payer_id": "MERIDIAN_COMM",
+     "payer_name": "Meridian Community Health Plan",
+     "policy_id": "MP-IMG-007",
+     "title": "Advanced Imaging: Lumbar Spine Mri Medical Necessity",
+     "windows": {
+      "appeal_days": 180,
+      "corrected_claim_days": 365,
+      "timely_filing_days": 180
+     }
+    },
+    "reason": null,
+    "sections": [
+     {
+      "effective_date": "2026-04-15",
+      "heading": null,
+      "line": 14,
+      "policy_id": "MP-IMG-007",
+      "score": 2.9946,
+      "section": "2.1(b)",
+      "text": "A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study."
+     },
+     {
+      "effective_date": "2026-04-15",
+      "heading": null,
+      "line": 11,
+      "policy_id": "MP-IMG-007",
+      "score": 2.4095,
+      "section": "2.1(a)",
+      "text": "The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken."
+     },
+     {
+      "effective_date": "2026-04-15",
+      "heading": null,
+      "line": 17,
+      "policy_id": "MP-IMG-007",
+      "score": 1.5582,
+      "section": "2.1(c)",
+      "text": "There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved."
+     }
+    ],
+    "status": "selected",
+    "tie": null
+   },
+   "step": 2,
+   "tool": "retrieve_payer_policy"
+  },
+  {
+   "output": {
+    "as_of_date": "2026-08-04",
+    "date_from": null,
+    "date_to": "2026-08-04",
+    "documents": [
+     {
+      "chars": 1730,
+      "date": "2026-03-23",
+      "date_reason": null,
+      "date_source": "file name",
+      "folder": "notes",
+      "kind": "pcp",
+      "lines": 24,
+      "path": "notes/2026-03-23_pcp.txt",
+      "title": "PRIMARY CARE VISIT NOTE"
+     },
+     {
+      "chars": 1710,
+      "date": "2026-04-13",
+      "date_reason": null,
+      "date_source": "file name",
+      "folder": "notes",
+      "kind": "pcp_followup",
+      "lines": 24,
+      "path": "notes/2026-04-13_pcp_followup.txt",
+      "title": "PRIMARY CARE FOLLOW-UP NOTE"
+     },
+     {
+      "chars": 1779,
+      "date": "2026-06-04",
+      "date_reason": null,
+      "date_source": "file name",
+      "folder": "notes",
+      "kind": "ortho",
+      "lines": 21,
+      "path": "notes/2026-06-04_ortho.txt",
+      "title": "ORTHOPEDIC CONSULTATION NOTE"
+     },
+     {
+      "chars": 1221,
+      "date": null,
+      "date_reason": "supporting documents carry no date in their file name",
+      "date_source": null,
+      "folder": "supporting",
+      "kind": "pt_log",
+      "lines": 31,
+      "path": "supporting/pt_log.txt",
+      "title": "Gutierrez Medical Group - PHYSICAL THERAPY ATTENDANCE LOG"
+     }
+    ],
+    "n_excluded_by_date": 0,
+    "reason": null
+   },
+   "step": 3,
+   "tool": "pull_clinical_notes"
+  },
+  {
+   "output": {
+    "action_deadline_rule": "action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, or to escalate because documents are missing). deadline_ok = review date <= action_deadline.",
+    "as_of_date": "2026-08-04",
+    "claim_history": {
+     "earlier_submissions": {
+      "line": 13,
+      "text": "none recorded"
+     },
+     "events": [
+      {
+       "date": "2026-06-24",
+       "event": "Submitted to clearinghouse (submission 1 of 1)",
+       "line": 10
+      },
+      {
+       "date": "2026-06-24",
+       "event": "Clearinghouse acceptance (277CA): ACCEPTED",
+       "line": 11
+      },
+      {
+       "date": "2026-06-26",
+       "event": "Received by payer",
+       "line": 12
+      }
+     ],
+     "prior_claims": {
+      "line": 14,
+      "text": "none recorded"
+     },
+     "retro_authorization_request": null,
+     "status": {
+      "date": "2026-07-17",
+      "line": 17,
+      "text": "Adjudicated by payer: adverse determination (CARC CO-50)"
+     }
+    },
+    "criteria_skeleton": [
+     {
+      "evidence_candidates": [
+       {
+        "excerpt": "(MRI lumbar spine without contrast)",
+        "file": "eob_835.txt",
+        "line": 30,
+        "score": 10.497
+       },
+       {
+        "excerpt": "Service: 72148 - MRI lumbar spine without contrast",
+        "file": "claim_history.txt",
+        "line": 7,
+        "score": 9.211
+       },
+       {
+        "excerpt": "Service: 72148 - MRI lumbar spine without contrast",
+        "file": "denial_letter.txt",
+        "line": 11,
+        "score": 9.211
+       }
+      ],
+      "policy_id": "MP-IMG-007",
+      "requirement_text": "The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken.",
+      "section": "2.1(a)",
+      "status": null
+     },
+     {
+      "evidence_candidates": [
+       {
+        "excerpt": "The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Sp\u2026",
+        "file": "denial_letter.txt",
+        "line": 17,
+        "score": 12.214
+       },
+       {
+        "excerpt": "Imaging history: No prior lumbar imaging on file.",
+        "file": "notes/2026-06-04_ortho.txt",
+        "line": 13,
+        "score": 6.164
+       },
+       {
+        "excerpt": "Low back pain with left-sided radicular leg symptoms, most consistent with a left lumbar radiculopathy (M51.26). No red flag features identified on history or \u2026",
+        "file": "notes/2026-03-23_pcp.txt",
+        "line": 17,
+        "score": 4.35
+       }
+      ],
+      "policy_id": "MP-IMG-007",
+      "requirement_text": "A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study.",
+      "section": "2.1(b)",
+      "status": null
+     },
+     {
+      "evidence_candidates": [
+       {
+        "excerpt": "Imaging history: No prior lumbar imaging on file.",
+        "file": "notes/2026-06-04_ortho.txt",
+        "line": 13,
+        "score": 13.274
+       },
+       {
+        "excerpt": "(MRI lumbar spine without contrast)",
+        "file": "eob_835.txt",
+        "line": 30,
+        "score": 6.674
+       },
+       {
+        "excerpt": "You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-01-13.",
+        "file": "denial_letter.txt",
+        "line": 20,
+        "score": 6.492
+       }
+      ],
+      "policy_id": "MP-IMG-007",
+      "requirement_text": "There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved.",
+      "section": "2.1(c)",
+      "status": null
+     }
+    ],
+    "dates": {
+     "claim_submitted_date": "2026-06-24",
+     "dos": "2026-06-18",
+     "notice_date": "2026-07-17",
+     "payer_received_date": "2026-06-26"
+    },
+    "deadlines": {
+     "appeal": {
+      "basis": "notice date 2026-07-17 + 180 days",
+      "date": "2027-01-13",
+      "days_remaining": 162,
+      "open_on_review_date": true,
+      "stated_in_letter": "2027-01-13",
+      "window_days": 180
+     },
+     "corrected_claim": {
+      "basis": "notice date 2026-07-17 + 365 days",
+      "date": "2027-07-17",
+      "days_remaining": 347,
+      "open_on_review_date": true,
+      "stated_in_letter": "2027-07-17",
+      "window_days": 365
+     }
+    },
+    "documents_dated_after_dos": [],
+    "notes": [],
+    "policy": {
+     "applies_from": "2025-01-01",
+     "effective_date": "2026-04-15",
+     "policy_id": "MP-IMG-007"
+    },
+    "timely_filing": {
+     "filing_deadline": "2026-12-15",
+     "first_accepted_date": "2026-06-24",
+     "limit_days": 180,
+     "limit_source": "MP-IMG-007 7.2",
+     "payer_received_date": "2026-06-26",
+     "stated_in_letter": null,
+     "status": "within_limit",
+     "status_reason": "first accepted 2026-06-24 and payer received 2026-06-26 compared with filing deadline 2026-12-15"
+    }
+   },
+   "step": 4,
+   "tool": "assess_appealability"
+  }
+ ]
+}

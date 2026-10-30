@@ -1,0 +1,352 @@
+{
+ "case": "C-0030",
+ "steps": [
+  {
+   "output": {
+    "amounts": {
+     "allowed": 0.0,
+     "billed": 236.93,
+     "claim_totals": {
+      "allowed": 0.0,
+      "billed": 236.93,
+      "paid": 0.0,
+      "patient_responsibility": 0.0
+     },
+     "denied_amount": 236.93,
+     "paid": 0.0,
+     "patient_responsibility": 0.0
+    },
+    "appeal": {
+     "address": "Appeals Unit, P.O. Box 3300, Terravista, ST 00003",
+     "by_date": "2026-11-01",
+     "window_days": 90
+    },
+    "as_of_date": "2026-10-25",
+    "blank_fields": [
+     {
+      "field": "line 1 modifier",
+      "reason": "modifier column is empty on the remit (may be correct)"
+     }
+    ],
+    "claim_details": {
+     "case_id_in_task": "C-0030",
+     "claim_status": "DENIED",
+     "payer_received_date": "2026-07-15",
+     "place_of_service": "11",
+     "referring_provider": "(not applicable)",
+     "rendering_provider": "Dr. Thomas Williams (ID RP-4835)"
+    },
+    "claim_no": "3704835",
+    "consistency": [],
+    "corrected_claim": {
+     "by_date": "2027-01-30",
+     "window_days": 180
+    },
+    "cpt": "99213",
+    "denial": {
+     "carc": "CO-29",
+     "carc_text": "The time limit for filing has expired.",
+     "notice_date": "2026-08-03",
+     "rarc": null,
+     "reason_text": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims)."
+    },
+    "denied_line": 1,
+    "dos": "2026-04-01",
+    "icd10": [
+     "I10"
+    ],
+    "letter_facts": {
+     "filing_deadline": "2026-06-30",
+     "filing_limit_days": 90,
+     "payer_received_date": "2026-07-15"
+    },
+    "not_found": {},
+    "patient": {
+     "id": "P-5383",
+     "member_id": "MBR284435778",
+     "name": "Michael Johnson"
+    },
+    "payer": {
+     "id": "TERRAVISTA_HEALTH",
+     "member_id": null,
+     "name": "Terravista Health"
+    },
+    "policy_title": "Timely Filing of Claims",
+    "service_description": "Established patient visit, low",
+    "service_lines": [
+     {
+      "adjustment_amount": 236.93,
+      "adjustment_code": "CO-29",
+      "allowed": 0.0,
+      "billed": 236.93,
+      "cpt": "99213",
+      "description": "Established patient visit, low",
+      "line": 1,
+      "modifier": null,
+      "paid": 0.0,
+      "rarc": null
+     }
+    ]
+   },
+   "step": 1,
+   "tool": "parse_denial_eob"
+  },
+  {
+   "output": {
+    "candidates": [
+     {
+      "bm25": 5.1657,
+      "policy_id": "MP-TF-001",
+      "title": "Timely Filing of Claims",
+      "title_exact_match": true,
+      "title_similarity": 1.0
+     },
+     {
+      "bm25": 3.8385,
+      "policy_id": "MP-CLM-004",
+      "title": "Claim Submission Requirements, Duplicate Claims and Edit Rules",
+      "title_exact_match": false,
+      "title_similarity": 0.111
+     }
+    ],
+    "date_notes": [],
+    "excluded": [
+     {
+      "policy_id": "MP-TF-010",
+      "reason": "superseded: this version last applied to dates of service on or before 2024-12-31; replaced by MP-TF-001"
+     }
+    ],
+    "policy": {
+     "appeals_address": "Appeals Unit, P.O. Box 3300, Terravista, ST 00003",
+     "applies_from": "2025-01-01",
+     "applies_until": null,
+     "effective_date": "2026-03-15",
+     "file": "MP-TF-001.txt",
+     "parameters": [
+      {
+       "label": "7.1",
+       "text": "Appeal deadline: 90 days from the date of the claim determination notice."
+      },
+      {
+       "label": "7.2",
+       "text": "Timely filing limit: 90 days from the date of service."
+      },
+      {
+       "label": "7.3",
+       "text": "Corrected claims: must be received within 180 days of the date of the notice."
+      },
+      {
+       "label": "7.4",
+       "text": "Appeals address: Appeals Unit, P.O. Box 3300, Terravista, ST 00003"
+      }
+     ],
+     "payer_id": "TERRAVISTA_HEALTH",
+     "payer_name": "Terravista Health",
+     "policy_id": "MP-TF-001",
+     "title": "Timely Filing of Claims",
+     "windows": {
+      "appeal_days": 90,
+      "corrected_claim_days": 180,
+      "timely_filing_days": 90
+     }
+    },
+    "reason": null,
+    "sections": [
+     {
+      "effective_date": "2026-03-15",
+      "heading": null,
+      "line": 11,
+      "policy_id": "MP-TF-001",
+      "score": 5.1684,
+      "section": "2.1",
+      "text": "Claims must be submitted to Terravista Health within 90 days of the date of service. Submissions received after this filing period may be denied for failure to meet the timely filing requirement."
+     },
+     {
+      "effective_date": "2026-03-15",
+      "heading": null,
+      "line": 14,
+      "policy_id": "MP-TF-001",
+      "score": 1.8485,
+      "section": "2.2",
+      "text": "Providers must retain proof of clearinghouse acceptance demonstrating that the claim was accepted within the applicable filing limit. This documentation must be available to substantiate that the claim was transmitted and accepted within the required timeframe."
+     }
+    ],
+    "status": "selected",
+    "tie": null
+   },
+   "step": 2,
+   "tool": "retrieve_payer_policy"
+  },
+  {
+   "output": {
+    "as_of_date": "2026-10-25",
+    "date_from": null,
+    "date_to": "2026-10-25",
+    "documents": [
+     {
+      "chars": 1731,
+      "date": "2026-03-02",
+      "date_reason": null,
+      "date_source": "file name",
+      "folder": "notes",
+      "kind": "pcp",
+      "lines": 24,
+      "path": "notes/2026-03-02_pcp.txt",
+      "title": "PRIMARY CARE VISIT NOTE"
+     },
+     {
+      "chars": 1650,
+      "date": "2026-04-01",
+      "date_reason": null,
+      "date_source": "file name",
+      "folder": "notes",
+      "kind": "visit",
+      "lines": 24,
+      "path": "notes/2026-04-01_visit.txt",
+      "title": "OFFICE VISIT NOTE"
+     }
+    ],
+    "n_excluded_by_date": 0,
+    "reason": null
+   },
+   "step": 3,
+   "tool": "pull_clinical_notes"
+  },
+  {
+   "output": {
+    "action_deadline_rule": "action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, or to escalate because documents are missing). deadline_ok = review date <= action_deadline.",
+    "as_of_date": "2026-10-25",
+    "claim_history": {
+     "earlier_submissions": {
+      "line": 13,
+      "text": "none recorded"
+     },
+     "events": [
+      {
+       "date": "2026-07-14",
+       "event": "Submitted to clearinghouse (submission 1 of 1)",
+       "line": 10
+      },
+      {
+       "date": "2026-07-14",
+       "event": "Clearinghouse acceptance (277CA): ACCEPTED",
+       "line": 11
+      },
+      {
+       "date": "2026-07-15",
+       "event": "Received by payer",
+       "line": 12
+      }
+     ],
+     "prior_claims": {
+      "line": 14,
+      "text": "none recorded"
+     },
+     "retro_authorization_request": null,
+     "status": {
+      "date": "2026-08-03",
+      "line": 17,
+      "text": "Adjudicated by payer: adverse determination (CARC CO-29)"
+     }
+    },
+    "criteria_skeleton": [
+     {
+      "evidence_candidates": [
+       {
+        "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Poli\u2026",
+        "file": "denial_letter.txt",
+        "line": 17,
+        "score": 13.995
+       },
+       {
+        "excerpt": "You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-01.",
+        "file": "denial_letter.txt",
+        "line": 20,
+        "score": 10.873
+       },
+       {
+        "excerpt": "A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-30.",
+        "file": "denial_letter.txt",
+        "line": 24,
+        "score": 9.115
+       }
+      ],
+      "policy_id": "MP-TF-001",
+      "requirement_text": "Claims must be submitted to Terravista Health within 90 days of the date of service. Submissions received after this filing period may be denied for failure to meet the timely filing requirement.",
+      "section": "2.1",
+      "status": null
+     },
+     {
+      "evidence_candidates": [
+       {
+        "excerpt": "2026-07-14 Clearinghouse acceptance (277CA): ACCEPTED",
+        "file": "claim_history.txt",
+        "line": 11,
+        "score": 11.907
+       },
+       {
+        "excerpt": "Reason code (CARC): CO-29 The time limit for filing has expired.",
+        "file": "denial_letter.txt",
+        "line": 15,
+        "score": 6.427
+       },
+       {
+        "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Poli\u2026",
+        "file": "denial_letter.txt",
+        "line": 17,
+        "score": 6.368
+       }
+      ],
+      "policy_id": "MP-TF-001",
+      "requirement_text": "Providers must retain proof of clearinghouse acceptance demonstrating that the claim was accepted within the applicable filing limit. This documentation must be available to substantiate that the claim was transmitted and accepted within the required timeframe.",
+      "section": "2.2",
+      "status": null
+     }
+    ],
+    "dates": {
+     "claim_submitted_date": "2026-07-14",
+     "dos": "2026-04-01",
+     "notice_date": "2026-08-03",
+     "payer_received_date": "2026-07-15"
+    },
+    "deadlines": {
+     "appeal": {
+      "basis": "notice date 2026-08-03 + 90 days",
+      "date": "2026-11-01",
+      "days_remaining": 7,
+      "open_on_review_date": true,
+      "stated_in_letter": "2026-11-01",
+      "window_days": 90
+     },
+     "corrected_claim": {
+      "basis": "notice date 2026-08-03 + 180 days",
+      "date": "2027-01-30",
+      "days_remaining": 97,
+      "open_on_review_date": true,
+      "stated_in_letter": "2027-01-30",
+      "window_days": 180
+     }
+    },
+    "documents_dated_after_dos": [],
+    "notes": [],
+    "policy": {
+     "applies_from": "2025-01-01",
+     "effective_date": "2026-03-15",
+     "policy_id": "MP-TF-001"
+    },
+    "timely_filing": {
+     "filing_deadline": "2026-06-30",
+     "first_accepted_date": "2026-07-14",
+     "limit_days": 90,
+     "limit_source": "MP-TF-001 7.2",
+     "payer_received_date": "2026-07-15",
+     "stated_in_letter": "2026-06-30",
+     "status": "after_limit",
+     "status_reason": "first accepted 2026-07-14 and payer received 2026-07-15 compared with filing deadline 2026-06-30"
+    }
+   },
+   "step": 4,
+   "tool": "assess_appealability"
+  }
+ ]
+}

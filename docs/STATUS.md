@@ -1,4 +1,45 @@
-# STATUS (2026-10-29)
+# STATUS (2026-10-30)
+
+## PHASE 3 (branch `phase3-skills`): the six agent skills (plain, offline Python)
+Nothing under `data/`, `data_gen/` or `eval/` was changed (`git diff main...` touches only `skills/`, `tests/test_skills.py`, `scripts/run_skill_chain.py`, `docs/`). No model is called and no key is used by any skill or test.
+The skills are tools; the model still supplies the judgment (criterion statuses, decision, evidence choice, prose). Full contract: [SKILLS_SPEC.md](SKILLS_SPEC.md).
+
+**Done**
+- `skills/common/`: path guard (refuses `..`, outside-root, symlink escapes, `truth.json` / `rubric.json` / `gold` / `attacks`, and a root that contains them), event log (stable JSONL schema, one event per call and per file read, denied accesses logged), JSON I/O with pydantic models, JSON-schema export and CLI (`python -m skills.<name> '<json>'`, sorted keys), text helpers, citation verifier, policy parser, BM25 implemented in-house (no ranking dependency; stdlib + pydantic only).
+- `parse_denial_eob`, `retrieve_payer_policy`, `pull_clinical_notes`, `assess_appealability` (facts only, criteria skeleton with evidence candidates, never a decision), `draft_deliverable` (validate decision.json / render skeleton / verify citations), `self_check` (deterministic checklist with severity and revision hints).
+- `scripts/run_skill_chain.py --case <id>` (stages a clean copy, runs the four read-only skills, prints each step's JSON, writes the events file); samples in `docs/samples/` (C-0005 and C-0030). SKILL.md stub per skill (format pending Hermes docs). [SKILLS_SPEC.md](SKILLS_SPEC.md) with schemas, examples, errors, events schema and a Hermes-registration TODO.
+
+**Verified (offline, `tests/test_skills.py`: 37 tests; whole suite 149 passed)** on a temp staging copy that holds only `task.md` + `docs/**` and the policy library (asserted free of truth/rubric/gold/attacks), compared with `truth.json` from the real data directory:
+- parse_denial_eob: 60 of 60 match truth on claim no., patient ID, DOS, CPT, ICD-10, CARC, RARC, billed and denied amounts, notice date, appeal-by and corrected-claim dates, window days, payer, review date; no cross-document inconsistencies.
+- retrieve_payer_policy: 60 of 60 correct policy first; 0 ties. Distractor near-misses surfaced with reasons: MP-IMG-012 in 10 cases, MP-PA-030 in 10, MP-TF-010 in 25 (superseded, filtered by date). Payer and date filters verified to run before ranking; an artificial duplicate policy produces an explicit tie.
+- assess_appealability: action deadline (by decision type), appeal deadline, days remaining, filing deadline and timely-filing status match truth for 60 of 60.
+- pull_clinical_notes: exact file sets for the 5 pilots; empty list plus reason for the other 55; text only when requested; date range, undated handling and per-file access logging tested.
+- self_check passes the 5 gold deliverables and flags each corruption: wrong deadline (and wrong `deadline_ok`, and a corrected-claim case using the appeal date), nonexistent policy section, missing enclosure (empty list and nonexistent file), invented quote, wrong claim number, appeal letter on a non-APPEAL decision, missing gaps, leftover placeholders, missing sections.
+- Path guard: truth.json, rubric.json, gold/, attacks/, `../`, absolute outside paths, symlink escape and a raw case folder are refused and logged; CLI error contract tested.
+- Leak test over all 60 cases: no decision name, category name, trap name or criterion status appears in any skill output.
+- Static test: skills contain no network, key or model-call code and import nothing from `data_gen/` or the answer-key side of `eval/` (they import only `eval/deliverable_schema.py`).
+
+**Not verified**
+- Nothing is registered with Hermes and nothing ran in the sandbox (needs the VM). The Python version and packages inside the sandbox image are unknown.
+- The skills have never been driven by the real agent model. `self_check` heuristics (required headings, appeal-letter detection, quote rule) were calibrated on the 5 gold deliverables and may flag legitimate model output; severities are errors for headings, so expect tuning.
+- Retrieval for cases whose letter names no policy title (categories with a deductible or duplicate-claim denial) relies on BM25 over the reason text. It is 60 of 60 today but is the most fragile path if policy wording changes.
+- Evidence candidates are keyword-ranked lines, not judgments; their usefulness to the model is untested.
+
+**Decisions needed from you**
+1. `action_deadline` cannot be fixed by a skill without the decision, so `assess_appealability` returns both deadlines plus a rule; `self_check` then checks the model's choice. OK?
+2. The criteria skeleton lists ALL `2.x` requirement sections of the retrieved policy (relevance to the case is a judgment). The model must choose which apply; `self_check` only warns when sections are missing from decision.json.
+3. Policy applicability uses the date written in the policy's version text ("applies to dates of service on or after ...") rather than the header effective date, which is what keeps cases with a date of service before the effective date working. It depends on that wording in the library.
+4. Skills import `eval/deliverable_schema.py`, so `eval/` (or at least that file) must be copied into the sandbox image.
+5. `parse_denial_eob` returns the patient name and member ID (letters need them) but not DOB, SSN or MRN.
+
+**Spec ambiguities (my choice in brackets)** timely-filing status vocabulary (`within_limit`, `accepted_within_limit_received_after`, `after_limit`); `action_deadline` for DO_NOT_APPEAL / ESCALATE_MISSING_DOCS is the appeal deadline (as in the schema rules); "evidence candidates" use a 3-line BM25 default; quoted text of 15+ characters in a deliverable must appear in a case document or policy (quotes of the model's own words are flagged); an appeal letter is detected by heading, "To: Appeals Unit" or "respectfully request ... overturn".
+
+**Pilot data problems found (recorded, not fixed):** none new. Note: the remit lists a blank modifier column for most lines, which `parse_denial_eob` reports as informational `blank_fields` entries (noise, not an error).
+
+**Reproduce:** `.venv/bin/pytest tests/test_skills.py`; `.venv/bin/python scripts/run_skill_chain.py --case C-0005`; `python -m skills.parse_denial_eob '{"case_root": "<staged case>", "policy_root": "<policy library>"}'`.
+
+---
+# EARLIER STATUS
 
 ## PHASE 2 (branch `phase2-rubrics`): evaluation layer for the 5 pilot cases
 Nothing under `truth.json`, agent-visible documents, the policy library or the generators was changed. The branch has two commits: the earlier uncommitted Phase 1 fixes (carried over from main) and the Phase 2 work.

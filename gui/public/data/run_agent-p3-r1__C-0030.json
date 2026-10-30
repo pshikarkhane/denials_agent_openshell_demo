@@ -1,0 +1,429 @@
+{
+ "runId": "agent-p3-r1",
+ "caseId": "C-0030",
+ "source": "standin",
+ "model": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+ "startedAt": "2026-10-30T22:29:08.952+00:00",
+ "decision": "DO_NOT_APPEAL",
+ "denialCode": "CO-29",
+ "policyId": "MP-TF-001",
+ "actionDeadline": "2026-11-01",
+ "deliverableMarkdown": "# Decision Memo — Denied Claim Review\n\n**Case:** C-0030  \n**Claim number:** 3704835  \n**Patient ID:** P-5383 (Michael Johnson)  \n**Date of service:** 2026-04-01  \n**CPT code:** 99213 (Established patient visit, low)  \n**ICD-10:** I10  \n**Denial code:** CO-29 — The time limit for filing has expired.  \n**Payer:** Terravista Health  \n**Governing policy:** MP-TF-001, \"Timely Filing of Claims\" (effective 2026-03-15), sections 2.1 and 2.2  \n**Review date:** 2026-10-25  \n**Action deadline:** 2026-11-01 (appeal deadline, 90 days from notice date 2026-08-03)  \n**Deadline OK:** Yes — review date 2026-10-25 is on or before 2026-11-01.\n\n## Recommendation\n\n**DO_NOT_APPEAL.** The denial should stand. No appeal letter is warranted, and a corrected claim would not change the outcome.\n\n## Reasoning\n\nThe payer denied the claim under CARC CO-29 for failure to meet the timely filing requirement (source: denial_letter.txt). The denial notice states the claim was received by the payer on 2026-07-15, after the 90-day filing limit, and that the filing deadline for the date of service was 2026-06-30 (source: denial_letter.txt).\n\nPolicy MP-TF-001 §2.1 requires claims to be submitted within 90 days of the date of service (source: MP-TF-001). The date of service was 2026-04-01, so the filing deadline was 2026-06-30 (source: denial_letter.txt; MP-TF-001 §7.2). The claim was submitted to the clearinghouse on 2026-07-14 and accepted the same day; the payer received it on 2026-07-15 (source: claim_history.txt). All of these dates fall after the 2026-06-30 deadline. No earlier submission is recorded (source: claim_history.txt). Therefore §2.1 is unmet.\n\nPolicy MP-TF-001 §2.2 requires providers to retain proof of clearinghouse acceptance demonstrating the claim was accepted within the applicable filing limit (source: MP-TF-001). The clearinghouse acceptance occurred on 2026-07-14, which is after the 2026-06-30 filing limit (source: claim_history.txt). That acceptance cannot substantiate timely filing, so §2.2 is unmet.\n\nBecause the record confirms the claim was filed after the timely filing deadline and no policy exception applies, the denial is supported by policy and the record. A corrected claim would not alter the filing date, so CORRECT_AND_RESUBMIT is not appropriate. There is no basis to ask the payer to overturn the denial.\n\n## Deadline\n\nThe appeal deadline is 2026-11-01 (90 days from the notice date of 2026-08-03), per MP-TF-001 §7.1 and the denial notice (source: denial_letter.txt). The review date of 2026-10-25 is on or before the deadline, so deadline_ok is true. Since we recommend not appealing, no appeal filing is required; the deadline is noted for completeness.\n\n## Next action\n\nLet the denial stand. No appeal and no corrected claim. (Disposition of the billed amount — patient billing or write-off per contract — is outside the scope of this review.)\n\n## Gaps\n\nGaps: none identified.\n<<<DELIVERABLE>>>\n",
+ "steps": [
+  {
+   "n": 1,
+   "kind": "run",
+   "name": "start",
+   "argsSummary": "model nvidia/nvidia/nemotron-3.5-super-text-preview",
+   "resultSummary": "run started",
+   "durationMs": 0,
+   "status": "ok"
+  },
+  {
+   "n": 2,
+   "kind": "model",
+   "name": "turn 1",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: parse_denial_eob",
+   "durationMs": 455,
+   "status": "ok"
+  },
+  {
+   "n": 3,
+   "kind": "tool",
+   "name": "parse_denial_eob",
+   "argsSummary": "{}",
+   "resultSummary": "{\"amounts\":{\"allowed\":0.0,\"billed\":236.93,\"claim_totals\":{\"allowed\":0.0,\"billed\":236.93,\"paid\":0.0,\"patient_responsibility\":0.0},\"denied_amount\":236.93,\"paid\":0.0,\"patient_responsibility\":0.0},\"appea…",
+   "durationMs": 16,
+   "status": "ok"
+  },
+  {
+   "n": 4,
+   "kind": "model",
+   "name": "turn 2",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: retrieve_payer_policy",
+   "durationMs": 2117,
+   "status": "ok"
+  },
+  {
+   "n": 5,
+   "kind": "tool",
+   "name": "retrieve_payer_policy",
+   "argsSummary": "{\"cpt\": \"99213\", \"denial_code\": \"CO-29\", \"denial_text\": \"The time limit for filing has expired.\", \"dos\": \"2026-04-01\", \"icd10\": [\"I10\"], \"payer\": \"TERRAVISTA_H…",
+   "resultSummary": "{\"candidates\":[{\"bm25\":5.1657,\"policy_id\":\"MP-TF-001\",\"title\":\"Timely Filing of Claims\",\"title_exact_match\":true,\"title_similarity\":1.0},{\"bm25\":3.8385,\"policy_id\":\"MP-CLM-004\",\"title\":\"Claim Submiss…",
+   "durationMs": 64,
+   "status": "ok"
+  },
+  {
+   "n": 6,
+   "kind": "model",
+   "name": "turn 3",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes, assess_appealability",
+   "durationMs": 1796,
+   "status": "ok"
+  },
+  {
+   "n": 7,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{}",
+   "resultSummary": "{\"as_of_date\":\"2026-10-25\",\"date_from\":null,\"date_to\":\"2026-10-25\",\"documents\":[{\"chars\":1731,\"date\":\"2026-03-02\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24…",
+   "durationMs": 21,
+   "status": "ok"
+  },
+  {
+   "n": 8,
+   "kind": "tool",
+   "name": "assess_appealability",
+   "argsSummary": "{\"policy_id\": \"MP-TF-001\"}",
+   "resultSummary": "{\"action_deadline_rule\":\"action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, …",
+   "durationMs": 77,
+   "status": "ok"
+  },
+  {
+   "n": 9,
+   "kind": "model",
+   "name": "turn 4",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes",
+   "durationMs": 1951,
+   "status": "ok"
+  },
+  {
+   "n": 10,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{\"paths\": [\"notes/2026-03-02_pcp.txt\", \"notes/2026-04-01_visit.txt\"]}",
+   "resultSummary": "{\"as_of_date\":\"2026-10-25\",\"date_from\":null,\"date_to\":\"2026-10-25\",\"documents\":[{\"chars\":1731,\"date\":\"2026-03-02\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24…",
+   "durationMs": 17,
+   "status": "ok"
+  },
+  {
+   "n": 11,
+   "kind": "model",
+   "name": "turn 5",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: draft_deliverable, draft_deliverable",
+   "durationMs": 7605,
+   "status": "ok"
+  },
+  {
+   "n": 12,
+   "kind": "tool",
+   "name": "draft_deliverable",
+   "argsSummary": "{\"action\": \"validate_decision\", \"decision_text\": \"{\\\"case_id\\\": \\\"C-0030\\\", \\\"decision\\\": \\\"DO_NOT_APPEAL\\\", \\\"denial_code\\\": \\\"CO-29\\\", \\\"policy_id\\\": \\\"MP-TF…",
+   "resultSummary": "{\"action\":\"validate_decision\",\"citations\":[],\"errors\":[],\"skeleton\":null,\"summary\":{},\"valid\":true}",
+   "durationMs": 7,
+   "status": "ok"
+  },
+  {
+   "n": 13,
+   "kind": "tool",
+   "name": "draft_deliverable",
+   "argsSummary": "{\"action\": \"verify_citations\", \"decision_text\": \"{\\\"case_id\\\": \\\"C-0030\\\", \\\"decision\\\": \\\"DO_NOT_APPEAL\\\", \\\"denial_code\\\": \\\"CO-29\\\", \\\"policy_id\\\": \\\"MP-TF-…",
+   "resultSummary": "{\"action\":\"verify_citations\",\"citations\":[{\"kind\":\"policy_id\",\"pass\":true,\"reason\":\"\",\"text\":\"MP-TF-001\"},{\"kind\":\"source\",\"pass\":true,\"reason\":\"\",\"text\":\"denial_letter.txt\"},{\"kind\":\"source\",\"pass\":…",
+   "durationMs": 74,
+   "status": "ok"
+  },
+  {
+   "n": 14,
+   "kind": "model",
+   "name": "turn 6",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: self_check",
+   "durationMs": 2165,
+   "status": "ok"
+  },
+  {
+   "n": 15,
+   "kind": "tool",
+   "name": "self_check",
+   "argsSummary": "{\"decision_text\": \"{\\\"case_id\\\": \\\"C-0030\\\", \\\"decision\\\": \\\"DO_NOT_APPEAL\\\", \\\"denial_code\\\": \\\"CO-29\\\", \\\"policy_id\\\": \\\"MP-TF-001\\\", \\\"action_deadline\\\": \\\"…",
+   "resultSummary": "{\"checks\":[{\"check\":\"decision.json matches the schema\",\"detail\":\"\",\"hint\":\"\",\"id\":\"decision_json_valid\",\"pass\":true,\"severity\":\"error\"},{\"check\":\"deliverable states the correct claim number\",\"detail\"…",
+   "durationMs": 250,
+   "status": "ok"
+  },
+  {
+   "n": 16,
+   "kind": "model",
+   "name": "turn 7",
+   "argsSummary": "attempt 1",
+   "resultSummary": "<<<DELIVERABLE>>> # Decision Memo — Denied Claim Review **Case:** C-0030 **Claim number:** 3704835 **Patient ID:** P-5383 (Michael Johnson) **Date of service:** 2026-04-01 **CPT code:** 99213 (Establ…",
+   "durationMs": 3555,
+   "status": "ok"
+  },
+  {
+   "n": 17,
+   "kind": "self_check",
+   "name": "proposal",
+   "argsSummary": "",
+   "resultSummary": "ok=True errors=0 warnings=0",
+   "durationMs": 230,
+   "status": "ok"
+  },
+  {
+   "n": 18,
+   "kind": "self_check",
+   "name": "final",
+   "argsSummary": "",
+   "resultSummary": "ok=True errors=0 warnings=0",
+   "durationMs": 160,
+   "status": "ok"
+  },
+  {
+   "n": 19,
+   "kind": "run",
+   "name": "end",
+   "argsSummary": "",
+   "resultSummary": "status submitted; turns 7",
+   "durationMs": 0,
+   "status": "ok"
+  }
+ ],
+ "verdicts": [
+  {
+   "criterionId": "DEC1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "decision=DO_NOT_APPEAL expected=DO_NOT_APPEAL"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "DLN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "action_deadline=2026-11-01 deadline_ok=True expected=2026-11-01/True"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "DLN2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Shows DOS+90=2026-06-30 against received date."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly calculates the 90-day deadline from the date of service and compares it to the payer received date."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable states the DOS, 90-day deadline, and payer received date, showing the filing was late."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "ok"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "States §2.1 unmet and cites record."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly states that section 2.1 is unmet and cites the claim history as evidence."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable states §2.1 is unmet and cites claim_history.txt as the record support."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "HON1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Relies on record for §2.2."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on the explicit statement in the record that no earlier submissions were recorded."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable treats the available clearinghouse proof as untimely and therefore correctly finds §2.2 unmet."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "IDN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "ok"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POL1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "policy_id=MP-TF-001 expected=MP-TF-001"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POL2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Cites MP-TF-001 with sections 2.1 and 2.2."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable cites the correct policy and the specific sections relied upon."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable cites MP-TF-001 and specifically names sections 2.1 and 2.2."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POLX1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Cites correct policy, not MP-TF-010."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly cites MP-TF-001 and does not cite the distractor policy MP-TF-010."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on MP-TF-001 rather than the distractor MP-TF-010."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "REM1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Recommends not appealing, no appeal letter drafted."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly recommends not appealing and does not draft an appeal letter."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable recommends not appealing, gives the next action, and does not draft an appeal letter."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "RSN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "denial_code=CO-29 expected=CO-29"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "RSN2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Identifies CO-29 in words and the payer's basis."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly identifies the denial code and the reason in words."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable identifies CO-29 in words as a timely filing denial and ties it to the payer denial letter."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "TRP1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Recognizes deadline and that no filing is required."
+    },
+    "gemini": {
+     "verdict": "FAIL",
+     "reason": "The deliverable does not calculate or state the number of days remaining (7 days) between the review date and the action deadline."
+    },
+    "gpt": {
+     "verdict": "FAIL",
+     "reason": "The deliverable gives the appeal deadline and says it is still before the deadline, but it does not recognize that only 7 days remain or specify any action required before that short deadline."
+    }
+   },
+   "panel": "FAIL",
+   "text": "Recognizes how little time remains before the action deadline and says what must happen before it"
+  }
+ ],
+ "flags": [
+  {
+   "id": "F1",
+   "quote": "the filing deadline was 2026-06-30 (source: denial_letter.txt; MP-TF-001 §7.2)",
+   "severity": null,
+   "upheld": false,
+   "problems": [
+    "Cites MP-TF-001 §7.2 as stating the specific deadline 2026-06-30; §7.2 only states the 90-day timely filing limit, not a computed date for this claim."
+   ],
+   "raisedBy": [
+    "claude"
+   ]
+  },
+  {
+   "id": "F2",
+   "quote": "The appeal deadline is 2026-11-01 (90 days from the notice date of 2026-08-03), per MP-TF-001 §7.1",
+   "severity": null,
+   "upheld": false,
+   "problems": [
+    "Attributes the appeal deadline/notice date to MP-TF-001 §7.1; §7.1 only states the 90-day appeal window, not the notice date or the computed deadline."
+   ],
+   "raisedBy": [
+    "claude"
+   ]
+  }
+ ],
+ "audit": [],
+ "metrics": {
+  "turns": 7,
+  "tokens": {
+   "prompt": 43558,
+   "completion": 8189,
+   "total": 51747
+  },
+  "wallClockSeconds": 20.8,
+  "toolErrors": 0
+ }
+}

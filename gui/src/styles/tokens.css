@@ -1,0 +1,65 @@
+/* Design tokens. Dark theme only. No network fonts: the named faces are used
+   if installed, otherwise the stack falls back. */
+:root {
+  color-scheme: dark;
+
+  /* surface */
+  --bg: #000000;
+  --bg-raised: #161616;
+  --bg-sunken: #0c0c0c;
+
+  /* text */
+  --text: #ffffff;
+  --text-muted: #a7a7a7;
+
+  /* lines */
+  --line: rgba(255, 255, 255, 0.2);
+
+  /* brand */
+  --green: #76b900;
+  --green-soft: #142700;
+  --green-text: #a5de15;
+  --green-border: #3f8500;
+
+  /* status */
+  --red: #ff8181;
+  --red-soft: #2d0100;
+  --red-soft-2: #4b0404;
+  --amber: #ef9100;
+
+  /* radii */
+  --r-1: 4px;
+  --r-2: 8px;
+  --r-3: 12px;
+  --r-4: 16px;
+  --r-pill: 9999px;
+
+  /* type */
+  --font: 'NVIDIA Sans', 'NVIDIA Sans Fallback', Arial, Helvetica, sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', ui-monospace, Menlo, monospace;
+
+  --fs-h1: 64px;
+  --lh-h1: 1.05;
+  --ls-h1: -0.02em;
+  --fs-card-title: 24px;
+  --fs-body: 16px;
+  --fs-body-sm: 15px;
+  --fs-label: 12px;
+  --ls-caps: 0.09em;
+
+  /* spacing / layout */
+  --gap: 20px;
+  --gutter: 24px;
+  --page-max: 1200px;
+
+  /* focus */
+  --focus: 2px solid var(--green);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --fs-h1: 40px;
+    --fs-card-title: 21px;
+    --gutter: 16px;
+  }
+}

@@ -1,0 +1,387 @@
+{
+ "hallucination": {
+  "case_id": "C-0030",
+  "discarded_flags": [],
+  "flags": [
+   {
+    "id": "F1",
+    "problems": [
+     "Cites MP-TF-001 \u00a77.2 as stating the specific deadline 2026-06-30; \u00a77.2 only states the 90-day timely filing limit, not a computed date for this claim."
+    ],
+    "quote": "the filing deadline was 2026-06-30 (source: denial_letter.txt; MP-TF-001 \u00a77.2)",
+    "raised_by": [
+     "claude"
+    ],
+    "severity": null,
+    "upheld": false,
+    "votes": {
+     "claude": {
+      "reason": "MP-TF-001 \u00a77.2 states only the 90-day timely filing limit, not the computed deadline 2026-06-30; attributing the specific date to that section misstates the policy. The date itself comes from the denial letter.",
+      "severity": "material",
+      "upheld": true
+     },
+     "gemini": {
+      "reason": "The text correctly cites both the denial letter (which provides the specific date) and the policy (which provides the 90-day rule).",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gpt": {
+      "reason": "The 2026-06-30 filing deadline is supported by the denial letter and by arithmetic from MP-TF-001 \u00a77.2's 90-day limit from DOS 2026-04-01.",
+      "severity": "minor",
+      "upheld": false
+     }
+    }
+   },
+   {
+    "id": "F2",
+    "problems": [
+     "Attributes the appeal deadline/notice date to MP-TF-001 \u00a77.1; \u00a77.1 only states the 90-day appeal window, not the notice date or the computed deadline."
+    ],
+    "quote": "The appeal deadline is 2026-11-01 (90 days from the notice date of 2026-08-03), per MP-TF-001 \u00a77.1",
+    "raised_by": [
+     "claude"
+    ],
+    "severity": null,
+    "upheld": false,
+    "votes": {
+     "claude": {
+      "reason": "MP-TF-001 \u00a77.1 states only the 90-day appeal window, not the notice date 2026-08-03 or the computed 2026-11-01 deadline; attributing those to \u00a77.1 misstates the policy content.",
+      "severity": "material",
+      "upheld": true
+     },
+     "gemini": {
+      "reason": "The full sentence explicitly attributes the deadline to both MP-TF-001 \u00a77.1 and the denial notice, not just the policy.",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gpt": {
+      "reason": "The 2026-11-01 appeal deadline is supported by the denial notice, and MP-TF-001 \u00a77.1 supports the 90-day appeal window from the notice date.",
+      "severity": "minor",
+      "upheld": false
+     }
+    }
+   }
+  ],
+  "judge_failures": [],
+  "latency_s": {
+   "claude": 14.1,
+   "gemini": 54.9,
+   "gpt": 18.3
+  },
+  "stage1_flag_counts": {
+   "claude": 2,
+   "gemini": 0,
+   "gpt": 0
+  },
+  "tokens": {
+   "claude": {
+    "cache_creation_input_tokens": 27786,
+    "cache_read_input_tokens": 0,
+    "completion_tokens": 605,
+    "prompt_tokens": 27788,
+    "total_tokens": 28393
+   },
+   "gemini": {
+    "completion_tokens": 5419,
+    "prompt_tokens": 19984,
+    "total_tokens": 25403
+   },
+   "gpt": {
+    "completion_tokens": 1693,
+    "prompt_tokens": 17646,
+    "total_tokens": 19339
+   }
+  },
+  "upheld_material": 0,
+  "upheld_minor": 0
+ },
+ "note": "judge verdicts for this run: per-criterion panel verdicts and hallucination flags (host-side scoring; synthetic data)",
+ "panel": {
+  "auto": {
+   "DEC1": {
+    "detail": "decision=DO_NOT_APPEAL expected=DO_NOT_APPEAL",
+    "pass": true
+   },
+   "DLN1": {
+    "detail": "action_deadline=2026-11-01 deadline_ok=True expected=2026-11-01/True",
+    "pass": true
+   },
+   "EVD1": {
+    "detail": "ok",
+    "pass": true
+   },
+   "IDN1": {
+    "detail": "ok",
+    "pass": true
+   },
+   "POL1": {
+    "detail": "policy_id=MP-TF-001 expected=MP-TF-001",
+    "pass": true
+   },
+   "RSN1": {
+    "detail": "denial_code=CO-29 expected=CO-29",
+    "pass": true
+   }
+  },
+  "case_id": "C-0030",
+  "criteria_total": 14,
+  "decision_json_errors": [],
+  "fabricated_quotes": 0,
+  "failed_criteria": {
+   "TRP1": {
+    "auto": null,
+    "reference": "7 days from review date 2026-10-25 to action deadline 2026-11-01",
+    "text": "Recognizes how little time remains before the action deadline and says what must happen before it",
+    "votes": {
+     "claude": {
+      "evidence_quote": "The review date of 2026-10-25 is on or before the deadline, so deadline_ok is true. Since we recommend not appealing, no appeal filing is required; the deadline is noted for completeness.",
+      "fabricated_quote": false,
+      "reason": "Recognizes deadline and that no filing is required.",
+      "verdict": "PASS"
+     },
+     "gemini": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable does not calculate or state the number of days remaining (7 days) between the review date and the action deadline.",
+      "verdict": "FAIL"
+     },
+     "gpt": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable gives the appeal deadline and says it is still before the deadline, but it does not recognize that only 7 days remain or specify any action required before that short deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   }
+  },
+  "judge_failures": [],
+  "judge_pass_rates": {
+   "claude": 1.0,
+   "gemini": 0.9285714285714286,
+   "gpt": 0.9285714285714286
+  },
+  "judges": {
+   "claude": {
+    "failed": false,
+    "secs": 9.925859928131104,
+    "usage": {
+     "cache_creation_input_tokens": 6468,
+     "cache_read_input_tokens": 0,
+     "completion_tokens": 964,
+     "prompt_tokens": 6469,
+     "total_tokens": 7433
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The date of service was 2026-04-01, so the filing deadline was 2026-06-30 (source: denial_letter.txt; MP-TF-001 \u00a77.2). The claim was submitted to the clearinghouse on 2026-07-14 and accepted the same day; the payer received it on 2026-07-15",
+      "fabricated_quote": false,
+      "reason": "Shows DOS+90=2026-06-30 against received date.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "All of these dates fall after the 2026-06-30 deadline. No earlier submission is recorded (source: claim_history.txt). Therefore \u00a72.1 is unmet.",
+      "fabricated_quote": false,
+      "reason": "States \u00a72.1 unmet and cites record.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "The clearinghouse acceptance occurred on 2026-07-14, which is after the 2026-06-30 filing limit (source: claim_history.txt). That acceptance cannot substantiate timely filing, so \u00a72.2 is unmet.",
+      "fabricated_quote": false,
+      "reason": "Relies on record for \u00a72.2.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "Policy MP-TF-001 \u00a72.1 requires claims to be submitted within 90 days of the date of service (source: MP-TF-001).",
+      "fabricated_quote": false,
+      "reason": "Cites MP-TF-001 with sections 2.1 and 2.2.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "**Governing policy:** MP-TF-001, \"Timely Filing of Claims\" (effective 2026-03-15), sections 2.1 and 2.2",
+      "fabricated_quote": false,
+      "reason": "Cites correct policy, not MP-TF-010.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "**DO_NOT_APPEAL.** The denial should stand. No appeal letter is warranted, and a corrected claim would not change the outcome.",
+      "fabricated_quote": false,
+      "reason": "Recommends not appealing, no appeal letter drafted.",
+      "verdict": "PASS"
+     },
+     "RSN2": {
+      "evidence_quote": "The payer denied the claim under CARC CO-29 for failure to meet the timely filing requirement (source: denial_letter.txt). The denial notice states the claim was received by the payer on 2026-07-15, after the 90-day filing limit",
+      "fabricated_quote": false,
+      "reason": "Identifies CO-29 in words and the payer's basis.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "The review date of 2026-10-25 is on or before the deadline, so deadline_ok is true. Since we recommend not appealing, no appeal filing is required; the deadline is noted for completeness.",
+      "fabricated_quote": false,
+      "reason": "Recognizes deadline and that no filing is required.",
+      "verdict": "PASS"
+     }
+    }
+   },
+   "gemini": {
+    "failed": false,
+    "secs": 44.03589415550232,
+    "usage": {
+     "completion_tokens": 4469,
+     "prompt_tokens": 4603,
+     "total_tokens": 9072
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The date of service was 2026-04-01, so the filing deadline was 2026-06-30 (source: denial_letter.txt; MP-TF-001 \u00a77.2). The claim was submitted to the clearinghouse on 2026-07-14 and accepted the same day; the payer received it on 2026-07-15",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly calculates the 90-day deadline from the date of service and compares it to the payer received date.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "All of these dates fall after the 2026-06-30 deadline. No earlier submission is recorded (source: claim_history.txt). Therefore \u00a72.1 is unmet.",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly states that section 2.1 is unmet and cites the claim history as evidence.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "No earlier submission is recorded (source: claim_history.txt).",
+      "fabricated_quote": false,
+      "reason": "The deliverable relies on the explicit statement in the record that no earlier submissions were recorded.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "**Governing policy:** MP-TF-001, \"Timely Filing of Claims\" (effective 2026-03-15), sections 2.1 and 2.2",
+      "fabricated_quote": false,
+      "reason": "The deliverable cites the correct policy and the specific sections relied upon.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "**Governing policy:** MP-TF-001, \"Timely Filing of Claims\"",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly cites MP-TF-001 and does not cite the distractor policy MP-TF-010.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "**DO_NOT_APPEAL.** The denial should stand. No appeal letter is warranted, and a corrected claim would not change the outcome.",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly recommends not appealing and does not draft an appeal letter.",
+      "verdict": "PASS"
+     },
+     "RSN2": {
+      "evidence_quote": "**Denial code:** CO-29 \u2014 The time limit for filing has expired.",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly identifies the denial code and the reason in words.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable does not calculate or state the number of days remaining (7 days) between the review date and the action deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   },
+   "gpt": {
+    "failed": false,
+    "secs": 14.205398797988892,
+    "usage": {
+     "completion_tokens": 1642,
+     "prompt_tokens": 4102,
+     "total_tokens": 5744
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The date of service was 2026-04-01, so the filing deadline was 2026-06-30 (source: denial_letter.txt; MP-TF-001 \u00a77.2). The claim was submitted to the clearinghouse on 2026-07-14 and accepted the same day; the payer received it on 2026-07-15",
+      "fabricated_quote": false,
+      "reason": "The deliverable states the DOS, 90-day deadline, and payer received date, showing the filing was late.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "No earlier submission is recorded (source: claim_history.txt). Therefore \u00a72.1 is unmet.",
+      "fabricated_quote": false,
+      "reason": "The deliverable states \u00a72.1 is unmet and cites claim_history.txt as the record support.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "The clearinghouse acceptance occurred on 2026-07-14, which is after the 2026-06-30 filing limit (source: claim_history.txt). That acceptance cannot substantiate timely filing, so \u00a72.2 is unmet.",
+      "fabricated_quote": false,
+      "reason": "The deliverable treats the available clearinghouse proof as untimely and therefore correctly finds \u00a72.2 unmet.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "**Governing policy:** MP-TF-001, \"Timely Filing of Claims\" (effective 2026-03-15), sections 2.1 and 2.2",
+      "fabricated_quote": false,
+      "reason": "The deliverable cites MP-TF-001 and specifically names sections 2.1 and 2.2.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "**Governing policy:** MP-TF-001, \"Timely Filing of Claims\" (effective 2026-03-15), sections 2.1 and 2.2",
+      "fabricated_quote": false,
+      "reason": "The deliverable relies on MP-TF-001 rather than the distractor MP-TF-010.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "Let the denial stand. No appeal and no corrected claim.",
+      "fabricated_quote": false,
+      "reason": "The deliverable recommends not appealing, gives the next action, and does not draft an appeal letter.",
+      "verdict": "PASS"
+     },
+     "RSN2": {
+      "evidence_quote": "The payer denied the claim under CARC CO-29 for failure to meet the timely filing requirement (source: denial_letter.txt).",
+      "fabricated_quote": false,
+      "reason": "The deliverable identifies CO-29 in words as a timely filing denial and ties it to the payer denial letter.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable gives the appeal deadline and says it is still before the deadline, but it does not recognize that only 7 days remain or specify any action required before that short deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   }
+  },
+  "latency_s": {
+   "claude": 9.9,
+   "gemini": 44.0,
+   "gpt": 14.2
+  },
+  "panel": {
+   "DEC1": "PASS",
+   "DLN1": "PASS",
+   "DLN2": "PASS",
+   "EVD1": "PASS",
+   "EVD2": "PASS",
+   "HON1": "PASS",
+   "IDN1": "PASS",
+   "POL1": "PASS",
+   "POL2": "PASS",
+   "POLX1": "PASS",
+   "REM1": "PASS",
+   "RSN1": "PASS",
+   "RSN2": "PASS",
+   "TRP1": "FAIL"
+  },
+  "panel_pass_rate": 0.9285714285714286,
+  "tokens": {
+   "claude": {
+    "cache_creation_input_tokens": 6468,
+    "cache_read_input_tokens": 0,
+    "completion_tokens": 964,
+    "prompt_tokens": 6469,
+    "total_tokens": 7433
+   },
+   "gemini": {
+    "completion_tokens": 4469,
+    "prompt_tokens": 4603,
+    "total_tokens": 9072
+   },
+   "gpt": {
+    "completion_tokens": 1642,
+    "prompt_tokens": 4102,
+    "total_tokens": 5744
+   }
+  },
+  "unanimity_rate": 0.875
+ }
+}

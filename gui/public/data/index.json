@@ -1,0 +1,31 @@
+{
+ "mode": "cached",
+ "runs": [
+  {
+   "runId": "agent-p3-r1",
+   "caseId": "C-0005",
+   "source": "standin",
+   "model": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+   "startedAt": "2026-10-30T22:27:47.840+00:00",
+   "decision": "APPEAL",
+   "denialCode": "CO-50",
+   "policyId": "MP-IMG-007",
+   "stepCount": 29,
+   "auditCount": 0,
+   "file": "run_agent-p3-r1__C-0005.json"
+  },
+  {
+   "runId": "agent-p3-r1",
+   "caseId": "C-0030",
+   "source": "standin",
+   "model": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+   "startedAt": "2026-10-30T22:29:08.952+00:00",
+   "decision": "DO_NOT_APPEAL",
+   "denialCode": "CO-29",
+   "policyId": "MP-TF-001",
+   "stepCount": 19,
+   "auditCount": 0,
+   "file": "run_agent-p3-r1__C-0030.json"
+  }
+ ]
+}

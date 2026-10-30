@@ -1,0 +1,551 @@
+{
+ "runId": "agent-p3-r1",
+ "caseId": "C-0005",
+ "source": "standin",
+ "model": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+ "startedAt": "2026-10-30T22:27:47.840+00:00",
+ "decision": "APPEAL",
+ "denialCode": "CO-50",
+ "policyId": "MP-IMG-007",
+ "actionDeadline": "2027-01-13",
+ "deliverableMarkdown": "# Appeal Letter: Claim 6268311\n\n**To:** Appeals Unit, P.O. Box 5100, Meridian City, ST 00001  \n**From:** Revenue Cycle Appeals, Gutierrez Medical Group  \n**Review date:** 2026-08-04\n\n## Claim identification\n\n- Claim number: 6268311 (source: denial_letter.txt)\n- Patient ID: P-1862 (source: denial_letter.txt)\n- Date of service: 2026-06-18 (source: eob_835.txt)\n- Service: CPT 72148 MRI lumbar spine without contrast (source: denial_letter.txt)\n- Payer: Meridian Community Health Plan (MERIDIAN_COMM) (source: eob_835.txt)\n- Denial code: CO-50 / RARC N386 (source: denial_letter.txt)\n\n## Denial reason\n\nThe clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity). (source: denial_letter.txt)\n\n## Decision\n\nAPPEAL — the clinical record substantiates all three medical-necessity criteria in policy MP-IMG-007, so the denial should be overturned.\n\n## Reasoning\n\nPolicy MP-IMG-007 (effective 2026-04-15, applies to this date of service) requires three criteria for lumbar spine MRI medical necessity:\n\n**Section 2.1(a) — at least 6 weeks of conservative therapy.** The primary care visit note of 2026-03-23 documents that conservative management was begun (NSAIDs, home exercise program, physical therapy referral) (source: notes/2026-03-23_pcp.txt). The physical therapy attendance log documents 21 PT visits from 2026-03-23 through 2026-06-04, a treatment period of 73 days (approximately 10 weeks) (source: supporting/pt_log.txt). The orthopedic consultation note of 2026-06-04 confirms conservative management failed to provide adequate relief and that an MRI was ordered (source: notes/2026-06-04_ortho.txt). Status: met.\n\n**Section 2.1(b) — a neurological deficit or recognized red flag finding.** The orthopedic consultation note of 2026-06-04 documents a positive straight leg raise at 40 degrees, left leg paresthesias, and mildly reduced left ankle dorsiflexion strength (source: notes/2026-06-04_ortho.txt). These are documented neurological deficits. Status: met.\n\n**Section 2.1(c) — no prior lumbar imaging within the preceding 12 months.** The orthopedic consultation note of 2026-06-04 states: \"Imaging history: No prior lumbar imaging on file.\" (source: notes/2026-06-04_ortho.txt). Status: met.\n\nThe denial stated that the submitted clinical information did not demonstrate medical necessity, but the record on file establishes all three criteria. The claim was timely filed: the payer received it on 2026-06-26 (source: denial_letter.txt), and policy MP-IMG-007 section 7.2 sets a 180-day timely-filing limit (source: MP-IMG-007.txt). No corrected claim is needed because the claim data are not defective — the issue is medical necessity documentation, which the record supports.\n\n## Remedy requested\n\nWe request that the Appeals Unit overturn denial CO-50 for claim 6268311, reprocess the claim, and pay the billed amount of $2,052.88 for CPT 72148 (MRI lumbar spine without contrast) performed on 2026-06-18 for patient P-1862.\n\n## Policy criteria and evidence\n\nPolicy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (source: MP-IMG-007.txt)\n\n- Section 2.1(a): met — evidence: notes/2026-03-23_pcp.txt, supporting/pt_log.txt, notes/2026-06-04_ortho.txt\n- Section 2.1(b): met — evidence: notes/2026-06-04_ortho.txt\n- Section 2.1(c): met — evidence: notes/2026-06-04_ortho.txt\n\n## Deadline\n\n- Review date: 2026-08-04; notice date: 2026-07-17 (source: denial_letter.txt)\n- Appeal deadline: 2027-01-13 (180 days from the notice date) (source: denial_letter.txt)\n- Corrected-claim deadline: 2027-07-17 (365 days from the notice date) (source: denial_letter.txt)\n- The appeal deadline governs this action and is still open (review date 2026-08-04 is on or before 2027-01-13).\n\n## Enclosures\n\n- notes/2026-03-23_pcp.txt\n- notes/2026-04-13_pcp_followup.txt\n- notes/2026-06-04_ortho.txt\n- supporting/pt_log.txt\n\n## Gaps\n\nGaps: none identified.\n<<<DELIVERABLE>>>\n",
+ "steps": [
+  {
+   "n": 1,
+   "kind": "run",
+   "name": "start",
+   "argsSummary": "model nvidia/nvidia/nemotron-3.5-super-text-preview",
+   "resultSummary": "run started",
+   "durationMs": 0,
+   "status": "ok"
+  },
+  {
+   "n": 2,
+   "kind": "model",
+   "name": "turn 1",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: parse_denial_eob",
+   "durationMs": 645,
+   "status": "ok"
+  },
+  {
+   "n": 3,
+   "kind": "tool",
+   "name": "parse_denial_eob",
+   "argsSummary": "{}",
+   "resultSummary": "{\"amounts\":{\"allowed\":0.0,\"billed\":2052.88,\"claim_totals\":{\"allowed\":0.0,\"billed\":2052.88,\"paid\":0.0,\"patient_responsibility\":0.0},\"denied_amount\":2052.88,\"paid\":0.0,\"patient_responsibility\":0.0},\"ap…",
+   "durationMs": 17,
+   "status": "ok"
+  },
+  {
+   "n": 4,
+   "kind": "model",
+   "name": "turn 2",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: retrieve_payer_policy",
+   "durationMs": 1590,
+   "status": "ok"
+  },
+  {
+   "n": 5,
+   "kind": "tool",
+   "name": "retrieve_payer_policy",
+   "argsSummary": "{\"cpt\": \"72148\", \"denial_code\": \"CO-50\", \"denial_text\": \"The service was not deemed medically necessary by the plan.\", \"dos\": \"2026-06-18\", \"icd10\": [\"M51.26\"]…",
+   "resultSummary": "{\"candidates\":[{\"bm25\":17.7565,\"policy_id\":\"MP-IMG-007\",\"title\":\"Advanced Imaging: Lumbar Spine Mri Medical Necessity\",\"title_exact_match\":true,\"title_similarity\":1.0},{\"bm25\":14.9501,\"policy_id\":\"MP…",
+   "durationMs": 44,
+   "status": "ok"
+  },
+  {
+   "n": 6,
+   "kind": "model",
+   "name": "turn 3",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes",
+   "durationMs": 645,
+   "status": "ok"
+  },
+  {
+   "n": 7,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{}",
+   "resultSummary": "{\"as_of_date\":\"2026-08-04\",\"date_from\":null,\"date_to\":\"2026-08-04\",\"documents\":[{\"chars\":1730,\"date\":\"2026-03-23\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24…",
+   "durationMs": 30,
+   "status": "ok"
+  },
+  {
+   "n": 8,
+   "kind": "model",
+   "name": "turn 4",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes",
+   "durationMs": 899,
+   "status": "ok"
+  },
+  {
+   "n": 9,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{\"paths\": [\"notes/2026-03-23_pcp.txt\", \"notes/2026-04-13_pcp_followup.txt\", \"notes/2026-06-04_ortho.txt\", \"supporting/pt_log.txt\"]}",
+   "resultSummary": "{\"as_of_date\":\"2026-08-04\",\"date_from\":null,\"date_to\":\"2026-08-04\",\"documents\":[{\"chars\":1730,\"date\":\"2026-03-23\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24…",
+   "durationMs": 29,
+   "status": "ok"
+  },
+  {
+   "n": 10,
+   "kind": "model",
+   "name": "turn 5",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: assess_appealability",
+   "durationMs": 3176,
+   "status": "ok"
+  },
+  {
+   "n": 11,
+   "kind": "tool",
+   "name": "assess_appealability",
+   "argsSummary": "{\"policy_id\": \"MP-IMG-007\"}",
+   "resultSummary": "{\"action_deadline_rule\":\"action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, …",
+   "durationMs": 79,
+   "status": "ok"
+  },
+  {
+   "n": 12,
+   "kind": "model",
+   "name": "turn 6",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: draft_deliverable",
+   "durationMs": 9401,
+   "status": "ok"
+  },
+  {
+   "n": 13,
+   "kind": "tool",
+   "name": "draft_deliverable",
+   "argsSummary": "{\"action\": \"render_skeleton\", \"kind\": \"letter\"}",
+   "resultSummary": "{\"action\":\"render_skeleton\",\"citations\":[],\"errors\":[],\"skeleton\":\"# Appeal Letter: Claim 6268311\\n\\n**To:** Appeals Unit, P.O. Box 5100, Meridian City, ST 00001\\n**From:** <<FILL: provider organizat…",
+   "durationMs": 157,
+   "status": "ok"
+  },
+  {
+   "n": 14,
+   "kind": "model",
+   "name": "turn 7",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: draft_deliverable",
+   "durationMs": 5590,
+   "status": "ok"
+  },
+  {
+   "n": 15,
+   "kind": "tool",
+   "name": "draft_deliverable",
+   "argsSummary": "{\"action\": \"validate_decision\", \"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"acti…",
+   "resultSummary": "{\"action\":\"validate_decision\",\"citations\":[],\"errors\":[],\"skeleton\":null,\"summary\":{},\"valid\":true}",
+   "durationMs": 2,
+   "status": "ok"
+  },
+  {
+   "n": 16,
+   "kind": "model",
+   "name": "turn 8",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: draft_deliverable",
+   "durationMs": 2868,
+   "status": "ok"
+  },
+  {
+   "n": 17,
+   "kind": "tool",
+   "name": "draft_deliverable",
+   "argsSummary": "{\"action\": \"verify_citations\", \"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"actio…",
+   "resultSummary": "{\"action\":\"verify_citations\",\"citations\":[{\"kind\":\"policy_id\",\"pass\":true,\"reason\":\"\",\"text\":\"MP-IMG-007\"},{\"kind\":\"source\",\"pass\":true,\"reason\":\"\",\"text\":\"denial_letter.txt\"},{\"kind\":\"source\",\"pass\"…",
+   "durationMs": 60,
+   "status": "ok"
+  },
+  {
+   "n": 18,
+   "kind": "model",
+   "name": "turn 9",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes",
+   "durationMs": 2124,
+   "status": "ok"
+  },
+  {
+   "n": 19,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{\"paths\": [\"denial_letter.txt\", \"eob_835.txt\"]}",
+   "resultSummary": "{\"error\":{\"code\":\"not_found\",\"message\":\"'denial_letter.txt' is not a clinical note or supporting document of this case\"}}",
+   "durationMs": 14,
+   "status": "error"
+  },
+  {
+   "n": 20,
+   "kind": "model",
+   "name": "turn 10",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes",
+   "durationMs": 1150,
+   "status": "ok"
+  },
+  {
+   "n": 21,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{\"include_undated\": true}",
+   "resultSummary": "{\"as_of_date\":\"2026-08-04\",\"date_from\":null,\"date_to\":\"2026-08-04\",\"documents\":[{\"chars\":1730,\"date\":\"2026-03-23\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24…",
+   "durationMs": 31,
+   "status": "ok"
+  },
+  {
+   "n": 22,
+   "kind": "model",
+   "name": "turn 11",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: draft_deliverable",
+   "durationMs": 5304,
+   "status": "ok"
+  },
+  {
+   "n": 23,
+   "kind": "tool",
+   "name": "draft_deliverable",
+   "argsSummary": "{\"action\": \"verify_citations\", \"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"actio…",
+   "resultSummary": "{\"action\":\"verify_citations\",\"citations\":[{\"kind\":\"policy_id\",\"pass\":true,\"reason\":\"\",\"text\":\"MP-IMG-007\"},{\"kind\":\"source\",\"pass\":true,\"reason\":\"\",\"text\":\"denial_letter.txt\"},{\"kind\":\"source\",\"pass\"…",
+   "durationMs": 78,
+   "status": "ok"
+  },
+  {
+   "n": 24,
+   "kind": "model",
+   "name": "turn 12",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: self_check",
+   "durationMs": 2884,
+   "status": "ok"
+  },
+  {
+   "n": 25,
+   "kind": "tool",
+   "name": "self_check",
+   "argsSummary": "{\"decision_text\": \"{\\\"case_id\\\":\\\"C-0005\\\",\\\"decision\\\":\\\"APPEAL\\\",\\\"denial_code\\\":\\\"CO-50\\\",\\\"policy_id\\\":\\\"MP-IMG-007\\\",\\\"action_deadline\\\":\\\"2027-01-13\\\",\\\"…",
+   "resultSummary": "{\"checks\":[{\"check\":\"decision.json matches the schema\",\"detail\":\"\",\"hint\":\"\",\"id\":\"decision_json_valid\",\"pass\":true,\"severity\":\"error\"},{\"check\":\"deliverable states the correct claim number\",\"detail\"…",
+   "durationMs": 287,
+   "status": "ok"
+  },
+  {
+   "n": 26,
+   "kind": "model",
+   "name": "turn 13",
+   "argsSummary": "attempt 1",
+   "resultSummary": "All checks pass. Here is the final deliverable. <<<DELIVERABLE>>> # Appeal Letter: Claim 6268311 **To:** Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 **From:** Revenue Cycle Appeals, Gutierre…",
+   "durationMs": 4004,
+   "status": "ok"
+  },
+  {
+   "n": 27,
+   "kind": "self_check",
+   "name": "proposal",
+   "argsSummary": "",
+   "resultSummary": "ok=True errors=0 warnings=0",
+   "durationMs": 271,
+   "status": "ok"
+  },
+  {
+   "n": 28,
+   "kind": "self_check",
+   "name": "final",
+   "argsSummary": "",
+   "resultSummary": "ok=True errors=0 warnings=0",
+   "durationMs": 176,
+   "status": "ok"
+  },
+  {
+   "n": 29,
+   "kind": "run",
+   "name": "end",
+   "argsSummary": "",
+   "resultSummary": "status submitted; turns 13",
+   "durationMs": 0,
+   "status": "ok"
+  }
+ ],
+ "verdicts": [
+  {
+   "criterionId": "DEC1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "decision=APPEAL expected=APPEAL"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "DLN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "action_deadline=2027-01-13 deadline_ok=True expected=2027-01-13/True"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "DLN2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "States action deadline and that it is still open."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly states the action deadline and confirms it is still open as of the review date."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable states the governing appeal deadline of 2027-01-13 and says it is still open as of the review date."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "ok"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Supports §2.1(a) with dated PT log evidence and PCP note."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable supports the conservative therapy requirement with specific, dated evidence from the PT log."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable supports the six-week conservative therapy requirement with dated PT-log evidence showing a 73-day treatment period."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD3",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Supports §2.1(b) with dated neurological deficit evidence."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable supports the neurological deficit requirement with specific, dated evidence from the orthopedic note."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable cites the 2026-06-04 orthopedic note and gives specific neurologic findings supporting §2.1(b)."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "HON1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Relies on explicit record statement for §2.1(c)."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on the explicit statement in the record regarding the absence of prior imaging."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on the record's explicit documented absence of prior lumbar imaging for §2.1(c)."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "IDN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "ok"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POL1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "policy_id=MP-IMG-007 expected=MP-IMG-007"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POL2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Cites MP-IMG-007 and references sections 2.1(a), 2.1(b), 2.1(c) for each criterion."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly cites policy MP-IMG-007 and the specific section numbers for each criterion."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable cites MP-IMG-007 and identifies sections 2.1(a), 2.1(b), and 2.1(c) as the relied-on criteria."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POLX1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Relies solely on MP-IMG-007, not the distractor policy."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly cites MP-IMG-007 and does not mention the distractor policy MP-IMG-012."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on MP-IMG-007, and there is no citation or reliance on MP-IMG-012."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "REM1",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Clear remedy addressed to Appeals Unit."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable contains a clear requested remedy addressed to the Appeals Unit."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable clearly requests overturning the denial and reprocessing the claim, directed to the Appeals Unit."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "REM2",
+   "judges": {
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Lists required enclosures including PT log and ortho note."
+    },
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable lists the required enclosures from the case file."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The listed enclosures include both required files: the orthopedic note and PT log."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "RSN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "denial_code=CO-50 expected=CO-50"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "TRP1",
+   "judges": {
+    "claude": {
+     "verdict": "FAIL",
+     "reason": "The deliverable uses the PT log's 73 days but never notices or addresses the conflicting 14-day statement in the 2026-04-13 follow-up note."
+    },
+    "gemini": {
+     "verdict": "FAIL",
+     "reason": "The deliverable does not notice or resolve the conflicting statement regarding therapy duration found in the 2026-04-13 follow-up note."
+    },
+    "gpt": {
+     "verdict": "FAIL",
+     "reason": "The deliverable uses the PT log's 73-day duration but does not notice or address the conflicting 2026-04-13 note stating about 14 days of PT."
+    }
+   },
+   "panel": "FAIL",
+   "text": "Notices the conflicting statement of therapy duration and resolves it using the PT log"
+  }
+ ],
+ "flags": [
+  {
+   "id": "F1",
+   "quote": "the payer received it on 2026-06-26 (source: denial_letter.txt)",
+   "severity": "minor",
+   "upheld": true,
+   "problems": [
+    "The denial letter does not state the date the claim was received.",
+    "The payer-received date is supported, but the cited source is wrong; denial_letter.txt does not state the payer received date."
+   ],
+   "raisedBy": [
+    "gemini",
+    "gpt"
+   ]
+  },
+  {
+   "id": "F2",
+   "quote": "documents 21 PT visits from 2026-03-23 through 2026-06-04",
+   "severity": "minor",
+   "upheld": true,
+   "problems": [
+    "The last PT visit (Visit 21) was on 2026-06-01, not 2026-06-04. The visits run through 2026-06-01; 2026-06-04 is the end of the stated treatment period but not a visit date."
+   ],
+   "raisedBy": [
+    "claude"
+   ]
+  },
+  {
+   "id": "F3",
+   "quote": "- Review date: 2026-08-04; notice date: 2026-07-17 (source: denial_letter.txt)",
+   "severity": "minor",
+   "upheld": true,
+   "problems": [
+    "The notice date is in denial_letter.txt, but the review date is not; the source citation for the review date is unsupported."
+   ],
+   "raisedBy": [
+    "gpt"
+   ]
+  }
+ ],
+ "audit": [],
+ "metrics": {
+  "turns": 13,
+  "tokens": {
+   "prompt": 124763,
+   "completion": 18035,
+   "total": 142798
+  },
+  "wallClockSeconds": 41.9,
+  "toolErrors": 1
+ }
+}

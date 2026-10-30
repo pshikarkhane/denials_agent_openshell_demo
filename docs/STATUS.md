@@ -1,5 +1,11 @@
 # STATUS (2026-10-30)
 
+## GUI, first slice (branch `gui-v1`, folder `gui/`): see [GUI_SPEC.md](GUI_SPEC.md), `gui/README.md`
+**Done:** Vite + React + TS app (tokens, header/nav, routes), Home with six scenario cards reading decision/code/policy from the cache, placeholder Case/Containment/Scorecard pages proving the data pipeline, `build_cache.mjs` with answer-key refusal, stand-in adapter, Hermes stub, README and GUI_SPEC.
+**Verified:** `npm run build` succeeds; `npm test` passes offline (21 tests: adapter, cache builder refusals, public/data guard, Home render); `npm run preview` serves `/`, `/case/C-0005` and `/data/index.json`; Home screenshots at desktop and 390px width in `docs/samples/gui_home_*.png`.
+**Not verified:** other browsers than headless Chrome; screen reader behavior; computed contrast checked by eye and by token choice only; `npm run dev` was not exercised in a browser.
+**Decisions needed:** (1) the committed `gui/public/data` cache includes judge verdict text and reasons (criterion text of failed criteria kept, rubric `reference` dropped): OK? (2) no React plugin or testing-library (JSX via tsconfig, Home tested via static render): OK? (3) nav "Case" links to C-0005 as a default.
+
 ## PHASE 4 POLISH (branch `phase4-polish`): remove hallucination causes, relax over-strict rubric references, re-run, report before/after
 **Pre-sandbox run, 5 dev cases, not a benchmark.** Numbers and the classification of every remaining flag: [RUN_REPORT.md](RUN_REPORT.md). Rubric changes: [RUBRIC_CHANGES.md](RUBRIC_CHANGES.md).
 

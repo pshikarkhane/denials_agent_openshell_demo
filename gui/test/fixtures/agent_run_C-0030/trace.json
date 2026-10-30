@@ -1,0 +1,173 @@
+[
+ {
+  "args_summary": "model nvidia/nvidia/nemotron-3.5-super-text-preview",
+  "duration_ms": 0,
+  "kind": "run",
+  "n": 1,
+  "name": "start",
+  "result_summary": "run started",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 455,
+  "kind": "model",
+  "n": 2,
+  "name": "turn 1",
+  "result_summary": "tool calls: parse_denial_eob",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{}",
+  "duration_ms": 16,
+  "kind": "tool",
+  "n": 3,
+  "name": "parse_denial_eob",
+  "result_summary": "{\"amounts\":{\"allowed\":0.0,\"billed\":236.93,\"claim_totals\":{\"allowed\":0.0,\"billed\":236.93,\"paid\":0.0,\"patient_responsibility\":0.0},\"denied_amount\":236.93,\"paid\":0.0,\"patient_responsibility\":0.0},\"appea\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 2117,
+  "kind": "model",
+  "n": 4,
+  "name": "turn 2",
+  "result_summary": "tool calls: retrieve_payer_policy",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"cpt\": \"99213\", \"denial_code\": \"CO-29\", \"denial_text\": \"The time limit for filing has expired.\", \"dos\": \"2026-04-01\", \"icd10\": [\"I10\"], \"payer\": \"TERRAVISTA_H\u2026",
+  "duration_ms": 64,
+  "kind": "tool",
+  "n": 5,
+  "name": "retrieve_payer_policy",
+  "result_summary": "{\"candidates\":[{\"bm25\":5.1657,\"policy_id\":\"MP-TF-001\",\"title\":\"Timely Filing of Claims\",\"title_exact_match\":true,\"title_similarity\":1.0},{\"bm25\":3.8385,\"policy_id\":\"MP-CLM-004\",\"title\":\"Claim Submiss\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 1796,
+  "kind": "model",
+  "n": 6,
+  "name": "turn 3",
+  "result_summary": "tool calls: pull_clinical_notes, assess_appealability",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{}",
+  "duration_ms": 21,
+  "kind": "tool",
+  "n": 7,
+  "name": "pull_clinical_notes",
+  "result_summary": "{\"as_of_date\":\"2026-10-25\",\"date_from\":null,\"date_to\":\"2026-10-25\",\"documents\":[{\"chars\":1731,\"date\":\"2026-03-02\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"policy_id\": \"MP-TF-001\"}",
+  "duration_ms": 77,
+  "kind": "tool",
+  "n": 8,
+  "name": "assess_appealability",
+  "result_summary": "{\"action_deadline_rule\":\"action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, \u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 1951,
+  "kind": "model",
+  "n": 9,
+  "name": "turn 4",
+  "result_summary": "tool calls: pull_clinical_notes",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"paths\": [\"notes/2026-03-02_pcp.txt\", \"notes/2026-04-01_visit.txt\"]}",
+  "duration_ms": 17,
+  "kind": "tool",
+  "n": 10,
+  "name": "pull_clinical_notes",
+  "result_summary": "{\"as_of_date\":\"2026-10-25\",\"date_from\":null,\"date_to\":\"2026-10-25\",\"documents\":[{\"chars\":1731,\"date\":\"2026-03-02\",\"date_reason\":null,\"date_source\":\"file name\",\"folder\":\"notes\",\"kind\":\"pcp\",\"lines\":24\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 7605,
+  "kind": "model",
+  "n": 11,
+  "name": "turn 5",
+  "result_summary": "tool calls: draft_deliverable, draft_deliverable",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"action\": \"validate_decision\", \"decision_text\": \"{\\\"case_id\\\": \\\"C-0030\\\", \\\"decision\\\": \\\"DO_NOT_APPEAL\\\", \\\"denial_code\\\": \\\"CO-29\\\", \\\"policy_id\\\": \\\"MP-TF\u2026",
+  "duration_ms": 7,
+  "kind": "tool",
+  "n": 12,
+  "name": "draft_deliverable",
+  "result_summary": "{\"action\":\"validate_decision\",\"citations\":[],\"errors\":[],\"skeleton\":null,\"summary\":{},\"valid\":true}",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"action\": \"verify_citations\", \"decision_text\": \"{\\\"case_id\\\": \\\"C-0030\\\", \\\"decision\\\": \\\"DO_NOT_APPEAL\\\", \\\"denial_code\\\": \\\"CO-29\\\", \\\"policy_id\\\": \\\"MP-TF-\u2026",
+  "duration_ms": 74,
+  "kind": "tool",
+  "n": 13,
+  "name": "draft_deliverable",
+  "result_summary": "{\"action\":\"verify_citations\",\"citations\":[{\"kind\":\"policy_id\",\"pass\":true,\"reason\":\"\",\"text\":\"MP-TF-001\"},{\"kind\":\"source\",\"pass\":true,\"reason\":\"\",\"text\":\"denial_letter.txt\"},{\"kind\":\"source\",\"pass\":\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 2165,
+  "kind": "model",
+  "n": 14,
+  "name": "turn 6",
+  "result_summary": "tool calls: self_check",
+  "status": "ok"
+ },
+ {
+  "args_summary": "{\"decision_text\": \"{\\\"case_id\\\": \\\"C-0030\\\", \\\"decision\\\": \\\"DO_NOT_APPEAL\\\", \\\"denial_code\\\": \\\"CO-29\\\", \\\"policy_id\\\": \\\"MP-TF-001\\\", \\\"action_deadline\\\": \\\"\u2026",
+  "duration_ms": 250,
+  "kind": "tool",
+  "n": 15,
+  "name": "self_check",
+  "result_summary": "{\"checks\":[{\"check\":\"decision.json matches the schema\",\"detail\":\"\",\"hint\":\"\",\"id\":\"decision_json_valid\",\"pass\":true,\"severity\":\"error\"},{\"check\":\"deliverable states the correct claim number\",\"detail\"\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "attempt 1",
+  "duration_ms": 3555,
+  "kind": "model",
+  "n": 16,
+  "name": "turn 7",
+  "result_summary": "<<<DELIVERABLE>>> # Decision Memo \u2014 Denied Claim Review **Case:** C-0030 **Claim number:** 3704835 **Patient ID:** P-5383 (Michael Johnson) **Date of service:** 2026-04-01 **CPT code:** 99213 (Establ\u2026",
+  "status": "ok"
+ },
+ {
+  "args_summary": "",
+  "duration_ms": 230,
+  "kind": "self_check",
+  "n": 17,
+  "name": "proposal",
+  "result_summary": "ok=True errors=0 warnings=0",
+  "status": "ok"
+ },
+ {
+  "args_summary": "",
+  "duration_ms": 160,
+  "kind": "self_check",
+  "n": 18,
+  "name": "final",
+  "result_summary": "ok=True errors=0 warnings=0",
+  "status": "ok"
+ },
+ {
+  "args_summary": "",
+  "duration_ms": 0,
+  "kind": "run",
+  "n": 19,
+  "name": "end",
+  "result_summary": "status submitted; turns 7",
+  "status": "ok"
+ }
+]

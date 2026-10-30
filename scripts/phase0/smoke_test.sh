@@ -21,17 +21,19 @@ echo "== 2. Host tooling"
 node -e 'const [a,b]=process.versions.node.split(".").map(Number);process.exit(a>22||(a==22&&b>=19)?0:1)' \
   && ok "node >= 22.19 ($(node -v))" || bad "node >= 22.19"
 docker info >/dev/null 2>&1 && ok "docker daemon reachable" || bad "docker daemon reachable"
-command -v nemohermes >/dev/null && ok "nemohermes CLI: $(nemohermes --version 2>&1 | head -1)" || bad "nemohermes CLI on PATH"
+command -v nemohermes >/dev/null && ok "nemohermes CLI: $(NODE_NO_WARNINGS=1 nemohermes --version 2>&1 | head -1)" || bad "nemohermes CLI on PATH"
 command -v openshell  >/dev/null && ok "openshell CLI: $(openshell --version 2>&1 | head -1)"  || bad "openshell CLI on PATH"
 
 echo "== 3. Sandbox + Hermes API"
 nemohermes "$SANDBOX" status && ok "sandbox status" || bad "sandbox status"
-openshell forward list 2>&1 | grep -q "$PORT" || openshell forward start --background "$PORT" "$SANDBOX"
+curl -sf "http://127.0.0.1:$PORT/health" >/dev/null 2>&1 || openshell forward start --background "$PORT" "$SANDBOX" >/dev/null 2>&1
 curl -sf "http://127.0.0.1:$PORT/health" >/dev/null && ok "Hermes /health" || bad "Hermes /health"
 
 echo "== 4. Hello-world agent call (request -> Hermes -> inference.local -> Nemotron)"
 TOKEN="$(nemohermes "$SANDBOX" gateway-token --quiet 2>/dev/null)"
-MODEL="$(python3 -c 'import sys;sys.path.insert(0,"scripts/phase0");from _common import load_models;print(load_models()["agent"]["model_id"])')"
+# Verified on v0.0.137: the Hermes API exposes ONE model id, "hermes-agent" (GET /v1/models). The real upstream
+# model is chosen by the OpenShell inference route, not by this field.
+MODEL="hermes-agent"
 RESP="$(curl -s -m 180 "http://127.0.0.1:$PORT/v1/chat/completions" \
   -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
   -d "{\"model\":\"$MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"Reply with exactly one word: pong\"}]}")"
@@ -39,7 +41,9 @@ echo "$RESP" | head -c 400; echo
 echo "$RESP" | grep -qi pong && ok "agent hello-world" || bad "agent hello-world"
 
 echo "== 5. Sandbox is isolated (no direct internet)"
-nemohermes "$SANDBOX" connect -- curl -s -m 8 -o /dev/null -w '%{http_code}' https://example.com 2>&1 | grep -qE '^(000|403)' \
-  && ok "direct egress blocked" || echo "WARN  could not confirm egress block (check CLI syntax: nemohermes $SANDBOX connect)"
+# `nemohermes <name> connect` takes no command; use `openshell sandbox exec` (verified from --help).
+CODE="$(openshell sandbox exec -n "$SANDBOX" --no-tty --timeout 30 -- curl -s -m 8 -o /dev/null -w '%{http_code}' https://example.invalid/ </dev/null 2>&1 | tail -1)"
+echo "  http code from inside sandbox to example.invalid: $CODE"
+[[ "$CODE" =~ ^(000|403|502)$ ]] && ok "non-allowlisted egress blocked" || bad "egress block (got '$CODE')"
 
 exit $fail

@@ -1,0 +1,33 @@
+{
+  "case_id": "C-0005",
+  "decision": "APPEAL",
+  "denial_code": "CO-50",
+  "policy_id": "MP-IMG-007",
+  "action_deadline": "2027-01-13",
+  "deadline_ok": true,
+  "criteria": [
+    {
+      "id": "2.1(a)",
+      "status": "met",
+      "evidence": "notes/2026-03-23_pcp.txt"
+    },
+    {
+      "id": "2.1(b)",
+      "status": "met",
+      "evidence": "notes/2026-06-04_ortho.txt"
+    },
+    {
+      "id": "2.1(c)",
+      "status": "met",
+      "evidence": "notes/2026-06-04_ortho.txt"
+    }
+  ],
+  "enclosures": [
+    "notes/2026-03-23_pcp.txt",
+    "notes/2026-04-13_pcp_followup.txt",
+    "notes/2026-06-04_ortho.txt",
+    "supporting/pt_log.txt",
+    "denial_letter.txt"
+  ],
+  "gaps": []
+}

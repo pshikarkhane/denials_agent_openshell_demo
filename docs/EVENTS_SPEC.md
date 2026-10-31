@@ -1,7 +1,7 @@
 # EVENTS_SPEC: agent run recordings (for the demo replay UI)
 
-Written by `agent/run_case.py` and `agent/run_baseline.py`. Pre-sandbox harness: in the Hermes port the same schema should be produced from Hermes' own trace
-(see STATUS.md, "What must change for the Hermes port"). Nothing recorded here ever contains `truth.json`, `rubric.json`, `gold/` or `attacks/` content: only what the
+Written by `agent/run_case.py` and `agent/run_baseline.py` (pre-sandbox stand-in) and by `scripts/hermes/run_case.py` (real Hermes agent in the OpenShell sandbox; built from Hermes' own trace by
+`scripts/hermes/build_events.py`, see "Hermes runs" at the end of this file). Nothing recorded here ever contains `truth.json`, `rubric.json`, `gold/` or `attacks/` content: only what the
 model said and what the skills returned. Keys are redacted before writing.
 
 ## Files per run
@@ -106,3 +106,32 @@ for s in steps:
     print(f'{s["n"]:>2} {icon} {s["name"]:<22} {s["status"]:<6} {s["duration_ms"]:>6} ms  {s["result_summary"][:70]}')
 ```
 Complete sample runs (events, trace, deliverable, decision and the judge verdicts) are in `docs/samples/agent_run_C-0005/` and `docs/samples/agent_run_C-0030/`.
+
+
+## Hermes runs (`scripts/hermes/run_case.py`, branch `phase4b-hermes`)
+Same two files and the same event keys as above, so a replay UI reads both. What differs:
+
+**Extra files per run** (`runs/<run_id>/<case_id>/`): `audit.jsonl` (OpenShell audit events for the run window, below), `persistence.json` (what Hermes left behind vs. the pristine baseline; the next run starts from a verified reset),
+`hermes_raw/` (`sse_events.jsonl`, `session_messages.json`, `session.json`, `agent_log.txt` = the run's own Hermes log lines, `background_review_log.txt`, `output_listing.txt`, `task_input.txt`). No `staged/` folder (the staged tree is in the sandbox, read-only).
+`summary.json` keeps the stand-in keys and adds `runtime: "hermes"`, `hermes_run_id`, `hermes_version`, `skill_calls_total`, `skill_errors`, `hermes_tools_by_name` (non-skill tools Hermes used: `write_file`, `patch`, `read_file`, `search_files`, `skill_view`, ...),
+`terminal_non_skill_calls`, `self_check_calls` (the agent's own self_check calls, in order), `final_self_check` (run by the HARNESS on the final files after the run, `source: "harness_after_run"`; this is the pass/fail used in reports),
+`agent_last_self_check_ok`, `background_review` (see below), `persisted_after_run`, `reset_before_run`, `retries`, `hermes_stream_state`, `audit_*` counts. `usage` = the run's own model calls only (`prompt_tokens` includes Hermes' system prompt and tool definitions; `first_call_prompt_tokens` is the fixed overhead).
+
+**events.jsonl differences**
+- `variant` is `"hermes"` (stand-in: `agent`/`baseline`).
+- `run_start.data`: `temperature` is `null` (the Hermes route does not expose it), `tools` lists the six skills; adds `runtime`, `hermes_run_id`, `hermes_version`. `max_turns` is Hermes' 60 API calls.
+- `model_request.data.n_tools` is `null` (Hermes does not report its tool count per call); `attempt` is always 1 (Hermes retries inside its own client and does not expose them).
+- `model_response`: one per assistant message. `usage` comes from Hermes' `agent.log` line `API call #k` matched by order (`prompt_tokens`, `completion_tokens`, `total_tokens`, `cached_tokens`), `duration_ms` is that call's latency; adds `reasoning_chars`. `tool_calls[]` has `name` (the SKILL name when the call is a terminal call to the skill wrapper, else the Hermes tool name), `hermes_tool` (`terminal`, `write_file`, ...), `skill` (or null) and `arguments` (the raw string Hermes got).
+- `tool_call` / `tool_result`: `name` is the skill name parsed from the wrapper command (`/usr/local/share/appeals/bin/run_skill <CASE_ID> <skill> '<json>'`); `data.hermes_tool` is the Hermes tool (`terminal`), `data.command` the RAW terminal command, `data.skill` the skill, `data.arguments` the parsed JSON object (the raw string when the JSON is malformed, counted in `malformed_calls`).
+  Non-skill Hermes tools (`write_file`, `patch`, `read_file`, `search_files`, `skill_view`, `terminal` for anything else) are recorded under their own name with `hermes_tool` and their full arguments (a `write_file` argument contains the whole file text).
+  `tool_result.status`: `error` when the terminal exit code is not 0, the skill printed a top-level `error`, or Hermes flagged the tool; `denied` for a skill `access_denied`. `result` is the skill's stdout (the terminal wrapper's `output`), first 4000 characters. `duration_ms` is Hermes' own tool duration (SSE `tool.completed`).
+  Tool calls issued in the same assistant message are parallel: their `tool_call` events are emitted together, then their results.
+- `self_check` events are derived from the agent's own `self_check` skill calls (`data.source: "agent_call"`); `phase` is `proposal` for each call and `final` for the last one. The harness does not drive the loop, so:
+- `revision` events are INFERRED (`data.inferred: true`): a failing `self_check` call that is followed by another `self_check` call. `revisions` in `run_end`/`summary.json` counts them. The agent was told to fix and re-run at most twice; this is not enforced.
+- `run_end.status`: `submitted` (stream completed and both files copied out), `completed_with_files`-style `<state>_with_files` (e.g. `timeout_with_files`), `no_files`, `timeout`, `failed`, `stream_lost`. Reported `turns` = Hermes API calls of the run itself.
+
+**Background self-review (Hermes behaviour, not part of the run).** After a run Hermes forks a `bg-review` agent that calls the model again (about 9 calls, roughly 100k tokens in the one case seen) and may write memory or skills (`skill_manage`).
+Its calls are logged under the same Hermes run id; the recorder cuts them off at Hermes' `Turn ended` line and reports them separately in `summary.json.background_review` (`calls`, `prompt_tokens`, `completion_tokens`, `complete`, `result_line`, `waited_s`). The harness waits for it to finish before resetting the sandbox.
+
+**audit.jsonl**: one object per OpenShell audit event (`scripts/phase0/export_audit.py` output: `ts`, `event_class`, `severity`, `result`, `target`, `actor`, `policy`, `engine`, `reason`, `raw`) from run start to the end of the post-run review, plus one added key `tag`:
+`run` (during the run), `background` (Hermes' own DENIED requests to github.com, raw.githubusercontent.com, nousresearch.github.io, portal.nousresearch.com, openrouter.ai: hide in a UI), `post_run` (after the run ended: the review fork's traffic). File reads/writes blocked by Landlock are not in the audit log (see phase0_setup.md §10).

@@ -32,7 +32,7 @@ It reads only `data/cases/<case>/task.md`, `data/cases/<case>/docs/**` and `data
 A case switcher (all cached cases, keeps the tab) sits under the page headline.
 
 ## Containment page
-`/containment?scenario=A1&mode=natural` shows what the agent did and what OpenShell recorded for the recorded attack runs in `docs/samples/hermes_attack_*/{natural,scripted}`.
+`/containment?scenario=A1&mode=natural` is a booth view (story in three beats plus three numbers, readable from two meters; `&details=1` opens the Details section with the steps, the filtered audit log, replay and limits) for the recorded attack runs in `docs/samples/hermes_attack_*/{natural,scripted}`.
 `scripts/build_containment.mjs` (run by `npm run cache`) writes `public/data/containment.json` (parsed from `docs/CONTAINMENT_REPORT.md`, `docs/POLICY_HARDENING.md`, `docs/HERMES_RUN_REPORT.md`; nothing typed) and `public/data/containment/<attack>__<mode>.json` (adapter `src/data/adapters/attack.ts`). It refuses the same answer-key names as the other builders, and any step text that names one is replaced by a note. If a table cannot be parsed the page says "See the report" and `npm test` fails.
 
 ## Layout

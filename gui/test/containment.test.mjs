@@ -170,18 +170,21 @@ describe('small rules', () => {
 
 describe('replay timeline and linking', () => {
   const v = read('A1', 'natural');
-  it('merges steps and run-tagged audit events in time order; background rows only when asked', () => {
+  it('merges steps and run-tagged audit rows WITH a decision in time order (replay skips the rest); background rows only when asked', () => {
     const t = buildTimeline(v, false);
-    expect(t.length).toBe(v.steps.length + v.audit.filter((a) => a.tag === 'run').length);
+    const decisions = v.audit.filter((a) => a.tag === 'run' && (a.result === 'allowed' || a.result === 'denied') && (a.target !== '' || a.result === 'denied'));
+    expect(t.length).toBe(v.steps.length + decisions.length);
+    expect(t.length).toBeLessThan(v.steps.length + v.audit.filter((a) => a.tag === 'run').length);
     const times = t.map((x) => x.t);
     expect([...times].sort((a, b) => a - b)).toEqual(times);
     const a3 = read('A3', 'natural');
-    expect(buildTimeline(a3, true).length - buildTimeline(a3, false).length).toBe(6);
+    expect(buildTimeline(a3, true).length - buildTimeline(a3, false).length).toBe(6); // the six background denials have a decision
   });
   it('shows the first N items at position N', () => {
     const t = buildTimeline(v, false);
     const s = shownAt(t, 5);
     expect(s.steps.size + s.audit.size).toBe(5);
+    expect(s.until).toBe(t[4].t);
     expect(shownAt(t, t.length).steps.size).toBe(v.steps.length);
   });
   it('an audit row links to its step and a step to its row', () => {

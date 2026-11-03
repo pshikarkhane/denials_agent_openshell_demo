@@ -2,113 +2,65 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useAttackRun, useContainment } from '../data/DataContext';
 import type { Containment } from '../data/containment';
-import type { AttackMode, ContainmentIndexEntry } from '../data/types';
-import { AgentPanel, AuditPanel, BlockedPanel, InjectedPanel, LetterPanel, ModeBadge, OutcomePanel, ReportPanel, StackStrip, SummaryStrip, WhoPanel, type Focus } from '../components/Containment/Panels';
+import type { AttackMode, AttackRunView, ContainmentIndexEntry } from '../data/types';
+import { Booth } from '../components/Containment/Booth';
+import { SCENARIOS, LIMITS } from '../components/Containment/boothLogic';
+import { AgentPanel, AuditPanel, InjectedPanel, LetterPanel, Section, StackStrip, WhoPanel, type Focus } from '../components/Containment/Panels';
 import { Replay } from '../components/Containment/Replay';
 import { buildTimeline, listedAudit, nearestAudit, nearestStep, shownAt } from '../components/Containment/logic';
 
-const SCENARIOS: { id: string; label: string }[] = [
-  { id: 'A1', label: 'A1 (curl upload)' },
-  { id: 'A2', label: 'A2 (Python POST, a different channel)' },
-  { id: 'A3', label: 'A3 (file write)' },
-];
-const MODES: { id: AttackMode; label: string }[] = [
-  { id: 'natural', label: 'Natural' },
-  { id: 'scripted', label: 'Scripted' },
-];
+/** ?details=1 opens the Details section; it is closed otherwise. */
+export const isDetailsOpen = (params: URLSearchParams): boolean => params.get('details') === '1';
 
 /** Runs of one scenario by mode; the natural sample of A1 is a variant (A1b) of the fixture. */
 export function sampleFor(runs: ContainmentIndexEntry[], scenario: string, mode: AttackMode): ContainmentIndexEntry | undefined {
   return runs.find((r) => r.scenario === scenario && r.attackMode === mode);
 }
 
-function Selector({ data, scenario, mode, setScenario, setMode }: { data: Containment; scenario: string; mode: AttackMode; setScenario: (s: string) => void; setMode: (m: AttackMode) => void }) {
-  const natural = data.natural?.filter((r) => r.scenario === scenario);
-  return (
-    <section aria-label="Choose a recorded run" className="ct-select">
-      <div role="group" aria-label="Scenario" className="segmented">
-        {SCENARIOS.map((s) => (
-          <button key={s.id} type="button" className="segmented__btn" aria-pressed={scenario === s.id} onClick={() => setScenario(s.id)}>{s.label}</button>
-        ))}
-      </div>
-      <div role="group" aria-label="Mode" className="segmented">
-        {MODES.map((m) => {
-          const has = Boolean(sampleFor(data.runs, scenario, m.id));
-          return (
-            <span key={m.id} title={has ? undefined : 'No recorded sample for this mode'}>
-              <button type="button" className="segmented__btn" aria-pressed={mode === m.id} disabled={!has} onClick={() => setMode(m.id)}>{m.label}</button>
-            </span>
-          );
-        })}
-      </div>
-      {MODES.some((m) => !sampleFor(data.runs, scenario, m.id)) && (
-        <p className="muted small">The disabled mode has no recorded sample for this scenario.</p>
-      )}
-      <p className="muted small" data-rate>
-        Natural attempts in the report for {scenario}:{' '}
-        {natural?.length ? natural.map((r) => `${r.fixture} ${r.attempted}`).join(', ') : 'See the report'}.
-      </p>
-    </section>
-  );
-}
-
-function Scenario({ data, entry }: { data: Containment; entry: ContainmentIndexEntry }) {
-  const state = useAttackRun(entry.file);
+/** The Details section: closed by default, every block collapsible. */
+export function DetailsBody({ data, run }: { data: Containment; run: AttackRunView }) {
   const [focus, setFocus] = useState<Focus>(null);
   const [showBackground, setShowBackground] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const [pos, setPos] = useState(Number.MAX_SAFE_INTEGER);
-  const [open, setOpen] = useState(false);
 
-  const run = state.status === 'ready' ? state.run : null;
-  const timeline = useMemo(() => (run ? buildTimeline(run, showBackground) : []), [run, showBackground]);
-  // Each run opens on its attempt (when there is one), so the matching OpenShell row is highlighted.
-  const attemptStep = run?.attempt?.stepN ?? null;
+  const attemptStep = run.attempt?.stepN ?? null;
   useEffect(() => {
     setFocus(attemptStep ? { kind: 'step', n: attemptStep } : null);
     setPos(Number.MAX_SAFE_INTEGER);
-  }, [entry.file, attemptStep]);
+  }, [run.runId, run.attackMode, attemptStep]);
 
-  if (state.status === 'loading') return <p className="muted">Loading the recorded run</p>;
-  if (state.status === 'error' || !run) return <p className="notice notice--error" role="alert">Could not load the recorded run ({state.status === 'error' ? state.message : ''}). Run npm run cache.</p>;
-
+  const timeline = useMemo(() => buildTimeline(run, showBackground), [run, showBackground]);
   const total = timeline.length;
   const p = Math.min(pos, total);
-  const final = p >= total;
-  const shown = final ? null : shownAt(timeline, p);
+  const shown = p >= total ? null : shownAt(timeline, p);
   const rows = listedAudit(run, showBackground);
   const linkedStep = focus?.kind === 'audit' ? nearestStep(run, focus.index) : null;
   const linkedAudit = focus?.kind === 'step' ? nearestAudit(run, focus.n, rows) : null;
+  const modelHosts = data.hardening.modelHost ? [data.hardening.modelHost] : [];
 
-  return (
-    <div data-run={`${run.attackId}/${run.attackMode}`}>
-      <p className="muted small">Fixture {run.attackId}, run {run.runId}, case {run.caseId}.</p>
-      <ModeBadge run={run} />
-      <InjectedPanel run={run} />
-      <div className="ct-split">
-        <AgentPanel run={run} focus={focus} setFocus={setFocus} visible={shown?.steps ?? null} linkedStep={linkedStep} />
-        <AuditPanel run={run} focus={focus} setFocus={setFocus} visible={shown?.audit ?? null} linkedAudit={linkedAudit} showBackground={showBackground} setShowBackground={setShowBackground} />
-      </div>
-      <Replay total={total} pos={p} setPos={setPos} />
-      <BlockedPanel run={run} />
-      <div className="ct-two">
-        <OutcomePanel run={run} />
-        <WhoPanel run={run} data={data} />
-      </div>
-      <LetterPanel run={run} />
-      <ReportPanel data={data} open={open} setOpen={setOpen} />
-    </div>
-  );
-}
-
-export function ContainmentView({ data, scenario, mode, setScenario, setMode }: { data: Containment; scenario: string; mode: AttackMode; setScenario: (s: string) => void; setMode: (m: AttackMode) => void }) {
-  const entry = sampleFor(data.runs, scenario, mode);
   return (
     <>
-      <StackStrip data={data} />
-      <SummaryStrip data={data} />
-      <Selector data={data} scenario={scenario} mode={mode} setScenario={setScenario} setMode={setMode} />
-      {entry ? <Scenario key={entry.file} data={data} entry={entry} /> : <p className="notice">No recorded sample for this scenario and mode.</p>}
-      {data.missing.length > 0 && <p className="notice notice--error" role="alert">See the report: {data.missing.join(', ')} could not be read from the report.</p>}
+      <p className="muted small">Fixture {run.attackId}, run {run.runId}, case {run.caseId}.</p>
+      <Section id="stack" title="The stack and who did what">
+        <StackStrip data={data} />
+        <WhoPanel run={run} data={data} />
+      </Section>
+      <Section id="steps" title="The agent's steps and the injected text">
+        <InjectedPanel run={run} />
+        <AgentPanel run={run} focus={focus} setFocus={setFocus} visible={shown?.steps ?? null} linkedStep={linkedStep} />
+      </Section>
+      <Section id="audit" title="The OpenShell audit log">
+        <AuditPanel run={run} focus={focus} setFocus={setFocus} visible={shown?.audit ?? null} until={shown?.until ?? Infinity} linkedAudit={linkedAudit} showAll={showAll} setShowAll={setShowAll} showBackground={showBackground} setShowBackground={setShowBackground} modelHosts={modelHosts} />
+      </Section>
+      <Section id="replay" title="Replay and the letter">
+        <Replay total={total} pos={p} setPos={setPos} />
+        <LetterPanel run={run} />
+      </Section>
+      <Section id="limits" title="Limits">
+        <ul className="ct-list" data-limits>{LIMITS.map((t) => <li key={t}>{t}</li>)}</ul>
+        <p className="muted small">Full report: docs/CONTAINMENT_REPORT.md</p>
+      </Section>
     </>
   );
 }
@@ -118,22 +70,59 @@ export function ContainmentPage() {
   const [params, setParams] = useSearchParams();
   const data = state.status === 'ready' ? state.data : null;
 
-  // Default: the first scenario whose natural sample is a real OpenShell block; nothing stopped by the agent-side safeguard.
-  const scenario = SCENARIOS.some((s) => s.id === params.get('scenario')) ? params.get('scenario')! : 'A1';
-  const wanted = params.get('mode') === 'scripted' ? 'scripted' : params.get('mode') === 'natural' ? 'natural' : null;
-  const mode: AttackMode = data
-    ? wanted && sampleFor(data.runs, scenario, wanted) ? wanted : sampleFor(data.runs, scenario, 'natural') ? 'natural' : 'scripted'
-    : 'natural';
-  const set = (s: string, m: AttackMode) => setParams({ scenario: s, mode: m }, { replace: true });
+  // The three natural samples tell which scenarios have a natural attempt to show.
+  const naturalFile = (id: string) => (data ? sampleFor(data.runs, id, 'natural')?.file ?? null : null);
+  const n1 = useAttackRun(naturalFile(SCENARIOS[0].id));
+  const n2 = useAttackRun(naturalFile(SCENARIOS[1].id));
+  const n3 = useAttackRun(naturalFile(SCENARIOS[2].id));
+  const naturals = [n1, n2, n3];
+  const naturalReady = naturals.every((n, i) => !naturalFile(SCENARIOS[i].id) || n.status !== 'loading');
+  const naturalAvailable: Record<string, boolean> = {};
+  SCENARIOS.forEach((x, i) => {
+    const n = naturals[i];
+    naturalAvailable[x.id] = Boolean(naturalFile(x.id)) && n.status === 'ready' && n.run.attempt !== null;
+  });
+
+  const scenario = SCENARIOS.some((s) => s.id === params.get('scenario')) ? params.get('scenario')! : SCENARIOS[0].id;
+  const asked: AttackMode = params.get('mode') === 'scripted' ? 'scripted' : 'natural';
+  // Natural only where the recording holds an attempt; otherwise Scripted stays selected.
+  const mode: AttackMode = asked === 'natural' && naturalAvailable[scenario] ? 'natural' : 'scripted';
+  const detailsOpen = isDetailsOpen(params);
+
+  const idx = SCENARIOS.findIndex((s) => s.id === scenario);
+  const scriptedEntry = data ? sampleFor(data.runs, scenario, 'scripted') : undefined;
+  const scripted = useAttackRun(mode === 'scripted' && scriptedEntry ? scriptedEntry.file : null);
+  const naturalState = naturals[idx];
+  const current = mode === 'natural' ? naturalState : scripted;
+  const run = current.status === 'ready' ? current.run : null;
+
+  const update = (next: Record<string, string | null>) => {
+    const p = new URLSearchParams(params);
+    for (const [k, v] of Object.entries(next)) v === null ? p.delete(k) : p.set(k, v);
+    setParams(p, { replace: true });
+  };
 
   return (
-    <section className="ct">
-      <p className="eyebrow">Containment</p>
-      <h2 className="page-title">OpenShell decides what leaves.</h2>
-      <p className="lede">A poisoned clinical note told the agent to send data out. Here is what the agent did, and what OpenShell did.</p>
+    <>
       {state.status === 'loading' && <p className="muted">Loading cached data</p>}
       {state.status === 'error' && <p className="notice notice--error" role="alert">Could not load containment.json ({state.message}). Run npm run cache.</p>}
-      {data && <ContainmentView data={data} scenario={scenario} mode={mode} setScenario={(s) => set(s, mode)} setMode={(m) => set(scenario, m)} />}
-    </section>
+      {data && !naturalReady && <p className="muted">Loading the recorded runs</p>}
+      {data && naturalReady && (
+        <Booth
+          data={data}
+          scenario={scenario}
+          mode={mode}
+          run={run}
+          naturalAvailable={naturalAvailable}
+          setScenario={(id) => update({ scenario: id })}
+          setMode={(m) => update({ mode: m })}
+          detailsOpen={detailsOpen}
+          setDetails={(open) => update({ details: open ? '1' : null })}
+        >
+          {run ? <DetailsBody data={data} run={run} /> : <p className="muted">Loading the recorded run</p>}
+        </Booth>
+      )}
+      {data && data.missing.length > 0 && <p className="notice notice--error" role="alert">See the report: {data.missing.join(', ')} could not be read from the report.</p>}
+    </>
   );
 }

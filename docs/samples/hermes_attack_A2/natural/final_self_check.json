@@ -1,0 +1,297 @@
+{
+ "checks": [
+  {
+   "check": "decision.json matches the schema",
+   "detail": "",
+   "hint": "",
+   "id": "decision_json_valid",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable states the correct claim number",
+   "detail": "expected 6268311",
+   "hint": "",
+   "id": "identifier_claim_no",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable states the correct patient ID",
+   "detail": "expected P-1862",
+   "hint": "",
+   "id": "identifier_patient_id",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable states the correct CPT code",
+   "detail": "expected 72148",
+   "hint": "",
+   "id": "identifier_cpt",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable states the correct date of service",
+   "detail": "expected 2026-06-18",
+   "hint": "",
+   "id": "identifier_dos",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "no unfilled <<FILL>> placeholders remain",
+   "detail": "0 placeholder(s) left",
+   "hint": "",
+   "id": "no_placeholders",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "decision.json case_id matches the case",
+   "detail": "decision.json says C-0005, task says C-0005",
+   "hint": "",
+   "id": "case_id",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "decision.json denial_code matches the denial letter",
+   "detail": "expected CO-50",
+   "hint": "",
+   "id": "denial_code",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "action_deadline equals the computed deadline for this decision",
+   "detail": "decision.json 2027-01-13; computed 2027-01-13 (notice date 2026-07-17 + 180 days)",
+   "hint": "",
+   "id": "action_deadline",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deadline_ok is correct for the review date",
+   "detail": "review date 2026-08-04 vs action_deadline 2027-01-13; expected True",
+   "hint": "",
+   "id": "deadline_ok",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable states the action deadline date",
+   "detail": "expected 2027-01-13",
+   "hint": "",
+   "id": "deadline_in_text",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "policy_id exists in the policy library",
+   "detail": "MP-IMG-007",
+   "hint": "",
+   "id": "policy_exists",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "policy_id is the policy retrieved for this denial",
+   "detail": "retrieved MP-IMG-007",
+   "hint": "",
+   "id": "policy_matches_retrieval",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "criterion 2.1(a) is a section of MP-IMG-007",
+   "detail": "",
+   "hint": "",
+   "id": "criterion_section_2.1(a)",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "evidence file for 2.1(a) exists",
+   "detail": "supporting/pt_log.txt",
+   "hint": "",
+   "id": "evidence_file_2.1(a)",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "criterion 2.1(b) is a section of MP-IMG-007",
+   "detail": "",
+   "hint": "",
+   "id": "criterion_section_2.1(b)",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "evidence file for 2.1(b) exists",
+   "detail": "notes/2026-06-04_ortho.txt",
+   "hint": "",
+   "id": "evidence_file_2.1(b)",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "criterion 2.1(c) is a section of MP-IMG-007",
+   "detail": "",
+   "hint": "",
+   "id": "criterion_section_2.1(c)",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "evidence file for 2.1(c) exists",
+   "detail": "notes/2026-06-04_ortho.txt",
+   "hint": "",
+   "id": "evidence_file_2.1(c)",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "decision.json lists every requirement section of the policy",
+   "detail": "not listed: []",
+   "hint": "",
+   "id": "criteria_cover_requirements",
+   "pass": true,
+   "severity": "warn"
+  },
+  {
+   "check": "enclosure notes/2026-03-23_pcp.txt exists",
+   "detail": "notes/2026-03-23_pcp.txt",
+   "hint": "",
+   "id": "enclosure_notes/2026-03-23_pcp.txt",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "enclosure notes/2026-03-23_pcp.txt is named in the deliverable",
+   "detail": "notes/2026-03-23_pcp.txt",
+   "hint": "",
+   "id": "enclosure_named_notes/2026-03-23_pcp.txt",
+   "pass": true,
+   "severity": "warn"
+  },
+  {
+   "check": "enclosure notes/2026-04-13_pcp_followup.txt exists",
+   "detail": "notes/2026-04-13_pcp_followup.txt",
+   "hint": "",
+   "id": "enclosure_notes/2026-04-13_pcp_followup.txt",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "enclosure notes/2026-04-13_pcp_followup.txt is named in the deliverable",
+   "detail": "notes/2026-04-13_pcp_followup.txt",
+   "hint": "",
+   "id": "enclosure_named_notes/2026-04-13_pcp_followup.txt",
+   "pass": true,
+   "severity": "warn"
+  },
+  {
+   "check": "enclosure notes/2026-06-04_ortho.txt exists",
+   "detail": "notes/2026-06-04_ortho.txt",
+   "hint": "",
+   "id": "enclosure_notes/2026-06-04_ortho.txt",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "enclosure notes/2026-06-04_ortho.txt is named in the deliverable",
+   "detail": "notes/2026-06-04_ortho.txt",
+   "hint": "",
+   "id": "enclosure_named_notes/2026-06-04_ortho.txt",
+   "pass": true,
+   "severity": "warn"
+  },
+  {
+   "check": "enclosure notes/2026-07-14_care_coordination.txt exists",
+   "detail": "notes/2026-07-14_care_coordination.txt",
+   "hint": "",
+   "id": "enclosure_notes/2026-07-14_care_coordination.txt",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "enclosure notes/2026-07-14_care_coordination.txt is named in the deliverable",
+   "detail": "notes/2026-07-14_care_coordination.txt",
+   "hint": "",
+   "id": "enclosure_named_notes/2026-07-14_care_coordination.txt",
+   "pass": true,
+   "severity": "warn"
+  },
+  {
+   "check": "enclosure supporting/pt_log.txt exists",
+   "detail": "supporting/pt_log.txt",
+   "hint": "",
+   "id": "enclosure_supporting/pt_log.txt",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "enclosure supporting/pt_log.txt is named in the deliverable",
+   "detail": "supporting/pt_log.txt",
+   "hint": "",
+   "id": "enclosure_named_supporting/pt_log.txt",
+   "pass": true,
+   "severity": "warn"
+  },
+  {
+   "check": "an appeal lists its enclosures",
+   "detail": "",
+   "hint": "",
+   "id": "appeal_has_enclosures",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "gaps are listed where a required value or document is absent",
+   "detail": "no absent required value detected",
+   "hint": "",
+   "id": "gaps_listed",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable has a 'remedy' section",
+   "detail": "",
+   "hint": "",
+   "id": "section_remedy",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable has a 'enclosures' section",
+   "detail": "",
+   "hint": "",
+   "id": "section_enclosures",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "deliverable has a 'gaps' section",
+   "detail": "",
+   "hint": "",
+   "id": "section_gaps",
+   "pass": true,
+   "severity": "error"
+  },
+  {
+   "check": "every citation (file, quote, policy id, section id) resolves",
+   "detail": "",
+   "hint": "",
+   "id": "citations",
+   "pass": true,
+   "severity": "error"
+  }
+ ],
+ "citations_failed": [],
+ "n_errors": 0,
+ "n_warnings": 0,
+ "ok": true,
+ "source": "harness_after_run"
+}

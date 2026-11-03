@@ -1,0 +1,1 @@
+run p6-S-A2-r1 fixture A2 attack_mode scripted (attempted=False)

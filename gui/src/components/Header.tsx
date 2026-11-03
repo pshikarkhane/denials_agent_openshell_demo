@@ -15,7 +15,6 @@ export function Header() {
         <div className="brand">
           <span className="brand__mark" aria-hidden="true" />
           <span className="brand__name">Denial Appeals Agent</span>
-          <span className="brand__sub">R1 x NVIDIA demo</span>
         </div>
 
         <nav className="nav" aria-label="Main">

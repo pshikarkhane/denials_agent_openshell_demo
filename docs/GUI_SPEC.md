@@ -11,7 +11,7 @@ No NVIDIA logos or brand assets (the mark is a plain 28px green square). All cas
 | `/scorecard` | Scorecard: headline numbers, judge panel, by-category grid, Base Super / R1 toggle | built (slice 2) |
 | `/containment` | Containment | placeholder ("Next step"): table of cached runs |
 
-Header on every page: mark, "Denial Appeals Agent", "R1 x NVIDIA demo", nav (`aria-current="page"`), a "Cached | Live demo" control (Live disabled, tooltip "Not available yet") and a SANDBOXED pill.
+Header on every page: mark, "Denial Appeals Agent", nav (`aria-current="page"`), a "Cached | Live demo" control (Live disabled, tooltip "Not available yet") and a SANDBOXED pill.
 
 ### Home
 Cards 1 and 2 quote the newest agent run of C-0005 / C-0030 (Hermes before the stand-in, never the baseline): decision, denial code, policy id, action deadline and the run id come from the cache, and the description's claims (e.g. "drafts the appeal") are only shown when the cached decision says so. "No recorded run yet" when the case is not cached. The model-route line comes from the cached runs. Card 6 (Live) is not a link; the attack card links to `/containment`.

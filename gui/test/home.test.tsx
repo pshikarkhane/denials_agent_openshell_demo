@@ -48,8 +48,10 @@ const hrefsOf = (html: string) => [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g
 describe('Home', () => {
   it('renders the hero copy and six scenario cards', () => {
     const html = render(both);
-    expect(html).toContain('One denial in.');
-    expect(html).toContain('One scored decision out.');
+    expect(html).toContain('Denials agent, inside OpenShell.');
+    expect(html).toContain('Built for RCM optimization.');
+    expect(html).toContain('NemoClaw deploys it, and Nemotron 3.5 Super (preview) does the reasoning.');
+    expect(html).not.toContain('R1 x NVIDIA');
     expect(html).toContain('Blueprint: NemoClaw. Sandbox: OpenShell. Model: Nemotron 3.5 Super (preview). Agent: Hermes (open source).');
     expect(html).not.toContain('PHI stays inside');
     expect((html.match(/class="card__title"/g) ?? []).length).toBe(7); // six cards + runtime card

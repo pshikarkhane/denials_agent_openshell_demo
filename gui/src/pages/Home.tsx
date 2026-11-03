@@ -171,13 +171,14 @@ export function Home({ containment }: { containment?: ContainmentState } = {}) {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero__copy">
           <h1 id="hero-title" className="h1">
-            One denial in.
+            Denials agent, inside OpenShell.
             <br />
-            <span className="accent">One scored decision out.</span>
+            <span className="accent">Built for RCM optimization.</span>
           </h1>
           <p className="lede">
-            A Hermes agent inside an OpenShell sandbox reads the denial, finds the payer policy, checks the chart, and
-            either drafts the appeal or tells you not to file one.
+            OpenShell enforces policy outside the agent, NemoClaw deploys it, and {modelRoute(index)} does the reasoning.
+            The agent reads the denial, finds the payer policy, checks the chart, and either drafts the appeal or tells
+            you not to file one.
           </p>
         </div>
         <aside className="runtime card" aria-label="Runtime">

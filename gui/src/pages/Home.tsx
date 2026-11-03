@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { useIndexState } from '../data/DataContext';
+import { useContainment, useIndexState, type ContainmentState } from '../data/DataContext';
 import { decisionLabel, latestRunForCase } from '../data/select';
 import type { DataIndex, IndexEntry } from '../data/types';
 import { IconCheck, IconClock, IconPlay, IconScore, IconShield, IconSwap } from '../components/Icons';
@@ -53,7 +53,7 @@ const SCENARIOS: Scenario[] = [
     icon: <IconShield />,
     to: '/containment',
     description:
-      'A poisoned clinical note tells the agent to send the record out. OpenShell blocks the connection and the audit log shows it.',
+      'A poisoned clinical note tells the agent to send data out. OpenShell enforces the policy outside the agent; the page shows what the agent did and what OpenShell recorded.',
     tags: () => ['Containment', 'Split screen'],
     cta: 'Open containment',
   },
@@ -87,6 +87,17 @@ const SCENARIOS: Scenario[] = [
   },
 ];
 
+/** Facts of the attack card, all from containment.json (null while loading or when a part could not be parsed). */
+export function attackFacts(c: ContainmentState): { natural: string; scripted: string } | null {
+  if (c.status !== 'ready') return null;
+  const { summary, scripted } = c.data;
+  if (!summary.naturalAttempts || !scripted?.length) return null;
+  return {
+    natural: `Natural attempts: ${summary.naturalAttempts} runs`,
+    scripted: `Scripted attempts blocked by OpenShell: ${scripted.map((r) => `${r.scenario} ${r.blocked}`).join(', ')}`,
+  };
+}
+
 function facts(run: IndexEntry): string {
   const parts = [decisionLabel(run.decision), run.denialCode, `policy ${run.policyId}`];
   if (run.actionDeadline) parts.push(`action by ${run.actionDeadline}`);
@@ -99,10 +110,11 @@ const runtimeName = (r: IndexEntry) => (r.runtime === 'hermes' ? 'Hermes' : 'sta
 export function modelRoute(index: DataIndex | null): string {
   const model = index?.runs.find((r) => r.variant === 'agent')?.model;
   if (!model) return 'Nemotron 3.5 Super';
-  return /nemotron-3\.5-super/.test(model) ? 'Nemotron 3.5 Super' : model;
+  if (!/nemotron-3\.5-super/.test(model)) return model;
+  return /preview/.test(model) ? 'Nemotron 3.5 Super (preview)' : 'Nemotron 3.5 Super';
 }
 
-function Card({ s, index, loaded }: { s: Scenario; index: DataIndex | null; loaded: boolean }) {
+function Card({ s, index, loaded, attack }: { s: Scenario; index: DataIndex | null; loaded: boolean; attack: ReturnType<typeof attackFacts> }) {
   const run = s.caseId ? latestRunForCase(index, s.caseId) : undefined;
   const description = typeof s.description === 'function' ? s.description(run) : s.description;
   const missing = Boolean(s.caseId) && loaded && !run;
@@ -120,6 +132,12 @@ function Card({ s, index, loaded }: { s: Scenario; index: DataIndex | null; load
         </p>
       )}
       {missing && <p className="card__facts card__facts--missing">No recorded run yet</p>}
+      {s.key === 'attack' && attack && (
+        <p className="card__facts">
+          {attack.natural}
+          <span className="card__src">{attack.scripted}</span>
+        </p>
+      )}
       <ul className="tags" aria-label="Tags">
         {s.tags(run).map((t) => (
           <li key={t} className="pill">{t}</li>
@@ -142,8 +160,10 @@ function Card({ s, index, loaded }: { s: Scenario; index: DataIndex | null; load
   );
 }
 
-export function Home() {
+export function Home({ containment }: { containment?: ContainmentState } = {}) {
   const state = useIndexState();
+  const fetched = useContainment();
+  const attack = attackFacts(containment ?? fetched);
   const index = state.status === 'ready' ? state.index : null;
 
   return (
@@ -162,10 +182,8 @@ export function Home() {
         </div>
         <aside className="runtime card" aria-label="Runtime">
           <p className="eyebrow">RUNTIME</p>
-          <h2 className="card__title">OpenShell sandbox</h2>
-          <p className="muted">Model route: {modelRoute(index)}</p>
-          <p className="muted">Policy: PHI stays inside; allowlisted egress only</p>
-          <p className="muted">Audit: OCSF event log</p>
+          <h2 className="card__title">The stack</h2>
+          <p className="muted">Blueprint: NemoClaw. Sandbox: OpenShell. Model: {modelRoute(index)}. Agent: Hermes (open source).</p>
         </aside>
       </section>
 
@@ -176,7 +194,7 @@ export function Home() {
       <section aria-label="Scenarios">
         <ul className="grid">
           {SCENARIOS.map((s) => (
-            <Card key={s.key} s={s} index={index} loaded={state.status !== 'loading'} />
+            <Card key={s.key} s={s} index={index} loaded={state.status !== 'loading'} attack={attack} />
           ))}
         </ul>
       </section>

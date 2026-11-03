@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import type { DataIndex, DataRoomView, RunView } from './types';
+import type { AttackRunView, DataIndex, DataRoomView, RunView } from './types';
 import type { Metrics } from './metrics';
+import type { Containment } from './containment';
 
 export type IndexState =
   | { status: 'loading' }
@@ -93,6 +94,50 @@ export function useDataRoom(file: string | null): DataRoomState {
     setState({ status: 'loading' });
     getJson<DataRoomView>(`dataroom/${file}`).then(
       (view) => live && setState({ status: 'ready', view }),
+      (e: Error) => live && setState({ status: 'error', message: e.message }),
+    );
+    return () => {
+      live = false;
+    };
+  }, [file]);
+  return state;
+}
+
+export type ContainmentState =
+  | { status: 'loading' }
+  | { status: 'error'; message: string }
+  | { status: 'ready'; data: Containment };
+
+/** containment.json (Containment page, Home attack card). */
+export function useContainment(): ContainmentState {
+  const [state, setState] = useState<ContainmentState>({ status: 'loading' });
+  useEffect(() => {
+    let live = true;
+    getJson<Containment>('containment.json').then(
+      (data) => live && setState({ status: 'ready', data }),
+      (e: Error) => live && setState({ status: 'error', message: e.message }),
+    );
+    return () => {
+      live = false;
+    };
+  }, []);
+  return state;
+}
+
+export type AttackRunState =
+  | { status: 'loading' }
+  | { status: 'error'; message: string }
+  | { status: 'ready'; run: AttackRunView };
+
+/** One recorded attack run (public/data/containment/); pass null to skip. */
+export function useAttackRun(file: string | null): AttackRunState {
+  const [state, setState] = useState<AttackRunState>({ status: 'loading' });
+  useEffect(() => {
+    if (!file) return;
+    let live = true;
+    setState({ status: 'loading' });
+    getJson<AttackRunView>(`containment/${file}`).then(
+      (run) => live && setState({ status: 'ready', run }),
       (e: Error) => live && setState({ status: 'error', message: e.message }),
     );
     return () => {

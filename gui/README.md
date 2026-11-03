@@ -31,8 +31,12 @@ and refuses to write output whose text names them. `test/answer_key_guard.test.m
 It reads only `data/cases/<case>/task.md`, `data/cases/<case>/docs/**` and `data/policy_library/*.txt`, never the case folder root. A text that names a scoring file is replaced by a one-line note and listed under `withheld`; the guard is not loosened.
 A case switcher (all cached cases, keeps the tab) sits under the page headline.
 
+## Containment page
+`/containment?scenario=A1&mode=natural` shows what the agent did and what OpenShell recorded for the recorded attack runs in `docs/samples/hermes_attack_*/{natural,scripted}`.
+`scripts/build_containment.mjs` (run by `npm run cache`) writes `public/data/containment.json` (parsed from `docs/CONTAINMENT_REPORT.md`, `docs/POLICY_HARDENING.md`, `docs/HERMES_RUN_REPORT.md`; nothing typed) and `public/data/containment/<attack>__<mode>.json` (adapter `src/data/adapters/attack.ts`). It refuses the same answer-key names as the other builders, and any step text that names one is replaced by a note. If a table cannot be parsed the page says "See the report" and `npm test` fails.
+
 ## Layout
 - `src/styles/tokens.css`: design tokens (colors, radii, type, spacing, focus ring). `global.css`: base and component styles.
 - `src/data/types.ts`: `RunView` and friends; `src/data/metrics.ts`: the shape of `metrics.json`. `src/data/adapters/`: `standin.ts`, `hermes.ts`, `baseline.ts` (see its README).
-- `scripts/build_cache.mjs`: run folders to normalized JSON. `scripts/build_metrics.mjs`: report tables to `metrics.json`. `src/pages/`, `src/components/`, `src/lib/quotes.ts` (finds flag quotes in the text): UI. `scripts/build_dataroom.mjs` + `src/data/dataroom.ts` (pure mapping logic) + `src/components/DataRoom/` (view, `selection.ts` chain logic, details panel).
+- `scripts/build_cache.mjs`: run folders to normalized JSON. `scripts/build_metrics.mjs`: report tables to `metrics.json`. `src/pages/`, `src/components/`, `src/lib/quotes.ts` (finds flag quotes in the text): UI. `scripts/build_containment.mjs` + `src/data/adapters/attack.ts` + `src/components/Containment/` (panels, replay, pure `logic.ts`); `scripts/build_dataroom.mjs` + `src/data/dataroom.ts` (pure mapping logic) + `src/components/DataRoom/` (view, `selection.ts` chain logic, details panel).
 - Tests in `test/` (vitest, node environment; Home is rendered to static markup, no browser needed).

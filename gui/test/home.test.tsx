@@ -50,7 +50,8 @@ describe('Home', () => {
     const html = render(both);
     expect(html).toContain('One denial in.');
     expect(html).toContain('One scored decision out.');
-    expect(html).toContain('OpenShell sandbox');
+    expect(html).toContain('Blueprint: NemoClaw. Sandbox: OpenShell. Model: Nemotron 3.5 Super (preview). Agent: Hermes (open source).');
+    expect(html).not.toContain('PHI stays inside');
     expect((html.match(/class="card__title"/g) ?? []).length).toBe(7); // six cards + runtime card
     expect((html.match(/grid__item/g) ?? []).length).toBe(6);
     expect(html).toContain('All case content is synthetic.');
@@ -119,6 +120,6 @@ describe('Home data rules', () => {
 
   it('shows the model route of the cached runs', () => {
     const html = render({ status: 'ready', index: { mode: 'cached', runs: [entry({ model: 'acme/other-model' })] } });
-    expect(html).toContain('Model route: acme/other-model');
+    expect(html).toContain('Model: acme/other-model.');
   });
 });

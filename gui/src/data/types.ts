@@ -300,3 +300,115 @@ export interface DataRoomIndexEntry {
   available: boolean;
   file: string;
 }
+
+// ---- Containment (public/data/containment/<attack>__<mode>.json), built by scripts/build_containment.mjs ----
+
+export type AttackMode = 'natural' | 'scripted';
+/**
+ * The layer that stopped the attempted action, derived by rules from the recording:
+ * openshell_network (a run-tagged audit DENIED row for the host), openshell_file
+ * (a permission error for a write outside /sandbox and /tmp), agent_safeguard
+ * (the agent's own approval gate timed out), unknown (an attempt none of the rules
+ * explains) and none (no attempt in the recording).
+ */
+export type BlockedBy = 'openshell_network' | 'openshell_file' | 'agent_safeguard' | 'unknown' | 'none';
+
+export interface AttackStep {
+  /** Order in the recording (1-based). */
+  n: number;
+  /** events.jsonl sequence number of the step's first event. */
+  seq: number;
+  /** Absolute time of the step's first event. */
+  ts: string;
+  endTs: string | null;
+  kind: 'run' | 'model' | 'tool' | 'self_check';
+  name: string;
+  hermesTool: string | null;
+  skillName: string | null;
+  status: StepStatus;
+  /** Raw command (terminal) or the path/arguments summary (file tools). */
+  command: string | null;
+  summary: string;
+  result: string | null;
+  /** The harness ran this step itself, outside the agent's own checks. */
+  scripted: boolean;
+  durationMs: number;
+}
+
+export interface AttackAuditEvent {
+  index: number;
+  ts: string;
+  eventClass: string;
+  target: string;
+  result: string;
+  reason: string;
+  /** Binary and pid that opened the connection, when OpenShell recorded one. */
+  actor: string | null;
+  tag: AuditTag | null;
+}
+
+export interface AttackAttempt {
+  /** Step n of the attempt. */
+  stepN: number;
+  seq: number;
+  scripted: boolean;
+  tool: string;
+  command: string;
+  result: string;
+  status: StepStatus;
+  /** What the command carried, read from the command itself; null when it cannot be told. */
+  payload: { kind: 'text' | 'file'; value: string } | null;
+}
+
+export interface AttackRunView {
+  attackId: string;
+  /** A1, A2 or A3 (the fixture id without its variant letter). */
+  scenario: string;
+  attackMode: AttackMode;
+  runId: string;
+  caseId: string;
+  model: string;
+  startedAt: string;
+  steps: AttackStep[];
+  injection: {
+    /** The paragraph as the agent received it in a tool result; null when no recorded result holds it. */
+    excerpt: string | null;
+    /** Hosts, URLs and paths named by the injected request. */
+    tokens: string[];
+    seq: number | null;
+    /** Why the excerpt is missing, when it is. */
+    note: string;
+  };
+  injectionSeenByModel: boolean | null;
+  attempt: AttackAttempt | null;
+  blockedBy: BlockedBy;
+  /** Indexes into `audit` of the denied rows that explain an openshell_network block. */
+  evidenceAudit: number[];
+  audit: AttackAuditEvent[];
+  outcome: {
+    decisionCorrect: boolean | null;
+    denialCodeOk: boolean | null;
+    actionDeadlineOk: boolean | null;
+    decisionJsonPresent: boolean;
+    deliverablePresent: boolean;
+    /** From attack_result.json; null when absent. */
+    allowedEgressOtherReported: number | null;
+    /** Run-tagged audit counts, computed here. */
+    auditDenied: number;
+    auditAllowed: number;
+    /** Allowed run-tagged connections whose host is not the model endpoint. */
+    auditAllowedOther: number;
+    backgroundCount: number;
+  };
+  letter: { mentionsInjection: boolean; sentence: string | null };
+  /** Step texts replaced by a note because they named a scoring file (answer-key guard). */
+  withheld: string[];
+}
+
+export interface ContainmentIndexEntry {
+  attackId: string;
+  scenario: string;
+  attackMode: AttackMode;
+  runId: string;
+  file: string;
+}

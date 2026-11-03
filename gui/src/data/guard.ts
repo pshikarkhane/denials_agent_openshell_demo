@@ -10,42 +10,40 @@ export const FORBIDDEN_DIRS = ['gold', 'attacks'];
 export const FORBIDDEN_TOKENS = [...FORBIDDEN_FILES, ...FORBIDDEN_DIRS.map((d) => `${d}/`)];
 
 export class AnswerKeyError extends Error {
-  constructor(p) {
+  constructor(p: string) {
     super(`REFUSED: answer-key path in input: ${p}`);
     this.name = 'AnswerKeyError';
   }
 }
 
 /** Throws if any segment of the path is a forbidden file or folder name. */
-export function assertAllowedPath(p) {
-  const segments = p.split(/[\\/]+/).filter(Boolean);
-  for (const seg of segments) {
+export function assertAllowedPath(p: string): void {
+  for (const seg of p.split(/[\\/]+/).filter(Boolean)) {
     const s = seg.toLowerCase();
     if (FORBIDDEN_FILES.includes(s) || FORBIDDEN_DIRS.includes(s)) throw new AnswerKeyError(p);
   }
 }
 
 /** Walks a folder and throws on the first forbidden entry; never opens a file. */
-export function assertTreeClean(root) {
+export function assertTreeClean(root: string): void {
   assertAllowedPath(path.basename(root));
-  const walk = (dir) => {
+  const walk = (dir: string): void => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name);
       assertAllowedPath(entry.name);
-      if (entry.isDirectory()) walk(full);
+      if (entry.isDirectory()) walk(path.join(dir, entry.name));
     }
   };
   walk(root);
 }
 
 /** The only way the adapters read a file. */
-export function readGuarded(file) {
+export function readGuarded(file: string): string {
   assertAllowedPath(path.basename(file));
   return fs.readFileSync(file, 'utf8');
 }
 
 /** Returns the forbidden tokens found in a text (case-insensitive). */
-export function findForbiddenTokens(text) {
+export function findForbiddenTokens(text: string): string[] {
   const lower = text.toLowerCase();
   return FORBIDDEN_TOKENS.filter((t) => lower.includes(t));
 }

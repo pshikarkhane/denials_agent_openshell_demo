@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildCache } from '../scripts/build_cache.mjs';
-import { FORBIDDEN_TOKENS, findForbiddenTokens } from '../src/data/guard.mjs';
+import { FORBIDDEN_TOKENS, findForbiddenTokens } from '../src/data/guard.ts';
 
 const dataDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../public/data');
 

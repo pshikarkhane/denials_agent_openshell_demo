@@ -1,0 +1,2584 @@
+{
+ "runId": "hermes-p1-r1",
+ "caseId": "C-0005",
+ "source": "hermes",
+ "runtime": "hermes",
+ "variant": "agent",
+ "model": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+ "startedAt": "2026-10-30T23:26:04.706+00:00",
+ "decision": "APPEAL",
+ "denialCode": "CO-50",
+ "policyId": "MP-IMG-007",
+ "actionDeadline": "2027-01-13",
+ "deliverableMarkdown": "Appeal Letter — Claim 6268311\n\nTo: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 (Meridian Community Health Plan)\nFrom: Revenue Cycle Appeals, provider organization\nDate of review: 2026-08-04\n\nClaim number: 6268311\nPatient ID: P-1862 (Brenda Wilson, member ID MBR475438256)\nDate of service: 2026-06-18\nCPT code: 72148 — MRI lumbar spine without contrast\nICD-10: M51.26\nDenial code: CARC CO-50 / RARC N386 — \"The service was not deemed medically necessary by the plan.\"\nNotice date: 2026-07-17\nGoverning policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (effective 2026-04-15), sections 2.1(a), 2.1(b), 2.1(c)\nAppeal deadline: 2027-01-13 (180 days from the notice date per MP-IMG-007 section 7.1; stated in the denial letter). Review date 2026-08-04 is on or before the deadline, so the appeal is timely (deadline_ok: true).\n\nRemedy requested: Overturn the denial (CARC CO-50, RARC N386) and approve and pay claim 6268311 for CPT 72148, MRI lumbar spine without contrast, DOS 2026-06-18, for member P-1862.\n\nBasis for appeal:\n\nThe denial states the clinical information did not demonstrate that the service met the plan's medical necessity criteria under MP-IMG-007 (denial_letter.txt). The medical record on file satisfies each applicable criterion:\n\n1. Section 2.1(a) — at least 6 weeks of conservative therapy prior to the MRI request, documented in the medical record. MET. The primary care visit note of 2026-03-23 (notes/2026-03-23_pcp.txt) states conservative management was begun that day: NSAIDs, a home exercise program, and a physical therapy referral. The follow-up note of 2026-04-13 (notes/2026-04-13_pcp_followup.txt) reports about 14 days of PT at that visit and continuing therapy. The physical therapy attendance log (supporting/pt_log.txt) shows a start of care of 2026-03-23, 21 visits completed through 2026-06-01, and a treatment period of 2026-03-23 to 2026-06-04 (73 days). The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) records that the MRI was ordered at that visit. The interval from the start of conservative therapy (2026-03-23) to the MRI request (2026-06-04) is 73 days, exceeding 6 weeks, and is documented in the medical record (supporting/pt_log.txt, notes/2026-03-23_pcp.txt, notes/2026-04-13_pcp_followup.txt, notes/2026-06-04_ortho.txt).\n\n2. Section 2.1(b) — a neurological deficit or recognized red flag finding documented in the clinical record. MET. The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) documents a neurological deficit: left ankle dorsiflexion strength mildly reduced, left leg paresthesias, and a positive straight leg raise at 40 degrees. No red flag features are present, but a red flag is not required when a neurological deficit is documented (notes/2026-06-04_ortho.txt).\n\n3. Section 2.1(c) — no prior imaging of the same lumbar spine region within the preceding 12 months. MET. The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) states: \"Imaging history: No prior lumbar imaging on file.\"\n\nTimeliness: The denial notice is dated 2026-07-17. MP-IMG-007 section 7.1 allows an appeal within 180 days of the date of the claim determination notice, giving a deadline of 2027-01-13 (stated in the denial letter). This review is dated 2026-08-04, which is on or before the appeal deadline, so the appeal is timely.\n\nEnclosures:\n- notes/2026-03-23_pcp.txt (Primary Care Visit Note, 2026-03-23)\n- notes/2026-04-13_pcp_followup.txt (Primary Care Follow-Up Note, 2026-04-13)\n- notes/2026-06-04_ortho.txt (Orthopedic Consultation Note, 2026-06-04)\n- supporting/pt_log.txt (Physical Therapy Attendance Log)\n- denial_letter.txt (Denial notice, 2026-07-17)\n\nGaps: none identified.",
+ "steps": [
+  {
+   "n": 1,
+   "kind": "run",
+   "name": "start",
+   "argsSummary": "model nvidia/nvidia/nemotron-3.5-super-text-preview",
+   "resultSummary": "run started",
+   "durationMs": 0,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": null
+  },
+  {
+   "n": 2,
+   "kind": "model",
+   "name": "turn 1",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: parse_denial_eob",
+   "durationMs": 6100,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "I'll start by parsing the denial EOB for case C-0005."
+   }
+  },
+  {
+   "n": 3,
+   "kind": "tool",
+   "name": "parse_denial_eob",
+   "argsSummary": "{}",
+   "resultSummary": "{ \"amounts\": { \"allowed\": 0.0, \"billed\": 2052.88, \"claim_totals\": { \"allowed\": 0.0, \"billed\": 2052.88, \"paid\": 0.0, \"patient_responsibility\": 0.0 }, \"denied_amount\": 2052.88, \"paid\": 0.0, \"patient_re…",
+   "durationMs": 201,
+   "status": "ok",
+   "skillName": "parse_denial_eob",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 parse_denial_eob '{}'",
+   "detail": {
+    "arguments": {},
+    "result": "{\n \"amounts\": {\n  \"allowed\": 0.0,\n  \"billed\": 2052.88,\n  \"claim_totals\": {\n   \"allowed\": 0.0,\n   \"billed\": 2052.88,\n   \"paid\": 0.0,\n   \"patient_responsibility\": 0.0\n  },\n  \"denied_amount\": 2052.88,\n  \"paid\": 0.0,\n  \"patient_responsibility\": 0.0\n },\n \"appeal\": {\n  \"address\": \"Appeals Unit, P.O. Box 5100, Meridian City, ST 00001\",\n  \"by_date\": \"2027-01-13\",\n  \"window_days\": 180\n },\n \"as_of_date\": \"2026-08-04\",\n \"claim_details\": {\n  \"case_id_in_task\": \"C-0005\",\n  \"claim_status\": \"DENIED\",\n  \"payer_received_date\": \"2026-06-26\",\n  \"place_of_service\": \"11\",\n  \"referring_provider\": \"Dr. Brett Henry\",\n  \"rendering_provider\": \"Dr. Bridget Santana (Radiology) (ID RP-8311)\"\n },\n \"claim_no\": \"6268311\",\n \"consistency\": [],\n \"corrected_claim\": {\n  \"by_date\": \"2027-07-17\",\n  \"window_days\": 365\n },\n \"cpt\": \"72148\",\n \"denial\": {\n  \"carc\": \"CO-50\",\n  \"carc_text\": \"The service was not deemed medically necessary by the plan.\",\n  \"notice_date\": \"2026-07-17\",\n  \"rarc\": \"N386\",\n  \"reason_text\": \"The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity).\"\n },\n \"denied_line\": 1,\n \"dos\": \"2026-06-18\",\n \"icd10\": [\n  \"M51.26\"\n ],\n \"letter_facts\": {},\n \"missing_required\": [],\n \"not_found\": {},\n \"patient\": {\n  \"id\": \"P-1862\",\n  \"member_id\": \"MBR475438256\",\n  \"name\": \"Brenda Wilson\"\n },\n \"payer\": {\n  \"id\": \"MERIDIAN_COMM\",\n  \"member_id\": null,\n  \"name\": \"Meridian Community Health Plan\"\n },\n \"policy_title\": \"Advanced Imaging: Lumbar Spine MRI Medical Necessity\",\n \"service_description\": \"MRI lumbar spine without contrast\",\n \"service_lines\": [\n  {\n   \"adjustment_amount\": 2052.88,\n   \"adjustment_code\": \"CO-50\",\n   \"allowed\": 0.0,\n   \"billed\": 2052.88,\n   \"cpt\": \"72148\",\n   \"description\": \"MRI lumbar spine without contrast\",\n   \"line\": 1,\n   \"modifier\": null,\n   \"paid\": 0.0,\n   \"rarc\": \"N386\"\n  }\n ]\n}"
+   }
+  },
+  {
+   "n": 4,
+   "kind": "model",
+   "name": "turn 2",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: retrieve_payer_policy, pull_clinical_notes",
+   "durationMs": 8600,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "I have the denial facts. Now let me retrieve the payer policy and the clinical notes in parallel."
+   }
+  },
+  {
+   "n": 5,
+   "kind": "tool",
+   "name": "retrieve_payer_policy",
+   "argsSummary": "{\"date_of_service\": \"2026-06-18\", \"payer\": \"MERIDIAN_COMM\", \"policy_title\": \"Advanced Imaging: Lumbar Spine MRI Medical Necessity\"}",
+   "resultSummary": "{\"error\": {\"code\": \"bad_input\", \"message\": \"2 validation errors for Input\\ndos\\n Field required [type=missing, input_value={'payer': 'MERIDIAN_COMM'... MRI Medical Necessity'}, input_type=dict]\\n For…",
+   "durationMs": 176,
+   "status": "error",
+   "skillName": "retrieve_payer_policy",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 retrieve_payer_policy '{\"payer\":\"MERIDIAN_COMM\",\"date_of_service\":\"2026-06-18\",\"policy_title\":\"Advanced Imaging: Lumbar Spine MRI Medical Necessity\"}'",
+   "detail": {
+    "arguments": {
+     "date_of_service": "2026-06-18",
+     "payer": "MERIDIAN_COMM",
+     "policy_title": "Advanced Imaging: Lumbar Spine MRI Medical Necessity"
+    },
+    "result": "{\"error\": {\"code\": \"bad_input\", \"message\": \"2 validation errors for Input\\ndos\\n  Field required [type=missing, input_value={'payer': 'MERIDIAN_COMM'... MRI Medical Necessity'}, input_type=dict]\\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\\ndate_of_service\\n  Extra inputs are not permitted [type=extra_forbidden, input_value='2026-06-18', input_type=str]\\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\"}}"
+   }
+  },
+  {
+   "n": 6,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{}",
+   "resultSummary": "{ \"as_of_date\": \"2026-08-04\", \"date_from\": null, \"date_to\": \"2026-08-04\", \"documents\": [ { \"chars\": 1730, \"date\": \"2026-03-23\", \"date_reason\": null, \"date_source\": \"file name\", \"folder\": \"notes\", \"ki…",
+   "durationMs": 173,
+   "status": "ok",
+   "skillName": "pull_clinical_notes",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 pull_clinical_notes '{}'",
+   "detail": {
+    "arguments": {},
+    "result": "{\n \"as_of_date\": \"2026-08-04\",\n \"date_from\": null,\n \"date_to\": \"2026-08-04\",\n \"documents\": [\n  {\n   \"chars\": 1730,\n   \"date\": \"2026-03-23\",\n   \"date_reason\": null,\n   \"date_source\": \"file name\",\n   \"folder\": \"notes\",\n   \"kind\": \"pcp\",\n   \"lines\": 24,\n   \"path\": \"notes/2026-03-23_pcp.txt\",\n   \"title\": \"PRIMARY CARE VISIT NOTE\"\n  },\n  {\n   \"chars\": 1710,\n   \"date\": \"2026-04-13\",\n   \"date_reason\": null,\n   \"date_source\": \"file name\",\n   \"folder\": \"notes\",\n   \"kind\": \"pcp_followup\",\n   \"lines\": 24,\n   \"path\": \"notes/2026-04-13_pcp_followup.txt\",\n   \"title\": \"PRIMARY CARE FOLLOW-UP NOTE\"\n  },\n  {\n   \"chars\": 1779,\n   \"date\": \"2026-06-04\",\n   \"date_reason\": null,\n   \"date_source\": \"file name\",\n   \"folder\": \"notes\",\n   \"kind\": \"ortho\",\n   \"lines\": 21,\n   \"path\": \"notes/2026-06-04_ortho.txt\",\n   \"title\": \"ORTHOPEDIC CONSULTATION NOTE\"\n  },\n  {\n   \"chars\": 1221,\n   \"date\": null,\n   \"date_reason\": \"supporting documents carry no date in their file name\",\n   \"date_source\": null,\n   \"folder\": \"supporting\",\n   \"kind\": \"pt_log\",\n   \"lines\": 31,\n   \"path\": \"supporting/pt_log.txt\",\n   \"title\": \"Gutierrez Medical Group - PHYSICAL THERAPY ATTENDANCE LOG\"\n  }\n ],\n \"n_excluded_by_date\": 0,\n \"reason\": null\n}"
+   }
+  },
+  {
+   "n": 7,
+   "kind": "model",
+   "name": "turn 3",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: retrieve_payer_policy",
+   "durationMs": 1900,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "The policy skill expects `dos` not `date_of_service`. Let me retry and also read the clinical notes."
+   }
+  },
+  {
+   "n": 8,
+   "kind": "tool",
+   "name": "retrieve_payer_policy",
+   "argsSummary": "{\"dos\": \"2026-06-18\", \"payer\": \"MERIDIAN_COMM\", \"policy_title\": \"Advanced Imaging: Lumbar Spine MRI Medical Necessity\"}",
+   "resultSummary": "{ \"candidates\": [ { \"bm25\": 12.8914, \"policy_id\": \"MP-IMG-007\", \"title\": \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\", \"title_exact_match\": true, \"title_similarity\": 1.0 }, { \"bm25\": 9.6856…",
+   "durationMs": 174,
+   "status": "ok",
+   "skillName": "retrieve_payer_policy",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 retrieve_payer_policy '{\"payer\":\"MERIDIAN_COMM\",\"dos\":\"2026-06-18\",\"policy_title\":\"Advanced Imaging: Lumbar Spine MRI Medical Necessity\"}'",
+   "detail": {
+    "arguments": {
+     "dos": "2026-06-18",
+     "payer": "MERIDIAN_COMM",
+     "policy_title": "Advanced Imaging: Lumbar Spine MRI Medical Necessity"
+    },
+    "result": "{\n \"candidates\": [\n  {\n   \"bm25\": 12.8914,\n   \"policy_id\": \"MP-IMG-007\",\n   \"title\": \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\",\n   \"title_exact_match\": true,\n   \"title_similarity\": 1.0\n  },\n  {\n   \"bm25\": 9.6856,\n   \"policy_id\": \"MP-IMG-012\",\n   \"title\": \"Advanced Imaging: Lumbar Spine Ct Medical Necessity\",\n   \"title_exact_match\": false,\n   \"title_similarity\": 0.75\n  },\n  {\n   \"bm25\": 0.0,\n   \"policy_id\": \"MP-APL-001\",\n   \"title\": \"Appeals Levels and Deadlines\",\n   \"title_exact_match\": false,\n   \"title_similarity\": 0.0\n  },\n  {\n   \"bm25\": 0.0,\n   \"policy_id\": \"MP-BEN-002\",\n   \"title\": \"Member Cost Sharing and Deductibles\",\n   \"title_exact_match\": false,\n   \"title_similarity\": 0.0\n  },\n  {\n   \"bm25\": 0.0,\n   \"policy_id\": \"MP-BND-002\",\n   \"title\": \"Claim Bundling and Distinct Procedural Service Modifiers\",\n   \"title_exact_match\": false,\n   \"title_similarity\": 0.0\n  },\n  {\n   \"bm25\": 0.0,\n   \"policy_id\": \"MP-PA-030\",\n   \"title\": \"Prior Authorization and Retroactive Authorization\",\n   \"title_exact_match\": false,\n   \"title_similarity\": 0.0\n  }\n ],\n \"date_notes\": [],\n \"excluded\": [\n  {\n   \"policy_id\": \"MP-IMG-012\",\n   \"reason\": \"near-duplicate of MP-IMG-007 (title similarity 0.75) ranked lower: title differs from the letter\"\n  }\n ],\n \"policy\": {\n  \"appeals_address\": \"Appeals Unit, P.O. Box 5100, Meridian City, ST 00001\",\n  \"applies_from\": \"2025-01-01\",\n  \"applies_until\": null,\n  \"effective_date\": \"2026-04-15\",\n  \"file\": \"MP-IMG-007.txt\",\n  \"parameters\": [\n   {\n    \"label\": \"7.1\",\n    \"text\": \"Appeal deadline: 180 days from the date of the claim determination notice.\"\n   },\n   {\n    \"label\": \"7.2\",\n    \"text\": \"Timely filing limit: 180 days from the date of service.\"\n   },\n   {\n    \"label\": \"7.3\",\n    \"text\": \"Corrected claims: must be received within 365 days of the date of the notice.\"\n   },\n   {\n    \"label\": \"7.4\",\n    \"text\": \"Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001\"\n   }\n  ],\n  \"payer_id\": \"MERIDIAN_COMM\",\n  \"payer_name\": \"Meridian Community Health Plan\",\n  \"policy_id\": \"MP-IMG-007\",\n  \"title\": \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\",\n  \"windows\": {\n   \"appeal_days\": 180,\n   \"corrected_claim_days\": 365,\n   \"timely_filing_days\": 180\n  }\n },\n \"reason\": null,\n \"sections\": [\n  {\n   \"effective_date\": \"2026-04-15\",\n   \"heading\": null,\n   \"line\": 11,\n   \"policy_id\": \"MP-IMG-007\",\n   \"score\": 2.4095,\n   \"section\": \"2.1(a)\",\n   \"text\": \"The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken.\"\n  },\n  {\n   \"effective_date\": \"2026-04-15\",\n   \"heading\": null,\n   \"line\": 14,\n   \"policy_id\": \"MP-IMG-007\",\n   \"score\": 1.9824,\n   \"section\": \"2.1(b)\",\n   \"text\": \"A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study.\"\n  },\n  {\n   \"effective_date\": \"2026-04-15\",\n   \"heading\": null,\n   \"line\": 17,\n   \"policy_id\": \"MP-IMG-007\",\n   \"score\": 1.5582,\n   \"section\": \"2.1(c)\",\n   \"text\": \"There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved.\"\n  }\n ],\n \"status\": \"selected\",\n \"tie\": null\n}"
+   }
+  },
+  {
+   "n": 9,
+   "kind": "model",
+   "name": "turn 4",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: pull_clinical_notes",
+   "durationMs": 2200,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "I have the policy. Now let me read all four clinical documents to assess the criteria."
+   }
+  },
+  {
+   "n": 10,
+   "kind": "tool",
+   "name": "pull_clinical_notes",
+   "argsSummary": "{\"paths\": [\"notes/2026-03-23_pcp.txt\", \"notes/2026-04-13_pcp_followup.txt\", \"notes/2026-06-04_ortho.txt\", \"supporting/pt_log.txt\"]}",
+   "resultSummary": "{ \"as_of_date\": \"2026-08-04\", \"date_from\": null, \"date_to\": \"2026-08-04\", \"documents\": [ { \"chars\": 1730, \"date\": \"2026-03-23\", \"date_reason\": null, \"date_source\": \"file name\", \"folder\": \"notes\", \"ki…",
+   "durationMs": 176,
+   "status": "ok",
+   "skillName": "pull_clinical_notes",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 pull_clinical_notes '{\"paths\":[\"notes/2026-03-23_pcp.txt\",\"notes/2026-04-13_pcp_followup.txt\",\"notes/2026-06-04_ortho.txt\",\"supporting/pt_log.txt\"]}'",
+   "detail": {
+    "arguments": {
+     "paths": [
+      "notes/2026-03-23_pcp.txt",
+      "notes/2026-04-13_pcp_followup.txt",
+      "notes/2026-06-04_ortho.txt",
+      "supporting/pt_log.txt"
+     ]
+    },
+    "result": "{\n \"as_of_date\": \"2026-08-04\",\n \"date_from\": null,\n \"date_to\": \"2026-08-04\",\n \"documents\": [\n  {\n   \"chars\": 1730,\n   \"date\": \"2026-03-23\",\n   \"date_reason\": null,\n   \"date_source\": \"file name\",\n   \"folder\": \"notes\",\n   \"kind\": \"pcp\",\n   \"lines\": 24,\n   \"path\": \"notes/2026-03-23_pcp.txt\",\n   \"text\": \"Gutierrez Medical Group\\nPRIMARY CARE VISIT NOTE\\nPatient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862\\nDate of encounter: 2026-03-23\\nProvider: Dr. Jimmy Johnson\\n------------------------------------------------------------\\nReason for visit\\nEvaluation of low back pain with associated left leg symptoms, present and gradually worsening.\\n\\nHistory\\nThe patient reports aching low back pain that radiates into the left buttock and down the posterior left thigh and calf. She describes intermittent tingling along the left leg. Symptoms are worse with prolonged sitting and bending forward, and somewhat relieved by standing and walking. She denies bowel or bladder changes, saddle anesthesia, fever, or unexplained weight loss. No right-sided symptoms are reported. She has tried over-the-counter acetaminophen with minimal relief.\\n\\nExam\\nTenderness noted over the left lumbar paraspinal muscles and left sacroiliac region. Lumbar range of motion is reduced, with pain on forward flexion and on left lateral bending. No midline spinal tenderness appreciated.\\n\\nAssessment\\nLow back pain with left-sided radicular leg symptoms, most consistent with a left lumbar radiculopathy (M51.26). No red flag features identified on history or exam today.\\n\\nPlan\\nBegin conservative management. Started NSAIDs, a home exercise program and a physical therapy referral at this visit. Reviewed activity modification, proper body mechanics, and warning signs that warrant urgent reassessment. Will reassess response to therapy at a later visit and escalate evaluation if symptoms persist or worsen.\\n------------------------------------------------------------\\nElectronically signed: Dr. Jimmy Johnson\\n\\nSYNTHETIC DATA - NOT REAL PHI\\n\",\n   \"title\": \"PRIMARY CARE VISIT NOTE\"\n  },\n  {\n   \"chars\": 1710,\n   \"date\": \"2026-04-13\",\n   \"date_reason\": null,\n   \"date_source\": \"file name\",\n   \"folder\": \"notes\",\n   \"kind\": \"pcp_followup\",\n   \"lines\": 24,\n   \"path\": \"notes/2026-04-13_pcp_followup.txt\",\n   \"text\": \"Gutierrez Medical Group\\nPRIMARY CARE FOLLOW-UP NOTE\\nPatient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862\\nDate of encounter: 2026-04-13\\nProvider: Dr. Jimmy Johnson\\n------------------------------------------------------------\\nReason for visit\\nFollow-up for persistent left-sided back and leg symptoms, with a plan to continue conservative therapy.\\n\\nHistory\\nThe patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.\\n\\nExam\\nAlert and comfortable at rest. Tenderness to palpation over the left lumbar paraspinal region and left sciatic notch. Lumbar range of motion is reduced with flexion and left lateral bending, which reproduce her symptoms. Extension is better tolerated. No tenderness noted on the right side.\\n\\nAssessment\\nPersistent left-sided lumbar radicular symptoms, consistent with M51.26. Symptoms are gradually improving with current conservative management.\\n\\nPlan\\nContinue physical therapy as prescribed. Continue current home exercise program and activity modification. Over-the-counter analgesics as needed for pain. Return sooner if worsening weakness, numbness, or new red-flag symptoms develop.\\n------------------------------------------------------------\\nElectronical"
+   }
+  },
+  {
+   "n": 11,
+   "kind": "model",
+   "name": "turn 5",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: assess_appealability",
+   "durationMs": 5000,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "I have all the documents. Let me run assess_appealability to confirm deadlines and the criteria skeleton."
+   }
+  },
+  {
+   "n": 12,
+   "kind": "tool",
+   "name": "assess_appealability",
+   "argsSummary": "{}",
+   "resultSummary": "{ \"action_deadline_rule\": \"action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal…",
+   "durationMs": 173,
+   "status": "ok",
+   "skillName": "assess_appealability",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 assess_appealability '{}'",
+   "detail": {
+    "arguments": {},
+    "result": "{\n \"action_deadline_rule\": \"action_deadline = the corrected-claim deadline if you recommend submitting a corrected claim; otherwise the appeal deadline (this also covers a recommendation not to appeal, or to escalate because documents are missing). deadline_ok = review date <= action_deadline.\",\n \"as_of_date\": \"2026-08-04\",\n \"claim_history\": {\n  \"earlier_submissions\": {\n   \"line\": 13,\n   \"text\": \"none recorded\"\n  },\n  \"events\": [\n   {\n    \"date\": \"2026-06-24\",\n    \"event\": \"Submitted to clearinghouse (submission 1 of 1)\",\n    \"line\": 10\n   },\n   {\n    \"date\": \"2026-06-24\",\n    \"event\": \"Clearinghouse acceptance (277CA): ACCEPTED\",\n    \"line\": 11\n   },\n   {\n    \"date\": \"2026-06-26\",\n    \"event\": \"Received by payer\",\n    \"line\": 12\n   }\n  ],\n  \"prior_claims\": {\n   \"line\": 14,\n   \"text\": \"none recorded\"\n  },\n  \"retro_authorization_request\": null,\n  \"status\": {\n   \"date\": \"2026-07-17\",\n   \"line\": 17,\n   \"text\": \"Adjudicated by payer: adverse determination (CARC CO-50)\"\n  }\n },\n \"criteria_skeleton\": [\n  {\n   \"evidence_candidates\": [\n    {\n     \"excerpt\": \"(MRI lumbar spine without contrast)\",\n     \"file\": \"eob_835.txt\",\n     \"line\": 30,\n     \"score\": 10.497\n    },\n    {\n     \"excerpt\": \"Service: 72148 - MRI lumbar spine without contrast\",\n     \"file\": \"claim_history.txt\",\n     \"line\": 7,\n     \"score\": 9.211\n    },\n    {\n     \"excerpt\": \"Service: 72148 - MRI lumbar spine without contrast\",\n     \"file\": \"denial_letter.txt\",\n     \"line\": 11,\n     \"score\": 9.211\n    }\n   ],\n   \"policy_id\": \"MP-IMG-007\",\n   \"requirement_text\": \"The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken.\",\n   \"section\": \"2.1(a)\",\n   \"status\": null\n  },\n  {\n   \"evidence_candidates\": [\n    {\n     \"excerpt\": \"The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Sp\\u2026\",\n     \"file\": \"denial_letter.txt\",\n     \"line\": 17,\n     \"score\": 12.214\n    },\n    {\n     \"excerpt\": \"Imaging history: No prior lumbar imaging on file.\",\n     \"file\": \"notes/2026-06-04_ortho.txt\",\n     \"line\": 13,\n     \"score\": 6.164\n    },\n    {\n     \"excerpt\": \"Low back pain with left-sided radicular leg symptoms, most consistent with a left lumbar radiculopathy (M51.26). No red flag features identified on history or \\u2026\",\n     \"file\": \"notes/2026-03-23_pcp.txt\",\n     \"line\": 17,\n     \"score\": 4.35\n    }\n   ],\n   \"policy_id\": \"MP-IMG-007\",\n   \"requirement_text\": \"A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study.\",\n   \"section\": \"2.1(b)\",\n   \"status\": null\n  },\n  {\n   \"evidence_candidates\": [\n    {\n     \"excerpt\": \"Imaging history: No prior lumbar imaging on file.\",\n     \"file\": \"notes/2026-06-04_ortho.txt\",\n     \"line\": 13,\n     \"score\": 13.274\n    },\n    {\n     \"excerpt\": \"(MRI lumbar spine without contrast)\",\n     \"file\": \"eob_835.txt\",\n     \"line\": 30,\n     \"score\": 6.674\n    },\n    {\n     \"excerpt\": \"You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-01-13.\",\n     \"file\": \"denial_letter.txt\",\n     \"line\": 20,\n     \"score\": 6.492\n    }\n   ],\n   \"policy_id\": \"MP-IMG-007\",\n   \"requirement_text\": \"There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved.\",\n   \"section\": \"2.1(c)\",\n   \"status\": null\n  }\n ],\n \"dates\": {\n  \"claim_submitted_date\": \"2026-06-24\",\n  \"dos\": \"2026-06-18\",\n  \"notice_date\": \"2026-07-17\",\n  \"payer_received_date\": \"2026-06-26\"\n },\n \"deadlines\": {\n  \"appeal\": {\n   \"basis\": \"notice date 2026-07-17 + 180 days\",\n   \"date\": \"2027-01-13\",\n"
+   }
+  },
+  {
+   "n": 13,
+   "kind": "model",
+   "name": "turn 6",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: terminal",
+   "durationMs": 6800,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "All three policy criteria are supported by the record. Let me verify my analysis:\n\n- **2.1(a) 6 weeks conservative therapy**: PT started 2026-03-23, MRI requested 2026-06-04 (73 days, 21 PT visits) — met\n- **2.1(b) Neuro deficit/red flag**: Ortho note documents mild left ankle dorsiflexion weakness, positive straight leg raise at 40°, paresthesias — met (deficit, no red flag needed)\n- **2.1(c) No prior imaging**: \"No prior lumbar imaging on file\" — met\n\nAll criteria met → APPEAL. Action deadline = appeal deadline 2027-01-13. Now let me create the output files."
+   }
+  },
+  {
+   "n": 14,
+   "kind": "tool",
+   "name": "terminal",
+   "argsSummary": "{\"command\": \"mkdir -p /sandbox/work/output/C-0005 && ls -la /sandbox/work/output/C-0005\", \"timeout\": 30}",
+   "resultSummary": "total 24 drwxr-xr-x 2 sandbox sandbox 4096 Oct 30 23:26 . drwxr-xr-x 3 sandbox sandbox 4096 Oct 30 23:26 .. -rw-rw---- 1 sandbox sandbox 16178 Oct 30 23:26 skill_events.jsonl",
+   "durationMs": 21,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": "terminal",
+   "rawCommand": null,
+   "detail": {
+    "arguments": {
+     "command": "mkdir -p /sandbox/work/output/C-0005 && ls -la /sandbox/work/output/C-0005",
+     "timeout": 30
+    },
+    "result": "total 24\ndrwxr-xr-x 2 sandbox sandbox  4096 Oct 30 23:26 .\ndrwxr-xr-x 3 sandbox sandbox  4096 Oct 30 23:26 ..\n-rw-rw---- 1 sandbox sandbox 16178 Oct 30 23:26 skill_events.jsonl"
+   }
+  },
+  {
+   "n": 15,
+   "kind": "model",
+   "name": "turn 7",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: write_file, write_file",
+   "durationMs": 9300,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "Now I'll write both deliverable files. The decision is APPEAL (all three criteria met), so I'll write an appeal letter."
+   }
+  },
+  {
+   "n": 16,
+   "kind": "tool",
+   "name": "write_file",
+   "argsSummary": "{\"content\": \"Appeal Letter \\u2014 Claim 6268311\\n\\nTo: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 (Meridian Community Health Plan)\\nFrom: Revenue Cyc…",
+   "resultSummary": "{\"bytes_written\": 3749, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/sandbox/work/output/C-0005/deliverable.md\", \"fi…",
+   "durationMs": 87,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": "write_file",
+   "rawCommand": null,
+   "detail": {
+    "arguments": {
+     "content": "Appeal Letter — Claim 6268311\n\nTo: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 (Meridian Community Health Plan)\nFrom: Revenue Cycle Appeals, provider organization\nDate of review: 2026-08-04\n\nClaim number: 6268311\nPatient ID: P-1862 (Brenda Wilson, member ID MBR475438256)\nDate of service: 2026-06-18\nCPT code: 72148 — MRI lumbar spine without contrast\nICD-10: M51.26\nDenial code: CARC CO-50 / RARC N386 — \"The service was not deemed medically necessary by the plan.\"\nNotice date: 2026-07-17\nGoverning policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (effective 2026-04-15), sections 2.1(a), 2.1(b), 2.1(c)\nAppeal deadline: 2027-01-13 (180 days from the notice date per MP-IMG-007 section 7.1; stated in the denial letter). Review date 2026-08-04 is on or before the deadline, so the appeal is timely (deadline_ok: true).\n\nRemedy requested: Overturn the denial (CARC CO-50, RARC N386) and approve and pay claim 6268311 for CPT 72148, MRI lumbar spine without contrast, DOS 2026-06-18, for member P-1862.\n\nBasis for appeal:\n\nThe denial states the clinical information did not demonstrate that the service met the plan's medical necessity criteria under MP-IMG-007 (denial_letter.txt). The medical record on file satisfies each applicable criterion:\n\n1. Section 2.1(a) — at least 6 weeks of conservative therapy prior to the MRI request, documented in the medical record. MET. The primary care visit note of 2026-03-23 (notes/2026-03-23_pcp.txt) states conservative management was begun that day: NSAIDs, a home exercise program, and a physical therapy referral. The follow-up note of 2026-04-13 (notes/2026-04-13_pcp_followup.txt) reports about 14 days of PT at that visit and continuing therapy. The physical therapy attendance log (supporting/pt_log.txt) shows a start of care of 2026-03-23, 21 visits completed through 2026-06-01, and a treatment period of 2026-03-23 to 2026-06-04 (73 days). The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) records that the MRI was ordered at that visit. The interval from the start of conservative therapy (2026-03-23) to the MRI request (2026-06-04) is 73 days, exceeding 6 weeks, and is documented in the medical record (supporting/pt_log.txt, notes/2026-03-23_pcp.txt, notes/2026-04-13_pcp_followup.txt, notes/2026-06-04_ortho.txt).\n\n2. Section 2.1(b) — a neurological deficit or recognized red flag finding documented in the clinical record. MET. The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) documents a neurological deficit: left ankle dorsiflexion strength mildly reduced, left leg paresthesias, and a positive straight leg raise at 40 degrees. No red flag features are present, but a red flag is not required when a neurological deficit is documented (notes/2026-06-04_ortho.txt).\n\n3. Section 2.1(c) — no prior imaging of the same lumbar spine region within the preceding 12 months. MET. The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) states: \"Imaging history: No prior lumbar imaging on file.\"\n\nTimeliness: The denial notice is dated 2026-07-17. MP-IMG-007 section 7.1 allows an appeal within 180 days of the date of the claim determination notice, giving a deadline of 2027-01-13 (stated in the denial letter). This review is dated 2026-08-04, which is on or before the appeal deadline, so the appeal is timely.\n\nEnclosures:\n- notes/2026-03-23_pcp.txt (Primary Care Visit Note, 2026-03-23)\n- notes/2026-04-13_pcp_followup.txt (Primary Care Follow-Up Note, 2026-04-13)\n- notes/2026-06-04_ortho.txt (Orthopedic Consultation Note, 2026-06-04)\n- supporting/pt_log.txt (Physical Therapy Attendance Log)\n- denial_letter.txt (Denial notice, 2026-07-17)\n\nGaps: none identified.",
+     "path": "/sandbox/work/output/C-0005/deliverable.md"
+    },
+    "result": "{\"bytes_written\": 3749, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/sandbox/work/output/C-0005/deliverable.md\", \"files_modified\": [\"/sandbox/work/output/C-0005/deliverable.md\"]}"
+   }
+  },
+  {
+   "n": 17,
+   "kind": "tool",
+   "name": "write_file",
+   "argsSummary": "{\"content\": \"{\\n \\\"case_id\\\": \\\"C-0005\\\",\\n \\\"decision\\\": \\\"APPEAL\\\",\\n \\\"denial_code\\\": \\\"CO-50\\\",\\n \\\"policy_id\\\": \\\"MP-IMG-007\\\",\\n \\\"action_deadline\\\": \\\"2…",
+   "resultSummary": "{\"bytes_written\": 692, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"ok\", \"output\": \"\"}, \"resolved_path\": \"/sandbox/work/output/C-0005/decision.json\", \"files_modified\": [\"/sandbox/work/…",
+   "durationMs": 83,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": "write_file",
+   "rawCommand": null,
+   "detail": {
+    "arguments": {
+     "content": "{\n  \"case_id\": \"C-0005\",\n  \"decision\": \"APPEAL\",\n  \"denial_code\": \"CO-50\",\n  \"policy_id\": \"MP-IMG-007\",\n  \"action_deadline\": \"2027-01-13\",\n  \"deadline_ok\": true,\n  \"criteria\": [\n    {\n      \"id\": \"2.1(a)\",\n      \"status\": \"met\",\n      \"evidence\": \"notes/2026-03-23_pcp.txt\"\n    },\n    {\n      \"id\": \"2.1(b)\",\n      \"status\": \"met\",\n      \"evidence\": \"notes/2026-06-04_ortho.txt\"\n    },\n    {\n      \"id\": \"2.1(c)\",\n      \"status\": \"met\",\n      \"evidence\": \"notes/2026-06-04_ortho.txt\"\n    }\n  ],\n  \"enclosures\": [\n    \"notes/2026-03-23_pcp.txt\",\n    \"notes/2026-04-13_pcp_followup.txt\",\n    \"notes/2026-06-04_ortho.txt\",\n    \"supporting/pt_log.txt\",\n    \"denial_letter.txt\"\n  ],\n  \"gaps\": []\n}",
+     "path": "/sandbox/work/output/C-0005/decision.json"
+    },
+    "result": "{\"bytes_written\": 692, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"ok\", \"output\": \"\"}, \"resolved_path\": \"/sandbox/work/output/C-0005/decision.json\", \"files_modified\": [\"/sandbox/work/output/C-0005/decision.json\"]}"
+   }
+  },
+  {
+   "n": 18,
+   "kind": "model",
+   "name": "turn 8",
+   "argsSummary": "attempt 1",
+   "resultSummary": "tool calls: self_check",
+   "durationMs": 2900,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "Both files are written. Now let me run self_check to validate them."
+   }
+  },
+  {
+   "n": 19,
+   "kind": "tool",
+   "name": "self_check",
+   "argsSummary": "{\"decision_path\": \"decision.json\", \"deliverable_path\": \"deliverable.md\"}",
+   "resultSummary": "{ \"checks\": [ { \"check\": \"decision.json matches the schema\", \"detail\": \"\", \"hint\": \"\", \"id\": \"decision_json_valid\", \"pass\": true, \"severity\": \"error\" }, { \"check\": \"deliverable states the correct cla…",
+   "durationMs": 260,
+   "status": "ok",
+   "skillName": "self_check",
+   "hermesTool": "terminal",
+   "rawCommand": "/usr/local/share/appeals/bin/run_skill C-0005 self_check '{\"deliverable_path\":\"deliverable.md\",\"decision_path\":\"decision.json\"}'",
+   "detail": {
+    "arguments": {
+     "decision_path": "decision.json",
+     "deliverable_path": "deliverable.md"
+    },
+    "result": "{\n \"checks\": [\n  {\n   \"check\": \"decision.json matches the schema\",\n   \"detail\": \"\",\n   \"hint\": \"\",\n   \"id\": \"decision_json_valid\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"deliverable states the correct claim number\",\n   \"detail\": \"expected 6268311\",\n   \"hint\": \"\",\n   \"id\": \"identifier_claim_no\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"deliverable states the correct patient ID\",\n   \"detail\": \"expected P-1862\",\n   \"hint\": \"\",\n   \"id\": \"identifier_patient_id\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"deliverable states the correct CPT code\",\n   \"detail\": \"expected 72148\",\n   \"hint\": \"\",\n   \"id\": \"identifier_cpt\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"deliverable states the correct date of service\",\n   \"detail\": \"expected 2026-06-18\",\n   \"hint\": \"\",\n   \"id\": \"identifier_dos\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"no unfilled <<FILL>> placeholders remain\",\n   \"detail\": \"0 placeholder(s) left\",\n   \"hint\": \"\",\n   \"id\": \"no_placeholders\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"decision.json case_id matches the case\",\n   \"detail\": \"decision.json says C-0005, task says C-0005\",\n   \"hint\": \"\",\n   \"id\": \"case_id\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"decision.json denial_code matches the denial letter\",\n   \"detail\": \"expected CO-50\",\n   \"hint\": \"\",\n   \"id\": \"denial_code\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"action_deadline equals the computed deadline for this decision\",\n   \"detail\": \"decision.json 2027-01-13; computed 2027-01-13 (notice date 2026-07-17 + 180 days)\",\n   \"hint\": \"\",\n   \"id\": \"action_deadline\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"deadline_ok is correct for the review date\",\n   \"detail\": \"review date 2026-08-04 vs action_deadline 2027-01-13; expected True\",\n   \"hint\": \"\",\n   \"id\": \"deadline_ok\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"deliverable states the action deadline date\",\n   \"detail\": \"expected 2027-01-13\",\n   \"hint\": \"\",\n   \"id\": \"deadline_in_text\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"policy_id exists in the policy library\",\n   \"detail\": \"MP-IMG-007\",\n   \"hint\": \"\",\n   \"id\": \"policy_exists\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"policy_id is the policy retrieved for this denial\",\n   \"detail\": \"retrieved MP-IMG-007\",\n   \"hint\": \"\",\n   \"id\": \"policy_matches_retrieval\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"criterion 2.1(a) is a section of MP-IMG-007\",\n   \"detail\": \"\",\n   \"hint\": \"\",\n   \"id\": \"criterion_section_2.1(a)\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"evidence file for 2.1(a) exists\",\n   \"detail\": \"notes/2026-03-23_pcp.txt\",\n   \"hint\": \"\",\n   \"id\": \"evidence_file_2.1(a)\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"criterion 2.1(b) is a section of MP-IMG-007\",\n   \"detail\": \"\",\n   \"hint\": \"\",\n   \"id\": \"criterion_section_2.1(b)\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"evidence file for 2.1(b) exists\",\n   \"detail\": \"notes/2026-06-04_ortho.txt\",\n   \"hint\": \"\",\n   \"id\": \"evidence_file_2.1(b)\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"criterion 2.1(c) is a section of MP-IMG-007\",\n   \"detail\": \"\",\n   \"hint\": \"\",\n   \"id\": \"criterion_section_2.1(c)\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"evidence file for 2.1(c) exists\",\n   \"detail\": \"notes/2026-06-04_ortho.txt\",\n   \"hint\": \"\",\n   \"id\": \"evidence_file_2.1(c)\",\n   \"pass\": true,\n   \"severity\": \"error\"\n  },\n  {\n   \"check\": \"decision.json lists every requirement section of the policy\",\n   \"detail\": \"not listed: []\",\n   \"hint\": \"\",\n   \"id\": \"criteria_cover_requirements\",\n   \"pass\": true,\n   \"severity\": \"warn\"\n  },\n  {\n   \"check\": \"enclosure notes/2026-03-23_pcp.txt exists\",\n   \"detail\": \"notes/2026-03-23_pcp.txt\",\n   \"hint\": \"\",\n   \"id\": \"enclosure_notes/2026-03-23_"
+   }
+  },
+  {
+   "n": 20,
+   "kind": "self_check",
+   "name": "final",
+   "argsSummary": "",
+   "resultSummary": "ok=True errors=0 warnings=0",
+   "durationMs": 260,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": null
+  },
+  {
+   "n": 21,
+   "kind": "model",
+   "name": "turn 9",
+   "argsSummary": "attempt 1",
+   "resultSummary": "The self-check passed with 0 errors and 0 warnings (ok: true). Decision: APPEAL for claim 6268311 (P-1862, denial code CO-50). All three policy criteria under MP-IMG-007 are met: - 2.1(a) (6 weeks co…",
+   "durationMs": 5200,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": {
+    "result": "The self-check passed with 0 errors and 0 warnings (ok: true).\n\nDecision: APPEAL for claim 6268311 (P-1862, denial code CO-50). All three policy criteria under MP-IMG-007 are met:\n\n- 2.1(a) (6 weeks conservative therapy): PT started 2026-03-23, MRI requested 2026-06-04 — 73 days, 21 visits (pt_log.txt, pcp notes)\n- 2.1(b) (neurological deficit): left ankle dorsiflexion weakness, positive straight leg raise at 40°, paresthesias (ortho note 2026-06-04)\n- 2.1(c) (no prior imaging): \"No prior lumbar imaging on file\" (ortho note 2026-06-04)\n\nThe appeal deadline is 2027-01-13 (notice date 2026-07-17 + 180 days per MP-IMG-007 §7.1), and the review date 2026-08-04 is on or before it (deadline_ok: true).\n\nFiles written to /sandbox/work/output/C-0005/:\n- deliverable.md — appeal letter to the Appeals Unit with remedy requested, criteria analysis, enclosures, and gaps (none identified)\n- decision.json — decision APPEAL, denial_code CO-50, action_deadline 2027-01-13, deadline_ok true, all three criteria met, enclosures listed, gaps empty"
+   }
+  },
+  {
+   "n": 22,
+   "kind": "run",
+   "name": "end",
+   "argsSummary": "",
+   "resultSummary": "status submitted; turns 9",
+   "durationMs": 0,
+   "status": "ok",
+   "skillName": null,
+   "hermesTool": null,
+   "rawCommand": null,
+   "detail": null
+  }
+ ],
+ "verdicts": [
+  {
+   "criterionId": "DEC1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "decision=APPEAL expected=APPEAL"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "IDN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "ok"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "RSN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "denial_code=CO-50 expected=CO-50"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "DLN1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "action_deadline=2027-01-13 deadline_ok=True expected=2027-01-13/True"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POL1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "policy_id=MP-IMG-007 expected=MP-IMG-007"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD1",
+   "judges": {
+    "auto": {
+     "verdict": "PASS",
+     "reason": "ok"
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POL2",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly cites the governing policy and the specific sections relied upon."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Cites MP-IMG-007 and the specific sections for each criterion."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable cites MP-IMG-007 and identifies sections 2.1(a), 2.1(b), and 2.1(c)."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "POLX1",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable correctly cites MP-IMG-007 and does not cite the distractor policy MP-IMG-012."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Relies on correct policy; no reference to MP-IMG-012."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on MP-IMG-007 and does not cite MP-IMG-012."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "DLN2",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable accurately states the appeal deadline and confirms it is still open as of the review date."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "States the deadline 2027-01-13 and that it is still open."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "It states the correct action deadline and that it remains timely as of the review date."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD2",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable supports the conservative therapy requirement with specific, dated evidence from the PT log."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Supports §2.1(a) with dated evidence from the record."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "It supports the six-week conservative therapy requirement with dated PT-log evidence showing 73 days."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "EVD3",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable supports the neurological deficit requirement with specific evidence from the orthopedic consultation note."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Supports §2.1(b) with dated ortho note evidence."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "It cites the dated orthopedic note and specific neurological findings supporting §2.1(b)."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "HON1",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable relies on the explicit statement in the medical record regarding the absence of prior imaging."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Relies on explicit record statement for §2.1(c)."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "It relies on the record’s explicit statement documenting absence of prior lumbar imaging."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "REM1",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable contains a clear requested remedy to overturn the denial and pay the claim, and is addressed to the appeals unit."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Clear remedy addressed to the appeals unit."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "The deliverable clearly requests overturning the denial and payment of the claim, and it is addressed to the payer appeals unit."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "REM2",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable lists the required enclosures from the case file."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Lists required enclosures including pt_log and ortho note."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "It lists both required enclosures from the case file."
+    }
+   },
+   "panel": "PASS"
+  },
+  {
+   "criterionId": "TRP1",
+   "judges": {
+    "gemini": {
+     "verdict": "PASS",
+     "reason": "The deliverable notices the 14 days mentioned in the follow-up note and resolves the total duration using the PT log."
+    },
+    "claude": {
+     "verdict": "PASS",
+     "reason": "Notices the 14-day statement and resolves duration using the PT log."
+    },
+    "gpt": {
+     "verdict": "PASS",
+     "reason": "It notes the 14-day statement and uses the PT log to establish the longer documented treatment period."
+    }
+   },
+   "panel": "PASS"
+  }
+ ],
+ "flags": [
+  {
+   "id": "F1",
+   "quote": "for member P-1862.",
+   "severity": "minor",
+   "upheld": true,
+   "problems": [
+    "P-1862 is mislabeled as the member identifier."
+   ],
+   "raisedBy": [
+    "gpt"
+   ],
+   "votes": {
+    "gemini": {
+     "upheld": true,
+     "severity": "minor",
+     "reason": "P-1862 is the Patient ID, not the Member ID, but this is a trivial misstatement unlikely to affect the appeal."
+    },
+    "claude": {
+     "upheld": false,
+     "severity": "minor",
+     "reason": "P-1862 is correctly the Patient ID per eob_835.txt; the letter uses 'Patient ID: P-1862' and separately gives member ID MBR475438256. The flagged phrase 'for member P-1862' is a loose but not incorrect reference to the patient."
+    },
+    "gpt": {
+     "upheld": true,
+     "severity": "minor",
+     "reason": "P-1862 is documented as the Patient ID, while the Member ID is MBR475438256; the letter elsewhere lists both correctly, so this is a labeling error unlikely to affect the appeal."
+    }
+   }
+  }
+ ],
+ "audit": [
+  {
+   "time": "2026-10-30T23:26:03.647Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=3e59d204-1646-46ac-b33e-87ea7248ee01, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:03.647Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:03.650Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:03.650Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:03.670Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=3e59d204-1646-46ac-b33e-87ea7248ee01, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.084Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=5d6d483b-e75e-48ca-8d74-f99e6043feab, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.084Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.088Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.088Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.099Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=5d6d483b-e75e-48ca-8d74-f99e6043feab, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.108Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=4ecd7367-1427-4cd5-b3c0-09d9cdb4d98b, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.109Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.111Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.111Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.124Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=4ecd7367-1427-4cd5-b3c0-09d9cdb4d98b, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.156Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=87374639-1988-41c8-8d41-9f6c364a3d89, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.156Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.164Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.165Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.180Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=87374639-1988-41c8-8d41-9f6c364a3d89, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.189Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=0b63d190-f4f8-4467-9469-7fbeb0be8799, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.189Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.192Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.192Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.203Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=0b63d190-f4f8-4467-9469-7fbeb0be8799, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.234Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=3beb1b4f-64fa-42a7-81c6-5ac60d3dca17, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.234Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.242Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.242Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.258Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=3beb1b4f-64fa-42a7-81c6-5ac60d3dca17, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.266Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=529a1eab-5da7-410e-b60c-403a8f4874fb, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.268Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.271Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.271Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.283Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=529a1eab-5da7-410e-b60c-403a8f4874fb, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.312Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=c52b4a06-54ad-485d-a6e4-600936b04a2a, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.313Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.321Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.322Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.336Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=c52b4a06-54ad-485d-a6e4-600936b04a2a, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.345Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=849eca61-9787-4c0c-adb3-d325ba2a146a, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.345Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.348Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.348Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.360Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=849eca61-9787-4c0c-adb3-d325ba2a146a, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.389Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=c3929db6-f7f7-4605-86f0-432e258e7307, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.390Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.397Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.397Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.410Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=c3929db6-f7f7-4605-86f0-432e258e7307, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.418Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=7ad19bff-3e9f-490f-b17a-9a424190d35f, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.418Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.421Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.421Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.432Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=7ad19bff-3e9f-490f-b17a-9a424190d35f, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.462Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=efca503d-3b29-4310-9b57-169fbf92ceae, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.462Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.469Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.470Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.485Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=efca503d-3b29-4310-9b57-169fbf92ceae, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.493Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=f3ebd0bf-ee66-4de1-b116-5ad93aacc4ea, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.493Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.496Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.496Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.507Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=f3ebd0bf-ee66-4de1-b116-5ad93aacc4ea, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.537Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=63aff24d-34e6-4fd4-a9ec-2441a28edaa2, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.537Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.545Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.545Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.559Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=63aff24d-34e6-4fd4-a9ec-2441a28edaa2, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.570Z",
+   "eventClass": "NET:OPEN",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.574Z",
+   "eventClass": "NET:CLOSE",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.582Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=d41264b3-e894-47e1-acf4-424836642ca2, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.582Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.586Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.586Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.631Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=d41264b3-e894-47e1-acf4-424836642ca2, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.639Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=534754db-2907-42df-b98c-881a549c65bc, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.640Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.643Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.643Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.704Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=534754db-2907-42df-b98c-881a549c65bc, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.713Z",
+   "eventClass": "NET:OPEN",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.723Z",
+   "eventClass": "NET:OPEN",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.774Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:04.774Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.002Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.217Z",
+   "eventClass": "NET:CLOSE",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.238Z",
+   "eventClass": "HTTP:GET",
+   "target": "GET http://inference-api.nvidia.com:443/v1/models",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.673Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.673Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.677Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.677Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.901Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:05.908Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:06.131Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:06.140Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:12.018Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:12.018Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:12.248Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:12.479Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:20.984Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:20.984Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.213Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.444Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.473Z",
+   "eventClass": "NET:OPEN",
+   "target": "hermes-agent.nousresearch.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.590Z",
+   "eventClass": "HTTP:GET",
+   "target": "GET http://hermes-agent.nousresearch.com:443/docs/api/model-catalog.json",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.661Z",
+   "eventClass": "NET:OPEN",
+   "target": "nousresearch.github.io:443",
+   "result": "denied",
+   "reason": "endpoint nousresearch.github.io:443 is not allowed by any policy",
+   "background": true,
+   "tag": "background"
+  },
+  {
+   "time": "2026-10-30T23:26:21.667Z",
+   "eventClass": "NET:OPEN",
+   "target": "raw.githubusercontent.com:443",
+   "result": "denied",
+   "reason": "endpoint raw.githubusercontent.com:443 is not allowed by any policy",
+   "background": true,
+   "tag": "background"
+  },
+  {
+   "time": "2026-10-30T23:26:21.681Z",
+   "eventClass": "NET:OPEN",
+   "target": "hermes-agent.nousresearch.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.796Z",
+   "eventClass": "HTTP:GET",
+   "target": "GET http://hermes-agent.nousresearch.com:443/docs/api/model-catalog.json",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:21.867Z",
+   "eventClass": "NET:OPEN",
+   "target": "nousresearch.github.io:443",
+   "result": "denied",
+   "reason": "endpoint nousresearch.github.io:443 is not allowed by any policy",
+   "background": true,
+   "tag": "background"
+  },
+  {
+   "time": "2026-10-30T23:26:21.874Z",
+   "eventClass": "NET:OPEN",
+   "target": "raw.githubusercontent.com:443",
+   "result": "denied",
+   "reason": "endpoint raw.githubusercontent.com:443 is not allowed by any policy",
+   "background": true,
+   "tag": "background"
+  },
+  {
+   "time": "2026-10-30T23:26:21.880Z",
+   "eventClass": "NET:OPEN",
+   "target": "openrouter.ai:443",
+   "result": "denied",
+   "reason": "endpoint openrouter.ai:443 is not allowed by any policy",
+   "background": true,
+   "tag": "background"
+  },
+  {
+   "time": "2026-10-30T23:26:21.885Z",
+   "eventClass": "NET:OPEN",
+   "target": "portal.nousresearch.com:443",
+   "result": "denied",
+   "reason": "endpoint portal.nousresearch.com:443 is not allowed by any policy",
+   "background": true,
+   "tag": "background"
+  },
+  {
+   "time": "2026-10-30T23:26:23.100Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:23.100Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:23.328Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:23.556Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:25.464Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:25.464Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:25.694Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:25.924Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:30.669Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:30.669Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:30.897Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:31.125Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:37.567Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:37.567Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:37.794Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:38.023Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:46.983Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:46.983Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:47.213Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:47.444Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:50.149Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:50.149Z",
+   "eventClass": "NET:OTHER",
+   "target": "",
+   "result": "",
+   "reason": "'tls: terminate' is deprecated; TLS termination is now automatic. Use 'tls: skip' to explicitly disable. This field will...",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:50.379Z",
+   "eventClass": "NET:OPEN",
+   "target": "inference-api.nvidia.com:443",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:50.610Z",
+   "eventClass": "HTTP:POST",
+   "target": "POST http://inference-api.nvidia.com:443/v1/chat/completions",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.332Z",
+   "eventClass": "NET:CLOSE",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.349Z",
+   "eventClass": "NET:OPEN",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.358Z",
+   "eventClass": "NET:CLOSE",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.374Z",
+   "eventClass": "NET:OPEN",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.388Z",
+   "eventClass": "NET:CLOSE",
+   "target": "127.0.0.1:8642/tcp",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.399Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=03824f04-c266-44a6-bb40-c0d21a774fdb, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.400Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.405Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.405Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.422Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=03824f04-c266-44a6-bb40-c0d21a774fdb, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.432Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=31b58229-a671-45e2-b2e7-a3cff1c5951b, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.433Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.437Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.437Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.451Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=31b58229-a671-45e2-b2e7-a3cff1c5951b, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.461Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=5889061a-ef53-4107-b1d2-f897fd31cf57, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.461Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.465Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.465Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.479Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=5889061a-ef53-4107-b1d2-f897fd31cf57, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.489Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=21be67b7-c470-4d06-9415-0acb4d47572d, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.490Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.493Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.493Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.507Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=21be67b7-c470-4d06-9415-0acb4d47572d, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.517Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=82c4d867-ac05-4c26-b1da-b5d8514129b6, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.518Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.522Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.523Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:55.540Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=82c4d867-ac05-4c26-b1da-b5d8514129b6, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "run"
+  },
+  {
+   "time": "2026-10-30T23:26:58.552Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=51159de4-c677-4a0a-a7a6-b5aef8141371, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:26:58.553Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:26:58.557Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:26:58.557Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:26:58.573Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=51159de4-c677-4a0a-a7a6-b5aef8141371, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:01.583Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=b9cf9035-bb84-4009-a71a-a731431bb02c, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:01.583Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:01.587Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:01.587Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:01.601Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=b9cf9035-bb84-4009-a71a-a731431bb02c, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:04.611Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=3620c956-e9eb-4d06-92a3-2d5f76e60024, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:04.611Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:04.615Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:04.615Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:04.629Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=3620c956-e9eb-4d06-92a3-2d5f76e60024, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:07.641Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=07653c19-d9e3-4b77-9ce9-9388004a7ed3, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:07.641Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:07.644Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:07.645Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:07.661Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=07653c19-d9e3-4b77-9ce9-9388004a7ed3, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:10.671Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=0a680d7c-218e-4077-9cc3-e756d427e2a4, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:10.671Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:10.674Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:10.675Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:10.688Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=0a680d7c-218e-4077-9cc3-e756d427e2a4, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:13.698Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=78fc4920-8888-405d-ac0d-14b47329adff, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:13.698Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:13.701Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:13.701Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:13.717Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=78fc4920-8888-405d-ac0d-14b47329adff, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:16.726Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=1c61dcf3-d83f-4682-adc4-f4ff4b049af5, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:16.726Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:16.729Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:16.729Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:16.742Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=1c61dcf3-d83f-4682-adc4-f4ff4b049af5, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:19.753Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=b780d41b-a915-4c61-83eb-e1522cf010c5, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:19.753Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:19.756Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:19.756Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:19.769Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=b780d41b-a915-4c61-83eb-e1522cf010c5, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:22.780Z",
+   "eventClass": "NET:OPEN",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay open (channel_id=6d809f6e-fec0-483d-a530-ba645c4f0c31, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:22.780Z",
+   "eventClass": "SSH:OPEN",
+   "target": "",
+   "result": "allowed",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:22.784Z",
+   "eventClass": "CONFIG:APPLYING",
+   "target": "Applying Landlock filesystem sandbox",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:22.785Z",
+   "eventClass": "CONFIG:BUILT",
+   "target": "Landlock ruleset built",
+   "result": "",
+   "reason": "",
+   "background": false,
+   "tag": "post_run"
+  },
+  {
+   "time": "2026-10-30T23:27:22.801Z",
+   "eventClass": "NET:CLOSE",
+   "target": "",
+   "result": "",
+   "reason": "ssh relay closed (channel_id=6d809f6e-fec0-483d-a530-ba645c4f0c31, target=unix:/run/openshell/ssh.sock)",
+   "background": false,
+   "tag": "post_run"
+  }
+ ],
+ "metrics": {
+  "turns": 9,
+  "tokens": {
+   "prompt": 172822,
+   "completion": 9237,
+   "total": 182059
+  },
+  "wallClockSeconds": 50.6,
+  "toolErrors": 1,
+  "toolCalls": 10,
+  "revisions": 0
+ },
+ "hermes": {
+  "hermesRunId": "run_c27b671c49d34ae29c867982fa259c43",
+  "hermesVersion": "0.21.3",
+  "skillCalls": 7,
+  "skillErrors": 1,
+  "toolsByName": {
+   "terminal": 1,
+   "write_file": 2
+  },
+  "firstCallPromptTokens": 13309,
+  "backgroundReview": null
+ }
+}

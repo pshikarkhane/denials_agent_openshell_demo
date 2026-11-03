@@ -1,0 +1,943 @@
+{
+ "sources": [
+  "docs/RUN_REPORT.md",
+  "docs/HERMES_RUN_REPORT.md"
+ ],
+ "series": [
+  {
+   "id": "baseline",
+   "label": "No tools",
+   "detail": "one prompt with every document pasted in",
+   "runtime": "standin",
+   "configuration": "p3 / new rubric",
+   "source": "docs/RUN_REPORT.md",
+   "metrics": {
+    "runs": "10",
+    "decisionCorrect": "100%",
+    "decisionJsonValid": "100%",
+    "criterionPass": "95.5%",
+    "perJudge": "90%/96%/96%",
+    "contentPass": "93.2%",
+    "perJudgeContent": "83%/94%/93%",
+    "upheldPerRun": "0.70",
+    "cleanRunRate": "50%",
+    "unanimity": "86%",
+    "toolErrorRate": "n/a",
+    "turns": "1.6",
+    "toolCalls": "0.0",
+    "tokens": "25,315",
+    "seconds": "21",
+    "revisionRate": "0%"
+   },
+   "runs": [
+    {
+     "caseId": "C-0005",
+     "runId": "baseline-p3-r1",
+     "variant": "baseline",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "1",
+     "minor": "0",
+     "turns": "1",
+     "tokens": "16681",
+     "seconds": "12.3"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "baseline-p3-r1",
+     "variant": "baseline",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "2",
+     "tokens": "32588",
+     "seconds": "30.7"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "baseline-p3-r1",
+     "variant": "baseline",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "93%",
+     "contentPass": "88%",
+     "upheldMaterial": "2",
+     "minor": "0",
+     "turns": "2",
+     "tokens": "28963",
+     "seconds": "21.9"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "baseline-p3-r1",
+     "variant": "baseline",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "2",
+     "tokens": "32201",
+     "seconds": "28.6"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "baseline-p3-r1",
+     "variant": "baseline",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "1",
+     "turns": "2",
+     "tokens": "29907",
+     "seconds": "22.7"
+    },
+    {
+     "caseId": "C-0005",
+     "runId": "baseline-p3-r2",
+     "variant": "baseline",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "1",
+     "minor": "0",
+     "turns": "1",
+     "tokens": "16619",
+     "seconds": "16.2"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "baseline-p3-r2",
+     "variant": "baseline",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "1",
+     "tokens": "15992",
+     "seconds": "12.5"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "baseline-p3-r2",
+     "variant": "baseline",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "93%",
+     "contentPass": "88%",
+     "upheldMaterial": "1",
+     "minor": "0",
+     "turns": "2",
+     "tokens": "31665",
+     "seconds": "27.1"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "baseline-p3-r2",
+     "variant": "baseline",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "69%",
+     "contentPass": "57%",
+     "upheldMaterial": "2",
+     "minor": "1",
+     "turns": "1",
+     "tokens": "14351",
+     "seconds": "10.5"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "baseline-p3-r2",
+     "variant": "baseline",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "1",
+     "turns": "2",
+     "tokens": "34179",
+     "seconds": "28.1"
+    }
+   ],
+   "judges": {
+    "panel": {
+     "gemini": "90%",
+     "claude": "96%",
+     "gpt": "96%"
+    },
+    "content": {
+     "gemini": "83%",
+     "claude": "94%",
+     "gpt": "93%"
+    }
+   }
+  },
+  {
+   "id": "standin",
+   "label": "Stand-in agent",
+   "detail": "pre-sandbox tool loop over the six skills",
+   "runtime": "standin",
+   "configuration": "p3 / new rubric",
+   "source": "docs/RUN_REPORT.md",
+   "metrics": {
+    "runs": "15",
+    "decisionCorrect": "100%",
+    "decisionJsonValid": "100%",
+    "criterionPass": "98.2%",
+    "perJudge": "96%/100%/98%",
+    "contentPass": "96.9%",
+    "perJudgeContent": "94%/99%/96%",
+    "upheldPerRun": "0.80",
+    "cleanRunRate": "67%",
+    "unanimity": "94%",
+    "toolErrorRate": "2.2%",
+    "turns": "9.0",
+    "toolCalls": "9.0",
+    "tokens": "83,995",
+    "seconds": "72",
+    "revisionRate": "0%"
+   },
+   "runs": [
+    {
+     "caseId": "C-0005",
+     "runId": "agent-p3-r1",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "93%",
+     "contentPass": "89%",
+     "upheldMaterial": "0",
+     "minor": "3",
+     "turns": "13",
+     "tokens": "142798",
+     "seconds": "41.9"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "agent-p3-r1",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "1",
+     "minor": "0",
+     "turns": "9",
+     "tokens": "81466",
+     "seconds": "39.2"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "agent-p3-r1",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "93%",
+     "contentPass": "88%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "7",
+     "tokens": "51747",
+     "seconds": "20.8"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "agent-p3-r1",
+     "variant": "agent",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "3",
+     "minor": "0",
+     "turns": "9",
+     "tokens": "82363",
+     "seconds": "46.5"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "agent-p3-r1",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "10",
+     "tokens": "88853",
+     "seconds": "28.7"
+    },
+    {
+     "caseId": "C-0005",
+     "runId": "agent-p3-r2",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "93%",
+     "contentPass": "89%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "10",
+     "tokens": "100434",
+     "seconds": "54.7"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "agent-p3-r2",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "1",
+     "turns": "8",
+     "tokens": "79158",
+     "seconds": "563.0"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "agent-p3-r2",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "1",
+     "minor": "0",
+     "turns": "8",
+     "tokens": "65340",
+     "seconds": "30.5"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "agent-p3-r2",
+     "variant": "agent",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "5",
+     "minor": "2",
+     "turns": "10",
+     "tokens": "104589",
+     "seconds": "33.5"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "agent-p3-r2",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "10",
+     "tokens": "92160",
+     "seconds": "35.0"
+    },
+    {
+     "caseId": "C-0005",
+     "runId": "agent-p3-r3",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "93%",
+     "contentPass": "89%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "9",
+     "tokens": "85343",
+     "seconds": "46.6"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "agent-p3-r3",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "7",
+     "tokens": "61109",
+     "seconds": "28.8"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "agent-p3-r3",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "8",
+     "tokens": "61221",
+     "seconds": "35.6"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "agent-p3-r3",
+     "variant": "agent",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "2",
+     "minor": "2",
+     "turns": "9",
+     "tokens": "97206",
+     "seconds": "52.7"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "agent-p3-r3",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "8",
+     "tokens": "66131",
+     "seconds": "29.6"
+    }
+   ],
+   "judges": {
+    "panel": {
+     "gemini": "96%",
+     "claude": "100%",
+     "gpt": "98%"
+    },
+    "content": {
+     "gemini": "94%",
+     "claude": "99%",
+     "gpt": "96%"
+    }
+   }
+  },
+  {
+   "id": "hermes",
+   "label": "Hermes in OpenShell",
+   "detail": "the same skills driven by the real Hermes agent in the sandbox",
+   "runtime": "hermes",
+   "configuration": "hermes-p1",
+   "source": "docs/HERMES_RUN_REPORT.md",
+   "metrics": {
+    "runs": "10",
+    "decisionCorrect": "100%",
+    "decisionJsonValid": "100%",
+    "criterionPass": "97.8%",
+    "perJudge": "93%/98%/98%",
+    "contentPass": "96.2%",
+    "perJudgeContent": "87%/96%/97%",
+    "upheldPerRun": "0.50",
+    "cleanRunRate": "70%",
+    "unanimity": "86%",
+    "toolErrorRate": "14.5%",
+    "toolErrorRateSkillOnly": "20.7%",
+    "turns": "11.6",
+    "toolCalls": "13.8",
+    "tokens": "250,435",
+    "promptOverheadTokens": "13,307",
+    "backgroundReviewTokens": "57,365",
+    "seconds": "50",
+    "revisionRate": "40%"
+   },
+   "runs": [
+    {
+     "caseId": "C-0005",
+     "runId": "hermes-p1-r1",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "1",
+     "turns": "9",
+     "tokens": "182059",
+     "seconds": "50.6"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "hermes-p1-r1",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "14",
+     "tokens": "280433",
+     "seconds": "51.8"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "hermes-p1-r1",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "1",
+     "minor": "1",
+     "turns": "10",
+     "tokens": "219365",
+     "seconds": "42.1"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "hermes-p1-r1",
+     "variant": "agent",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "2",
+     "minor": "1",
+     "turns": "9",
+     "tokens": "198711",
+     "seconds": "40.2"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "hermes-p1-r1",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "7",
+     "tokens": "139370",
+     "seconds": "31.3"
+    },
+    {
+     "caseId": "C-0005",
+     "runId": "hermes-p1-r2",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "93%",
+     "contentPass": "89%",
+     "upheldMaterial": "0",
+     "minor": "1",
+     "turns": "16",
+     "tokens": "326420",
+     "seconds": "72.9"
+    },
+    {
+     "caseId": "C-0007",
+     "runId": "hermes-p1-r2",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "13",
+     "tokens": "300889",
+     "seconds": "53.9"
+    },
+    {
+     "caseId": "C-0030",
+     "runId": "hermes-p1-r2",
+     "variant": "agent",
+     "decision": "DO_NOT_APPEAL",
+     "panelPass": "93%",
+     "contentPass": "88%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "8",
+     "tokens": "156538",
+     "seconds": "31.8"
+    },
+    {
+     "caseId": "C-0039",
+     "runId": "hermes-p1-r2",
+     "variant": "agent",
+     "decision": "CORRECT_AND_RESUBMIT",
+     "panelPass": "92%",
+     "contentPass": "86%",
+     "upheldMaterial": "2",
+     "minor": "3",
+     "turns": "11",
+     "tokens": "213416",
+     "seconds": "40.6"
+    },
+    {
+     "caseId": "C-0056",
+     "runId": "hermes-p1-r2",
+     "variant": "agent",
+     "decision": "APPEAL",
+     "panelPass": "100%",
+     "contentPass": "100%",
+     "upheldMaterial": "0",
+     "minor": "0",
+     "turns": "19",
+     "tokens": "487153",
+     "seconds": "81.6"
+    }
+   ],
+   "judges": {
+    "panel": {
+     "gemini": "93%",
+     "claude": "98%",
+     "gpt": "98%"
+    },
+    "content": {
+     "gemini": "87%",
+     "claude": "96%",
+     "gpt": "97%"
+    }
+   }
+  }
+ ],
+ "categories": [
+  {
+   "n": 1,
+   "name": "Medical necessity, record supports",
+   "cases": [
+    "C-0005"
+   ],
+   "cells": {
+    "baseline": [
+     {
+      "caseId": "C-0005",
+      "runId": "baseline-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "1"
+     },
+     {
+      "caseId": "C-0005",
+      "runId": "baseline-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "1"
+     }
+    ],
+    "standin": [
+     {
+      "caseId": "C-0005",
+      "runId": "agent-p3-r1",
+      "panelPass": "93%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0005",
+      "runId": "agent-p3-r2",
+      "panelPass": "93%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0005",
+      "runId": "agent-p3-r3",
+      "panelPass": "93%",
+      "upheldMaterial": "0"
+     }
+    ],
+    "hermes": [
+     {
+      "caseId": "C-0005",
+      "runId": "hermes-p1-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0005",
+      "runId": "hermes-p1-r2",
+      "panelPass": "93%",
+      "upheldMaterial": "0"
+     }
+    ]
+   }
+  },
+  {
+   "n": 2,
+   "name": "Medical necessity, record does not support",
+   "cases": [
+    "C-0007"
+   ],
+   "cells": {
+    "baseline": [
+     {
+      "caseId": "C-0007",
+      "runId": "baseline-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0007",
+      "runId": "baseline-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ],
+    "standin": [
+     {
+      "caseId": "C-0007",
+      "runId": "agent-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "1"
+     },
+     {
+      "caseId": "C-0007",
+      "runId": "agent-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0007",
+      "runId": "agent-p3-r3",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ],
+    "hermes": [
+     {
+      "caseId": "C-0007",
+      "runId": "hermes-p1-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0007",
+      "runId": "hermes-p1-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ]
+   }
+  },
+  {
+   "n": 3,
+   "name": "No prior auth, retro-auth available",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 4,
+   "name": "No prior auth, not retro-eligible",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 5,
+   "name": "Timely filing, proof of timely filing exists",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 6,
+   "name": "Timely filing, expired, no proof",
+   "cases": [
+    "C-0030"
+   ],
+   "cells": {
+    "baseline": [
+     {
+      "caseId": "C-0030",
+      "runId": "baseline-p3-r1",
+      "panelPass": "93%",
+      "upheldMaterial": "2"
+     },
+     {
+      "caseId": "C-0030",
+      "runId": "baseline-p3-r2",
+      "panelPass": "93%",
+      "upheldMaterial": "1"
+     }
+    ],
+    "standin": [
+     {
+      "caseId": "C-0030",
+      "runId": "agent-p3-r1",
+      "panelPass": "93%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0030",
+      "runId": "agent-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "1"
+     },
+     {
+      "caseId": "C-0030",
+      "runId": "agent-p3-r3",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ],
+    "hermes": [
+     {
+      "caseId": "C-0030",
+      "runId": "hermes-p1-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "1"
+     },
+     {
+      "caseId": "C-0030",
+      "runId": "hermes-p1-r2",
+      "panelPass": "93%",
+      "upheldMaterial": "0"
+     }
+    ]
+   }
+  },
+  {
+   "n": 7,
+   "name": "Patient responsibility (deductible)",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 8,
+   "name": "Missing/invalid information or modifier",
+   "cases": [
+    "C-0039"
+   ],
+   "cells": {
+    "baseline": [
+     {
+      "caseId": "C-0039",
+      "runId": "baseline-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0039",
+      "runId": "baseline-p3-r2",
+      "panelPass": "69%",
+      "upheldMaterial": "2"
+     }
+    ],
+    "standin": [
+     {
+      "caseId": "C-0039",
+      "runId": "agent-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "3"
+     },
+     {
+      "caseId": "C-0039",
+      "runId": "agent-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "5"
+     },
+     {
+      "caseId": "C-0039",
+      "runId": "agent-p3-r3",
+      "panelPass": "100%",
+      "upheldMaterial": "2"
+     }
+    ],
+    "hermes": [
+     {
+      "caseId": "C-0039",
+      "runId": "hermes-p1-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "2"
+     },
+     {
+      "caseId": "C-0039",
+      "runId": "hermes-p1-r2",
+      "panelPass": "92%",
+      "upheldMaterial": "2"
+     }
+    ]
+   }
+  },
+  {
+   "n": 9,
+   "name": "Bundling / NCCI-style",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 10,
+   "name": "Duplicate claim",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 11,
+   "name": "Diagnosis inconsistent with procedure",
+   "cases": [],
+   "cells": {
+    "baseline": [],
+    "standin": [],
+    "hermes": []
+   }
+  },
+  {
+   "n": 12,
+   "name": "Frequency / visit-limit exceeded (e.g., PT)",
+   "cases": [
+    "C-0056"
+   ],
+   "cells": {
+    "baseline": [
+     {
+      "caseId": "C-0056",
+      "runId": "baseline-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0056",
+      "runId": "baseline-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ],
+    "standin": [
+     {
+      "caseId": "C-0056",
+      "runId": "agent-p3-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0056",
+      "runId": "agent-p3-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0056",
+      "runId": "agent-p3-r3",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ],
+    "hermes": [
+     {
+      "caseId": "C-0056",
+      "runId": "hermes-p1-r1",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     },
+     {
+      "caseId": "C-0056",
+      "runId": "hermes-p1-r2",
+      "panelPass": "100%",
+      "upheldMaterial": "0"
+     }
+    ]
+   }
+  }
+ ]
+}

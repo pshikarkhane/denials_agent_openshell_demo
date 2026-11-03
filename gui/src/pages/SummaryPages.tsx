@@ -48,7 +48,3 @@ function Placeholder({ title, blurb, children }: { title: string; blurb: string;
 export const ContainmentPage = () => (
   <Placeholder title="Containment" blurb="The trace and audit log split screen will live here. The stand-in runs have no sandbox, so their audit log is empty." />
 );
-
-export const ScorecardPage = () => (
-  <Placeholder title="Scorecard" blurb="Metrics, the judge panel and by-category results will live here." />
-);

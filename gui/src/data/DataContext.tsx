@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import type { DataIndex, RunView } from './types';
+import type { Metrics } from './metrics';
 
 export type IndexState =
   | { status: 'loading' }
@@ -7,6 +8,11 @@ export type IndexState =
   | { status: 'ready'; index: DataIndex };
 
 export const DataContext = createContext<IndexState>({ status: 'loading' });
+
+export type MetricsState =
+  | { status: 'loading' }
+  | { status: 'error'; message: string }
+  | { status: 'ready'; metrics: Metrics };
 
 const base = () => import.meta.env.BASE_URL;
 
@@ -33,6 +39,22 @@ export function DataProvider({ children }: { children: ReactNode }) {
 }
 
 export const useIndexState = () => useContext(DataContext);
+
+/** metrics.json (Scorecard). Shape: scripts/build_metrics.mjs, typed in ./metrics.ts. */
+export function useMetrics(): MetricsState {
+  const [state, setState] = useState<MetricsState>({ status: 'loading' });
+  useEffect(() => {
+    let live = true;
+    getJson<Metrics>('metrics.json').then(
+      (metrics) => live && setState({ status: 'ready', metrics }),
+      (e: Error) => live && setState({ status: 'error', message: e.message }),
+    );
+    return () => {
+      live = false;
+    };
+  }, []);
+  return state;
+}
 
 export type RunState =
   | { status: 'loading' }

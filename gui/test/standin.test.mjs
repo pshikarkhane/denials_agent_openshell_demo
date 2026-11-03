@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { standin } from '../src/data/adapters/standin.mjs';
-import { hermes } from '../src/data/adapters/hermes.mjs';
+import { standin } from '../src/data/adapters/standin.ts';
 
 const fixture = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures/agent_run_C-0030');
 
@@ -34,8 +33,12 @@ describe('standin adapter', () => {
     expect(run.steps[0]).toMatchObject({ n: 1, kind: 'run', name: 'start' });
     const tool = run.steps.find((s) => s.kind === 'tool');
     expect(Object.keys(tool).sort()).toEqual(
-      ['argsSummary', 'durationMs', 'kind', 'n', 'name', 'resultSummary', 'status'],
+      ['argsSummary', 'detail', 'durationMs', 'hermesTool', 'kind', 'n', 'name', 'rawCommand', 'resultSummary', 'skillName', 'status'],
     );
+    expect(tool.skillName).toBe(tool.name);
+    expect(tool.hermesTool).toBeNull();
+    expect(tool.detail.result.length).toBeGreaterThan(0);
+    expect(run.steps.find((s) => s.kind === 'model' && s.detail)?.detail.result).toBeTruthy();
   });
 
   it('maps verdicts and flags', () => {
@@ -52,16 +55,10 @@ describe('standin adapter', () => {
 
   it('has an empty audit log and run metrics', () => {
     expect(run.audit).toEqual([]);
+    expect(run).toMatchObject({ runtime: 'standin', variant: 'agent', hermes: null });
     expect(run.metrics.turns).toBe(7);
     expect(run.metrics.tokens.total).toBe(51747);
     expect(run.metrics.wallClockSeconds).toBeCloseTo(20.8, 1);
     expect(run.metrics.toolErrors).toBe(0);
-  });
-});
-
-describe('hermes adapter', () => {
-  it('is a stub', () => {
-    expect(hermes.canRead('anything')).toBe(false);
-    expect(() => hermes.read('anything')).toThrow('not implemented yet');
   });
 });

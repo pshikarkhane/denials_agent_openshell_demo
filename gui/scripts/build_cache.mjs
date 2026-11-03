@@ -2,7 +2,7 @@
 // Builds the cached data the GUI loads at runtime:
 //   gui/public/data/index.json plus one normalized JSON per run.
 // Usage: node scripts/build_cache.mjs [--runs <glob-or-folder>[,<more>]] [--out <dir>]
-// Default --runs: docs/samples/agent_run_*   Default --out: gui/public/data
+// Default --runs: docs/samples/{agent,hermes,baseline}_run_*   Default --out: gui/public/data
 //
 // HARD RULES: never reads or copies truth.json, rubric.json, or anything under
 // a folder named gold or attacks. If one is present in an input folder the
@@ -10,14 +10,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { assertAllowedPath, assertTreeClean, findForbiddenTokens } from '../src/data/guard.mjs';
-import { standin } from '../src/data/adapters/standin.mjs';
-import { hermes } from '../src/data/adapters/hermes.mjs';
+// The adapters are TypeScript; Node strips the types itself (Node 22.18+).
+import { assertAllowedPath, assertTreeClean, findForbiddenTokens } from '../src/data/guard.ts';
+import { standin } from '../src/data/adapters/standin.ts';
+import { baseline } from '../src/data/adapters/baseline.ts';
+import { hermes } from '../src/data/adapters/hermes.ts';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const guiRoot = path.resolve(here, '..');
 const repoRoot = path.resolve(guiRoot, '..');
-const SOURCES = [standin, hermes];
+// Order matters: the first adapter whose canRead() accepts a folder wins.
+const SOURCES = [hermes, standin, baseline];
+const DEFAULT_RUNS = ['docs/samples/agent_run_*', 'docs/samples/hermes_run_*', 'docs/samples/baseline_run_*'];
 
 /** Expands one pattern: a folder, or a path whose last segment contains "*". */
 function expand(pattern, cwd) {
@@ -33,7 +37,7 @@ function expand(pattern, cwd) {
     .sort();
 }
 
-export function buildCache({ runs = ['docs/samples/agent_run_*'], out = path.join(guiRoot, 'public/data'), cwd = repoRoot } = {}) {
+export function buildCache({ runs = DEFAULT_RUNS, out = path.join(guiRoot, 'public/data'), cwd = repoRoot } = {}) {
   const dirs = runs.flatMap((p) => expand(p, cwd));
   if (dirs.length === 0) throw new Error(`no run folders matched: ${runs.join(', ')}`);
 
@@ -51,7 +55,7 @@ export function buildCache({ runs = ['docs/samples/agent_run_*'], out = path.joi
   }
   if (views.length === 0) throw new Error('no readable runs');
 
-  views.sort((a, b) => a.caseId.localeCompare(b.caseId) || a.startedAt.localeCompare(b.startedAt));
+  views.sort((a, b) => a.caseId.localeCompare(b.caseId) || a.variant.localeCompare(b.variant) || a.startedAt.localeCompare(b.startedAt));
   const files = new Map();
   const entries = views.map((v) => {
     const file = `run_${v.runId}__${v.caseId}.json`.replace(/[^A-Za-z0-9_.-]/g, '_');
@@ -61,11 +65,14 @@ export function buildCache({ runs = ['docs/samples/agent_run_*'], out = path.joi
       runId: v.runId,
       caseId: v.caseId,
       source: v.source,
+      runtime: v.runtime,
+      variant: v.variant,
       model: v.model,
       startedAt: v.startedAt,
       decision: v.decision,
       denialCode: v.denialCode,
       policyId: v.policyId,
+      actionDeadline: v.actionDeadline,
       stepCount: v.steps.length,
       auditCount: v.audit.length,
       file,
@@ -80,8 +87,9 @@ export function buildCache({ runs = ['docs/samples/agent_run_*'], out = path.joi
     if (hits.length) throw new Error(`REFUSED: output ${name} contains answer-key name(s): ${hits.join(', ')}`);
   }
 
-  fs.rmSync(out, { recursive: true, force: true });
+  // Replace only what this script writes (metrics.json belongs to build_metrics.mjs).
   fs.mkdirSync(out, { recursive: true });
+  for (const f of fs.readdirSync(out)) if (f === 'index.json' || /^run_.*\.json$/.test(f)) fs.rmSync(path.join(out, f));
   for (const [name, text] of serialized) fs.writeFileSync(path.join(out, name), text);
   return { out, count: views.length, files: serialized.map(([n]) => n) };
 }

@@ -8,8 +8,11 @@ import type { IndexEntry } from '../src/data/types';
 const entry = (over: Partial<IndexEntry>): IndexEntry => ({
   runId: 'r1',
   caseId: 'C-0005',
-  source: 'standin',
-  model: 'm',
+  source: 'hermes',
+  runtime: 'hermes',
+  variant: 'agent',
+  actionDeadline: '2027-01-13',
+  model: 'nvidia/nvidia/nemotron-3.5-super-text-preview',
   startedAt: '2026-10-30T00:00:00.000+00:00',
   decision: 'APPEAL',
   denialCode: 'CO-50',
@@ -64,8 +67,8 @@ describe('Home', () => {
 
   it('takes decision, code and policy from the cached run', () => {
     const html = render(both);
-    expect(html).toContain('Appeal · CO-50 · policy MP-IMG-007');
-    expect(html).toContain('Do not appeal · CO-29 · policy MP-TF-001');
+    expect(html).toContain('Appeal · CO-50 · policy MP-IMG-007 · action by 2027-01-13');
+    expect(html).toContain('Do not appeal · CO-29 · policy MP-TF-001 · action by 2027-01-13');
     expect(html).not.toContain('No recorded run yet');
 
     const changed = render({
@@ -87,5 +90,35 @@ describe('Home', () => {
 
   it('does not claim a missing run while still loading', () => {
     expect(render({ status: 'loading' })).not.toContain('No recorded run yet');
+  });
+});
+
+describe('Home data rules', () => {
+  it('quotes Hermes before the stand-in and never the baseline', () => {
+    const html = render({
+      status: 'ready',
+      index: {
+        mode: 'cached',
+        runs: [
+          entry({ runId: 'base-1', variant: 'baseline', runtime: 'standin', source: 'standin', decision: 'DO_NOT_APPEAL', denialCode: 'CO-99' }),
+          entry({ runId: 'agent-1', runtime: 'standin', source: 'standin', startedAt: '2026-10-31T00:00:00.000+00:00', denialCode: 'CO-51' }),
+          entry({ runId: 'hermes-1', denialCode: 'CO-50' }),
+        ],
+      },
+    });
+    expect(html).toContain('Hermes run hermes-1');
+    expect(html).not.toContain('CO-99');
+    expect(html).not.toContain('CO-51');
+  });
+
+  it('does not claim an appeal when the cached decision is not APPEAL', () => {
+    const html = render({ status: 'ready', index: { mode: 'cached', runs: [entry({ decision: 'DO_NOT_APPEAL' })] } });
+    expect(html).not.toContain('dated evidence');
+    expect(html).toContain('Do not appeal · CO-50');
+  });
+
+  it('shows the model route of the cached runs', () => {
+    const html = render({ status: 'ready', index: { mode: 'cached', runs: [entry({ model: 'acme/other-model' })] } });
+    expect(html).toContain('Model route: acme/other-model');
   });
 });

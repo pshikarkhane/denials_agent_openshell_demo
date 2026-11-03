@@ -26,7 +26,10 @@ const SCENARIOS: Scenario[] = [
     caseId: 'C-0005',
     to: '/case/C-0005',
     description: (r) =>
-      `${r ? `${r.denialCode} ` : ''}medical necessity denial; the record supports it. The agent drafts the appeal and cites dated evidence.`,
+      `${r ? `${r.denialCode} medical` : 'Medical'} necessity denial. ` +
+      (r?.decision === 'APPEAL'
+        ? 'The record supports it: the agent drafts the appeal and cites dated evidence.'
+        : 'The agent reads the chart against the payer policy and records its decision.'),
     tags: (r) => [...(r ? [decisionLabel(r.decision)] : []), 'Case C-0005'],
     cta: 'Open the case',
   },
@@ -37,7 +40,10 @@ const SCENARIOS: Scenario[] = [
     caseId: 'C-0030',
     to: '/case/C-0030',
     description: (r) =>
-      `${r ? `${r.denialCode} ` : ''}timely filing expired. The agent shows the deadline math and recommends not appealing.`,
+      `${r ? `${r.denialCode} timely` : 'Timely'} filing denial. ` +
+      (r?.decision === 'DO_NOT_APPEAL'
+        ? 'The agent shows the deadline math and recommends not appealing.'
+        : 'The agent checks the filing deadline and records its decision.'),
     tags: (r) => [...(r ? [decisionLabel(r.decision)] : []), 'Case C-0030'],
     cta: 'Open the case',
   },
@@ -82,7 +88,18 @@ const SCENARIOS: Scenario[] = [
 ];
 
 function facts(run: IndexEntry): string {
-  return `${decisionLabel(run.decision)} · ${run.denialCode} · policy ${run.policyId}`;
+  const parts = [decisionLabel(run.decision), run.denialCode, `policy ${run.policyId}`];
+  if (run.actionDeadline) parts.push(`action by ${run.actionDeadline}`);
+  return parts.join(' \u00b7 ');
+}
+
+const runtimeName = (r: IndexEntry) => (r.runtime === 'hermes' ? 'Hermes' : 'stand-in agent');
+
+/** The model route line comes from the cached runs; the friendly name only when it is the expected one. */
+export function modelRoute(index: DataIndex | null): string {
+  const model = index?.runs.find((r) => r.variant === 'agent')?.model;
+  if (!model) return 'Nemotron 3.5 Super';
+  return /nemotron-3\.5-super/.test(model) ? 'Nemotron 3.5 Super' : model;
 }
 
 function Card({ s, index, loaded }: { s: Scenario; index: DataIndex | null; loaded: boolean }) {
@@ -96,7 +113,12 @@ function Card({ s, index, loaded }: { s: Scenario; index: DataIndex | null; load
       <span className="card__chip" aria-hidden="true">{s.icon}</span>
       <h3 className="card__title">{s.title}</h3>
       <p className="card__text">{description}</p>
-      {s.caseId && run && <p className="card__facts">{facts(run)}</p>}
+      {s.caseId && run && (
+        <p className="card__facts">
+          {facts(run)}
+          <span className="card__src">{runtimeName(run)} run {run.runId}</span>
+        </p>
+      )}
       {missing && <p className="card__facts card__facts--missing">No recorded run yet</p>}
       <ul className="tags" aria-label="Tags">
         {s.tags(run).map((t) => (
@@ -141,7 +163,7 @@ export function Home() {
         <aside className="runtime card" aria-label="Runtime">
           <p className="eyebrow">RUNTIME</p>
           <h2 className="card__title">OpenShell sandbox</h2>
-          <p className="muted">Model route: Nemotron 3.5 Super</p>
+          <p className="muted">Model route: {modelRoute(index)}</p>
           <p className="muted">Policy: PHI stays inside; allowlisted egress only</p>
           <p className="muted">Audit: OCSF event log</p>
         </aside>

@@ -1,10 +1,17 @@
 # STATUS (2026-10-30)
 
-## GUI, first slice (branch `gui-v1`, folder `gui/`): see [GUI_SPEC.md](GUI_SPEC.md), `gui/README.md`
-**Done:** Vite + React + TS app (tokens, header/nav, routes), Home with six scenario cards reading decision/code/policy from the cache, placeholder Case/Containment/Scorecard pages proving the data pipeline, `build_cache.mjs` with answer-key refusal, stand-in adapter, Hermes stub, README and GUI_SPEC.
-**Verified:** `npm run build` succeeds; `npm test` passes offline (21 tests: adapter, cache builder refusals, public/data guard, Home render); `npm run preview` serves `/`, `/case/C-0005` and `/data/index.json`; Home screenshots at desktop and 390px width in `docs/samples/gui_home_*.png`.
-**Not verified:** other browsers than headless Chrome; screen reader behavior; computed contrast checked by eye and by token choice only; `npm run dev` was not exercised in a browser.
-**Decisions needed:** (1) the committed `gui/public/data` cache includes judge verdict text and reasons (criterion text of failed criteria kept, rubric `reference` dropped): OK? (2) no React plugin or testing-library (JSX via tsconfig, Home tested via static render): OK? (3) nav "Case" links to C-0005 as a default.
+## GUI, slice 2 (branch `gui-v1`, folder `gui/`): see [GUI_SPEC.md](GUI_SPEC.md), `gui/README.md`
+**Done:** Hermes adapter (events, trace, audit with tags, optional summary.json, raw terminal command, skill name), baseline adapter, stand-in adapter kept; real Case page (before/after with flag highlights and citation pills, Criteria, Trace, run selectors); Scorecard from the report tables (`build_metrics.mjs` -> `metrics.json`) with by-category grid and Base Super / R1 toggle; Home quotes the cache (decision, code, policy, deadline, run id, model route); keyboard tabs and focus rings; baseline samples exported to `docs/samples/baseline_run_C-0005` and `_C-0030` (from `runs/baseline-p3-r1` and `runs/judge-baseline-p3-r1` of the main checkout; summary.json, deliverable, decision, judge verdicts with flags; no staged files).
+**Verified:** `npm run build` and `npm test` (63 tests, offline): adapters on fixtures for all three sources, quote matching and highlight rendering, Case panels/criteria/trace render, run-side selection, every Scorecard number on the page and in `metrics.json` appears in the source markdown, answer-key refusals and scan of `public/data`. Screenshots (headless Chrome, 1440px): `docs/samples/gui_home_desktop.png`, `gui_case_before_after.png`, `gui_case_criteria.png`, `gui_case_trace.png`, `gui_scorecard.png`; Case and Scorecard also viewed at 390px. Contrast of every token pair used is at least 4.5:1 (computed).
+**Not verified:** other browsers, screen readers, real keyboard-only walkthrough (tab order follows the DOM; arrow keys on tabs implemented and not exercised in a browser), the Hermes `summary.json` path on real data (the samples have none; tested on a synthetic summary), `npm run dev` hot reload.
+**Notes and decisions needed:**
+1. Hermes sample folders have no `summary.json`, so skill errors are derived from events and the background review shows as unknown; export `summary.json` with the next Hermes samples.
+2. The cache builder trips the answer-key text guard on Hermes `skill_view` results (the skill page names the refused files). I replaced those results with a one-line note rather than loosening the guard. OK?
+3. The cache scripts need Node 22.18+ (TypeScript adapters run directly; `hermes.ts` was requested as TS). Tests and the app build do not.
+4. Scorecard by-category values are the per-run rows of the reports (categories 1, 2, 6, 8, 12 map to C-0005, C-0007, C-0030, C-0039, C-0056 via `docs/PILOT_REVIEW.md` headings); category names come from the `docs/DEMO_SPEC.md` table (number and name only).
+5. Citation pills are applied to both variants (you asked for the agent deliverable; the baseline also writes `(source: ...)`). Easy to restrict.
+6. Hermes `tool error rate` (all Hermes tools, 14.5%) and the stand-in's (skill calls only, 2.2%) count different things; the page says so and also shows Hermes' skill-only 20.7%.
+7. Case page is only populated for C-0005 and C-0030 (the exported run folders).
 
 ## PHASE 4 POLISH (branch `phase4-polish`): remove hallucination causes, relax over-strict rubric references, re-run, report before/after
 **Pre-sandbox run, 5 dev cases, not a benchmark.** Numbers and the classification of every remaining flag: [RUN_REPORT.md](RUN_REPORT.md). Rubric changes: [RUBRIC_CHANGES.md](RUBRIC_CHANGES.md).

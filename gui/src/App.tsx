@@ -2,7 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Home } from './pages/Home';
 import { CasePage } from './pages/CasePage';
-import { ContainmentPage, ScorecardPage } from './pages/SummaryPages';
+import { ContainmentPage } from './pages/SummaryPages';
+import { ScorecardPage } from './pages/ScorecardPage';
 
 export function App() {
   return (

@@ -1,37 +1,50 @@
 # GUI_SPEC: locally hosted demo GUI (`gui/`)
 
-Cached mode only in this slice: no backend, no model calls, no keys, no network at runtime. Dark theme only; tokens in `gui/src/styles/tokens.css`.
+Cached mode only: no backend, no model calls, no keys, no network at runtime. Dark theme only; tokens in `gui/src/styles/tokens.css`.
 No NVIDIA logos or brand assets (the mark is a plain 28px green square). All case content is synthetic; results are from a small pilot, not a benchmark.
 
 ## Routes and screens
 | route | screen | status |
 |---|---|---|
-| `/` | Home: hero, runtime card, six scenario cards, footer note | built |
-| `/case/:caseId` | Case | placeholder ("Next step"): shows case id, source, decision, step count |
-| `/containment` | Containment | placeholder: table of cached runs (source, decision, steps, audit events) |
-| `/scorecard` | Scorecard | placeholder: same table |
+| `/` | Home: hero, runtime card, six scenario cards, footer note | built (slice 1, data-driven in slice 2) |
+| `/case/:caseId` | Case: before and after, criteria, trace | built (slice 2) |
+| `/scorecard` | Scorecard: headline numbers, judge panel, by-category grid, Base Super / R1 toggle | built (slice 2) |
+| `/containment` | Containment | placeholder ("Next step"): table of cached runs |
 
-Header on every page: mark, "Denial Appeals Agent", "R1 x NVIDIA demo", nav (Home, Case, Containment, Scorecard; `aria-current="page"`), a "Cached | Live demo" control
-(Live disabled, tooltip "Not available yet") and a SANDBOXED pill.
-Home cards 1 and 2 read decision, denial code and policy id from the cached run for C-0005 / C-0030 and show "No recorded run yet" when the case is not in the cache. Card 6 (Live) is not a link.
+Header on every page: mark, "Denial Appeals Agent", "R1 x NVIDIA demo", nav (`aria-current="page"`), a "Cached | Live demo" control (Live disabled, tooltip "Not available yet") and a SANDBOXED pill.
+
+### Home
+Cards 1 and 2 quote the newest agent run of C-0005 / C-0030 (Hermes before the stand-in, never the baseline): decision, denial code, policy id, action deadline and the run id come from the cache, and the description's claims (e.g. "drafts the appeal") are only shown when the cached decision says so. "No recorded run yet" when the case is not cached. The model-route line comes from the cached runs. Card 6 (Live) is not a link; the attack card links to `/containment`.
+
+### Case (`/case/:caseId`, `?tab=criteria|trace`)
+Headline "Same case, two ways of working." Chips from the run: case, denial code, policy id, action deadline, decision.
+Left panel: the no-tools baseline ("No tools: one prompt with every document pasted in"); if the case has no baseline run, the stand-in agent instead, with a visible note. Right panel: "Agent: Hermes in the OpenShell sandbox" (stand-in runs are listed as alternatives). A run selector per side picks among repeats (newest first).
+Each panel: the deliverable rendered from markdown; upheld **material** hallucination flags marked in red where their quote is found (judges quote without markdown marks, so matching ignores `**` and backticks and collapses whitespace; flags whose quote is not found are labelled in the list below); every `(source: ...)` citation as a green pill (both variants); the flags list (severity, quote, each judge's reason; not-upheld flags are listed too); for the agent a row of trace chips in order (skill names; errors amber, denied red). Counts (tool errors, tokens, seconds) are shown as data; the page makes no claim about which side errs less.
+Tabs: **Before & After**; **Criteria** (per criterion, the three judges as PASS/FAIL chips for each variant, rule-checked criteria as "Rule", panel verdict; criterion text only where the verdict file has it, i.e. failed criteria; rows expand to each judge's reason; the rubric `reference` field is never carried); **Trace** (steps with timings; a step expands to its arguments and result; Hermes steps also show the raw terminal command).
+
+### Scorecard
+Pilot note (verbatim): "Pilot: 5 dev cases, not a benchmark. Judge noise is about 0.4 flags per run, so differences that small are not findings." Series: no-tools baseline, stand-in agent, Hermes. Rows: criterion pass rate, upheld material flags per run, clean-run rate, tool error rate (Hermes also shows the skill-calls-only rate), tokens per run (Hermes also shows the fixed prompt overhead and the post-run review, which is not included), turns, seconds. Judge tables per judge (all criteria; judge-graded only). By-category grid of the 12 categories: values (per-run panel pass and upheld material count) only for the categories run (1, 2, 6, 8, 12), "Not run yet" for the rest. Toggle: Base Super (data) / R1 checkpoint (pending empty state).
+Every value is the exact string from the markdown reports (`scripts/build_metrics.mjs`); nothing is computed. Test: every number in `metrics.json` and on the rendered page appears in the source markdown (static labels excepted: category numbers 1-12 and the pilot note's 5 and 0.4).
 
 ## Data model
-`gui/src/data/types.ts`. `RunView { runId, caseId, source: 'standin'|'hermes', model, startedAt, decision, denialCode, policyId, actionDeadline, deliverableMarkdown, steps[], verdicts[], flags[], audit[], metrics }`
-- `steps`: `{ n, kind, name, argsSummary, resultSummary, durationMs, status }` from `trace.json`.
-- `verdicts`: per criterion `{ criterionId, text?, judges: { claude, gemini, gpt, auto? -> { verdict, reason } }, panel }`. `text` exists only for failed criteria (that is all the verdict file carries).
-- `flags`: hallucination flags `{ id, quote, severity: minor|material|null, upheld, problems, raisedBy }`.
-- `audit`: `{ time, eventClass, target, result, reason, background }`; empty for the stand-in.
-- `metrics`: `{ turns, tokens {prompt, completion, total}, wallClockSeconds, toolErrors }` (from `run_end` and the steps).
-Adapters implement `RunSource { kind, canRead(dir), read(dir) }`: `standin` (EVENTS_SPEC.md format) and `hermes` (stub).
+`gui/src/data/types.ts`. `RunView { runId, caseId, source, runtime, variant: 'agent'|'baseline', model, startedAt, decision, denialCode, policyId, actionDeadline, deliverableMarkdown, steps[], verdicts[], flags[], audit[], metrics, hermes }`.
+- `steps`: `{ n, kind, name, argsSummary, resultSummary, durationMs, status, skillName, hermesTool, rawCommand, detail {arguments, result} }`. `detail` is joined from `events.jsonl` by order; `rawCommand` is the verbatim Hermes terminal command.
+- `verdicts`: `{ criterionId, text?, judges { claude, gemini, gpt, auto? -> { verdict, reason } }, panel }`.
+- `flags`: `{ id, quote, severity, upheld, problems, raisedBy, votes { judge -> { upheld, severity, reason } } }`.
+- `audit`: `{ time, eventClass, target, result, reason, background, tag: run|background|post_run }`; empty for the stand-in and the baseline.
+- `metrics`: `{ turns, tokens, wallClockSeconds, toolErrors, toolCalls, revisions }`.
+- `hermes`: `{ hermesRunId, hermesVersion, skillCalls, skillErrors, toolsByName, firstCallPromptTokens, backgroundReview | null }`. `backgroundReview` comes from `summary.json` only (null = unknown).
+Adapters (`standin.ts`, `hermes.ts`, `baseline.ts`) implement `RunSource { kind, canRead(dir), read(dir) }`.
 
 ## Data rules
-1. The app loads only `/data/index.json` (and the run files it lists) from its own origin.
-2. `scripts/build_cache.mjs` never reads or copies `truth.json`, `rubric.json`, or anything under `gold/` or `attacks/`; it fails loudly (before reading or writing anything) if one is in the input, and refuses output text that names them.
-3. Judge verdict files are allowed. The rubric-derived `reference` hint inside them is dropped; the criterion text of failed criteria is kept.
-4. Tests: refusal tests for each forbidden name, and a scan of `gui/public/data` after a build.
+1. The app loads only `/data/index.json`, `/data/metrics.json` and the run files the index lists, from its own origin.
+2. `scripts/build_cache.mjs` never reads or copies `truth.json`, `rubric.json`, or anything under `gold/` or `attacks/`; it fails loudly (before reading or writing anything) if one is in the input, and refuses any output whose text names them. `build_metrics.mjs` applies the same text check.
+3. Judge verdict files are allowed. The rubric-derived `reference` hint is dropped; criterion text of failed criteria is kept.
+4. Hermes `skill_view` pages are not cached (they describe the refused file names).
+5. Tests: refusal tests per forbidden name, a scan of `gui/public/data` after a build, the metrics-vs-markdown test.
 
 ## Next slices
-1. Case: before (denial, chart evidence) and after (deliverable, decision), plus a criteria tab (verdicts, flags).
-2. Containment: agent trace and OCSF audit log split screen (needs Hermes audit data; the attack run).
-3. Scorecard: metrics, judge panel, by-category results.
-4. Hermes adapter: join the Hermes trace, session messages and `audit.jsonl` from `docs/samples/hermes_run_*` once the VM work is merged.
+1. Containment: agent trace and OCSF audit log split screen (the `audit` field and `tag` are already in the data; hide `background` by default). Needs a Hermes attack run recording.
+2. Model swap: R1 checkpoint series once those runs exist (the Scorecard toggle is a placeholder).
+3. Case: more cases once more runs are exported (today only C-0005 and C-0030 have run folders; the Scorecard covers all five dev cases through the reports).
+4. Live mode (disabled in this slice).

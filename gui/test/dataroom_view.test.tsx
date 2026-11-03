@@ -12,7 +12,7 @@ import { fx, sample, viewFor } from './dataroom_helpers.mjs';
 
 const v05: DataRoomView = viewFor(sample('hermes_run_C-0005'));
 const v30: DataRoomView = viewFor(fx('hermes_run_C-0030'));
-const render = (view: DataRoomView, initial?: Selection | 'default') => renderToStaticMarkup(<DataRoom view={view} initial={initial} />);
+const render = (view: DataRoomView, initial?: Selection | 'default', showUnlinked = true) => renderToStaticMarkup(<DataRoom view={view} initial={initial} showUnlinked={showUnlinked} />);
 const rowsInChain = (html: string) => [...html.matchAll(/<button[^>]*data-row="(B\d+)"[^>]*data-in-chain="true"/g)].map((m) => m[1]);
 const count = (html: string, re: RegExp) => (html.match(re) ?? []).length;
 
@@ -82,7 +82,7 @@ describe('Data room view', () => {
   it('every selectable card is a button with aria-pressed; the overlay is aria-hidden', () => {
     const html = render(v05);
     const pressed = count(html, /aria-pressed="/g);
-    expect(pressed).toBe(v05.caseDocs.length + 1 + v05.rows.length * 2);
+    expect(pressed).toBe(v05.caseDocs.length + 1 + v05.rows.length * 2 + 2); // + the excerpts and "show all parts" toggles
     expect(html).toMatch(/<svg class="dr-overlay" aria-hidden="true"/);
     expect(html).toContain('role="status"');
     expect(html).toContain('aria-live="polite"');
@@ -113,6 +113,28 @@ describe('Data room view', () => {
     expect(html).toContain('Clear selection');
     expect(html).toContain('Case evidence');
     expect(html).toMatch(/dr-lines__n[^>]*>\d+</);
+  });
+});
+
+describe('compact layout', () => {
+  const linked = (v: DataRoomView) => v.blocks.filter((b) => b.links.cited.length || b.links.matched.length || b.links.sections.length || b.links.policy || b.links.flags.length);
+  it('folds away parts with no link by default, keeps flagged ones, and offers to show them', () => {
+    for (const v of [v05, v30]) {
+      const html = render(v, null, false);
+      expect(count(html, /data-row="/g)).toBe(linked(v).length);
+      expect(count(html, /data-row="/g)).toBeLessThan(v.blocks.length);
+      expect(html).toContain(`Show all ${v.blocks.length} parts of the letter (${v.blocks.length - linked(v).length} have no link)`);
+    }
+    expect(render(v30, null, false)).toContain('FLAGGED');
+  });
+  it('showing all restores every part and the button then offers to hide them', () => {
+    const html = render(v05, null, true);
+    expect(count(html, /data-row="/g)).toBe(v05.blocks.length);
+    expect(html).toContain('Show only the parts with links');
+  });
+  it('the full text of a clamped letter part stays in a title attribute', () => {
+    const html = render(v05, null, true);
+    expect(html).toContain(`title="${v05.blocks[6].text.replace(/"/g, '&quot;').replace(/'/g, '&#x27;')}"`);
   });
 });
 

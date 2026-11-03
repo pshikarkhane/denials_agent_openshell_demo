@@ -30,13 +30,14 @@ function DocButton({ doc, selected, dim, onSelect, refFn }: { doc: DataRoomDoc; 
       aria-pressed={selected}
       data-doc={doc.path}
       data-use={use}
+      title={`${doc.path}, ${doc.descriptor}: ${openedLabel(doc.opened)}`}
       onClick={onSelect}
     >
       <span className="dr-badge dr-badge--amber">{doc.number}</span>
       <span className="dr-item__body">
         <span className="dr-item__file mono">{doc.path}</span>
         <span className="dr-item__desc">{doc.descriptor}</span>
-        <span className="dr-item__meta">{USE_LABEL[use] && <strong>{USE_LABEL[use]}. </strong>}{openedLabel(doc.opened)}</span>
+        <span className="dr-item__meta">{USE_LABEL[use] && <strong>{USE_LABEL[use]}. </strong>}<span className="dr-item__opened">{openedLabel(doc.opened)}</span></span>
       </span>
     </button>
   );
@@ -85,6 +86,7 @@ function Frame({ view, sel, chain, onSelect, setRef, open, setOpen }: {
                 className={`dr-item dr-item--violet${dimming && !chain.policy ? ' is-dim' : ''}`}
                 aria-pressed={sel?.type === 'policy'}
                 data-policy={chosen.id}
+                title={`${chosen.id}, ${chosen.title}`}
                 onClick={() => onSelect({ type: 'policy' })}
               >
                 <span className="dr-badge dr-badge--violet">P</span>
@@ -130,12 +132,19 @@ function PolicyZone({ row, view }: { row: DataRoomRow; view: DataRoomView }) {
       <span className="dr-chip dr-chip--violet">POLICY</span>
       {row.policy.kind === 'sections' && (
         <>
-          <span className="dr-zone__head mono">{view.chosenPolicyId} section {row.policy.sectionIds.join(', ')}</span>
+          <span className="dr-zone__head mono" title={`${view.chosenPolicyId} section ${row.policy.sectionIds.join(', ')}`}>
+            <span className="dr-zone__pid">{view.chosenPolicyId} </span>section {row.policy.sectionIds.join(', ')}
+          </span>
           <span className="dr-clamp" title={row.policy.texts.join('\n')}>{row.policy.texts[0]}</span>
         </>
       )}
-      {row.policy.kind === 'policy' && <span className="dr-clamp" title={p?.title}>{view.chosenPolicyId}{p ? `, ${p.title}` : ''}</span>}
-      {row.policy.kind === 'none' && <span className="dr-zone__none">No policy link found</span>}
+      {row.policy.kind === 'policy' && (
+        <>
+          <span className="dr-zone__head mono" title={p?.title}>{view.chosenPolicyId}</span>
+          <span className="dr-clamp" title={p?.title}>{p?.title}</span>
+        </>
+      )}
+      {row.policy.kind === 'none' && <span className="dr-zone__none" title="No policy link found">No policy link found</span>}
     </span>
   );
 }
@@ -144,7 +153,7 @@ function CaseZone({ row, view }: { row: DataRoomRow; view: DataRoomView }) {
   const num = (f: string) => view.caseDocs.find((d) => d.path === f)?.number;
   const cited = row.evidence.filter((e) => e.via === 'cited');
   const matched = row.evidence.filter((e) => e.via === 'matched');
-  const shown = row.evidence.filter((e) => e.excerptFound).slice(0, 2);
+  const shown = row.evidence.filter((e) => e.excerptFound).slice(0, 1);
   return (
     <span className="dr-zone dr-zone--case" data-zone="case">
       <span className="dr-chip dr-chip--amber">CASE</span>
@@ -171,9 +180,12 @@ function isUnlinked(b: DataRoomBlock) {
 
 // ---------- the view ----------
 
-export function DataRoom({ view, initial }: { view: DataRoomView; initial?: Selection | 'default' }) {
+export function DataRoom({ view, initial, showUnlinked = false }: { view: DataRoomView; initial?: Selection | 'default'; showUnlinked?: boolean }) {
   const [sel, setSel] = useState<Selection>(() => (initial === undefined || initial === 'default' ? defaultSelection(view) : initial));
   const [open, setOpen] = useState(false);
+  const [showAll, setShowAll] = useState(showUnlinked);
+  const [excerpts, setExcerpts] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
   const chain = useMemo(() => chainFor(view, sel), [view, sel]);
   const dimming = sel !== null;
   const gridRef = useRef<HTMLDivElement | null>(null);
@@ -237,16 +249,40 @@ export function DataRoom({ view, initial }: { view: DataRoomView; initial?: Sele
   }, [measure]);
 
   const select = (s: Exclude<Selection, null>) => setSel((cur) => toggle(cur, s));
-  const n = view.rows.length;
+  // Parts of the letter with no link at all (and no flag) are folded away so the diagram fits the screen.
+  const pairs = view.rows.map((row, i) => ({ row, block: view.blocks[i] }));
+  const visible = showAll ? pairs : pairs.filter(({ block }) => !isUnlinked(block) || block.links.flags.length > 0);
+  const hiddenCount = pairs.length - pairs.filter(({ block }) => !isUnlinked(block) || block.links.flags.length > 0).length;
+  const n = visible.length;
+
+  // Opening the tab brings the diagram to the top of the screen; the diagram then fills the viewport.
+  useEffect(() => {
+    rootRef.current?.scrollIntoView?.({ block: 'start' });
+  }, []);
 
   return (
-    <div className="dr">
+    <div className={`dr${excerpts ? '' : ' dr--lean'}`} ref={rootRef}>
+      <div className="dr-bar">
       <ul className="dr-legend" aria-label="Legend">
         <li><span className="dr-swatch dr-swatch--amber" aria-hidden="true" />Amber: case folder and facts</li>
         <li><span className="dr-swatch dr-swatch--violet" aria-hidden="true" />Violet: payer policies</li>
         <li><span className="dr-swatch dr-swatch--blue" aria-hidden="true" />Blue: the letter</li>
         <li><span className="dr-swatch dr-swatch--dashed" aria-hidden="true" />Dashed: read but not cited, or not chosen</li>
       </ul>
+
+      <p className="dr-fold">
+        <button type="button" className="btn btn--small" aria-pressed={excerpts} onClick={() => setExcerpts(!excerpts)} data-excerpts>
+          {excerpts ? 'Hide excerpts' : 'Show excerpts'}
+        </button>{' '}
+      {(hiddenCount > 0 || showAll) && (
+        <>
+          <button type="button" className="btn btn--small" aria-pressed={showAll} onClick={() => setShowAll(!showAll)} data-fold>
+            {showAll ? 'Show only the parts with links' : `Show all ${pairs.length} parts of the letter (${hiddenCount} have no link)`}
+          </button>
+        </>
+      )}
+      </p>
+      </div>
 
       <p className="dr-status" role="status" aria-live="polite" data-hint={sel ? undefined : 'true'}>{statusLine(view, sel)}</p>
 
@@ -260,8 +296,7 @@ export function DataRoom({ view, initial }: { view: DataRoomView; initial?: Sele
         </div>
         <div className="dr-letterpanel" aria-hidden="true" style={{ gridColumn: 3, gridRow: `2 / span ${Math.max(n, 1)}` }} />
 
-        {view.rows.map((row, i) => {
-          const block = view.blocks[i];
+        {visible.map(({ row, block }, i) => {
           const inChain = chain.rows.has(row.blockId);
           const dim = dimming && !inChain;
           const flagged = block.links.flags.length > 0;
@@ -298,7 +333,7 @@ export function DataRoom({ view, initial }: { view: DataRoomView; initial?: Sele
                     {isUnlinked(block) && <span className="dr-letter__none">No source or policy link found</span>}
                   </span>
                 )}
-                <span className="dr-letter__text">{block.text}</span>
+                <span className="dr-letter__text" title={block.text}>{block.text}</span>
               </button>
             </Fragment>
           );

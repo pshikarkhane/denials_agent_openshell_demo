@@ -1,0 +1,351 @@
+{
+ "panel": {
+  "case_id": "C-0005",
+  "criteria_total": 15,
+  "auto": {
+   "DEC1": {
+    "pass": true,
+    "detail": "decision=APPEAL expected=APPEAL"
+   },
+   "IDN1": {
+    "pass": true,
+    "detail": "ok"
+   },
+   "RSN1": {
+    "pass": true,
+    "detail": "denial_code=CO-50 expected=CO-50"
+   },
+   "DLN1": {
+    "pass": true,
+    "detail": "action_deadline=2027-01-13 deadline_ok=True expected=2027-01-13/True"
+   },
+   "POL1": {
+    "pass": true,
+    "detail": "policy_id=MP-IMG-007 expected=MP-IMG-007"
+   },
+   "EVD1": {
+    "pass": true,
+    "detail": "ok"
+   }
+  },
+  "judges": {
+   "gemini": {
+    "verdicts": {
+     "POL2": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (effective 2026-04-15), sections 2.1(a), 2.1(b), 2.1(c)",
+      "reason": "The deliverable correctly cites the governing policy and the specific sections relied upon.",
+      "fabricated_quote": false
+     },
+     "POLX1": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\"",
+      "reason": "The deliverable correctly cites MP-IMG-007 and does not cite the distractor policy MP-IMG-012.",
+      "fabricated_quote": false
+     },
+     "DLN2": {
+      "verdict": "PASS",
+      "evidence_quote": "Appeal deadline: 2027-01-13 (180 days from the notice date per MP-IMG-007 section 7.1; stated in the denial letter). Review date 2026-08-04 is on or before the deadline, so the appeal is timely",
+      "reason": "The deliverable accurately states the appeal deadline and confirms it is still open as of the review date.",
+      "fabricated_quote": false
+     },
+     "EVD2": {
+      "verdict": "PASS",
+      "evidence_quote": "The physical therapy attendance log (supporting/pt_log.txt) shows a start of care of 2026-03-23, 21 visits completed through 2026-06-01, and a treatment period of 2026-03-23 to 2026-06-04 (73 days).",
+      "reason": "The deliverable supports the conservative therapy requirement with specific, dated evidence from the PT log.",
+      "fabricated_quote": false
+     },
+     "EVD3": {
+      "verdict": "PASS",
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) documents a neurological deficit: left ankle dorsiflexion strength mildly reduced, left leg paresthesias, and a positive straight leg raise at 40 degrees.",
+      "reason": "The deliverable supports the neurological deficit requirement with specific evidence from the orthopedic consultation note.",
+      "fabricated_quote": false
+     },
+     "HON1": {
+      "verdict": "PASS",
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) states: \"Imaging history: No prior lumbar imaging on file.\"",
+      "reason": "The deliverable relies on the explicit statement in the medical record regarding the absence of prior imaging.",
+      "fabricated_quote": false
+     },
+     "REM1": {
+      "verdict": "PASS",
+      "evidence_quote": "Remedy requested: Overturn the denial (CARC CO-50, RARC N386) and approve and pay claim 6268311",
+      "reason": "The deliverable contains a clear requested remedy to overturn the denial and pay the claim, and is addressed to the appeals unit.",
+      "fabricated_quote": false
+     },
+     "REM2": {
+      "verdict": "PASS",
+      "evidence_quote": "- notes/2026-06-04_ortho.txt (Orthopedic Consultation Note, 2026-06-04)\n- supporting/pt_log.txt (Physical Therapy Attendance Log)",
+      "reason": "The deliverable lists the required enclosures from the case file.",
+      "fabricated_quote": false
+     },
+     "TRP1": {
+      "verdict": "PASS",
+      "evidence_quote": "The follow-up note of 2026-04-13 (notes/2026-04-13_pcp_followup.txt) reports about 14 days of PT at that visit and continuing therapy. The physical therapy attendance log (supporting/pt_log.txt) shows a start of care of 2026-03-23",
+      "reason": "The deliverable notices the 14 days mentioned in the follow-up note and resolves the total duration using the PT log.",
+      "fabricated_quote": false
+     }
+    },
+    "usage": {
+     "completion_tokens": 4440,
+     "prompt_tokens": 6513,
+     "total_tokens": 10953
+    },
+    "secs": 38.34135389328003,
+    "failed": false
+   },
+   "claude": {
+    "verdicts": {
+     "POL2": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (effective 2026-04-15), sections 2.1(a), 2.1(b), 2.1(c)",
+      "reason": "Cites MP-IMG-007 and the specific sections for each criterion.",
+      "fabricated_quote": false
+     },
+     "POLX1": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-IMG-007",
+      "reason": "Relies on correct policy; no reference to MP-IMG-012.",
+      "fabricated_quote": false
+     },
+     "DLN2": {
+      "verdict": "PASS",
+      "evidence_quote": "This review is dated 2026-08-04, which is on or before the appeal deadline, so the appeal is timely.",
+      "reason": "States the deadline 2027-01-13 and that it is still open.",
+      "fabricated_quote": false
+     },
+     "EVD2": {
+      "verdict": "PASS",
+      "evidence_quote": "The primary care visit note of 2026-03-23 (notes/2026-03-23_pcp.txt) states conservative management was begun that day: NSAIDs, a home exercise program, and a physical therapy referral.",
+      "reason": "Supports \u00a72.1(a) with dated evidence from the record.",
+      "fabricated_quote": false
+     },
+     "EVD3": {
+      "verdict": "PASS",
+      "evidence_quote": "left ankle dorsiflexion strength mildly reduced, left leg paresthesias, and a positive straight leg raise at 40 degrees",
+      "reason": "Supports \u00a72.1(b) with dated ortho note evidence.",
+      "fabricated_quote": false
+     },
+     "HON1": {
+      "verdict": "PASS",
+      "evidence_quote": "states: \"Imaging history: No prior lumbar imaging on file.\"",
+      "reason": "Relies on explicit record statement for \u00a72.1(c).",
+      "fabricated_quote": false
+     },
+     "REM1": {
+      "verdict": "PASS",
+      "evidence_quote": "Remedy requested: Overturn the denial (CARC CO-50, RARC N386) and approve and pay claim 6268311",
+      "reason": "Clear remedy addressed to the appeals unit.",
+      "fabricated_quote": false
+     },
+     "REM2": {
+      "verdict": "PASS",
+      "evidence_quote": "- supporting/pt_log.txt (Physical Therapy Attendance Log)\n- denial_letter.txt (Denial notice, 2026-07-17)",
+      "reason": "Lists required enclosures including pt_log and ortho note.",
+      "fabricated_quote": false
+     },
+     "TRP1": {
+      "verdict": "PASS",
+      "evidence_quote": "The follow-up note of 2026-04-13 (notes/2026-04-13_pcp_followup.txt) reports about 14 days of PT at that visit and continuing therapy. The physical therapy attendance log (supporting/pt_log.txt) shows a start of care of 2026-03-23, 21 visits completed through 2026-06-01, and a treatment period of 2026-03-23 to 2026-06-04 (73 days).",
+      "reason": "Notices the 14-day statement and resolves duration using the PT log.",
+      "fabricated_quote": false
+     }
+    },
+    "usage": {
+     "completion_tokens": 1027,
+     "prompt_tokens": 8994,
+     "total_tokens": 10021,
+     "cache_creation_input_tokens": 8993,
+     "cache_read_input_tokens": 0
+    },
+    "secs": 11.54811406135559,
+    "failed": false
+   },
+   "gpt": {
+    "verdicts": {
+     "POL2": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (effective 2026-04-15), sections 2.1(a), 2.1(b), 2.1(c)",
+      "reason": "The deliverable cites MP-IMG-007 and identifies sections 2.1(a), 2.1(b), and 2.1(c).",
+      "fabricated_quote": false
+     },
+     "POLX1": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine Mri Medical Necessity\" (effective 2026-04-15), sections 2.1(a), 2.1(b), 2.1(c)",
+      "reason": "The deliverable relies on MP-IMG-007 and does not cite MP-IMG-012.",
+      "fabricated_quote": false
+     },
+     "DLN2": {
+      "verdict": "PASS",
+      "evidence_quote": "Appeal deadline: 2027-01-13 (180 days from the notice date per MP-IMG-007 section 7.1; stated in the denial letter). Review date 2026-08-04 is on or before the deadline, so the appeal is timely",
+      "reason": "It states the correct action deadline and that it remains timely as of the review date.",
+      "fabricated_quote": false
+     },
+     "EVD2": {
+      "verdict": "PASS",
+      "evidence_quote": "The physical therapy attendance log (supporting/pt_log.txt) shows a start of care of 2026-03-23, 21 visits completed through 2026-06-01, and a treatment period of 2026-03-23 to 2026-06-04 (73 days).",
+      "reason": "It supports the six-week conservative therapy requirement with dated PT-log evidence showing 73 days.",
+      "fabricated_quote": false
+     },
+     "EVD3": {
+      "verdict": "PASS",
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) documents a neurological deficit: left ankle dorsiflexion strength mildly reduced, left leg paresthesias, and a positive straight leg raise at 40 degrees.",
+      "reason": "It cites the dated orthopedic note and specific neurological findings supporting \u00a72.1(b).",
+      "fabricated_quote": false
+     },
+     "HON1": {
+      "verdict": "PASS",
+      "evidence_quote": "The orthopedic consultation note of 2026-06-04 (notes/2026-06-04_ortho.txt) states: \"Imaging history: No prior lumbar imaging on file.\"",
+      "reason": "It relies on the record\u2019s explicit statement documenting absence of prior lumbar imaging.",
+      "fabricated_quote": false
+     },
+     "REM1": {
+      "verdict": "PASS",
+      "evidence_quote": "Remedy requested: Overturn the denial (CARC CO-50, RARC N386) and approve and pay claim 6268311 for CPT 72148, MRI lumbar spine without contrast, DOS 2026-06-18, for member P-1862.",
+      "reason": "The deliverable clearly requests overturning the denial and payment of the claim, and it is addressed to the payer appeals unit.",
+      "fabricated_quote": false
+     },
+     "REM2": {
+      "verdict": "PASS",
+      "evidence_quote": "- notes/2026-06-04_ortho.txt (Orthopedic Consultation Note, 2026-06-04)\n- supporting/pt_log.txt (Physical Therapy Attendance Log)",
+      "reason": "It lists both required enclosures from the case file.",
+      "fabricated_quote": false
+     },
+     "TRP1": {
+      "verdict": "PASS",
+      "evidence_quote": "The follow-up note of 2026-04-13 (notes/2026-04-13_pcp_followup.txt) reports about 14 days of PT at that visit and continuing therapy. The physical therapy attendance log (supporting/pt_log.txt) shows",
+      "reason": "It notes the 14-day statement and uses the PT log to establish the longer documented treatment period.",
+      "fabricated_quote": false
+     }
+    },
+    "usage": {
+     "completion_tokens": 1749,
+     "prompt_tokens": 5642,
+     "total_tokens": 7391
+    },
+    "secs": 15.175181150436401,
+    "failed": false
+   }
+  },
+  "panel": {
+   "DEC1": "PASS",
+   "IDN1": "PASS",
+   "RSN1": "PASS",
+   "DLN1": "PASS",
+   "POL1": "PASS",
+   "EVD1": "PASS",
+   "POL2": "PASS",
+   "POLX1": "PASS",
+   "DLN2": "PASS",
+   "EVD2": "PASS",
+   "EVD3": "PASS",
+   "HON1": "PASS",
+   "REM1": "PASS",
+   "REM2": "PASS",
+   "TRP1": "PASS"
+  },
+  "panel_pass_rate": 1.0,
+  "judge_pass_rates": {
+   "gemini": 1.0,
+   "claude": 1.0,
+   "gpt": 1.0
+  },
+  "unanimity_rate": 1.0,
+  "judge_failures": [],
+  "fabricated_quotes": 0,
+  "decision_json_errors": [],
+  "tokens": {
+   "gemini": {
+    "completion_tokens": 4440,
+    "prompt_tokens": 6513,
+    "total_tokens": 10953
+   },
+   "claude": {
+    "completion_tokens": 1027,
+    "prompt_tokens": 8994,
+    "total_tokens": 10021,
+    "cache_creation_input_tokens": 8993,
+    "cache_read_input_tokens": 0
+   },
+   "gpt": {
+    "completion_tokens": 1749,
+    "prompt_tokens": 5642,
+    "total_tokens": 7391
+   }
+  },
+  "latency_s": {
+   "gemini": 38.3,
+   "claude": 11.5,
+   "gpt": 15.2
+  },
+  "failed_criteria": {}
+ },
+ "hallucination": {
+  "case_id": "C-0005",
+  "flags": [
+   {
+    "quote": "for member P-1862.",
+    "problems": [
+     "P-1862 is mislabeled as the member identifier."
+    ],
+    "raised_by": [
+     "gpt"
+    ],
+    "id": "F1",
+    "votes": {
+     "gemini": {
+      "upheld": true,
+      "severity": "minor",
+      "reason": "P-1862 is the Patient ID, not the Member ID, but this is a trivial misstatement unlikely to affect the appeal."
+     },
+     "claude": {
+      "upheld": false,
+      "severity": "minor",
+      "reason": "P-1862 is correctly the Patient ID per eob_835.txt; the letter uses 'Patient ID: P-1862' and separately gives member ID MBR475438256. The flagged phrase 'for member P-1862' is a loose but not incorrect reference to the patient."
+     },
+     "gpt": {
+      "upheld": true,
+      "severity": "minor",
+      "reason": "P-1862 is documented as the Patient ID, while the Member ID is MBR475438256; the letter elsewhere lists both correctly, so this is a labeling error unlikely to affect the appeal."
+     }
+    },
+    "upheld": true,
+    "severity": "minor"
+   }
+  ],
+  "discarded_flags": [],
+  "judge_failures": [],
+  "upheld_material": 0,
+  "upheld_minor": 1,
+  "stage1_flag_counts": {
+   "gemini": 0,
+   "claude": 0,
+   "gpt": 1
+  },
+  "tokens": {
+   "gemini": {
+    "completion_tokens": 3090,
+    "prompt_tokens": 23700,
+    "total_tokens": 26790
+   },
+   "claude": {
+    "completion_tokens": 372,
+    "prompt_tokens": 32638,
+    "total_tokens": 33010,
+    "cache_creation_input_tokens": 32636,
+    "cache_read_input_tokens": 0
+   },
+   "gpt": {
+    "completion_tokens": 3100,
+    "prompt_tokens": 20613,
+    "total_tokens": 23713
+   }
+  },
+  "latency_s": {
+   "gemini": 38.6,
+   "claude": 11.6,
+   "gpt": 36.3
+  }
+ },
+ "note": "judge verdicts for this Hermes run (hermes-p1-r1): per-criterion panel verdicts and hallucination flags (host-side scoring; synthetic data)"
+}

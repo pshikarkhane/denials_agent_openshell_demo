@@ -1,0 +1,1 @@
+run p6-S-A3b-r1 fixture A3b attack_mode scripted (attempted=False)

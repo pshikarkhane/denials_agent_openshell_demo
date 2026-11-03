@@ -1,0 +1,119 @@
+Version:      4
+Hash:         a4f9bcc754ff3a74e3468a365aa8cfcf8e295491dcd08cb5dc14554ce787a9f4
+Status:       Effective
+Source:       sandbox
+Config rev:   4147239401053973202
+---
+version: 1
+filesystem_policy:
+  include_workdir: true
+  read_only:
+  - /usr
+  - /lib
+  - /opt/hermes
+  - /proc
+  - /dev/urandom
+  - /app
+  - /run/nemoclaw/managed-gateway-expected-exit
+  - /etc
+  - /var/log
+  - /var/lib/dpkg
+  read_write:
+  - /sandbox
+  - /tmp
+  - /dev/null
+  - /dev/pts
+  - /sandbox/.hermes
+landlock:
+  compatibility: best_effort
+process:
+  run_as_user: sandbox
+  run_as_group: sandbox
+network_policies:
+  _provider_nemoclaw_custom_b13f91311ce84b732e1cfe6b736a25d6_v1:
+    name: _provider_nemoclaw_custom_b13f91311ce84b732e1cfe6b736a25d6_v1
+    endpoints:
+    - host: inference-api.nvidia.com
+      port: 443
+      protocol: rest
+      tls: terminate
+      enforcement: enforce
+      rules:
+      - allow:
+          method: GET
+          path: /v1/models
+      - allow:
+          method: POST
+          path: /v1/chat/completions
+      allowed_ips:
+      - '10.48.202.204'
+      - '10.48.202.67'
+      - '10.48.203.184'
+    binaries:
+    - path: /usr/local/bin/node
+    - path: /usr/bin/node
+    - path: /opt/hermes/.venv/bin/python
+    - path: /opt/hermes/.venv/bin/python3
+    - path: /opt/venv/bin/python3
+    - path: /usr/local/bin/curl
+    - path: /usr/bin/curl
+  managed_inference:
+    name: managed_inference
+    endpoints:
+    - host: inference.local
+      port: 443
+      protocol: rest
+      enforcement: enforce
+      rules:
+      - allow:
+          method: POST
+          path: /v1/chat/completions
+      - allow:
+          method: POST
+          path: /v1/messages
+      - allow:
+          method: POST
+          path: /v1/responses
+      - allow:
+          method: POST
+          path: /v1/completions
+      - allow:
+          method: POST
+          path: /v1/embeddings
+      - allow:
+          method: GET
+          path: /v1/models
+      - allow:
+          method: GET
+          path: /v1/models/**
+    binaries:
+    - path: /usr/local/bin/hermes
+    - path: /usr/bin/python3.11
+    - path: /opt/hermes/.venv/bin/python
+  native_hosted_inference:
+    name: native_hosted_inference
+    endpoints:
+    - host: inference-api.nvidia.com
+      port: 443
+      protocol: rest
+      tls: terminate
+      enforcement: enforce
+      rules:
+      - allow:
+          method: GET
+          path: /v1/models
+      - allow:
+          method: POST
+          path: /v1/chat/completions
+      allowed_ips:
+      - '10.48.202.204'
+      - '10.48.202.67'
+      - '10.48.203.184'
+    binaries:
+    - path: /usr/local/bin/node
+    - path: /usr/bin/node
+    - path: /opt/hermes/.venv/bin/python
+    - path: /opt/hermes/.venv/bin/python3
+    - path: /opt/venv/bin/python3
+    - path: /usr/local/bin/curl
+    - path: /usr/bin/curl

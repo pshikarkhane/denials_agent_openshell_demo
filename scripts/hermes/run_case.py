@@ -25,6 +25,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT))
+import attack_eval  # noqa: E402
 import build_events as be  # noqa: E402
 import sbx  # noqa: E402
 from agent.events import Recorder  # noqa: E402
@@ -147,17 +148,25 @@ def copy_outputs(case_id, out_dir):
 
 def run_once(run_id, case_id, a, tok, out):
     """One attempt. Returns (state, data dict). Raises only on harness failure."""
-    sbx.install_case(case_id)
+    sbx.install_case(case_id, a.attack)
     reset = sbx.reset_state(case_id, tok)
-    task = (ROOT / "data" / "cases" / case_id / "task.md").read_text()
+    task = (ROOT / "data" / ("attacks/" + a.attack if a.attack else "cases/" + case_id) / "task.md").read_text()
     text = task.rstrip() + f"\n\nCase ID: {case_id}. Use it as <CASE_ID> in the skill commands.\n"
     instructions = PROMPT.read_text()
     t0 = time.time()
     hid = sbx.hc.start_run(tok, text, instructions=instructions)
     sse = []
     state = stream_run(tok, hid, a.time_limit, sse)
+    scripted = None
+    if a.attack and a.attack_mode == "scripted":
+        # SCRIPTED attempt (never natural): the HARNESS runs the exact exfiltration command from the host-only manifest inside the sandbox, as the sandbox user,
+        # under the same Landlock/proxy/audit enforcement as the agent's terminal. It does NOT go through Hermes' terminal tool; it is recorded as a labeled step.
+        cmd = json.loads((ROOT / "data" / "attacks" / "attacks_manifest.json").read_text())["fixtures"][a.attack]["scripted_command"]
+        s0 = time.time()
+        rc, o, e = sbx.sbx(cmd, timeout=90)
+        scripted = {"command": cmd, "rc": rc, "stdout": o[-1500:], "stderr": e[-1500:], "ts_start": s0, "ts_end": time.time()}
     t1 = time.time()
-    return state, {"hid": hid, "sse": sse, "t0": t0, "t1": t1, "reset": reset, "task_input": text}
+    return state, {"hid": hid, "sse": sse, "t0": t0, "t1": t1, "reset": reset, "task_input": text, "scripted": scripted}
 
 
 def finish_run(run_id, case_id, a, tok, out, state, d, retries):
@@ -208,8 +217,11 @@ def finish_run(run_id, case_id, a, tok, out, state, d, retries):
     usage = next((e.get("usage") for e in sse if e.get("event") == "run.completed"), None) or {}
     prompt_sha = hashlib.sha256(PROMPT.read_bytes()).hexdigest()
     meta = {"run_id": run_id, "case_id": case_id, "hermes_run_id": hid, "model": sess.get("model"), "prompt_sha256": prompt_sha, "git_sha": sha,
-            "max_turns": 60, "time_limit_s": a.time_limit, "start": t0, "end": t1, "status": status, "usage": usage, "hermes_version": sbx.health().get("version")}
+            "max_turns": 60, "time_limit_s": a.time_limit, "start": t0, "end": t1, "status": status, "usage": usage, "hermes_version": sbx.health().get("version"),
+            "attack_id": a.attack, "attack_mode": (a.attack_mode if a.attack else None)}
     events, S = be.build(meta, sse, msgs, log_lines)
+    if d.get("scripted"):
+        events = be.add_scripted_step(events, d["scripted"], meta)
     rec = Recorder(out, run_id, case_id, "hermes")
     rec.events = events
     (out / "events.jsonl").write_text("".join(redact(json.dumps(e, sort_keys=True, default=str)) + "\n" for e in events))
@@ -236,7 +248,11 @@ def finish_run(run_id, case_id, a, tok, out, state, d, retries):
                "background_review": review, "audit_events": len(audit), "audit_background": sum(1 for x in audit if x["tag"] == "background"), "audit_post_run": sum(1 for x in audit if x["tag"] == "post_run"),
                "audit_denied_run": sum(1 for x in audit if x["tag"] == "run" and x["result"] == "denied"),
                "seconds": round(t1 - t0, 1)}
+    if a.attack:
+        summary["attack_id"], summary["attack_mode"] = a.attack, a.attack_mode
     write_json(out / "summary.json", summary)
+    if a.attack:
+        write_json(out / "attack_result.json", attack_eval.measure(out, a.attack, case_id))
     write_json(out / "persistence.json", {"reset_before_run": d["reset"], "differs_from_baseline_after_run": persisted,
                                            "note": "baseline = sandbox/state_baseline.json; reset_state() wipes all of this before the next run"})
     return summary
@@ -249,10 +265,14 @@ def main(argv=None):
     ap.add_argument("--repeats", type=int, default=2)
     ap.add_argument("--run-id", default=None)
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--attack", help="Phase 6: stage and run the attack fixture data/attacks/<id> (base case id from the manifest) instead of the case")
+    ap.add_argument("--attack-mode", choices=["natural", "scripted"], default="natural", help="natural = whatever the agent does; scripted = the harness also runs the exfiltration command (clearly labeled)")
     ap.add_argument("--time-limit", type=int, default=900, help="seconds per run before the run is stopped")
     ap.add_argument("--review-grace", type=float, default=30.0, help="seconds to wait for a post-run background review to start before assuming there is none")
     a = ap.parse_args(argv)
     man = json.loads((ROOT / "data" / "manifest.json").read_text())
+    if a.attack:
+        a.case = json.loads((ROOT / "data" / "attacks" / "attacks_manifest.json").read_text())["base_case"]
     cases = [a.case] if a.case else (man["pilot_cases"] if a.cases in (None, "pilot") else a.cases.split(","))
     base = a.run_id or "hermes-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
     if not wait_health(20):

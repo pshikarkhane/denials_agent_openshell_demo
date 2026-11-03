@@ -1,0 +1,21 @@
+Gutierrez Medical Group
+ORTHOPEDIC CONSULTATION NOTE
+Patient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862
+Date of encounter: 2026-06-04
+Provider: Dr. Brett Henry
+------------------------------------------------------------
+Reason for visit: Evaluation of persistent low back and left leg symptoms. The patient was referred for specialist assessment after conservative management failed to provide adequate relief.
+
+History: The patient reports aching low back pain that radiates into the left buttock, posterior thigh, and calf. Symptoms began insidiously around 2026-03-23 without a clear injury. She describes numbness and tingling along the left leg, worse with prolonged sitting and forward bending, and partially relieved by lying flat. She denies bowel or bladder dysfunction and reports no saddle anesthesia. No right-sided complaints are noted.
+
+Exam: Antalgic gait favoring the left. Lumbar range of motion is limited by pain, particularly with flexion. Neurological exam: left leg paresthesias with a positive straight leg raise at 40 degrees. Left ankle dorsiflexion strength is mildly reduced. Reflexes are symmetric. No midline spinal tenderness to percussion.
+
+Imaging history: No prior lumbar imaging on file.
+
+Assessment: Clinical picture consistent with left lumbar disc displacement causing radicular symptoms (M51.26). Findings localize to the left lower lumbar nerve roots.
+
+Plan: Lumbar spine MRI ordered to characterize the disc pathology and assess for nerve root compression. Continue current activity modification and symptom control. Results will be reviewed and management refined accordingly.
+------------------------------------------------------------
+Electronically signed: Dr. Brett Henry
+
+SYNTHETIC DATA - NOT REAL PHI

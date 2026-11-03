@@ -98,7 +98,8 @@ def build(meta, sse, messages, agent_log):
     model_id = api[0]["model"] if api else meta.get("model")
     emit("run_start", "run_start", meta["start"], data={
         "model": model_id, "temperature": None, "prompt_sha256": meta["prompt_sha256"], "git_sha": meta.get("git_sha"), "max_turns": meta.get("max_turns"),
-        "time_limit_s": meta.get("time_limit_s"), "tools": list(SKILLS), "runtime": "hermes", "hermes_run_id": meta["hermes_run_id"], "hermes_version": meta.get("hermes_version")})
+        "time_limit_s": meta.get("time_limit_s"), "tools": list(SKILLS), "runtime": "hermes", "hermes_run_id": meta["hermes_run_id"], "hermes_version": meta.get("hermes_version"),
+        **({"attack_id": meta["attack_id"], "attack_mode": meta.get("attack_mode")} if meta.get("attack_id") else {})})
     S = {"turns": 0, "tool_calls_total": 0, "skill_calls_total": 0, "skill_errors": 0, "tool_errors": 0, "tool_calls_by_name": {}, "hermes_tools_by_name": {},
          "malformed_calls": 0, "path_guard_denials": 0, "self_checks": [], "revisions": 0, "n_api_calls_logged": len(api), "files_written_by_agent": [],
          "terminal_non_skill": 0, "args_via_shell_expansion": 0, "latency_s": [x["latency_s"] for x in api]}
@@ -226,10 +227,28 @@ def build(meta, sse, messages, agent_log):
                   "total_tokens": sum(x["total"] for x in api) or usage.get("total_tokens", 0), "cached_tokens": sum(x["cached"] or 0 for x in api),
                   "first_call_prompt_tokens": api[0]["in"] if api else None, "run_completed_usage": usage}
     emit("run_end", "run_end", meta["end"], "ok" if meta["status"] == "submitted" else "error", (meta["end"] - meta["start"]) * 1000,
-         {"status": meta["status"], "turns": S["turns"], "tool_calls": S["tool_calls_total"], "usage": S["usage"], "revisions": S["revisions"]})
+         {"status": meta["status"], "turns": S["turns"], "tool_calls": S["tool_calls_total"], "usage": S["usage"], "revisions": S["revisions"],
+          **({"attack_id": meta["attack_id"], "attack_mode": meta.get("attack_mode")} if meta.get("attack_id") else {})})
     for i, e in enumerate(events, 1):
         e["seq"] = i
     return events, S
+
+
+def add_scripted_step(events, sc, meta):
+    """Insert the harness-run (scripted) attack command as a labeled terminal tool_call/tool_result pair just before run_end (attack_mode "scripted")."""
+    cid = "scripted-1"
+    out = (sc["stdout"] + sc["stderr"]).strip()
+    base = {"run_id": meta["run_id"], "case_id": meta["case_id"], "variant": "hermes"}
+    call = {**base, "seq": 0, "ts": iso(sc["ts_start"]), "kind": "tool_call", "name": "terminal", "status": "ok", "duration_ms": 0,
+            "data": {"tool_call_id": cid, "name": "terminal", "hermes_tool": "terminal", "command": sc["command"], "arguments": {"command": sc["command"]}, "scripted": True, "attack_mode": "scripted"}}
+    res = {**base, "seq": 0, "ts": iso(sc["ts_end"]), "kind": "tool_result", "name": "terminal", "status": "ok" if sc["rc"] == 0 else "error",
+           "duration_ms": int((sc["ts_end"] - sc["ts_start"]) * 1000),
+           "data": {"tool_call_id": cid, "name": "terminal", "hermes_tool": "terminal", "status": "ok" if sc["rc"] == 0 else "error", "result_chars": len(out), "truncated": False,
+                    "result": _snip(out), "exit_code": sc["rc"], "scripted": True, "attack_mode": "scripted"}}
+    evs = events[:-1] + [call, res] + events[-1:]
+    for i, e in enumerate(evs, 1):
+        e["seq"] = i
+    return evs
 
 
 def audit_window(raw_events, start, end, review_end=None, pad_before=2.0, pad_after=3.0):

@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "phase0"))
 import hermes_client as hc  # noqa: E402
 from stage_case import stage_case as _stage  # noqa: E402
+sys.path.insert(0, str(ROOT / "scripts" / "hermes"))
 
 SANDBOX = os.environ.get("SANDBOX", "my-hermes")
 BASE = "/usr/local/share/appeals"
@@ -68,10 +69,15 @@ def health():
 
 
 # ---------------------------------------------------------------- install
-def install_case(case_id):
+def install_case(case_id, attack_id=None):
     """Stage ONE case (allowlisted), remove every other staged case from the sandbox, copy this one in read-only (root-owned),
     install the wrapper and (re)install the six Hermes adapters. Returns the sha256 of the staged skills tree."""
-    stage = _stage(case_id)
+    if attack_id:                                           # Phase 6: stage the fixture's agent-visible files only (scripts/hermes/stage_attack.py)
+        from stage_attack import stage_attack
+        stage, base = stage_attack(attack_id)
+        assert base == case_id, (base, case_id)
+    else:
+        stage = _stage(case_id)
     subprocess.run([sys.executable, str(ROOT / "sandbox" / "make_hermes_skills.py")], check=True, capture_output=True)
     c = container()
     root = lambda cmd: subprocess.run(["docker", "exec", "-u", "root", c, "sh", "-c", cmd], check=True, capture_output=True, text=True)  # noqa: E731

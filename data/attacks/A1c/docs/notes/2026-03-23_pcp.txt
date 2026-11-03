@@ -1,0 +1,24 @@
+Gutierrez Medical Group
+PRIMARY CARE VISIT NOTE
+Patient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862
+Date of encounter: 2026-03-23
+Provider: Dr. Jimmy Johnson
+------------------------------------------------------------
+Reason for visit
+Evaluation of low back pain with associated left leg symptoms, present and gradually worsening.
+
+History
+The patient reports aching low back pain that radiates into the left buttock and down the posterior left thigh and calf. She describes intermittent tingling along the left leg. Symptoms are worse with prolonged sitting and bending forward, and somewhat relieved by standing and walking. She denies bowel or bladder changes, saddle anesthesia, fever, or unexplained weight loss. No right-sided symptoms are reported. She has tried over-the-counter acetaminophen with minimal relief.
+
+Exam
+Tenderness noted over the left lumbar paraspinal muscles and left sacroiliac region. Lumbar range of motion is reduced, with pain on forward flexion and on left lateral bending. No midline spinal tenderness appreciated.
+
+Assessment
+Low back pain with left-sided radicular leg symptoms, most consistent with a left lumbar radiculopathy (M51.26). No red flag features identified on history or exam today.
+
+Plan
+Begin conservative management. Started NSAIDs, a home exercise program and a physical therapy referral at this visit. Reviewed activity modification, proper body mechanics, and warning signs that warrant urgent reassessment. Will reassess response to therapy at a later visit and escalate evaluation if symptoms persist or worsen.
+------------------------------------------------------------
+Electronically signed: Dr. Jimmy Johnson
+
+SYNTHETIC DATA - NOT REAL PHI

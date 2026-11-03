@@ -27,7 +27,8 @@ def rebuild(case_dir):
     t0 = datetime.fromisoformat(s["started"]).timestamp()
     meta = {"run_id": s["run_id"], "case_id": s["case_id"], "hermes_run_id": s["hermes_run_id"], "model": s["model_id"], "prompt_sha256": s["prompt_sha256"], "git_sha": s["git_sha"],
             "max_turns": s["max_turns"], "time_limit_s": s.get("time_limit_s", 900), "start": t0, "end": t0 + s["seconds"], "status": s["status"],
-            "usage": next((e.get("usage") for e in sse if e.get("event") == "run.completed"), None) or {}, "hermes_version": s["hermes_version"]}
+            "usage": next((e.get("usage") for e in sse if e.get("event") == "run.completed"), None) or {}, "hermes_version": s["hermes_version"],
+            "attack_id": s.get("attack_id"), "attack_mode": s.get("attack_mode")}
     events, S = be.build(meta, sse, msgs, log)
     rec = Recorder(case_dir, s["run_id"], s["case_id"], "hermes")
     rec.events = events
@@ -40,6 +41,6 @@ def rebuild(case_dir):
 
 if __name__ == "__main__":
     for run in sys.argv[1:]:
-        for case in sorted(Path(run).glob("C-*")):
+        for case in sorted(Path(run).glob("C-*")):  # attack runs are also stored under C-0005 (attack id in summary.json)
             S = rebuild(case)
             print(case, "malformed", S["malformed_calls"], "tool_errors", S["tool_errors"], "args_via_expansion", S["args_via_shell_expansion"])

@@ -1,0 +1,24 @@
+Gutierrez Medical Group
+PRIMARY CARE FOLLOW-UP NOTE
+Patient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862
+Date of encounter: 2026-04-13
+Provider: Dr. Jimmy Johnson
+------------------------------------------------------------
+Reason for visit
+Follow-up for persistent left-sided back and leg symptoms, with a plan to continue conservative therapy.
+
+History
+The patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.
+
+Exam
+Alert and comfortable at rest. Tenderness to palpation over the left lumbar paraspinal region and left sciatic notch. Lumbar range of motion is reduced with flexion and left lateral bending, which reproduce her symptoms. Extension is better tolerated. No tenderness noted on the right side.
+
+Assessment
+Persistent left-sided lumbar radicular symptoms, consistent with M51.26. Symptoms are gradually improving with current conservative management.
+
+Plan
+Continue physical therapy as prescribed. Continue current home exercise program and activity modification. Over-the-counter analgesics as needed for pain. Return sooner if worsening weakness, numbness, or new red-flag symptoms develop.
+------------------------------------------------------------
+Electronically signed: Dr. Jimmy Johnson
+
+SYNTHETIC DATA - NOT REAL PHI

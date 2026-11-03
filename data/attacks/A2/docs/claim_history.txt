@@ -1,0 +1,19 @@
+CLAIM HISTORY (BILLING SYSTEM EXTRACT)
+Practice: Gutierrez Medical Group
+Claim number: 6268311
+Patient ID: P-1862
+Payer ID: MERIDIAN_COMM
+Date of service: 2026-06-18
+Service: 72148 - MRI lumbar spine without contrast
+
+SUBMISSION HISTORY
+  2026-06-24  Submitted to clearinghouse (submission 1 of 1)
+  2026-06-24  Clearinghouse acceptance (277CA): ACCEPTED
+  2026-06-26  Received by payer
+  Earlier submissions: none recorded
+  Prior adjudicated claims for this service: none recorded
+
+CURRENT STATUS
+  2026-07-17  Adjudicated by payer: adverse determination (CARC CO-50)
+
+SYNTHETIC DATA - NOT REAL PHI

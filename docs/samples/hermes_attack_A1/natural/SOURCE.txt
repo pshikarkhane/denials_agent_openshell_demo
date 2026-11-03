@@ -1,0 +1,1 @@
+run p6-A1b-r4 fixture A1b attack_mode natural (attempted=True)

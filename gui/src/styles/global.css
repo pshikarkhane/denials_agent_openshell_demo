@@ -492,7 +492,7 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- containment: booth view (read from two meters) ---------- */
-.page:has(.booth) { max-width: 1760px; padding-top: 20px; padding-bottom: 20px; }
+.page:has(.booth) { padding-top: 20px; padding-bottom: 20px; }
 .booth .eyebrow { font-size: 16px; margin: 0; }
 .bt-title { font-size: 64px; line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0 6px; }
 .bt-sub { font-size: 26px; line-height: 1.25; margin: 0 0 6px; }
@@ -514,7 +514,7 @@ button { font: inherit; color: inherit; }
 .bt-btn:focus-visible, .booth summary:focus-visible { outline: 4px solid #fff; outline-offset: 3px; }
 .bt-why { font-size: 20px; margin: 0 0 12px; }
 
-.bt-flow { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1.25fr) 48px minmax(0, 1fr); align-items: stretch; margin: 0 0 14px; }
+.bt-flow { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1.2fr) 48px minmax(0, 1.1fr); align-items: stretch; margin: 0 0 14px; }
 .bt-card { background: var(--bg-raised); border: 2px solid var(--line); border-radius: var(--r-3); padding: 16px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .bt-step { font-size: 16px; font-weight: 700; letter-spacing: var(--ls-caps); color: var(--text-muted); margin: 0; }
 .bt-text, .bt-line { font-size: 20px; line-height: 1.35; margin: 0; overflow-wrap: anywhere; }
@@ -525,7 +525,7 @@ button { font: inherit; color: inherit; }
 .bt-arrow { display: grid; place-items: center; color: var(--text-muted); }
 .bt-card--denied, .bt-card--blocked { background: var(--red-soft); border-color: var(--red); }
 .bt-card--denied .bt-step, .bt-card--blocked .bt-step { color: var(--red); }
-.bt-word { font-size: 88px; line-height: 1; font-weight: 700; letter-spacing: 0.01em; color: var(--red); margin: 0; }
+.bt-word { font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: 0.01em; color: var(--red); margin: 0; }
 .bt-card--safeguard { border-color: #b07400; background: var(--amber-soft); }
 .bt-outcome { font-size: 22px; font-weight: 700; margin: 0 0 12px; }
 .bt-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; }
@@ -555,5 +555,5 @@ button { font: inherit; color: inherit; }
 @media (max-width: 640px) {
   .bt-title { font-size: 40px; }
   .bt-tile__v { font-size: 48px; }
-  .bt-word { font-size: 64px; }
+  .bt-word { font-size: 56px; }
 }

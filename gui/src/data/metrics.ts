@@ -73,4 +73,6 @@ export interface Metrics {
   sources: string[];
   series: Series[];
   categories: Category[];
+  /** Yes/no statements read from the Hermes report. */
+  notes?: { toolErrorsRecovered: boolean };
 }

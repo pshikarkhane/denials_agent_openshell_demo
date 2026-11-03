@@ -551,3 +551,21 @@ button { font: inherit; color: inherit; }
   .bt-flow { grid-template-columns: 1fr; gap: 8px; }
   .bt-arrow { transform: rotate(90deg); height: 32px; }
 }
+
+/* ---------- scorecard: booth view (same type scale, margins and paddings as the other pages) ---------- */
+.sb-sub { font-size: 18px; color: var(--text-muted); margin: 0 0 16px; max-width: 70ch; }
+.sb-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); margin: 0 0 8px; }
+.sb-tile-item { display: flex; }
+.sb-tile-item > * { flex: 1; }
+.sb-tile { display: flex; flex-direction: column; gap: 4px; }
+.sb-tile__v { font-size: 28px; line-height: 1.15; font-weight: 700; color: var(--green-text); }
+.sb-tile__l { font-size: var(--fs-body-sm); color: var(--text); }
+.sb-tile__cta { margin-top: auto; padding-top: 8px; color: var(--green-text); font-weight: 700; font-size: var(--fs-body-sm); }
+.sb-section { margin-top: 20px; }
+.sb-table td.sb-hl, .sb-table th.sb-hl { background: var(--green-soft); }
+.sb-table thead th.sb-hl { color: var(--green-text); }
+.sb-cost { font-size: 20px; margin: 16px 0; max-width: 90ch; }
+.sb-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; }
+.sb-foot p { margin: 0; max-width: 90ch; }
+.sb-details { margin-top: 8px; }
+@media (max-width: 860px) { .sb-tiles { grid-template-columns: 1fr; } }

@@ -194,6 +194,8 @@ export function buildMetrics({ root = repoRoot } = {}) {
     sources: ['docs/RUN_REPORT.md', 'docs/HERMES_RUN_REPORT.md'],
     series,
     categories,
+    // Statements of the Hermes report the booth view needs as yes/no (additive; the figures above are unchanged).
+    notes: { toolErrorsRecovered: /Every error was recovered within the run/.test(read('docs/HERMES_RUN_REPORT.md')) },
   };
 }
 

@@ -21,7 +21,7 @@ Put a run folder next to the samples and run `npm run cache`, or point at other 
 - `agent_run_*` (stand-in): the same without `audit.jsonl`.
 - `baseline_run_*` (no tools): `decision.json`, `summary.json`, `deliverable.md`, `judge_verdicts.json`; no trace.
 
-The Scorecard numbers are the exact strings of the tables in `docs/RUN_REPORT.md` and `docs/HERMES_RUN_REPORT.md` (`scripts/build_metrics.mjs`); update the reports, then `npm run cache`.
+`/scorecard` is a booth view (three numbers, a three-column comparison and a cost sentence; `?details=1` opens the full numbers, judge panel and category grid). Its numbers are the exact strings of the tables in `docs/RUN_REPORT.md` and `docs/HERMES_RUN_REPORT.md` (`scripts/build_metrics.mjs`); update the reports, then `npm run cache`.
 The builder **refuses** (non-zero exit, nothing written) if its input contains `truth.json`, `rubric.json`, or anything under a folder named `gold` or `attacks`,
 and refuses to write output whose text names them. `test/answer_key_guard.test.mjs` re-checks `public/data` after a build.
 

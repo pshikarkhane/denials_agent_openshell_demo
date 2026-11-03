@@ -6,14 +6,21 @@ No NVIDIA logos or brand assets (the mark is a plain 28px green square). All cas
 ## Routes and screens
 | route | screen | status |
 |---|---|---|
-| `/` | Home: hero, runtime card, six scenario cards, footer note | built (slice 1, data-driven in slice 2) |
+| `/` | Home: hero (h1, subtitle, four stack chips, How it works link), six scenario cards, footer note | built (slice 1, data-driven in slice 2, hero redone) |
+| `/architecture` | Architecture: the provided static slide in an iframe, Full screen, Download PNG, text alternative | built |
 | `/case/:caseId` | Case: before and after, criteria, trace | built (slice 2) |
-| `/scorecard` | Scorecard: headline numbers, judge panel, by-category grid, Base Super / R1 toggle | built (slice 2) |
-| `/containment` | Containment | placeholder ("Next step"): table of cached runs |
+| `/scorecard` | Scorecard: booth view plus Details (headline numbers, judge panel, by-category grid, Base Super / R1 toggle) | built (slice 2, booth view later) |
+| `/containment` | Containment: booth view plus Details | built (slice 3) |
 
-Header on every page: mark, "Denial Appeals Agent", nav (`aria-current="page"`), a "Cached | Live demo" control (Live disabled, tooltip "Not available yet") and a SANDBOXED pill.
+Header on every page: mark, "Denial Appeals Agent", nav Home, Architecture, Case, Containment, Scorecard (`aria-current="page"`), a "Cached | Live demo" control (Live disabled, tooltip "Not available yet") and a SANDBOXED pill.
 
-### Home
+### Home hero
+h1 "A denials agent on Nemotron, inside OpenShell." (Case-page h1 size), subtitle "Deployed with NemoClaw. End to end, it reads the denial, the chart and the payer policy, then drafts the appeal or tells you not to file one.", then one row of four chips in the tag style ("<model route>: reasons" with the model name from the cached runs, "OpenShell: contains", "NemoClaw: deploys", "Hermes (open source): the agent") and a text link "How it works" to /architecture. No claim of optimization, savings, speed or accuracy; no "RCM" or "revenue cycle". The runtime card is gone.
+
+### Architecture (`/architecture`)
+Eyebrow, h1 "How it works", subtitle "Nemotron reasons, OpenShell contains it, and NemoClaw deploys it.", buttons "Full screen" (fullscreen on the frame; fallback: opens /architecture.html in the same tab) and "Download PNG" (/architecture.png), the slide in an `<iframe src="/architecture.html">` inside a 16:9 frame (width of the page column, max height viewport minus 72px, 1px line border, 16px radius, no inner scrolling), and a collapsible "Read the diagram as text" with seven static lines. `gui/public/architecture.html` is a provided static 1920x1080 slide with its own scale-to-fit script; it is not React and was not edited. `npm run slide:png` (scripts/slide_png.mjs, headless Chrome over the DevTools websocket, no dependencies) renders it at 1920x1080, device scale factor 2, to `gui/public/architecture.png` (3840x2160); set `CHROME=` if Chrome is elsewhere. Vite would answer the route `/architecture` with `architecture.html` (its HTML fallback), so `vite.config.ts` sends the bare route to the app shell in dev and preview; any other static host needs the same rule.
+
+### Home cards
 Cards 1 and 2 quote the newest agent run of C-0005 / C-0030 (Hermes before the stand-in, never the baseline): decision, denial code, policy id, action deadline and the run id come from the cache, and the description's claims (e.g. "drafts the appeal") are only shown when the cached decision says so. "No recorded run yet" when the case is not cached. The model-route line comes from the cached runs. Card 6 (Live) is not a link; the attack card links to `/containment`.
 
 ### Case (`/case/:caseId`, `?tab=criteria|trace|dataroom`)

@@ -170,22 +170,19 @@ export function Home({ containment }: { containment?: ContainmentState } = {}) {
     <>
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero__copy">
-          <h1 id="hero-title" className="h1">
-            Denials agent, inside OpenShell.
-            <br />
-            <span className="accent">Built for RCM optimization.</span>
-          </h1>
-          <p className="lede">
-            OpenShell enforces policy outside the agent, NemoClaw deploys it, and {modelRoute(index)} does the reasoning.
-            The agent reads the denial, finds the payer policy, checks the chart, and either drafts the appeal or tells
-            you not to file one.
+          <h1 id="hero-title" className="page-title">A denials agent on Nemotron, inside OpenShell.</h1>
+          <p className="hero__sub">
+            Deployed with NemoClaw. End to end, it reads the denial, the chart and the payer policy, then drafts the
+            appeal or tells you not to file one.
           </p>
+          <ul className="tags" aria-label="The stack">
+            <li className="pill">{modelRoute(index)}: reasons</li>
+            <li className="pill">OpenShell: contains</li>
+            <li className="pill">NemoClaw: deploys</li>
+            <li className="pill">Hermes (open source): the agent</li>
+          </ul>
+          <p className="hero__link"><Link to="/architecture">How it works</Link></p>
         </div>
-        <aside className="runtime card" aria-label="Runtime">
-          <p className="eyebrow">RUNTIME</p>
-          <h2 className="card__title">The stack</h2>
-          <p className="muted">Blueprint: NemoClaw. Sandbox: OpenShell. Model: {modelRoute(index)}. Agent: Hermes (open source).</p>
-        </aside>
       </section>
 
       {state.status === 'error' && (

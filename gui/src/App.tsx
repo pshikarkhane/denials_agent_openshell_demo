@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Home } from './pages/Home';
+import { ArchitecturePage } from './pages/ArchitecturePage';
 import { CasePage } from './pages/CasePage';
 import { ContainmentPage } from './pages/ContainmentPage';
 import { ScorecardPage } from './pages/ScorecardPage';
@@ -13,6 +14,7 @@ export function App() {
       <main id="main" className="page">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/architecture" element={<ArchitecturePage />} />
           <Route path="/case/:caseId" element={<CasePage />} />
           <Route path="/containment" element={<ContainmentPage />} />
           <Route path="/scorecard" element={<ScorecardPage />} />

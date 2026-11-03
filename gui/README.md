@@ -35,6 +35,9 @@ A case switcher (all cached cases, keeps the tab) sits under the page headline.
 `/containment?scenario=A1&mode=natural` is a booth view (story in three beats plus three numbers, readable from two meters; `&details=1` opens the Details section with the steps, the filtered audit log, replay and limits) for the recorded attack runs in `docs/samples/hermes_attack_*/{natural,scripted}`.
 `scripts/build_containment.mjs` (run by `npm run cache`) writes `public/data/containment.json` (parsed from `docs/CONTAINMENT_REPORT.md`, `docs/POLICY_HARDENING.md`, `docs/HERMES_RUN_REPORT.md`; nothing typed) and `public/data/containment/<attack>__<mode>.json` (adapter `src/data/adapters/attack.ts`). It refuses the same answer-key names as the other builders, and any step text that names one is replaced by a note. If a table cannot be parsed the page says "See the report" and `npm test` fails.
 
+## Architecture page
+`/architecture` shows `public/architecture.html` (a provided static slide) in an iframe. `npm run slide:png` re-renders `public/architecture.png` (3840x2160) with headless Chrome after the slide changes (`CHROME=/path/to/chrome` to override). A static host must serve `/architecture` as the app (index.html) and `/architecture.html` as the slide; `vite.config.ts` does this for `npm run dev` and `npm run preview`.
+
 ## Layout
 - `src/styles/tokens.css`: design tokens (colors, radii, type, spacing, focus ring). `global.css`: base and component styles.
 - `src/data/types.ts`: `RunView` and friends; `src/data/metrics.ts`: the shape of `metrics.json`. `src/data/adapters/`: `standin.ts`, `hermes.ts`, `baseline.ts` (see its README).

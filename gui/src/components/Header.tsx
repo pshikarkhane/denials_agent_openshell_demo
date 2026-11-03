@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const NAV: { to: string; label: string; match: (path: string) => boolean }[] = [
   { to: '/', label: 'Home', match: (p) => p === '/' },
+  { to: '/architecture', label: 'Architecture', match: (p) => p.startsWith('/architecture') },
   { to: '/case/C-0005', label: 'Case', match: (p) => p.startsWith('/case/') },
   { to: '/containment', label: 'Containment', match: (p) => p.startsWith('/containment') },
   { to: '/scorecard', label: 'Scorecard', match: (p) => p.startsWith('/scorecard') },

@@ -48,13 +48,9 @@ const hrefsOf = (html: string) => [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g
 describe('Home', () => {
   it('renders the hero copy and six scenario cards', () => {
     const html = render(both);
-    expect(html).toContain('Denials agent, inside OpenShell.');
-    expect(html).toContain('Built for RCM optimization.');
-    expect(html).toContain('NemoClaw deploys it, and Nemotron 3.5 Super (preview) does the reasoning.');
     expect(html).not.toContain('R1 x NVIDIA');
-    expect(html).toContain('Blueprint: NemoClaw. Sandbox: OpenShell. Model: Nemotron 3.5 Super (preview). Agent: Hermes (open source).');
     expect(html).not.toContain('PHI stays inside');
-    expect((html.match(/class="card__title"/g) ?? []).length).toBe(7); // six cards + runtime card
+    expect((html.match(/class="card__title"/g) ?? []).length).toBe(6); // six cards, no runtime card
     expect((html.match(/grid__item/g) ?? []).length).toBe(6);
     expect(html).toContain('All case content is synthetic.');
   });
@@ -62,7 +58,7 @@ describe('Home', () => {
   it('links five cards to the right routes and the Live card is not a link', () => {
     const html = render(both);
     const cardLinks = hrefsOf(html);
-    expect(cardLinks).toEqual(['/case/C-0005', '/case/C-0030', '/containment', '/scorecard', '/scorecard']);
+    expect(cardLinks).toEqual(['/architecture', '/case/C-0005', '/case/C-0030', '/containment', '/scorecard', '/scorecard']); // the first is the hero's "How it works" link
     const live = html.slice(html.indexOf('Run it yourself') - 400);
     expect(live).toContain('Live mode comes later');
     expect(live).toContain('aria-disabled="true"');
@@ -122,6 +118,25 @@ describe('Home data rules', () => {
 
   it('shows the model route of the cached runs', () => {
     const html = render({ status: 'ready', index: { mode: 'cached', runs: [entry({ model: 'acme/other-model' })] } });
-    expect(html).toContain('Model: acme/other-model.');
+    expect(html).toContain('acme/other-model: reasons');
+  });
+});
+
+describe('Home hero', () => {
+  const html = render(both);
+  it('has the new h1, subtitle, exactly four chips in order and the How it works link', () => {
+    expect(html).toContain('A denials agent on Nemotron, inside OpenShell.');
+    expect(html).toContain('Deployed with NemoClaw. End to end, it reads the denial, the chart and the payer policy, then drafts the appeal or tells you not to file one.'.replace(/\s+/g, ' '));
+    const list = html.slice(html.indexOf('aria-label="The stack"'), html.indexOf('</ul>', html.indexOf('aria-label="The stack"')));
+    const chips = [...list.matchAll(/<li class="pill">([^<]*)<\/li>/g)].map((m) => m[1]);
+    expect(chips).toEqual(['Nemotron 3.5 Super (preview): reasons', 'OpenShell: contains', 'NemoClaw: deploys', 'Hermes (open source): the agent']);
+    expect(html).toMatch(/<a href="\/architecture"[^>]*>How it works<\/a>/);
+    expect(html).not.toContain('class="runtime');
+    expect(html).not.toContain('The stack</h2>');
+  });
+  it('makes no claim of optimization, savings, speed or accuracy, and does not say RCM or revenue cycle', () => {
+    const t = html.replace(/<[^>]+>/g, ' ');
+    expect(t).not.toMatch(/optimi[sz]|\bRCM\b|revenue|orchestrat|full NVIDIA stack|\bPHI\b|\bsecure\b|\bsafe\b|injection-proof|\bNAT\b/i);
+    expect(t).not.toMatch(/\bsav(e|es|ings)\b|\bfaster\b|\bmore accurate\b/i);
   });
 });

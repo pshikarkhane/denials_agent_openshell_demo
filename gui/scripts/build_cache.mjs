@@ -20,11 +20,11 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const guiRoot = path.resolve(here, '..');
 const repoRoot = path.resolve(guiRoot, '..');
 // Order matters: the first adapter whose canRead() accepts a folder wins.
-const SOURCES = [hermes, standin, baseline];
-const DEFAULT_RUNS = ['docs/samples/agent_run_*', 'docs/samples/hermes_run_*', 'docs/samples/baseline_run_*'];
+export const SOURCES = [hermes, standin, baseline];
+export const DEFAULT_RUNS = ['docs/samples/agent_run_*', 'docs/samples/hermes_run_*', 'docs/samples/baseline_run_*'];
 
 /** Expands one pattern: a folder, or a path whose last segment contains "*". */
-function expand(pattern, cwd) {
+export function expand(pattern, cwd) {
   const abs = path.resolve(cwd, pattern);
   if (!path.basename(abs).includes('*')) return [abs];
   const re = new RegExp('^' + path.basename(abs).replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$');

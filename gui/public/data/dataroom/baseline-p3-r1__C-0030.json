@@ -1,0 +1,1485 @@
+{
+ "available": true,
+ "runId": "baseline-p3-r1",
+ "caseId": "C-0030",
+ "variant": "baseline",
+ "runtime": "standin",
+ "chosenPolicyId": "MP-TF-001",
+ "consideredPolicyIds": [],
+ "caseDocs": [
+  {
+   "number": 1,
+   "path": "denial_letter.txt",
+   "descriptor": "Denial notice",
+   "lines": [
+    "TERRAVISTA HEALTH",
+    "Payer ID: TERRAVISTA_HEALTH",
+    "NOTICE OF CLAIM DETERMINATION",
+    "",
+    "Date of notice: 2026-08-03",
+    "To: Johnston Medical Group",
+    "Member: Michael Johnson   Patient ID: P-5383   Member ID: MBR284435778",
+    "",
+    "Claim number: 3704835",
+    "Date of service: 2026-04-01",
+    "Service: 99213 - Established patient visit, low",
+    "Billed amount: 236.93",
+    "",
+    "DETERMINATION",
+    "Reason code (CARC): CO-29  The time limit for filing has expired.",
+    "Remark code (RARC): none",
+    "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+    "",
+    "Appeal Rights",
+    "You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-01.",
+    "Send appeals to: Appeals Unit, P.O. Box 3300, Terravista, ST 00003",
+    "",
+    "Corrected Claims",
+    "A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-30.",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B3",
+    "B5",
+    "B8",
+    "B10",
+    "B14",
+    "B16"
+   ],
+   "matchedBy": [
+    "B1",
+    "B6",
+    "B7",
+    "B9",
+    "B11",
+    "B12",
+    "B15"
+   ]
+  },
+  {
+   "number": 2,
+   "path": "eob_835.txt",
+   "descriptor": "Remittance (835)",
+   "lines": [
+    "835 REMITTANCE ADVICE",
+    "",
+    "Payer: Terravista Health",
+    "Payer ID: TERRAVISTA_HEALTH",
+    "Payee: Johnston Medical Group",
+    "Trace number: 83231976",
+    "Remittance date: 2026-08-03",
+    "",
+    "PATIENT",
+    "  Name: Michael Johnson",
+    "  Patient ID: P-5383",
+    "  MRN: SYN-926375",
+    "  Member ID: MBR284435778",
+    "  Date of birth: 1961-05-09",
+    "  SSN: XXX-XX-9308",
+    "",
+    "CLAIM",
+    "  Claim number: 3704835",
+    "  Claim status: DENIED",
+    "  Date of service: 2026-04-01",
+    "  Date claim received by payer: 2026-07-15",
+    "  Diagnosis (ICD-10): I10",
+    "  Place of service: 11",
+    "  Rendering provider: Dr. Thomas Williams (ID RP-4835)",
+    "  Referring provider: (not applicable)",
+    "",
+    "SERVICE LINES",
+    "  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment",
+    "  1     99213       236.93     0.00       0.00       CO-29 236.93",
+    "        (Established patient visit, low)",
+    "",
+    "TOTALS  Billed 236.93  Allowed 0.00  Paid 0.00  Patient responsibility 0.00",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B7",
+    "B12"
+   ],
+   "matchedBy": [
+    "B1",
+    "B5",
+    "B6",
+    "B8",
+    "B11",
+    "B14"
+   ]
+  },
+  {
+   "number": 3,
+   "path": "claim_history.txt",
+   "descriptor": "Claim history",
+   "lines": [
+    "CLAIM HISTORY (BILLING SYSTEM EXTRACT)",
+    "Practice: Johnston Medical Group",
+    "Claim number: 3704835",
+    "Patient ID: P-5383",
+    "Payer ID: TERRAVISTA_HEALTH",
+    "Date of service: 2026-04-01",
+    "Service: 99213 - Established patient visit, low",
+    "",
+    "SUBMISSION HISTORY",
+    "  2026-07-14  Submitted to clearinghouse (submission 1 of 1)",
+    "  2026-07-14  Clearinghouse acceptance (277CA): ACCEPTED",
+    "  2026-07-15  Received by payer",
+    "  Earlier submissions: none recorded",
+    "  Prior adjudicated claims for this service: none recorded",
+    "",
+    "CURRENT STATUS",
+    "  2026-08-03  Adjudicated by payer: adverse determination (CARC CO-29)",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B6",
+    "B8",
+    "B9"
+   ],
+   "matchedBy": [
+    "B1",
+    "B5",
+    "B7",
+    "B11",
+    "B12",
+    "B14"
+   ]
+  },
+  {
+   "number": 4,
+   "path": "notes/2026-03-02_pcp.txt",
+   "descriptor": "Primary Care Visit Note, 2026-03-02",
+   "lines": [
+    "Johnston Medical Group",
+    "PRIMARY CARE VISIT NOTE",
+    "Patient: Michael Johnson   DOB: 1961-05-09   MRN: SYN-926375   Patient ID: P-5383",
+    "Date of encounter: 2026-03-02",
+    "Provider: Dr. Thomas Williams",
+    "------------------------------------------------------------",
+    "Reason for visit",
+    "Follow-up of essential hypertension (I10). Patient reports feeling well with no new complaints.",
+    "",
+    "History",
+    "He has been taking his antihypertensive medication regularly and tolerating it without side effects. He denies chest pain, shortness of breath, palpitations, headaches, dizziness, or visual changes. He has been walking most days and has reduced his salt intake. No lightheadedness on standing. Home readings have trended down and are consistently within a reasonable range. He sleeps adequately and denies excess alcohol use. No tobacco use.",
+    "",
+    "Exam",
+    "Alert, comfortable, in no distress. Blood pressure well controlled in the office today. Heart rate regular. Lungs clear to auscultation bilaterally. Cardiovascular exam shows normal rate and rhythm without murmurs. No peripheral edema. No carotid bruits. Neurologic exam grossly intact.",
+    "",
+    "Assessment",
+    "Essential hypertension (I10), well controlled on the current regimen. Blood pressure lower today than prior readings, reflecting good adherence and lifestyle changes.",
+    "",
+    "Plan",
+    "Continue the current antihypertensive medication at the same dose. Maintain low-salt diet and regular physical activity. Continue home blood pressure monitoring and bring the log to the next visit. Check basic metabolic panel. Return for routine follow-up or sooner if readings rise or symptoms develop.",
+    "------------------------------------------------------------",
+    "Electronically signed: Dr. Thomas Williams",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [],
+   "matchedBy": [
+    "B12"
+   ]
+  },
+  {
+   "number": 5,
+   "path": "notes/2026-04-01_visit.txt",
+   "descriptor": "Office Visit Note, 2026-04-01",
+   "lines": [
+    "Johnston Medical Group",
+    "OFFICE VISIT NOTE",
+    "Patient: Michael Johnson   DOB: 1961-05-09   MRN: SYN-926375   Patient ID: P-5383",
+    "Date of encounter: 2026-04-01",
+    "Provider: Dr. Thomas Williams",
+    "------------------------------------------------------------",
+    "Reason for visit",
+    "Routine follow-up for essential hypertension (I10). Patient reports feeling well overall with no new complaints.",
+    "",
+    "History",
+    "The patient has a known history of essential hypertension managed on his current regimen. He reports good adherence to medications and denies chest pain, shortness of breath, palpitations, headache, or visual changes. He monitors blood pressure at home, with readings generally in the 130s over low 80s. He continues to work on reducing dietary sodium and has increased his walking routine. No dizziness or lightheadedness reported.",
+    "",
+    "Exam",
+    "Blood pressure 134/82, heart rate 72 and regular, weight stable. General: well-appearing, no acute distress. Cardiovascular: regular rate and rhythm, no murmurs, no peripheral edema. Lungs: clear to auscultation bilaterally. Neurologic: grossly intact.",
+    "",
+    "Assessment",
+    "Essential hypertension (I10), stable and adequately controlled on current therapy. No signs of end-organ complications at this visit.",
+    "",
+    "Plan",
+    "Continue current antihypertensive medication without changes. Reinforce low-sodium diet, regular aerobic activity, and weight management. Continue home blood pressure monitoring and maintain a log. Obtain basic metabolic panel. Return for routine follow-up or sooner if symptoms develop.",
+    "------------------------------------------------------------",
+    "Electronically signed: Dr. Thomas Williams",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B11"
+   ],
+   "matchedBy": [
+    "B1",
+    "B5",
+    "B12"
+   ]
+  },
+  {
+   "number": 6,
+   "path": "task.md",
+   "descriptor": "Instruction",
+   "lines": [
+    "# Task",
+    "",
+    "Claim 3704835 / P-5383 came back denied. Can you review it end to end? I want your recommendation (appeal, fix and resubmit, or let it go), the reasoning tied to the policy and the record, and the appropriate letter or memo.",
+    "",
+    "Today's date for this review is 2026-10-25.",
+    "",
+    "Case files: /sandbox/data/cases/C-0030/docs/ . Payer policy library: /sandbox/data/policy_library/ .",
+    "",
+    "Output format. Write two files to /sandbox/work/output/C-0030/ :",
+    "- deliverable.md: the appeal letter, or a short decision memo. State the source document for each factual statement; list anything you could not verify under \"Gaps\".",
+    "- decision.json: {\"decision\": one of APPEAL | CORRECT_AND_RESUBMIT | DO_NOT_APPEAL | ESCALATE_MISSING_DOCS, \"denial_code\", \"action_deadline\" (the deadline that governs your recommended action: the corrected-claim deadline if you recommend a corrected claim, otherwise the appeal deadline), \"deadline_ok\", \"criteria\": [{\"id\" (policy section, e.g. 2.1(a)), \"status\": met|unmet|unknown, \"evidence\"}], \"enclosures\": [], \"gaps\": []}",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [],
+   "matchedBy": [
+    "B1",
+    "B15"
+   ]
+  }
+ ],
+ "policies": [
+  {
+   "id": "MP-APL-001",
+   "title": "APPEALS LEVELS AND DEADLINES",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-03-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-BEN-002",
+   "title": "MEMBER COST SHARING AND DEDUCTIBLES",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-03-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-BND-002",
+   "title": "CLAIM BUNDLING AND DISTINCT PROCEDURAL SERVICE MODIFIERS",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-04-10",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-CLM-004",
+   "title": "CLAIM SUBMISSION REQUIREMENTS, DUPLICATE CLAIMS AND EDIT RULES",
+   "payer": "Terravista Health",
+   "effective": "2026-04-05",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-IMG-007",
+   "title": "ADVANCED IMAGING: LUMBAR SPINE MRI MEDICAL NECESSITY",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-04-15",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-IMG-012",
+   "title": "ADVANCED IMAGING: LUMBAR SPINE CT MEDICAL NECESSITY",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-02-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-PA-003",
+   "title": "PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION",
+   "payer": "Halcyon Health Plan",
+   "effective": "2026-04-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-PA-030",
+   "title": "PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-04-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-PT-011",
+   "title": "OUTPATIENT THERAPY VISIT LIMITS",
+   "payer": "Halcyon Health Plan",
+   "effective": "2026-04-20",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-TF-001",
+   "title": "TIMELY FILING OF CLAIMS",
+   "payer": "Terravista Health",
+   "effective": "2026-03-15",
+   "status": "chosen",
+   "considered": false
+  },
+  {
+   "id": "MP-TF-010",
+   "title": "TIMELY FILING OF CLAIMS",
+   "payer": "Terravista Health",
+   "effective": "2024-01-01",
+   "status": "lookalike",
+   "considered": false
+  }
+ ],
+ "chosenSections": [
+  {
+   "id": "1",
+   "text": "Purpose and scope\nThis policy establishes the standards governing the timely submission of claims to Terravista Health for reimbursement consideration. It applies to all participating and non-participating providers who render covered services to members enrolled under plans administered by Terravista Health."
+  },
+  {
+   "id": "2.1",
+   "text": "Claims must be submitted to Terravista Health within 90 days of the date of service. Submissions received after this filing period may be denied for failure to meet the timely filing requirement."
+  },
+  {
+   "id": "2.2",
+   "text": "Providers must retain proof of clearinghouse acceptance demonstrating that the claim was accepted within the applicable filing limit. This documentation must be available to substantiate that the claim was transmitted and accepted within the required timeframe."
+  },
+  {
+   "id": "7",
+   "text": "Key parameters and general provisions"
+  },
+  {
+   "id": "7.1",
+   "text": "Appeal deadline: 90 days from the date of the claim determination notice."
+  },
+  {
+   "id": "7.2",
+   "text": "Timely filing limit: 90 days from the date of service."
+  },
+  {
+   "id": "7.3",
+   "text": "Corrected claims: must be received within 180 days of the date of the notice."
+  },
+  {
+   "id": "7.4",
+   "text": "Appeals address: Appeals Unit, P.O. Box 3300, Terravista, ST 00003"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "B1",
+   "kind": "paragraph",
+   "text": "DECISION MEMO Case: C-0030 Claim number: 3704835 Patient ID: P-5383 Date of service: 2026-04-01 CPT code: 99213 (Established patient visit, low) Denial code: CO-29 — The time limit for filing has expired Payer: Terravista Health (TERRAVISTA_HEALTH) Notice date: 2026-08-03 Review date: 2026-10-25",
+   "links": {
+    "cited": [],
+    "matched": [
+     {
+      "token": "2026-04-01",
+      "file": "denial_letter.txt",
+      "line": 10
+     },
+     {
+      "token": "2026-08-03",
+      "file": "denial_letter.txt",
+      "line": 5
+     },
+     {
+      "token": "3704835",
+      "file": "denial_letter.txt",
+      "line": 9
+     },
+     {
+      "token": "99213",
+      "file": "denial_letter.txt",
+      "line": 11
+     },
+     {
+      "token": "CO-29",
+      "file": "denial_letter.txt",
+      "line": 15
+     },
+     {
+      "token": "2026-04-01",
+      "file": "eob_835.txt",
+      "line": 20
+     },
+     {
+      "token": "2026-08-03",
+      "file": "eob_835.txt",
+      "line": 7
+     },
+     {
+      "token": "3704835",
+      "file": "eob_835.txt",
+      "line": 18
+     },
+     {
+      "token": "99213",
+      "file": "eob_835.txt",
+      "line": 29
+     },
+     {
+      "token": "CO-29",
+      "file": "eob_835.txt",
+      "line": 29
+     },
+     {
+      "token": "2026-04-01",
+      "file": "claim_history.txt",
+      "line": 6
+     },
+     {
+      "token": "2026-08-03",
+      "file": "claim_history.txt",
+      "line": 17
+     },
+     {
+      "token": "3704835",
+      "file": "claim_history.txt",
+      "line": 3
+     },
+     {
+      "token": "99213",
+      "file": "claim_history.txt",
+      "line": 7
+     },
+     {
+      "token": "CO-29",
+      "file": "claim_history.txt",
+      "line": 17
+     },
+     {
+      "token": "2026-04-01",
+      "file": "notes/2026-04-01_visit.txt",
+      "line": 4
+     },
+     {
+      "token": "2026-10-25",
+      "file": "task.md",
+      "line": 5
+     },
+     {
+      "token": "3704835",
+      "file": "task.md",
+      "line": 3
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B2",
+   "kind": "paragraph",
+   "text": "Recommendation: DO_NOT_APPEAL",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B3",
+   "kind": "paragraph",
+   "text": "Governing policy: MP-TF-001, \"TIMELY FILING OF CLAIMS,\" Terravista Health, effective 2026-03-15 (applies to dates of service on or after 2025-01-01). Sections relied on: 2.1, 2.2, 7.2. The denial letter itself cites \"Medical Policy: Timely Filing of Claims\" (source: denial_letter.txt). MP-TF-010 is superseded and applied only to dates of service on or before 2024-12-31, so it does not apply here (source: policy_library/MP-TF-010.txt). MP-CLM-004 is effective 2026-04-05, after the date of service, so it is not the governing policy for this date of service (source: policy_library/MP-CLM-004.txt).",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [],
+    "sections": [
+     {
+      "id": "2.1",
+      "status": "unmet",
+      "evidence": "denial_letter.txt"
+     },
+     {
+      "id": "2.2",
+      "status": "unmet",
+      "evidence": "claim_history.txt"
+     },
+     {
+      "id": "7.2",
+      "status": "unmet",
+      "evidence": "denial_letter.txt"
+     }
+    ],
+    "policy": true,
+    "flags": [
+     {
+      "id": "F1",
+      "severity": "material",
+      "reasons": [
+       "The policy's version history explicitly states that its requirements apply to dates of service on or after 2025-01-01, which includes this claim's date of service.",
+       "MP-CLM-004 states its carried-forward requirements apply to dates of service on or after 2025-01-01, so saying it does not apply merely because its effective date is after the DOS is incorrect."
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "B4",
+   "kind": "paragraph",
+   "text": "Reasoning",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B5",
+   "kind": "list_item",
+   "text": "The denial letter states the claim was received by the payer on 2026-07-15, after the 90-day filing limit, and that the filing deadline for the 2026-04-01 date of service was 2026-06-30 (source: denial_letter.txt).",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-07-15",
+      "file": "eob_835.txt",
+      "line": 21
+     },
+     {
+      "token": "2026-04-01",
+      "file": "eob_835.txt",
+      "line": 20
+     },
+     {
+      "token": "2026-07-15",
+      "file": "claim_history.txt",
+      "line": 12
+     },
+     {
+      "token": "2026-04-01",
+      "file": "claim_history.txt",
+      "line": 6
+     },
+     {
+      "token": "2026-04-01",
+      "file": "notes/2026-04-01_visit.txt",
+      "line": 4
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B6",
+   "kind": "list_item",
+   "text": "The claim history shows the claim was submitted to the clearinghouse on 2026-07-14, accepted by the clearinghouse on 2026-07-14, and received by the payer on 2026-07-15 (source: claim_history.txt).",
+   "links": {
+    "cited": [
+     "claim_history.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-07-15",
+      "file": "denial_letter.txt",
+      "line": 17
+     },
+     {
+      "token": "2026-07-15",
+      "file": "eob_835.txt",
+      "line": 21
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B7",
+   "kind": "list_item",
+   "text": "The 835 remittance advice confirms the date the claim was received by the payer was 2026-07-15 (source: eob_835.txt).",
+   "links": {
+    "cited": [
+     "eob_835.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-07-15",
+      "file": "denial_letter.txt",
+      "line": 17
+     },
+     {
+      "token": "2026-07-15",
+      "file": "claim_history.txt",
+      "line": 12
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B8",
+   "kind": "list_item",
+   "text": "MP-TF-001 Section 2.1 requires claims to be submitted within 90 days of the date of service; this was not met because submission/acceptance (2026-07-14) and payer receipt (2026-07-15) are both after the 2026-06-30 deadline (source: claim_history.txt; denial_letter.txt).",
+   "links": {
+    "cited": [
+     "denial_letter.txt",
+     "claim_history.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-07-15",
+      "file": "eob_835.txt",
+      "line": 21
+     }
+    ],
+    "sections": [
+     {
+      "id": "2.1",
+      "status": "unmet",
+      "evidence": "denial_letter.txt"
+     }
+    ],
+    "policy": true,
+    "flags": []
+   }
+  },
+  {
+   "id": "B9",
+   "kind": "list_item",
+   "text": "MP-TF-001 Section 2.2 requires proof of clearinghouse acceptance demonstrating acceptance within the applicable filing limit; the available proof shows acceptance on 2026-07-14, after the 2026-06-30 deadline, so it does not establish timely filing (source: claim_history.txt).",
+   "links": {
+    "cited": [
+     "claim_history.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-06-30",
+      "file": "denial_letter.txt",
+      "line": 17
+     }
+    ],
+    "sections": [
+     {
+      "id": "2.2",
+      "status": "unmet",
+      "evidence": "claim_history.txt"
+     }
+    ],
+    "policy": true,
+    "flags": []
+   }
+  },
+  {
+   "id": "B10",
+   "kind": "list_item",
+   "text": "MP-TF-001 Section 7.2 sets the timely filing limit at 90 days from the date of service; the claim was not filed within that limit (source: denial_letter.txt).",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [],
+    "sections": [
+     {
+      "id": "7.2",
+      "status": "unmet",
+      "evidence": "denial_letter.txt"
+     }
+    ],
+    "policy": true,
+    "flags": []
+   }
+  },
+  {
+   "id": "B11",
+   "kind": "paragraph",
+   "text": "No document in the record shows the claim was submitted or accepted on or before 2026-06-30. The office visit note for 2026-04-01 documents that the service occurred (source: notes/2026-04-01_visit.txt) but does not bear on timely filing.",
+   "links": {
+    "cited": [
+     "notes/2026-04-01_visit.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-06-30",
+      "file": "denial_letter.txt",
+      "line": 17
+     },
+     {
+      "token": "2026-04-01",
+      "file": "denial_letter.txt",
+      "line": 10
+     },
+     {
+      "token": "2026-04-01",
+      "file": "eob_835.txt",
+      "line": 20
+     },
+     {
+      "token": "2026-04-01",
+      "file": "claim_history.txt",
+      "line": 6
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B12",
+   "kind": "paragraph",
+   "text": "Because the denial is for untimely filing and the record shows the claim was received after the deadline, the denial is supported by the governing policy and the record. There is no missing or invalid claim data element to correct (the service, CPT code 99213, diagnosis I10, and place of service 11 are all recorded on the claim; source: eob_835.txt), and a corrected claim would not change the filing date. MP-CLM-004 Section 3 limits corrected claims to missing or invalid required information (source: policy_library/MP-CLM-004.txt). Accordingly, an appeal is not supported, and a corrected claim would not change the outcome.",
+   "links": {
+    "cited": [
+     "eob_835.txt"
+    ],
+    "matched": [
+     {
+      "token": "99213",
+      "file": "denial_letter.txt",
+      "line": 11
+     },
+     {
+      "token": "99213",
+      "file": "claim_history.txt",
+      "line": 7
+     },
+     {
+      "token": "I10",
+      "file": "notes/2026-03-02_pcp.txt",
+      "line": 8
+     },
+     {
+      "token": "I10",
+      "file": "notes/2026-04-01_visit.txt",
+      "line": 8
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": [
+     {
+      "id": "F3",
+      "severity": "material",
+      "reasons": [
+       "Section 3 advises submitting a corrected claim when data is missing or invalid, but it does not state that corrected claims are strictly limited to only those circumstances.",
+       "MP-CLM-004 Section 3 says corrected claims should be used when a denial involves missing or invalid required information, but it does not limit all corrected claims only to that circumstance."
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "B13",
+   "kind": "paragraph",
+   "text": "Deadline facts",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B14",
+   "kind": "list_item",
+   "text": "Appeal deadline: 90 days from the notice date of 2026-08-03, i.e., 2026-11-01 (source: denial_letter.txt; MP-TF-001 Section 7.1).",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-08-03",
+      "file": "eob_835.txt",
+      "line": 7
+     },
+     {
+      "token": "2026-08-03",
+      "file": "claim_history.txt",
+      "line": 17
+     }
+    ],
+    "sections": [
+     {
+      "id": "7.1",
+      "status": null,
+      "evidence": null
+     }
+    ],
+    "policy": true,
+    "flags": []
+   }
+  },
+  {
+   "id": "B15",
+   "kind": "list_item",
+   "text": "Review date 2026-10-25 is on or before 2026-11-01, so the review is within the appeal window (deadline_ok: true).",
+   "links": {
+    "cited": [],
+    "matched": [
+     {
+      "token": "2026-11-01",
+      "file": "denial_letter.txt",
+      "line": 20
+     },
+     {
+      "token": "2026-10-25",
+      "file": "task.md",
+      "line": 5
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B16",
+   "kind": "list_item",
+   "text": "Corrected-claim deadline (not applicable to this recommendation): 2027-01-30 (source: denial_letter.txt).",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B17",
+   "kind": "paragraph",
+   "text": "Next action: Take no further action on this claim; let the denial stand. No appeal letter is warranted.",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B18",
+   "kind": "paragraph",
+   "text": "Gaps: none identified <<<DELIVERABLE>>>",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  }
+ ],
+ "rows": [
+  {
+   "blockId": "B1",
+   "title": "DECISION MEMO Case: C-0030 Claim number: 3704835 Patient ID: P-…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01",
+      "2026-08-03",
+      "3704835",
+      "99213",
+      "CO-29"
+     ],
+     "line": 10,
+     "excerpt": "Date of service: 2026-04-01",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01",
+      "2026-08-03",
+      "3704835",
+      "99213",
+      "CO-29"
+     ],
+     "line": 20,
+     "excerpt": "Date of service: 2026-04-01",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01",
+      "2026-08-03",
+      "3704835",
+      "99213",
+      "CO-29"
+     ],
+     "line": 6,
+     "excerpt": "Date of service: 2026-04-01",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-04-01_visit.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01"
+     ],
+     "line": 4,
+     "excerpt": "Date of encounter: 2026-04-01",
+     "excerptFound": true
+    },
+    {
+     "file": "task.md",
+     "via": "matched",
+     "tokens": [
+      "2026-10-25",
+      "3704835"
+     ],
+     "line": 5,
+     "excerpt": "Today's date for this review is 2026-10-25.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B2",
+   "title": "Recommendation: DO_NOT_APPEAL",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B3",
+   "title": "Governing policy: MP-TF-001, \"TIMELY FILING OF CLAIMS,\" Terravi…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "2.1",
+     "2.2",
+     "7.2"
+    ],
+    "texts": [
+     "Claims must be submitted to Terravista Health within 90 days of the date of service. Submissions received after this filing period may be denied for failure to meet the timely filing requirement.",
+     "Providers must retain proof of clearinghouse acceptance demonstrating that the claim was accepted within the applicable filing limit. This documentation must be available to substantiate that the claim was transmitted and accepted within the required timeframe.",
+     "Timely filing limit: 90 days from the date of service."
+    ]
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B4",
+   "title": "Reasoning",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B5",
+   "title": "The denial letter states the claim was received by the payer on…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15",
+      "2026-04-01"
+     ],
+     "line": 21,
+     "excerpt": "Date claim received by payer: 2026-07-15",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15",
+      "2026-04-01"
+     ],
+     "line": 12,
+     "excerpt": "2026-07-15  Received by payer",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-04-01_visit.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01"
+     ],
+     "line": 4,
+     "excerpt": "Date of encounter: 2026-04-01",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B6",
+   "title": "The claim history shows the claim was submitted to the clearing…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "claim_history.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 10,
+     "excerpt": "2026-07-14  Submitted to clearinghouse (submission 1 of 1)",
+     "excerptFound": true
+    },
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15"
+     ],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15"
+     ],
+     "line": 21,
+     "excerpt": "Date claim received by payer: 2026-07-15",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B7",
+   "title": "The 835 remittance advice confirms the date the claim was recei…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "eob_835.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 21,
+     "excerpt": "Date claim received by payer: 2026-07-15",
+     "excerptFound": true
+    },
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15"
+     ],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15"
+     ],
+     "line": 12,
+     "excerpt": "2026-07-15  Received by payer",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B8",
+   "title": "MP-TF-001 Section 2.1 requires claims to be submitted within 90…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "2.1"
+    ],
+    "texts": [
+     "Claims must be submitted to Terravista Health within 90 days of the date of service. Submissions received after this filing period may be denied for failure to meet the timely filing requirement."
+    ]
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 6,
+     "excerpt": "Date of service: 2026-04-01",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-15"
+     ],
+     "line": 21,
+     "excerpt": "Date claim received by payer: 2026-07-15",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B9",
+   "title": "MP-TF-001 Section 2.2 requires proof of clearinghouse acceptanc…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "2.2"
+    ],
+    "texts": [
+     "Providers must retain proof of clearinghouse acceptance demonstrating that the claim was accepted within the applicable filing limit. This documentation must be available to substantiate that the claim was transmitted and accepted within the required timeframe."
+    ]
+   },
+   "evidence": [
+    {
+     "file": "claim_history.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 11,
+     "excerpt": "2026-07-14  Clearinghouse acceptance (277CA): ACCEPTED",
+     "excerptFound": true
+    },
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-30"
+     ],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B10",
+   "title": "MP-TF-001 Section 7.2 sets the timely filing limit at 90 days f…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "7.2"
+    ],
+    "texts": [
+     "Timely filing limit: 90 days from the date of service."
+    ]
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B11",
+   "title": "No document in the record shows the claim was submitted or acce…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-04-01_visit.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 2,
+     "excerpt": "OFFICE VISIT NOTE",
+     "excerptFound": true
+    },
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-30",
+      "2026-04-01"
+     ],
+     "line": 17,
+     "excerpt": "Our records show the claim was received on 2026-07-15, after the 90-day filing limit. The filing deadline for this date of service was 2026-06-30 (Medical Policy: Timely Filing of Claims).",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01"
+     ],
+     "line": 20,
+     "excerpt": "Date of service: 2026-04-01",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-01"
+     ],
+     "line": 6,
+     "excerpt": "Date of service: 2026-04-01",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B12",
+   "title": "Because the denial is for untimely filing and the record shows…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "eob_835.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 21,
+     "excerpt": "Date claim received by payer: 2026-07-15",
+     "excerptFound": true
+    },
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "99213"
+     ],
+     "line": 11,
+     "excerpt": "Service: 99213 - Established patient visit, low",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "99213"
+     ],
+     "line": 7,
+     "excerpt": "Service: 99213 - Established patient visit, low",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-03-02_pcp.txt",
+     "via": "matched",
+     "tokens": [
+      "I10"
+     ],
+     "line": 8,
+     "excerpt": "Follow-up of essential hypertension (I10). Patient reports feeling well with no new complaints.",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-04-01_visit.txt",
+     "via": "matched",
+     "tokens": [
+      "I10"
+     ],
+     "line": 8,
+     "excerpt": "Routine follow-up for essential hypertension (I10). Patient reports feeling well overall with no new complaints.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B13",
+   "title": "Deadline facts",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B14",
+   "title": "Appeal deadline: 90 days from the notice date of 2026-08-03, i.…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "7.1"
+    ],
+    "texts": [
+     "Appeal deadline: 90 days from the date of the claim determination notice."
+    ]
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 20,
+     "excerpt": "You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-01.",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-08-03"
+     ],
+     "line": 7,
+     "excerpt": "Remittance date: 2026-08-03",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-08-03"
+     ],
+     "line": 17,
+     "excerpt": "2026-08-03  Adjudicated by payer: adverse determination (CARC CO-29)",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B15",
+   "title": "Review date 2026-10-25 is on or before 2026-11-01, so the revie…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-11-01"
+     ],
+     "line": 20,
+     "excerpt": "You may request an appeal within 90 days of the date of this notice. The appeal must be received by 2026-11-01.",
+     "excerptFound": true
+    },
+    {
+     "file": "task.md",
+     "via": "matched",
+     "tokens": [
+      "2026-10-25"
+     ],
+     "line": 5,
+     "excerpt": "Today's date for this review is 2026-10-25.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B16",
+   "title": "Corrected-claim deadline (not applicable to this recommendation…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 24,
+     "excerpt": "A corrected claim must be received within 180 days of the date of this notice, that is, by 2027-01-30.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B17",
+   "title": "Next action: Take no further action on this claim; let the deni…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B18",
+   "title": "Gaps: none identified <<<DELIVERABLE>>>",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  }
+ ],
+ "summary": {
+  "blocks": 18,
+  "linkedBlocks": 13,
+  "citedFiles": 4,
+  "matchedFiles": 6,
+  "flags": 2
+ },
+ "withheld": []
+}

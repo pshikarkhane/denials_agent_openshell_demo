@@ -28,6 +28,32 @@
   --amber: #ef9100;
   --amber-soft: #2a1a00;
 
+  /* data room: case folder (amber), policies (violet), letter (blue) */
+  --dr-amber-text: #ffc65a;
+  --dr-amber-text-2: #ffe9c2;
+  --dr-amber-bg: #231600;
+  --dr-amber-border: #6b4500;
+  --dr-amber-sel-bg: #2f1f00;
+  --dr-amber-sel-border: #ffb020;
+  --dr-amber-zone: #2a1d00;
+  --dr-amber-chip: #9a6400;
+  --dr-violet-text: #cbb8ff;
+  --dr-violet-text-2: #ece5ff;
+  --dr-violet-bg: #17102c;
+  --dr-violet-border: #4a3794;
+  --dr-violet-sel-bg: #211842;
+  --dr-violet-sel-border: #b9a2ff;
+  --dr-violet-zone: #1d1535;
+  --dr-violet-chip: #5b45a8;
+  --dr-blue-text: #8fdcff;
+  --dr-blue-text-2: #d9f3ff;
+  --dr-blue-bg: #04202e;
+  --dr-blue-border: #0b5b80;
+  --dr-blue-sel-bg: #06304a;
+  --dr-blue-sel-border: #10b1fb;
+  --dr-blue-panel: #04141d;
+  --dr-dim: 0.4;
+
   /* radii */
   --r-1: 4px;
   --r-2: 8px;

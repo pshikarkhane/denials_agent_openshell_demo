@@ -1,0 +1,40 @@
+{
+ "runs": [
+  {
+   "runId": "agent-p3-r1",
+   "caseId": "C-0005",
+   "available": true,
+   "file": "agent-p3-r1__C-0005.json"
+  },
+  {
+   "runId": "agent-p3-r1",
+   "caseId": "C-0030",
+   "available": true,
+   "file": "agent-p3-r1__C-0030.json"
+  },
+  {
+   "runId": "hermes-p1-r1",
+   "caseId": "C-0005",
+   "available": true,
+   "file": "hermes-p1-r1__C-0005.json"
+  },
+  {
+   "runId": "hermes-p1-r1",
+   "caseId": "C-0030",
+   "available": true,
+   "file": "hermes-p1-r1__C-0030.json"
+  },
+  {
+   "runId": "baseline-p3-r1",
+   "caseId": "C-0005",
+   "available": true,
+   "file": "baseline-p3-r1__C-0005.json"
+  },
+  {
+   "runId": "baseline-p3-r1",
+   "caseId": "C-0030",
+   "available": true,
+   "file": "baseline-p3-r1__C-0030.json"
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import type { DataIndex, RunView } from './types';
+import type { DataIndex, DataRoomView, RunView } from './types';
 import type { Metrics } from './metrics';
 
 export type IndexState =
@@ -70,6 +70,29 @@ export function useRun(file: string | null): RunState {
     setState({ status: 'loading' });
     getJson<RunView>(file).then(
       (run) => live && setState({ status: 'ready', run }),
+      (e: Error) => live && setState({ status: 'error', message: e.message }),
+    );
+    return () => {
+      live = false;
+    };
+  }, [file]);
+  return state;
+}
+
+export type DataRoomState =
+  | { status: 'loading' }
+  | { status: 'error'; message: string }
+  | { status: 'ready'; view: DataRoomView };
+
+/** Loads one data room file (public/data/dataroom/); pass null to skip. */
+export function useDataRoom(file: string | null): DataRoomState {
+  const [state, setState] = useState<DataRoomState>({ status: 'loading' });
+  useEffect(() => {
+    if (!file) return;
+    let live = true;
+    setState({ status: 'loading' });
+    getJson<DataRoomView>(`dataroom/${file}`).then(
+      (view) => live && setState({ status: 'ready', view }),
       (e: Error) => live && setState({ status: 'error', message: e.message }),
     );
     return () => {

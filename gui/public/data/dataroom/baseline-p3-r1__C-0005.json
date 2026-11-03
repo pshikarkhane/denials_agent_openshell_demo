@@ -1,0 +1,1576 @@
+{
+ "available": true,
+ "runId": "baseline-p3-r1",
+ "caseId": "C-0005",
+ "variant": "baseline",
+ "runtime": "standin",
+ "chosenPolicyId": "MP-IMG-007",
+ "consideredPolicyIds": [],
+ "caseDocs": [
+  {
+   "number": 1,
+   "path": "denial_letter.txt",
+   "descriptor": "Denial notice",
+   "lines": [
+    "MERIDIAN COMMUNITY HEALTH PLAN",
+    "Payer ID: MERIDIAN_COMM",
+    "NOTICE OF CLAIM DETERMINATION",
+    "",
+    "Date of notice: 2026-07-17",
+    "To: Gutierrez Medical Group",
+    "Member: Brenda Wilson   Patient ID: P-1862   Member ID: MBR475438256",
+    "",
+    "Claim number: 6268311",
+    "Date of service: 2026-06-18",
+    "Service: 72148 - MRI lumbar spine without contrast",
+    "Billed amount: 2052.88",
+    "",
+    "DETERMINATION",
+    "Reason code (CARC): CO-50  The service was not deemed medically necessary by the plan.",
+    "Remark code (RARC): N386",
+    "The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity).",
+    "",
+    "Appeal Rights",
+    "You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-01-13.",
+    "Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001",
+    "",
+    "Corrected Claims",
+    "A corrected claim must be received within 365 days of the date of this notice, that is, by 2027-07-17.",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B4",
+    "B16"
+   ],
+   "matchedBy": [
+    "B2",
+    "B5"
+   ]
+  },
+  {
+   "number": 2,
+   "path": "eob_835.txt",
+   "descriptor": "Remittance (835)",
+   "lines": [
+    "835 REMITTANCE ADVICE",
+    "",
+    "Payer: Meridian Community Health Plan",
+    "Payer ID: MERIDIAN_COMM",
+    "Payee: Gutierrez Medical Group",
+    "Trace number: 31248297",
+    "Remittance date: 2026-07-17",
+    "",
+    "PATIENT",
+    "  Name: Brenda Wilson",
+    "  Patient ID: P-1862",
+    "  MRN: SYN-599999",
+    "  Member ID: MBR475438256",
+    "  Date of birth: 1979-02-25",
+    "  SSN: XXX-XX-3060",
+    "",
+    "CLAIM",
+    "  Claim number: 6268311",
+    "  Claim status: DENIED",
+    "  Date of service: 2026-06-18",
+    "  Date claim received by payer: 2026-06-26",
+    "  Diagnosis (ICD-10): M51.26",
+    "  Place of service: 11",
+    "  Rendering provider: Dr. Bridget Santana (Radiology) (ID RP-8311)",
+    "  Referring provider: Dr. Brett Henry",
+    "",
+    "SERVICE LINES",
+    "  Line  CPT    Mod  Billed     Allowed    Paid       Adjustment",
+    "  1     72148       2052.88    0.00       0.00       CO-50 2052.88 RARC N386",
+    "        (MRI lumbar spine without contrast)",
+    "",
+    "TOTALS  Billed 2052.88  Allowed 0.00  Paid 0.00  Patient responsibility 0.00",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [],
+   "matchedBy": [
+    "B4",
+    "B5",
+    "B16"
+   ]
+  },
+  {
+   "number": 3,
+   "path": "claim_history.txt",
+   "descriptor": "Claim history",
+   "lines": [
+    "CLAIM HISTORY (BILLING SYSTEM EXTRACT)",
+    "Practice: Gutierrez Medical Group",
+    "Claim number: 6268311",
+    "Patient ID: P-1862",
+    "Payer ID: MERIDIAN_COMM",
+    "Date of service: 2026-06-18",
+    "Service: 72148 - MRI lumbar spine without contrast",
+    "",
+    "SUBMISSION HISTORY",
+    "  2026-06-24  Submitted to clearinghouse (submission 1 of 1)",
+    "  2026-06-24  Clearinghouse acceptance (277CA): ACCEPTED",
+    "  2026-06-26  Received by payer",
+    "  Earlier submissions: none recorded",
+    "  Prior adjudicated claims for this service: none recorded",
+    "",
+    "CURRENT STATUS",
+    "  2026-07-17  Adjudicated by payer: adverse determination (CARC CO-50)",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [],
+   "matchedBy": [
+    "B4",
+    "B5",
+    "B16"
+   ]
+  },
+  {
+   "number": 4,
+   "path": "notes/2026-03-23_pcp.txt",
+   "descriptor": "Primary Care Visit Note, 2026-03-23",
+   "lines": [
+    "Gutierrez Medical Group",
+    "PRIMARY CARE VISIT NOTE",
+    "Patient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862",
+    "Date of encounter: 2026-03-23",
+    "Provider: Dr. Jimmy Johnson",
+    "------------------------------------------------------------",
+    "Reason for visit",
+    "Evaluation of low back pain with associated left leg symptoms, present and gradually worsening.",
+    "",
+    "History",
+    "The patient reports aching low back pain that radiates into the left buttock and down the posterior left thigh and calf. She describes intermittent tingling along the left leg. Symptoms are worse with prolonged sitting and bending forward, and somewhat relieved by standing and walking. She denies bowel or bladder changes, saddle anesthesia, fever, or unexplained weight loss. No right-sided symptoms are reported. She has tried over-the-counter acetaminophen with minimal relief.",
+    "",
+    "Exam",
+    "Tenderness noted over the left lumbar paraspinal muscles and left sacroiliac region. Lumbar range of motion is reduced, with pain on forward flexion and on left lateral bending. No midline spinal tenderness appreciated.",
+    "",
+    "Assessment",
+    "Low back pain with left-sided radicular leg symptoms, most consistent with a left lumbar radiculopathy (M51.26). No red flag features identified on history or exam today.",
+    "",
+    "Plan",
+    "Begin conservative management. Started NSAIDs, a home exercise program and a physical therapy referral at this visit. Reviewed activity modification, proper body mechanics, and warning signs that warrant urgent reassessment. Will reassess response to therapy at a later visit and escalate evaluation if symptoms persist or worsen.",
+    "------------------------------------------------------------",
+    "Electronically signed: Dr. Jimmy Johnson",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B8",
+    "B18"
+   ],
+   "matchedBy": [
+    "B9"
+   ]
+  },
+  {
+   "number": 5,
+   "path": "notes/2026-04-13_pcp_followup.txt",
+   "descriptor": "Primary Care Follow-Up Note, 2026-04-13",
+   "lines": [
+    "Gutierrez Medical Group",
+    "PRIMARY CARE FOLLOW-UP NOTE",
+    "Patient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862",
+    "Date of encounter: 2026-04-13",
+    "Provider: Dr. Jimmy Johnson",
+    "------------------------------------------------------------",
+    "Reason for visit",
+    "Follow-up for persistent left-sided back and leg symptoms, with a plan to continue conservative therapy.",
+    "",
+    "History",
+    "The patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.",
+    "",
+    "Exam",
+    "Alert and comfortable at rest. Tenderness to palpation over the left lumbar paraspinal region and left sciatic notch. Lumbar range of motion is reduced with flexion and left lateral bending, which reproduce her symptoms. Extension is better tolerated. No tenderness noted on the right side.",
+    "",
+    "Assessment",
+    "Persistent left-sided lumbar radicular symptoms, consistent with M51.26. Symptoms are gradually improving with current conservative management.",
+    "",
+    "Plan",
+    "Continue physical therapy as prescribed. Continue current home exercise program and activity modification. Over-the-counter analgesics as needed for pain. Return sooner if worsening weakness, numbness, or new red-flag symptoms develop.",
+    "------------------------------------------------------------",
+    "Electronically signed: Dr. Jimmy Johnson",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B11",
+    "B19"
+   ],
+   "matchedBy": [
+    "B8",
+    "B9"
+   ]
+  },
+  {
+   "number": 6,
+   "path": "notes/2026-06-04_ortho.txt",
+   "descriptor": "Orthopedic Consultation Note, 2026-06-04",
+   "lines": [
+    "Gutierrez Medical Group",
+    "ORTHOPEDIC CONSULTATION NOTE",
+    "Patient: Brenda Wilson   DOB: 1979-02-25   MRN: SYN-599999   Patient ID: P-1862",
+    "Date of encounter: 2026-06-04",
+    "Provider: Dr. Brett Henry",
+    "------------------------------------------------------------",
+    "Reason for visit: Evaluation of persistent low back and left leg symptoms. The patient was referred for specialist assessment after conservative management failed to provide adequate relief.",
+    "",
+    "History: The patient reports aching low back pain that radiates into the left buttock, posterior thigh, and calf. Symptoms began insidiously around 2026-03-23 without a clear injury. She describes numbness and tingling along the left leg, worse with prolonged sitting and forward bending, and partially relieved by lying flat. She denies bowel or bladder dysfunction and reports no saddle anesthesia. No right-sided complaints are noted.",
+    "",
+    "Exam: Antalgic gait favoring the left. Lumbar range of motion is limited by pain, particularly with flexion. Neurological exam: left leg paresthesias with a positive straight leg raise at 40 degrees. Left ankle dorsiflexion strength is mildly reduced. Reflexes are symmetric. No midline spinal tenderness to percussion.",
+    "",
+    "Imaging history: No prior lumbar imaging on file.",
+    "",
+    "Assessment: Clinical picture consistent with left lumbar disc displacement causing radicular symptoms (M51.26). Findings localize to the left lower lumbar nerve roots.",
+    "",
+    "Plan: Lumbar spine MRI ordered to characterize the disc pathology and assess for nerve root compression. Continue current activity modification and symptom control. Results will be reviewed and management refined accordingly.",
+    "------------------------------------------------------------",
+    "Electronically signed: Dr. Brett Henry",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B10",
+    "B13",
+    "B15",
+    "B20"
+   ],
+   "matchedBy": [
+    "B8",
+    "B9"
+   ]
+  },
+  {
+   "number": 7,
+   "path": "supporting/pt_log.txt",
+   "descriptor": "Physical Therapy Attendance Log",
+   "lines": [
+    "Gutierrez Medical Group - PHYSICAL THERAPY ATTENDANCE LOG",
+    "Patient: Brenda Wilson  MRN: SYN-599999",
+    "Start of care: 2026-03-23",
+    "Therapist: Edwin Gonzales, PT",
+    "",
+    "Visit 1 | 2026-03-23 | neuromuscular re-education",
+    "Visit 2 | 2026-03-27 | therapeutic activities",
+    "Visit 3 | 2026-03-30 | manual therapy",
+    "Visit 4 | 2026-04-03 | therapeutic exercise",
+    "Visit 5 | 2026-04-06 | neuromuscular re-education",
+    "Visit 6 | 2026-04-10 | therapeutic activities",
+    "Visit 7 | 2026-04-13 | manual therapy",
+    "Visit 8 | 2026-04-17 | therapeutic exercise",
+    "Visit 9 | 2026-04-20 | neuromuscular re-education",
+    "Visit 10 | 2026-04-24 | therapeutic activities",
+    "Visit 11 | 2026-04-27 | manual therapy",
+    "Visit 12 | 2026-05-01 | therapeutic exercise",
+    "Visit 13 | 2026-05-04 | neuromuscular re-education",
+    "Visit 14 | 2026-05-08 | therapeutic activities",
+    "Visit 15 | 2026-05-11 | manual therapy",
+    "Visit 16 | 2026-05-15 | therapeutic exercise",
+    "Visit 17 | 2026-05-18 | neuromuscular re-education",
+    "Visit 18 | 2026-05-22 | therapeutic activities",
+    "Visit 19 | 2026-05-25 | manual therapy",
+    "Visit 20 | 2026-05-29 | therapeutic exercise",
+    "Visit 21 | 2026-06-01 | neuromuscular re-education",
+    "",
+    "Treatment period: 2026-03-23 to 2026-06-04 (73 days)",
+    "Visits completed to date: 21",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [
+    "B9",
+    "B21"
+   ],
+   "matchedBy": [
+    "B8",
+    "B10",
+    "B11",
+    "B13",
+    "B15"
+   ]
+  },
+  {
+   "number": 8,
+   "path": "task.md",
+   "descriptor": "Instruction",
+   "lines": [
+    "# Task",
+    "",
+    "Review claim 6268311 for P-1862. Read the denial and remit, find the governing payer policy, check the clinical documentation against it, and check the deadlines. Produce whatever deliverable the situation calls for (appeal letter or decision memo). List anything missing or inconsistent.",
+    "",
+    "Today's date for this review is 2026-08-04.",
+    "",
+    "Case files: /sandbox/data/cases/C-0005/docs/ . Payer policy library: /sandbox/data/policy_library/ .",
+    "",
+    "Output format. Write two files to /sandbox/work/output/C-0005/ :",
+    "- deliverable.md: the appeal letter, or a short decision memo. State the source document for each factual statement; list anything you could not verify under \"Gaps\".",
+    "- decision.json: {\"decision\": one of APPEAL | CORRECT_AND_RESUBMIT | DO_NOT_APPEAL | ESCALATE_MISSING_DOCS, \"denial_code\", \"action_deadline\" (the deadline that governs your recommended action: the corrected-claim deadline if you recommend a corrected claim, otherwise the appeal deadline), \"deadline_ok\", \"criteria\": [{\"id\" (policy section, e.g. 2.1(a)), \"status\": met|unmet|unknown, \"evidence\"}], \"enclosures\": [], \"gaps\": []}",
+    "",
+    "SYNTHETIC DATA - NOT REAL PHI"
+   ],
+   "opened": null,
+   "citedBy": [],
+   "matchedBy": [
+    "B1",
+    "B4",
+    "B5",
+    "B16"
+   ]
+  }
+ ],
+ "policies": [
+  {
+   "id": "MP-APL-001",
+   "title": "APPEALS LEVELS AND DEADLINES",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-03-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-BEN-002",
+   "title": "MEMBER COST SHARING AND DEDUCTIBLES",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-03-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-BND-002",
+   "title": "CLAIM BUNDLING AND DISTINCT PROCEDURAL SERVICE MODIFIERS",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-04-10",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-CLM-004",
+   "title": "CLAIM SUBMISSION REQUIREMENTS, DUPLICATE CLAIMS AND EDIT RULES",
+   "payer": "Terravista Health",
+   "effective": "2026-04-05",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-IMG-007",
+   "title": "ADVANCED IMAGING: LUMBAR SPINE MRI MEDICAL NECESSITY",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-04-15",
+   "status": "chosen",
+   "considered": false
+  },
+  {
+   "id": "MP-IMG-012",
+   "title": "ADVANCED IMAGING: LUMBAR SPINE CT MEDICAL NECESSITY",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-02-01",
+   "status": "lookalike",
+   "considered": false
+  },
+  {
+   "id": "MP-PA-003",
+   "title": "PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION",
+   "payer": "Halcyon Health Plan",
+   "effective": "2026-04-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-PA-030",
+   "title": "PRIOR AUTHORIZATION AND RETROACTIVE AUTHORIZATION",
+   "payer": "Meridian Community Health Plan",
+   "effective": "2026-04-01",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-PT-011",
+   "title": "OUTPATIENT THERAPY VISIT LIMITS",
+   "payer": "Halcyon Health Plan",
+   "effective": "2026-04-20",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-TF-001",
+   "title": "TIMELY FILING OF CLAIMS",
+   "payer": "Terravista Health",
+   "effective": "2026-03-15",
+   "status": "other",
+   "considered": false
+  },
+  {
+   "id": "MP-TF-010",
+   "title": "TIMELY FILING OF CLAIMS",
+   "payer": "Terravista Health",
+   "effective": "2024-01-01",
+   "status": "other",
+   "considered": false
+  }
+ ],
+ "chosenSections": [
+  {
+   "id": "1",
+   "text": "Purpose and scope\nThis policy establishes the clinical criteria under which Meridian Community Health Plan considers magnetic resonance imaging of the lumbar spine to be medically necessary. It applies to requests for advanced lumbar spine imaging submitted for coverage review under the plan's utilization management program."
+  },
+  {
+   "id": "2.1(a)",
+   "text": "The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken."
+  },
+  {
+   "id": "2.1(b)",
+   "text": "A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study."
+  },
+  {
+   "id": "2.1(c)",
+   "text": "There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved."
+  },
+  {
+   "id": "7",
+   "text": "Key parameters and general provisions"
+  },
+  {
+   "id": "7.1",
+   "text": "Appeal deadline: 180 days from the date of the claim determination notice."
+  },
+  {
+   "id": "7.2",
+   "text": "Timely filing limit: 180 days from the date of service."
+  },
+  {
+   "id": "7.3",
+   "text": "Corrected claims: must be received within 365 days of the date of the notice."
+  },
+  {
+   "id": "7.4",
+   "text": "Appeals address: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "B1",
+   "kind": "paragraph",
+   "text": "APPEAL LETTER Date of review: 2026-08-04",
+   "links": {
+    "cited": [],
+    "matched": [
+     {
+      "token": "2026-08-04",
+      "file": "task.md",
+      "line": 5
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B2",
+   "kind": "paragraph",
+   "text": "To: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 Meridian Community Health Plan (Payer ID: MERIDIAN_COMM)",
+   "links": {
+    "cited": [],
+    "matched": [
+     {
+      "token": "00001",
+      "file": "denial_letter.txt",
+      "line": 21
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B3",
+   "kind": "paragraph",
+   "text": "From: Gutierrez Medical Group — Revenue Cycle Appeals",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B4",
+   "kind": "paragraph",
+   "text": "Re: Claim 6268311 Patient/Member ID: P-1862 (Brenda Wilson) Date of service: 2026-06-18 CPT code: 72148 — MRI lumbar spine without contrast Billed amount: 2052.88 Denial code: CARC CO-50 (\"The service was not deemed medically necessary by the plan\"), RARC N386 Notice of claim determination date: 2026-07-17 (source: denial_letter.txt) Governing policy: MP-IMG-007, \"Advanced Imaging: Lumbar Spine MRI Medical Necessity\" (effective 2026-04-15; applies to dates of service on or after 2025-01-01) — the policy named in the denial letter (source: denial_letter.txt; policy_library/MP-IMG-007.txt)",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-06-18",
+      "file": "eob_835.txt",
+      "line": 20
+     },
+     {
+      "token": "2026-07-17",
+      "file": "eob_835.txt",
+      "line": 7
+     },
+     {
+      "token": "6268311",
+      "file": "eob_835.txt",
+      "line": 18
+     },
+     {
+      "token": "72148",
+      "file": "eob_835.txt",
+      "line": 29
+     },
+     {
+      "token": "CO-50",
+      "file": "eob_835.txt",
+      "line": 29
+     },
+     {
+      "token": "N386",
+      "file": "eob_835.txt",
+      "line": 29
+     },
+     {
+      "token": "2026-06-18",
+      "file": "claim_history.txt",
+      "line": 6
+     },
+     {
+      "token": "2026-07-17",
+      "file": "claim_history.txt",
+      "line": 17
+     },
+     {
+      "token": "6268311",
+      "file": "claim_history.txt",
+      "line": 3
+     },
+     {
+      "token": "72148",
+      "file": "claim_history.txt",
+      "line": 7
+     },
+     {
+      "token": "CO-50",
+      "file": "claim_history.txt",
+      "line": 17
+     },
+     {
+      "token": "6268311",
+      "file": "task.md",
+      "line": 3
+     }
+    ],
+    "sections": [],
+    "policy": true,
+    "flags": [
+     {
+      "id": "F2",
+      "severity": "material",
+      "reasons": [
+       "The denial letter and EOB distinguish Patient ID P-1862 from Member ID MBR475438256. Labeling P-1862 as the Member ID is a wrong identifier, a substantive misstatement.",
+       "P-1862 is the Patient ID, not the Member ID (which is MBR475438256). Labeling it as the Member ID is a material error.",
+       "P-1862 is the Patient ID; the Member ID is MBR475438256, so labeling P-1862 as Patient/Member ID is incorrect."
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "B5",
+   "kind": "paragraph",
+   "text": "REQUESTED REMEDY Overturn the adverse determination on claim 6268311 and reprocess/pay CPT 72148 for the 2026-06-18 date of service. The clinical record substantiates every medical-necessity criterion in the governing policy.",
+   "links": {
+    "cited": [],
+    "matched": [
+     {
+      "token": "2026-06-18",
+      "file": "denial_letter.txt",
+      "line": 10
+     },
+     {
+      "token": "6268311",
+      "file": "denial_letter.txt",
+      "line": 9
+     },
+     {
+      "token": "72148",
+      "file": "denial_letter.txt",
+      "line": 11
+     },
+     {
+      "token": "2026-06-18",
+      "file": "eob_835.txt",
+      "line": 20
+     },
+     {
+      "token": "6268311",
+      "file": "eob_835.txt",
+      "line": 18
+     },
+     {
+      "token": "72148",
+      "file": "eob_835.txt",
+      "line": 29
+     },
+     {
+      "token": "2026-06-18",
+      "file": "claim_history.txt",
+      "line": 6
+     },
+     {
+      "token": "6268311",
+      "file": "claim_history.txt",
+      "line": 3
+     },
+     {
+      "token": "72148",
+      "file": "claim_history.txt",
+      "line": 7
+     },
+     {
+      "token": "6268311",
+      "file": "task.md",
+      "line": 3
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B6",
+   "kind": "paragraph",
+   "text": "POLICY CRITERIA REVIEW (MP-IMG-007)",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": true,
+    "flags": []
+   }
+  },
+  {
+   "id": "B7",
+   "kind": "paragraph",
+   "text": "Section 2.1(a) — At least 6 weeks of conservative therapy prior to the MRI request, documented in the medical record. STATUS: MET.",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [
+     {
+      "id": "2.1(a)",
+      "status": "met",
+      "evidence": "supporting/pt_log.txt"
+     }
+    ],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B8",
+   "kind": "list_item",
+   "text": "The 2026-03-23 primary care note documents initiation of conservative management (NSAIDs, home exercise program, physical therapy referral) for low back pain with left radicular leg symptoms (source: notes/2026-03-23_pcp.txt).",
+   "links": {
+    "cited": [
+     "notes/2026-03-23_pcp.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-03-23",
+      "file": "notes/2026-04-13_pcp_followup.txt",
+      "line": 11
+     },
+     {
+      "token": "2026-03-23",
+      "file": "notes/2026-06-04_ortho.txt",
+      "line": 9
+     },
+     {
+      "token": "2026-03-23",
+      "file": "supporting/pt_log.txt",
+      "line": 3
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B9",
+   "kind": "list_item",
+   "text": "The physical therapy attendance log documents a treatment period of 2026-03-23 to 2026-06-04 (73 days, approximately 10.4 weeks) with 21 completed visits (source: supporting/pt_log.txt).",
+   "links": {
+    "cited": [
+     "supporting/pt_log.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-03-23",
+      "file": "notes/2026-03-23_pcp.txt",
+      "line": 4
+     },
+     {
+      "token": "2026-03-23",
+      "file": "notes/2026-04-13_pcp_followup.txt",
+      "line": 11
+     },
+     {
+      "token": "2026-03-23",
+      "file": "notes/2026-06-04_ortho.txt",
+      "line": 9
+     },
+     {
+      "token": "2026-06-04",
+      "file": "notes/2026-06-04_ortho.txt",
+      "line": 4
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B10",
+   "kind": "list_item",
+   "text": "The 2026-06-04 orthopedic consultation documents that conservative management failed to provide adequate relief and that lumbar spine MRI was ordered (source: notes/2026-06-04_ortho.txt).",
+   "links": {
+    "cited": [
+     "notes/2026-06-04_ortho.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-06-04",
+      "file": "supporting/pt_log.txt",
+      "line": 28
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B11",
+   "kind": "paragraph",
+   "text": "The 2026-04-13 primary care follow-up note corroborates ongoing conservative therapy (approximately 14 days of physical therapy at that point, gradual improvement) (source: notes/2026-04-13_pcp_followup.txt).",
+   "links": {
+    "cited": [
+     "notes/2026-04-13_pcp_followup.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-04-13",
+      "file": "supporting/pt_log.txt",
+      "line": 12
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B12",
+   "kind": "paragraph",
+   "text": "Section 2.1(b) — A neurological deficit or a recognized red flag finding documented in the clinical record. STATUS: MET.",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [
+     {
+      "id": "2.1(b)",
+      "status": "met",
+      "evidence": "notes/2026-06-04_ortho.txt"
+     }
+    ],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B13",
+   "kind": "list_item",
+   "text": "The 2026-06-04 orthopedic consultation documents left leg paresthesias, a positive straight leg raise at 40 degrees, and mildly reduced left ankle dorsiflexion strength (source: notes/2026-06-04_ortho.txt).",
+   "links": {
+    "cited": [
+     "notes/2026-06-04_ortho.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-06-04",
+      "file": "supporting/pt_log.txt",
+      "line": 28
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B14",
+   "kind": "paragraph",
+   "text": "Section 2.1(c) — No prior imaging of the same lumbar spine region within the preceding 12 months. STATUS: MET.",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [
+     {
+      "id": "2.1(c)",
+      "status": "met",
+      "evidence": "notes/2026-06-04_ortho.txt"
+     }
+    ],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B15",
+   "kind": "list_item",
+   "text": "The 2026-06-04 orthopedic consultation states: \"No prior lumbar imaging on file\" (source: notes/2026-06-04_ortho.txt).",
+   "links": {
+    "cited": [
+     "notes/2026-06-04_ortho.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-06-04",
+      "file": "supporting/pt_log.txt",
+      "line": 28
+     }
+    ],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B16",
+   "kind": "paragraph",
+   "text": "DEADLINE The appeal must be received by 2027-01-13, which is 180 days from the 2026-07-17 determination notice (source: denial_letter.txt; policy MP-IMG-007 Section 7.1). This review is dated 2026-08-04, which is on or before the 2027-01-13 appeal deadline, so this appeal is timely.",
+   "links": {
+    "cited": [
+     "denial_letter.txt"
+    ],
+    "matched": [
+     {
+      "token": "2026-07-17",
+      "file": "eob_835.txt",
+      "line": 7
+     },
+     {
+      "token": "2026-07-17",
+      "file": "claim_history.txt",
+      "line": 17
+     },
+     {
+      "token": "2026-08-04",
+      "file": "task.md",
+      "line": 5
+     }
+    ],
+    "sections": [
+     {
+      "id": "7.1",
+      "status": null,
+      "evidence": null
+     }
+    ],
+    "policy": true,
+    "flags": []
+   }
+  },
+  {
+   "id": "B17",
+   "kind": "paragraph",
+   "text": "ENCLOSURES",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B18",
+   "kind": "list_item",
+   "text": "notes/2026-03-23_pcp.txt",
+   "links": {
+    "cited": [
+     "notes/2026-03-23_pcp.txt"
+    ],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B19",
+   "kind": "list_item",
+   "text": "notes/2026-04-13_pcp_followup.txt",
+   "links": {
+    "cited": [
+     "notes/2026-04-13_pcp_followup.txt"
+    ],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B20",
+   "kind": "list_item",
+   "text": "notes/2026-06-04_ortho.txt",
+   "links": {
+    "cited": [
+     "notes/2026-06-04_ortho.txt"
+    ],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B21",
+   "kind": "list_item",
+   "text": "supporting/pt_log.txt",
+   "links": {
+    "cited": [
+     "supporting/pt_log.txt"
+    ],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  },
+  {
+   "id": "B22",
+   "kind": "paragraph",
+   "text": "Gaps: none identified. <<<DELIVERABLE>>>",
+   "links": {
+    "cited": [],
+    "matched": [],
+    "sections": [],
+    "policy": false,
+    "flags": []
+   }
+  }
+ ],
+ "rows": [
+  {
+   "blockId": "B1",
+   "title": "APPEAL LETTER Date of review: 2026-08-04",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "task.md",
+     "via": "matched",
+     "tokens": [
+      "2026-08-04"
+     ],
+     "line": 5,
+     "excerpt": "Today's date for this review is 2026-08-04.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B2",
+   "title": "To: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001 Meridi…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "00001"
+     ],
+     "line": 21,
+     "excerpt": "Send appeals to: Appeals Unit, P.O. Box 5100, Meridian City, ST 00001",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B3",
+   "title": "From: Gutierrez Medical Group — Revenue Cycle Appeals",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B4",
+   "title": "Re: Claim 6268311 Patient/Member ID: P-1862 (Brenda Wilson) Dat…",
+   "policy": {
+    "kind": "policy",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 17,
+     "excerpt": "The clinical information submitted did not demonstrate that this service met the plan's medical necessity criteria (Medical Policy: Advanced Imaging: Lumbar Spine MRI Medical Necessity).",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-18",
+      "2026-07-17",
+      "6268311",
+      "72148",
+      "CO-50",
+      "N386"
+     ],
+     "line": 20,
+     "excerpt": "Date of service: 2026-06-18",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-18",
+      "2026-07-17",
+      "6268311",
+      "72148",
+      "CO-50"
+     ],
+     "line": 6,
+     "excerpt": "Date of service: 2026-06-18",
+     "excerptFound": true
+    },
+    {
+     "file": "task.md",
+     "via": "matched",
+     "tokens": [
+      "6268311"
+     ],
+     "line": 3,
+     "excerpt": "Review claim 6268311 for P-1862. Read the denial and remit, find the governing payer policy, check the clinical documentation against it, and check the deadlines. Produce whatever deliverable the situation calls for (appeal letter or decision memo). List anything missing or inconsistent.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B5",
+   "title": "REQUESTED REMEDY Overturn the adverse determination on claim 62…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-18",
+      "6268311",
+      "72148"
+     ],
+     "line": 10,
+     "excerpt": "Date of service: 2026-06-18",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-18",
+      "6268311",
+      "72148"
+     ],
+     "line": 20,
+     "excerpt": "Date of service: 2026-06-18",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-18",
+      "6268311",
+      "72148"
+     ],
+     "line": 6,
+     "excerpt": "Date of service: 2026-06-18",
+     "excerptFound": true
+    },
+    {
+     "file": "task.md",
+     "via": "matched",
+     "tokens": [
+      "6268311"
+     ],
+     "line": 3,
+     "excerpt": "Review claim 6268311 for P-1862. Read the denial and remit, find the governing payer policy, check the clinical documentation against it, and check the deadlines. Produce whatever deliverable the situation calls for (appeal letter or decision memo). List anything missing or inconsistent.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B6",
+   "title": "POLICY CRITERIA REVIEW (MP-IMG-007)",
+   "policy": {
+    "kind": "policy",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B7",
+   "title": "Section 2.1(a) — At least 6 weeks of conservative therapy prior…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "2.1(a)"
+    ],
+    "texts": [
+     "The member must have completed at least 6 weeks of conservative therapy prior to the request for lumbar spine MRI. Documentation in the medical record must substantiate that this period of conservative treatment was undertaken."
+    ]
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B8",
+   "title": "The 2026-03-23 primary care note documents initiation of conser…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-03-23_pcp.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 20,
+     "excerpt": "Begin conservative management. Started NSAIDs, a home exercise program and a physical therapy referral at this visit. Reviewed activity modification, proper body mechanics, and warning signs that warrant urgent reassessment. Will reassess response to therapy at a later visit and escalate evaluation if symptoms persist or worsen.",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-04-13_pcp_followup.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-03-23"
+     ],
+     "line": 11,
+     "excerpt": "The patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-06-04_ortho.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-03-23"
+     ],
+     "line": 9,
+     "excerpt": "History: The patient reports aching low back pain that radiates into the left buttock, posterior thigh, and calf. Symptoms began insidiously around 2026-03-23 without a clear injury. She describes numbness and tingling along the left leg, worse with prolonged sitting and forward bending, and partially relieved by lying flat. She denies bowel or bladder dysfunction and reports no saddle anesthesia. No right-sided complaints are noted.",
+     "excerptFound": true
+    },
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-03-23"
+     ],
+     "line": 3,
+     "excerpt": "Start of care: 2026-03-23",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B9",
+   "title": "The physical therapy attendance log documents a treatment perio…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 28,
+     "excerpt": "Treatment period: 2026-03-23 to 2026-06-04 (73 days)",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-03-23_pcp.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-03-23"
+     ],
+     "line": 4,
+     "excerpt": "Date of encounter: 2026-03-23",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-04-13_pcp_followup.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-03-23"
+     ],
+     "line": 11,
+     "excerpt": "The patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.",
+     "excerptFound": true
+    },
+    {
+     "file": "notes/2026-06-04_ortho.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-03-23",
+      "2026-06-04"
+     ],
+     "line": 9,
+     "excerpt": "History: The patient reports aching low back pain that radiates into the left buttock, posterior thigh, and calf. Symptoms began insidiously around 2026-03-23 without a clear injury. She describes numbness and tingling along the left leg, worse with prolonged sitting and forward bending, and partially relieved by lying flat. She denies bowel or bladder dysfunction and reports no saddle anesthesia. No right-sided complaints are noted.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B10",
+   "title": "The 2026-06-04 orthopedic consultation documents that conservat…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-06-04_ortho.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 7,
+     "excerpt": "Reason for visit: Evaluation of persistent low back and left leg symptoms. The patient was referred for specialist assessment after conservative management failed to provide adequate relief.",
+     "excerptFound": true
+    },
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-04"
+     ],
+     "line": 28,
+     "excerpt": "Treatment period: 2026-03-23 to 2026-06-04 (73 days)",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B11",
+   "title": "The 2026-04-13 primary care follow-up note corroborates ongoing…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-04-13_pcp_followup.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 11,
+     "excerpt": "The patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.",
+     "excerptFound": true
+    },
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-04-13"
+     ],
+     "line": 12,
+     "excerpt": "Visit 7 | 2026-04-13 | manual therapy",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B12",
+   "title": "Section 2.1(b) — A neurological deficit or a recognized red fla…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "2.1(b)"
+    ],
+    "texts": [
+     "A neurological deficit or a recognized red flag finding must be documented in the clinical record supporting the request. This documentation must be present to establish medical necessity for the imaging study."
+    ]
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B13",
+   "title": "The 2026-06-04 orthopedic consultation documents left leg pares…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-06-04_ortho.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 11,
+     "excerpt": "Exam: Antalgic gait favoring the left. Lumbar range of motion is limited by pain, particularly with flexion. Neurological exam: left leg paresthesias with a positive straight leg raise at 40 degrees. Left ankle dorsiflexion strength is mildly reduced. Reflexes are symmetric. No midline spinal tenderness to percussion.",
+     "excerptFound": true
+    },
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-04"
+     ],
+     "line": 28,
+     "excerpt": "Treatment period: 2026-03-23 to 2026-06-04 (73 days)",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B14",
+   "title": "Section 2.1(c) — No prior imaging of the same lumbar spine regi…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "2.1(c)"
+    ],
+    "texts": [
+     "There must be no prior imaging of the same lumbar spine region performed within the preceding 12 months. The absence of such imaging within this 12-month timeframe must be confirmed before the request is approved."
+    ]
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B15",
+   "title": "The 2026-06-04 orthopedic consultation states: \"No prior lumbar…",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-06-04_ortho.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 13,
+     "excerpt": "Imaging history: No prior lumbar imaging on file.",
+     "excerptFound": true
+    },
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-06-04"
+     ],
+     "line": 28,
+     "excerpt": "Treatment period: 2026-03-23 to 2026-06-04 (73 days)",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B16",
+   "title": "DEADLINE The appeal must be received by 2027-01-13, which is 18…",
+   "policy": {
+    "kind": "sections",
+    "sectionIds": [
+     "7.1"
+    ],
+    "texts": [
+     "Appeal deadline: 180 days from the date of the claim determination notice."
+    ]
+   },
+   "evidence": [
+    {
+     "file": "denial_letter.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 20,
+     "excerpt": "You may request an appeal within 180 days of the date of this notice. The appeal must be received by 2027-01-13.",
+     "excerptFound": true
+    },
+    {
+     "file": "eob_835.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-17"
+     ],
+     "line": 7,
+     "excerpt": "Remittance date: 2026-07-17",
+     "excerptFound": true
+    },
+    {
+     "file": "claim_history.txt",
+     "via": "matched",
+     "tokens": [
+      "2026-07-17"
+     ],
+     "line": 17,
+     "excerpt": "2026-07-17  Adjudicated by payer: adverse determination (CARC CO-50)",
+     "excerptFound": true
+    },
+    {
+     "file": "task.md",
+     "via": "matched",
+     "tokens": [
+      "2026-08-04"
+     ],
+     "line": 5,
+     "excerpt": "Today's date for this review is 2026-08-04.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B17",
+   "title": "ENCLOSURES",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  },
+  {
+   "blockId": "B18",
+   "title": "notes/2026-03-23_pcp.txt",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-03-23_pcp.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": null,
+     "excerpt": "",
+     "excerptFound": false
+    }
+   ]
+  },
+  {
+   "blockId": "B19",
+   "title": "notes/2026-04-13_pcp_followup.txt",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-04-13_pcp_followup.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": 11,
+     "excerpt": "The patient returns reporting ongoing discomfort radiating from the lower back into the left buttock and posterior thigh, first noted around 2026-03-23. She describes the pain as achy with intermittent sharp flares, worse with prolonged sitting and bending. Patient reports about 14 days of physical therapy so far. She notes mild improvement in overall mobility but continued tenderness along the left side. No new numbness, weakness, or bowel or bladder changes. She denies fever or recent injury.",
+     "excerptFound": true
+    }
+   ]
+  },
+  {
+   "blockId": "B20",
+   "title": "notes/2026-06-04_ortho.txt",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "notes/2026-06-04_ortho.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": null,
+     "excerpt": "",
+     "excerptFound": false
+    }
+   ]
+  },
+  {
+   "blockId": "B21",
+   "title": "supporting/pt_log.txt",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": [
+    {
+     "file": "supporting/pt_log.txt",
+     "via": "cited",
+     "tokens": [],
+     "line": null,
+     "excerpt": "",
+     "excerptFound": false
+    }
+   ]
+  },
+  {
+   "blockId": "B22",
+   "title": "Gaps: none identified. <<<DELIVERABLE>>>",
+   "policy": {
+    "kind": "none",
+    "sectionIds": [],
+    "texts": []
+   },
+   "evidence": []
+  }
+ ],
+ "summary": {
+  "blocks": 22,
+  "linkedBlocks": 19,
+  "citedFiles": 5,
+  "matchedFiles": 8,
+  "flags": 1
+ },
+ "withheld": []
+}

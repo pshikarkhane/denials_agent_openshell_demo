@@ -169,3 +169,134 @@ export interface RunSource {
   canRead(runDir: string): boolean;
   read(runDir: string): RunView;
 }
+
+// ---- Data room (public/data/dataroom/<run>.json), built by scripts/build_dataroom.mjs ----
+
+export type DataRoomDocKind = 'case' | 'task';
+export type OpenedState = boolean | null;
+
+export interface DataRoomDoc {
+  /** Badge number, stable: denial letter, EOB, the rest alphabetically, task.md last. */
+  number: number;
+  /** Path under the case docs folder (task.md for the instruction). */
+  path: string;
+  descriptor: string;
+  /** Full text, one entry per line; line numbers are index + 1. */
+  lines: string[];
+  /** true: its file name appears in a tool call or result; false: no trace; null: the run had no tools. */
+  opened: OpenedState;
+  citedBy: string[];
+  matchedBy: string[];
+}
+
+export type PolicyStatus = 'chosen' | 'lookalike' | 'other';
+
+export interface PolicyListing {
+  id: string;
+  title: string;
+  payer: string;
+  effective: string;
+  status: PolicyStatus;
+  /** The id appears in a retrieve_payer_policy result of the run. */
+  considered: boolean;
+}
+
+export interface PolicySectionView {
+  id: string;
+  text: string;
+}
+
+export type CriterionStatus = 'met' | 'unmet' | 'unknown';
+
+export interface BlockSectionLink {
+  id: string;
+  /** From decision.json; null when the section is not one of its criteria. */
+  status: CriterionStatus | null;
+  evidence: string | null;
+}
+
+export interface BlockMatch {
+  token: string;
+  file: string;
+  line: number;
+}
+
+export interface BlockFlag {
+  id: string;
+  severity: FlagSeverity;
+  /** Reasons of the judges who upheld it. */
+  reasons: string[];
+}
+
+export interface DataRoomBlock {
+  id: string;
+  kind: 'heading' | 'paragraph' | 'list_item';
+  text: string;
+  links: {
+    cited: string[];
+    matched: BlockMatch[];
+    sections: BlockSectionLink[];
+    /** The block names the chosen policy (id or title). */
+    policy: boolean;
+    flags: BlockFlag[];
+  };
+}
+
+export interface RowPolicyZone {
+  kind: 'sections' | 'policy' | 'none';
+  sectionIds: string[];
+  /** Section texts in the same order as sectionIds. */
+  texts: string[];
+}
+
+export interface RowEvidence {
+  file: string;
+  via: 'cited' | 'matched';
+  /** Matched values found in this file for the block (empty for a citation with no value match). */
+  tokens: string[];
+  line: number | null;
+  excerpt: string;
+  excerptFound: boolean;
+}
+
+export interface DataRoomRow {
+  blockId: string;
+  title: string;
+  policy: RowPolicyZone;
+  evidence: RowEvidence[];
+}
+
+export interface DataRoomSummary {
+  blocks: number;
+  linkedBlocks: number;
+  citedFiles: number;
+  matchedFiles: number;
+  flags: number;
+}
+
+export interface DataRoomView {
+  available: boolean;
+  runId: string;
+  caseId: string;
+  variant: Variant;
+  runtime: RunSourceKind;
+  chosenPolicyId: string;
+  /** Policy ids seen in the run's retrieve_payer_policy results. */
+  consideredPolicyIds: string[];
+  caseDocs: DataRoomDoc[];
+  policies: PolicyListing[];
+  chosenSections: PolicySectionView[];
+  blocks: DataRoomBlock[];
+  rows: DataRoomRow[];
+  summary: DataRoomSummary;
+  /** Files whose text was replaced by a note because it tripped the answer-key guard. */
+  withheld: string[];
+}
+
+/** One row of public/data/dataroom/index.json. */
+export interface DataRoomIndexEntry {
+  runId: string;
+  caseId: string;
+  available: boolean;
+  file: string;
+}

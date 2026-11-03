@@ -57,3 +57,18 @@ export function runLabel(r: IndexEntry): string {
   const kind = r.variant === 'baseline' ? 'no tools' : r.runtime === 'hermes' ? 'Hermes' : 'stand-in';
   return `${r.runId} (${kind}, ${formatUtc(r.startedAt)})`;
 }
+
+/** Every case with at least one cached run, in id order. */
+export function caseIds(index: DataIndex | null): string[] {
+  return [...new Set((index?.runs ?? []).map((r) => r.caseId))].sort();
+}
+
+/** Runs the data room can show for a case: Hermes, then stand-in, then no-tools baseline (newest first within each). */
+export function dataRoomRuns(index: DataIndex | null, caseId: string): IndexEntry[] {
+  const all = runsForCase(index, caseId);
+  const rank = (r: IndexEntry) => (r.variant === 'baseline' ? 2 : r.runtime === 'hermes' ? 0 : 1);
+  return [...all].sort((a, b) => rank(a) - rank(b));
+}
+
+/** public/data/dataroom/<runId>__<caseId>.json for a run entry. */
+export const dataRoomFile = (r: IndexEntry): string => r.file.replace(/^run_/, '');

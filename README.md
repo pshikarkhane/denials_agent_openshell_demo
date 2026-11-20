@@ -2,6 +2,8 @@
 
 A demo of an AI agent that works claim denials end to end: it reads the case documents, finds the governing payer policy, decides whether to appeal, and drafts either an appeal letter or a decision memo explaining why not. Output is scored by an independent three-judge panel and a two-stage hallucination check.
 
+This was a demo built for R1 as part of Pracheeti's NCG rotation in digital health. The end-of-rotation slide deck is here: [Pracheeti's rotation slides](https://docs.google.com/presentation/d/1ht71wJk47zhXcFvDAdC7sI12KvlHXHDynAl4oHVjzTw/edit?usp=sharing).
+
 **All data in this repository is synthetic.** There is no real PHI and no real payer text. The design spec is in [docs/DEMO_SPEC.md](docs/DEMO_SPEC.md).
 
 ## What it does

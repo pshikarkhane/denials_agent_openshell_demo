@@ -1,11 +1,37 @@
+# Python environments and caches
 .venv/
-logs/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Secrets (keys come from the environment only)
 .env
 .env.*
+!.env.example
 *.pem
 *.key
+*.p12
 secrets*
-__pycache__/
-.pytest_cache/
-.DS_Store
+credentials*
+id_rsa*
+
+# Run outputs: judge raw outputs, caches, mutations, logs (hold model text; regenerate, never commit)
 runs/
+logs/
+*.tmp
+
+# Editor, OS and local tool state
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.claude/

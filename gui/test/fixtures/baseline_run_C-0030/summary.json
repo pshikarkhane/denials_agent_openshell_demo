@@ -1,0 +1,45 @@
+{
+ "case_id": "C-0030",
+ "files_written": [
+  "deliverable.md",
+  "decision.json"
+ ],
+ "final_self_check": {
+  "failed": [],
+  "n_errors": 0,
+  "n_warnings": 0,
+  "ok": true,
+  "warnings": []
+ },
+ "git_dirty": true,
+ "git_sha": "871d52ad79872127f6d2d81799eb4668b68cb78a",
+ "latency_s": [
+  15.15,
+  6.51
+ ],
+ "malformed_calls": 0,
+ "malformed_final": 1,
+ "max_tokens": 8000,
+ "model_failures": [],
+ "model_id": "nvidia/nvidia/nemotron-3.5-super-text-preview",
+ "path_guard_denials": 0,
+ "prompt_sha256": "6070c47b869444c7ccdc7d66b6d3ae8f5fe08b5a5a92912395fe02525cfe7630",
+ "proposal_self_checks": [],
+ "revisions": 0,
+ "run_id": "baseline-p3-r1",
+ "seconds": 21.9,
+ "started": "2026-10-30T22:28:30.888650+00:00",
+ "status": "submitted",
+ "temperature": 0.2,
+ "tool_calls_by_name": {},
+ "tool_calls_total": 0,
+ "tool_errors": 0,
+ "turns": 2,
+ "usage": {
+  "completion_tokens": 10931,
+  "prompt_tokens": 18032,
+  "reasoning_tokens": 8403,
+  "total_tokens": 28963
+ },
+ "variant": "baseline"
+}

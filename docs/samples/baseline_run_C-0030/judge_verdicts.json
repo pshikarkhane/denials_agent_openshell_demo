@@ -1,0 +1,443 @@
+{
+ "hallucination": {
+  "case_id": "C-0030",
+  "discarded_flags": [],
+  "flags": [
+   {
+    "id": "F1",
+    "problems": [
+     "The claim incorrectly states that the policy does not apply to the date of service.",
+     "The conclusion that MP-CLM-004 does not apply to this date of service because its effective date is after the service date is not supported and conflicts with the policy text."
+    ],
+    "quote": "MP-CLM-004 is effective 2026-04-05, after the date of service, so it is not the governing policy for this date of service",
+    "raised_by": [
+     "gemini",
+     "gpt"
+    ],
+    "severity": "material",
+    "upheld": true,
+    "votes": {
+     "claude": {
+      "reason": "MP-CLM-004 effective 2026-04-05 is after DOS 2026-04-01; the memo correctly notes it is not governing for timely filing, and MP-TF-001 is the applicable policy.",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gemini": {
+      "reason": "The policy's version history explicitly states that its requirements apply to dates of service on or after 2025-01-01, which includes this claim's date of service.",
+      "severity": "material",
+      "upheld": true
+     },
+     "gpt": {
+      "reason": "MP-CLM-004 states its carried-forward requirements apply to dates of service on or after 2025-01-01, so saying it does not apply merely because its effective date is after the DOS is incorrect.",
+      "severity": "material",
+      "upheld": true
+     }
+    }
+   },
+   {
+    "id": "F2",
+    "problems": [
+     "The evidence supports that those listed fields are recorded, but it does not establish that there is no missing or invalid claim data element at all."
+    ],
+    "quote": "There is no missing or invalid claim data element to correct (the service, CPT code 99213, diagnosis I10, and place of service 11 are all recorded on the claim; source: eob_835.txt),",
+    "raised_by": [
+     "gpt"
+    ],
+    "severity": null,
+    "upheld": false,
+    "votes": {
+     "claude": {
+      "reason": "This is immaterial to the timely-filing denial; even if a data element were missing, a corrected claim would not change the filing date, so the conclusion holds and is not misleading on the substantive point.",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gemini": {
+      "reason": "The claim was accepted by the clearinghouse and denied solely for timely filing (CO-29), which sufficiently supports the conclusion that there is no missing or invalid data to correct.",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gpt": {
+      "reason": "The cited records show certain fields are present, but they do not establish that no required claim element is missing or invalid at all.",
+      "severity": "material",
+      "upheld": true
+     }
+    }
+   },
+   {
+    "id": "F3",
+    "problems": [
+     "This overstates the policy. Section 3 does not say corrected claims are limited only to missing or invalid required information."
+    ],
+    "quote": "MP-CLM-004 Section 3 limits corrected claims to missing or invalid required information (source: policy_library/MP-CLM-004.txt).",
+    "raised_by": [
+     "gpt"
+    ],
+    "severity": "material",
+    "upheld": true,
+    "votes": {
+     "claude": {
+      "reason": "MP-CLM-004 Section 3 states a corrected claim is the remedy when a claim is denied for missing or invalid required information; the memo's paraphrase is consistent with the policy.",
+      "severity": "minor",
+      "upheld": false
+     },
+     "gemini": {
+      "reason": "Section 3 advises submitting a corrected claim when data is missing or invalid, but it does not state that corrected claims are strictly limited to only those circumstances.",
+      "severity": "material",
+      "upheld": true
+     },
+     "gpt": {
+      "reason": "MP-CLM-004 Section 3 says corrected claims should be used when a denial involves missing or invalid required information, but it does not limit all corrected claims only to that circumstance.",
+      "severity": "material",
+      "upheld": true
+     }
+    }
+   }
+  ],
+  "judge_failures": [],
+  "latency_s": {
+   "claude": 10.0,
+   "gemini": 109.6,
+   "gpt": 26.8
+  },
+  "stage1_flag_counts": {
+   "claude": 0,
+   "gemini": 1,
+   "gpt": 3
+  },
+  "tokens": {
+   "claude": {
+    "cache_creation_input_tokens": 28364,
+    "cache_read_input_tokens": 0,
+    "completion_tokens": 671,
+    "prompt_tokens": 28366,
+    "total_tokens": 29037
+   },
+   "gemini": {
+    "completion_tokens": 11397,
+    "prompt_tokens": 20577,
+    "total_tokens": 31974
+   },
+   "gpt": {
+    "completion_tokens": 2774,
+    "prompt_tokens": 18141,
+    "total_tokens": 20915
+   }
+  },
+  "upheld_material": 2,
+  "upheld_minor": 0
+ },
+ "note": "judge verdicts for this run: per-criterion panel verdicts and hallucination flags (host-side scoring; synthetic data)",
+ "panel": {
+  "auto": {
+   "DEC1": {
+    "detail": "decision=DO_NOT_APPEAL expected=DO_NOT_APPEAL",
+    "pass": true
+   },
+   "DLN1": {
+    "detail": "action_deadline=2026-11-01 deadline_ok=True expected=2026-11-01/True",
+    "pass": true
+   },
+   "EVD1": {
+    "detail": "ok",
+    "pass": true
+   },
+   "IDN1": {
+    "detail": "ok",
+    "pass": true
+   },
+   "POL1": {
+    "detail": "policy_id=MP-TF-001 expected=MP-TF-001",
+    "pass": true
+   },
+   "RSN1": {
+    "detail": "denial_code=CO-29 expected=CO-29",
+    "pass": true
+   }
+  },
+  "case_id": "C-0030",
+  "criteria_total": 14,
+  "decision_json_errors": [],
+  "fabricated_quotes": 0,
+  "failed_criteria": {
+   "POLX1": {
+    "auto": null,
+    "reference": "distractor MP-TF-010 (superseded version)",
+    "text": "Does not cite or rely on the near-duplicate policy MP-TF-010",
+    "votes": {
+     "claude": {
+      "evidence_quote": "MP-TF-010 is superseded and applied only to dates of service on or before 2024-12-31, so it does not apply here",
+      "fabricated_quote": false,
+      "reason": "Explicitly rejects reliance on MP-TF-010.",
+      "verdict": "PASS"
+     },
+     "gemini": {
+      "evidence_quote": "MP-TF-010 is superseded and applied only to dates of service on or before 2024-12-31, so it does not apply here",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly identifies that the superseded policy MP-TF-010 does not apply.",
+      "verdict": "PASS"
+     },
+     "gpt": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable explicitly cites MP-TF-010, even though the criterion requires not citing or relying on that near-duplicate superseded policy.",
+      "verdict": "FAIL"
+     }
+    }
+   },
+   "TRP1": {
+    "auto": null,
+    "reference": "7 days from review date 2026-10-25 to action deadline 2026-11-01",
+    "text": "Recognizes how little time remains before the action deadline and says what must happen before it",
+    "votes": {
+     "claude": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "States the review is within the appeal window but does not recognize that only 7 days remain or what must happen before the deadline.",
+      "verdict": "FAIL"
+     },
+     "gemini": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable notes that the review date is before the deadline, but fails to recognize that only 7 days remain before the action deadline.",
+      "verdict": "FAIL"
+     },
+     "gpt": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable gives the appeal deadline and says the review is within the window, but it does not recognize that only 7 days remain or state what must happen before that deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   }
+  },
+  "judge_failures": [],
+  "judge_pass_rates": {
+   "claude": 0.9285714285714286,
+   "gemini": 0.9285714285714286,
+   "gpt": 0.8571428571428571
+  },
+  "judges": {
+   "claude": {
+    "failed": false,
+    "secs": 8.648459196090698,
+    "usage": {
+     "cache_creation_input_tokens": 6729,
+     "cache_read_input_tokens": 0,
+     "completion_tokens": 774,
+     "prompt_tokens": 6730,
+     "total_tokens": 7504
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "the filing deadline for the 2026-04-01 date of service was 2026-06-30 (source: denial_letter.txt).",
+      "fabricated_quote": false,
+      "reason": "Shows DOS +90 = 2026-06-30 against payer received 2026-07-15.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "MP-TF-001 Section 2.1 requires claims to be submitted within 90 days of the date of service; this was not met because submission/acceptance (2026-07-14) and payer receipt (2026-07-15) are both after the 2026-06-30 deadline",
+      "fabricated_quote": false,
+      "reason": "States 2.1 unmet and cites the record.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "No document in the record shows the claim was submitted or accepted on or before 2026-06-30.",
+      "fabricated_quote": false,
+      "reason": "Relies on documented absence of earlier timely submission for 2.2.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "MP-TF-001 Section 2.1 requires claims to be submitted within 90 days of the date of service",
+      "fabricated_quote": false,
+      "reason": "Cites MP-TF-001 and specific sections 2.1 and 2.2.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "MP-TF-010 is superseded and applied only to dates of service on or before 2024-12-31, so it does not apply here",
+      "fabricated_quote": false,
+      "reason": "Explicitly rejects reliance on MP-TF-010.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "Take no further action on this claim; let the denial stand. No appeal letter is warranted.",
+      "fabricated_quote": false,
+      "reason": "Recommends no appeal with next action and drafts no appeal letter.",
+      "verdict": "PASS"
+     },
+     "RSN2": {
+      "evidence_quote": "Denial code: CO-29 \u2014 The time limit for filing has expired",
+      "fabricated_quote": false,
+      "reason": "Correctly identifies CO-29 and its meaning plus the payer's basis.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "States the review is within the appeal window but does not recognize that only 7 days remain or what must happen before the deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   },
+   "gemini": {
+    "failed": false,
+    "secs": 21.812958002090454,
+    "usage": {
+     "completion_tokens": 2352,
+     "prompt_tokens": 4886,
+     "total_tokens": 7238
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The denial letter states the claim was received by the payer on 2026-07-15, after the 90-day filing limit, and that the filing deadline for the 2026-04-01 date of service was 2026-06-30",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly shows the timely-filing arithmetic and the payer received date.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "MP-TF-001 Section 2.1 requires claims to be submitted within 90 days of the date of service; this was not met because submission/acceptance (2026-07-14) and payer receipt (2026-07-15) are both after the 2026-06-30 deadline",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly states that Section 2.1 is not satisfied and cites the record.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "MP-TF-001 Section 2.2 requires proof of clearinghouse acceptance demonstrating acceptance within the applicable filing limit; the available proof shows acceptance on 2026-07-14, after the 2026-06-30 deadline, so it does not establish timely filing",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly relies on the record to show that proof of timely clearinghouse acceptance is not available.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "Governing policy: MP-TF-001, \"TIMELY FILING OF CLAIMS,\" Terravista Health, effective 2026-03-15 (applies to dates of service on or after 2025-01-01). Sections relied on: 2.1, 2.2, 7.2.",
+      "fabricated_quote": false,
+      "reason": "The deliverable cites the correct policy and the specific sections relied upon.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "MP-TF-010 is superseded and applied only to dates of service on or before 2024-12-31, so it does not apply here",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly identifies that the superseded policy MP-TF-010 does not apply.",
+      "verdict": "PASS"
+     },
+     "REM1": {
+      "evidence_quote": "Next action: Take no further action on this claim; let the denial stand. No appeal letter is warranted.",
+      "fabricated_quote": false,
+      "reason": "The deliverable recommends the correct alternative to an appeal and does not draft an appeal letter.",
+      "verdict": "PASS"
+     },
+     "RSN2": {
+      "evidence_quote": "Denial code: CO-29 \u2014 The time limit for filing has expired",
+      "fabricated_quote": false,
+      "reason": "The deliverable correctly identifies the denial code and the reason in words.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable notes that the review date is before the deadline, but fails to recognize that only 7 days remain before the action deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   },
+   "gpt": {
+    "failed": false,
+    "secs": 36.0103759765625,
+    "usage": {
+     "completion_tokens": 3785,
+     "prompt_tokens": 4331,
+     "total_tokens": 8116
+    },
+    "verdicts": {
+     "DLN2": {
+      "evidence_quote": "The denial letter states the claim was received by the payer on 2026-07-15, after the 90-day filing limit, and that the filing deadline for the 2026-04-01 date of service was 2026-06-30 (source: denial_letter.txt).",
+      "fabricated_quote": false,
+      "reason": "It states the DOS-based 90-day deadline of 2026-06-30 and compares it to payer receipt on 2026-07-15.",
+      "verdict": "PASS"
+     },
+     "EVD2": {
+      "evidence_quote": "- MP-TF-001 Section 2.1 requires claims to be submitted within 90 days of the date of service; this was not met because submission/acceptance (2026-07-14) and payer receipt (2026-07-15) are both after the 2026-06-30 deadline (source: claim_history.txt; denial_letter.txt).",
+      "fabricated_quote": false,
+      "reason": "It states \u00a72.1 was not met and cites claim_history.txt for the late submission/acceptance date.",
+      "verdict": "PASS"
+     },
+     "HON1": {
+      "evidence_quote": "- MP-TF-001 Section 2.2 requires proof of clearinghouse acceptance demonstrating acceptance within the applicable filing limit; the available proof shows acceptance on 2026-07-14, after the 2026-06-30 deadline, so it does not establish timely filing (source: claim_history.txt).",
+      "fabricated_quote": false,
+      "reason": "It treats \u00a72.2 as unmet based on the record showing only a late clearinghouse acceptance, rather than asserting timely proof exists.",
+      "verdict": "PASS"
+     },
+     "POL2": {
+      "evidence_quote": "Governing policy: MP-TF-001, \"TIMELY FILING OF CLAIMS,\" Terravista Health, effective 2026-03-15 (applies to dates of service on or after 2025-01-01). Sections relied on: 2.1, 2.2, 7.2.",
+      "fabricated_quote": false,
+      "reason": "It cites MP-TF-001 and specifically lists sections 2.1 and 2.2 among the relied-upon sections.",
+      "verdict": "PASS"
+     },
+     "POLX1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable explicitly cites MP-TF-010, even though the criterion requires not citing or relying on that near-duplicate superseded policy.",
+      "verdict": "FAIL"
+     },
+     "REM1": {
+      "evidence_quote": "Next action: Take no further action on this claim; let the denial stand. No appeal letter is warranted.",
+      "fabricated_quote": false,
+      "reason": "It recommends not appealing, gives a next action, and does not draft an appeal letter.",
+      "verdict": "PASS"
+     },
+     "RSN2": {
+      "evidence_quote": "Denial code: CO-29 \u2014 The time limit for filing has expired",
+      "fabricated_quote": false,
+      "reason": "The deliverable identifies CO-29 in words and separately explains the payer's basis that the claim was received after the 90-day filing limit.",
+      "verdict": "PASS"
+     },
+     "TRP1": {
+      "evidence_quote": "",
+      "fabricated_quote": false,
+      "reason": "The deliverable gives the appeal deadline and says the review is within the window, but it does not recognize that only 7 days remain or state what must happen before that deadline.",
+      "verdict": "FAIL"
+     }
+    }
+   }
+  },
+  "latency_s": {
+   "claude": 8.6,
+   "gemini": 21.8,
+   "gpt": 36.0
+  },
+  "panel": {
+   "DEC1": "PASS",
+   "DLN1": "PASS",
+   "DLN2": "PASS",
+   "EVD1": "PASS",
+   "EVD2": "PASS",
+   "HON1": "PASS",
+   "IDN1": "PASS",
+   "POL1": "PASS",
+   "POL2": "PASS",
+   "POLX1": "PASS",
+   "REM1": "PASS",
+   "RSN1": "PASS",
+   "RSN2": "PASS",
+   "TRP1": "FAIL"
+  },
+  "panel_pass_rate": 0.9285714285714286,
+  "tokens": {
+   "claude": {
+    "cache_creation_input_tokens": 6729,
+    "cache_read_input_tokens": 0,
+    "completion_tokens": 774,
+    "prompt_tokens": 6730,
+    "total_tokens": 7504
+   },
+   "gemini": {
+    "completion_tokens": 2352,
+    "prompt_tokens": 4886,
+    "total_tokens": 7238
+   },
+   "gpt": {
+    "completion_tokens": 3785,
+    "prompt_tokens": 4331,
+    "total_tokens": 8116
+   }
+  },
+  "unanimity_rate": 0.875
+ }
+}

@@ -1,0 +1,394 @@
+{
+ "panel": {
+  "case_id": "C-0030",
+  "criteria_total": 14,
+  "auto": {
+   "DEC1": {
+    "pass": true,
+    "detail": "decision=DO_NOT_APPEAL expected=DO_NOT_APPEAL"
+   },
+   "IDN1": {
+    "pass": true,
+    "detail": "ok"
+   },
+   "RSN1": {
+    "pass": true,
+    "detail": "denial_code=CO-29 expected=CO-29"
+   },
+   "DLN1": {
+    "pass": true,
+    "detail": "action_deadline=2026-11-01 deadline_ok=True expected=2026-11-01/True"
+   },
+   "POL1": {
+    "pass": true,
+    "detail": "policy_id=MP-TF-001 expected=MP-TF-001"
+   },
+   "EVD1": {
+    "pass": true,
+    "detail": "ok"
+   }
+  },
+  "judges": {
+   "gemini": {
+    "verdicts": {
+     "RSN2": {
+      "verdict": "PASS",
+      "evidence_quote": "The denial letter (source: denial_letter.txt) states CARC CO-29, \"The time limit for filing has expired,\" with the payer's reason that the claim was received on 2026-07-15, after the 90-day filing limit",
+      "reason": "The deliverable correctly identifies the denial code, its description, and the payer's basis for the denial.",
+      "fabricated_quote": false
+     },
+     "POL2": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-TF-001 \"Timely Filing of Claims\" (Terravista Health), sections 2.1 and 2.2.",
+      "reason": "The deliverable correctly cites policy MP-TF-001 and the specific sections 2.1 and 2.2.",
+      "fabricated_quote": false
+     },
+     "POLX1": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-TF-001 \"Timely Filing of Claims\" (Terravista Health), sections 2.1 and 2.2.",
+      "reason": "The deliverable correctly cites the applicable policy MP-TF-001 and does not cite the distractor policy MP-TF-010.",
+      "fabricated_quote": false
+     },
+     "DLN2": {
+      "verdict": "PASS",
+      "evidence_quote": "The 90-day deadline for a 2026-04-01 service was 2026-06-30, but the claim was first accepted by the clearinghouse on 2026-07-14 and received by the payer on 2026-07-15",
+      "reason": "The deliverable correctly calculates the 90-day deadline from the date of service and compares it to the payer received date.",
+      "fabricated_quote": false
+     },
+     "EVD2": {
+      "verdict": "PASS",
+      "evidence_quote": "Status: unmet. The 90-day deadline for a 2026-04-01 service was 2026-06-30, but the claim was first accepted by the clearinghouse on 2026-07-14 and received by the payer on 2026-07-15 (sources: claim_history.txt, denial_letter.txt)",
+      "reason": "The deliverable correctly states that section 2.1 is unmet and cites the record to show the claim was submitted after the deadline.",
+      "fabricated_quote": false
+     },
+     "HON1": {
+      "verdict": "PASS",
+      "evidence_quote": "No earlier submissions or prior adjudicated claims are recorded.",
+      "reason": "The deliverable correctly relies on the explicit statement in the claim history that no earlier submissions are recorded to conclude that section 2.2 is unmet.",
+      "fabricated_quote": false
+     },
+     "REM1": {
+      "verdict": "PASS",
+      "evidence_quote": "DO_NOT_APPEAL. The denial should stand. The claim was filed after the timely-filing deadline, and neither the record nor the payer's policy supports overturning it.",
+      "reason": "The deliverable correctly recommends not to appeal, noting that the filing limit expired and there is no basis to overturn the denial.",
+      "fabricated_quote": false
+     },
+     "TRP1": {
+      "verdict": "PASS",
+      "evidence_quote": "Review date: 2026-10-25\nAction deadline: 2026-11-01 (appeal deadline, 90 days from the 2026-08-03 determination notice)\nDeadline OK: yes (7 days remaining)",
+      "reason": "The deliverable correctly identifies the action deadline and calculates that 7 days remain from the review date.",
+      "fabricated_quote": false
+     }
+    },
+    "usage": {
+     "completion_tokens": 3581,
+     "prompt_tokens": 5157,
+     "total_tokens": 8738
+    },
+    "secs": 35.31903624534607,
+    "failed": false
+   },
+   "claude": {
+    "verdicts": {
+     "RSN2": {
+      "verdict": "PASS",
+      "evidence_quote": "Denial code: CO-29 \u2014 \"The time limit for filing has expired.\"",
+      "reason": "States CO-29 in words and the basis the payer gave (claim received after 90-day limit).",
+      "fabricated_quote": false
+     },
+     "POL2": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-TF-001 \"Timely Filing of Claims\" (Terravista Health), sections 2.1 and 2.2.",
+      "reason": "Cites MP-TF-001 and sections 2.1 and 2.2 for the criteria relied upon.",
+      "fabricated_quote": false
+     },
+     "POLX1": {
+      "verdict": "PASS",
+      "evidence_quote": "There is no basis under policy MP-TF-001 to overturn the denial",
+      "reason": "Cites only MP-TF-001, not the distractor MP-TF-010.",
+      "fabricated_quote": false
+     },
+     "DLN2": {
+      "verdict": "PASS",
+      "evidence_quote": "The 90-day deadline for a 2026-04-01 service was 2026-06-30, but the claim was first accepted by the clearinghouse on 2026-07-14 and received by the payer on 2026-07-15",
+      "reason": "Shows DOS+90=2026-06-30 against payer received date 2026-07-15.",
+      "fabricated_quote": false
+     },
+     "EVD2": {
+      "verdict": "PASS",
+      "evidence_quote": "Status: unmet. The 90-day deadline for a 2026-04-01 service was 2026-06-30, but the claim was first accepted by the clearinghouse on 2026-07-14 and received by the payer on 2026-07-15 (sources: claim_history.txt, denial_letter.txt)",
+      "reason": "States \u00a72.1 unmet and cites the record.",
+      "fabricated_quote": false
+     },
+     "HON1": {
+      "verdict": "PASS",
+      "evidence_quote": "The clearinghouse acceptance on file is dated 2026-07-14 (source: claim_history.txt), which is after the 2026-06-30 filing deadline, so it does not substantiate timely acceptance.",
+      "reason": "Relies on the record showing acceptance was late, not asserting proof exists.",
+      "fabricated_quote": false
+     },
+     "REM1": {
+      "verdict": "PASS",
+      "evidence_quote": "DO_NOT_APPEAL. The denial should stand. The claim was filed after the timely-filing deadline, and neither the record nor the payer's policy supports overturning it.",
+      "reason": "Recommends not appealing and does not draft an appeal letter.",
+      "fabricated_quote": false
+     },
+     "TRP1": {
+      "verdict": "PASS",
+      "evidence_quote": "Deadline OK: yes (7 days remaining)",
+      "reason": "Recognizes 7 days remain to the appeal deadline from the review date.",
+      "fabricated_quote": false
+     }
+    },
+    "usage": {
+     "completion_tokens": 908,
+     "prompt_tokens": 7100,
+     "total_tokens": 8008,
+     "cache_creation_input_tokens": 7099,
+     "cache_read_input_tokens": 0
+    },
+    "secs": 10.81071400642395,
+    "failed": false
+   },
+   "gpt": {
+    "verdicts": {
+     "RSN2": {
+      "verdict": "PASS",
+      "evidence_quote": "Denial code: CO-29 \u2014 \"The time limit for filing has expired.\"",
+      "reason": "The deliverable identifies CO-29 in words and elsewhere gives the payer basis that the claim was received after the filing limit.",
+      "fabricated_quote": false
+     },
+     "POL2": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-TF-001 \"Timely Filing of Claims\" (Terravista Health), sections 2.1 and 2.2.",
+      "reason": "It cites the correct policy and both specific relevant sections.",
+      "fabricated_quote": false
+     },
+     "POLX1": {
+      "verdict": "PASS",
+      "evidence_quote": "Governing policy: MP-TF-001 \"Timely Filing of Claims\" (Terravista Health), sections 2.1 and 2.2.",
+      "reason": "The deliverable relies on MP-TF-001 and does not cite MP-TF-010.",
+      "fabricated_quote": false
+     },
+     "DLN2": {
+      "verdict": "PASS",
+      "evidence_quote": "The 90-day deadline for a 2026-04-01 service was 2026-06-30, but the claim was first accepted by the clearinghouse on 2026-07-14 and received by the payer on 2026-07-15",
+      "reason": "It correctly compares the DOS-based 90-day deadline to the payer received date.",
+      "fabricated_quote": false
+     },
+     "EVD2": {
+      "verdict": "PASS",
+      "evidence_quote": "Section 2.1 (source: MP-TF-001.txt): \"Claims must be submitted to Terravista Health within 90 days of the date of service. Submissions received after this filing period may be denied for failure to meet the timely filing requirement.\" Status: unmet.",
+      "reason": "It states \u00a72.1 is unmet and ties the conclusion to the record in the surrounding discussion.",
+      "fabricated_quote": false
+     },
+     "HON1": {
+      "verdict": "PASS",
+      "evidence_quote": "Status: unmet. The clearinghouse acceptance on file is dated 2026-07-14 (source: claim_history.txt), which is after the 2026-06-30 filing deadline, so it does not substantiate timely acceptance.",
+      "reason": "It treats \u00a72.2 as unmet based on the documented clearinghouse acceptance date rather than inventing timely proof.",
+      "fabricated_quote": false
+     },
+     "REM1": {
+      "verdict": "PASS",
+      "evidence_quote": "No appeal and no corrected claim will be submitted. The denial stands.",
+      "reason": "It recommends not appealing or resubmitting and provides a next action rather than drafting an appeal letter.",
+      "fabricated_quote": false
+     },
+     "TRP1": {
+      "verdict": "PASS",
+      "evidence_quote": "Action deadline: 2026-11-01 (appeal deadline, 90 days from the 2026-08-03 determination notice)\nDeadline OK: yes (7 days remaining)",
+      "reason": "It correctly recognizes the action deadline and that only 7 days remain from the review date.",
+      "fabricated_quote": false
+     }
+    },
+    "usage": {
+     "completion_tokens": 1640,
+     "prompt_tokens": 4546,
+     "total_tokens": 6186
+    },
+    "secs": 15.475505352020264,
+    "failed": false
+   }
+  },
+  "panel": {
+   "DEC1": "PASS",
+   "IDN1": "PASS",
+   "RSN1": "PASS",
+   "DLN1": "PASS",
+   "POL1": "PASS",
+   "EVD1": "PASS",
+   "RSN2": "PASS",
+   "POL2": "PASS",
+   "POLX1": "PASS",
+   "DLN2": "PASS",
+   "EVD2": "PASS",
+   "HON1": "PASS",
+   "REM1": "PASS",
+   "TRP1": "PASS"
+  },
+  "panel_pass_rate": 1.0,
+  "judge_pass_rates": {
+   "gemini": 1.0,
+   "claude": 1.0,
+   "gpt": 1.0
+  },
+  "unanimity_rate": 1.0,
+  "judge_failures": [],
+  "fabricated_quotes": 0,
+  "decision_json_errors": [],
+  "tokens": {
+   "gemini": {
+    "completion_tokens": 3581,
+    "prompt_tokens": 5157,
+    "total_tokens": 8738
+   },
+   "claude": {
+    "completion_tokens": 908,
+    "prompt_tokens": 7100,
+    "total_tokens": 8008,
+    "cache_creation_input_tokens": 7099,
+    "cache_read_input_tokens": 0
+   },
+   "gpt": {
+    "completion_tokens": 1640,
+    "prompt_tokens": 4546,
+    "total_tokens": 6186
+   }
+  },
+  "latency_s": {
+   "gemini": 35.3,
+   "claude": 10.8,
+   "gpt": 15.5
+  },
+  "failed_criteria": {}
+ },
+ "hallucination": {
+  "case_id": "C-0030",
+  "flags": [
+   {
+    "quote": "The $236.93 denied amount remains the patient's responsibility per the EOB (source: eob_835.txt, patient_responsibility $0.00 and paid $0.00 reflect the full denial).",
+    "problems": [
+     "The deliverable claims the denied amount is the patient's responsibility, but the EOB explicitly states patient responsibility is 0.00.",
+     "The statement that the denied amount remains the patient's responsibility is contradicted by the EOB."
+    ],
+    "raised_by": [
+     "gemini",
+     "gpt"
+    ],
+    "id": "F1",
+    "votes": {
+     "gemini": {
+      "upheld": true,
+      "severity": "material",
+      "reason": "The EOB explicitly states patient responsibility is $0.00, directly contradicting the deliverable's assertion that the patient is responsible for the denied amount."
+     },
+     "claude": {
+      "upheld": true,
+      "severity": "material",
+      "reason": "EOB states patient responsibility 0.00; asserting the $236.93 is patient responsibility contradicts the record, a material misstatement of amount/financial responsibility."
+     },
+     "gpt": {
+      "upheld": true,
+      "severity": "material",
+      "reason": "The EOB totals show Patient responsibility 0.00, so stating the $236.93 denial remains the patient's responsibility is contrary to the record."
+     }
+    },
+    "upheld": true,
+    "severity": "material"
+   },
+   {
+    "quote": "policy MP-TF-001 section 7.1",
+    "problems": [
+     "Cited section 7.1 for appeal deadline but this is for referencing the deadline source; section 7.1 does say appeal deadline 90 days \u2014 this is actually supported. Reconsider.",
+     "Cites 'denial_letter.txt line 20' as a specific line reference that is invented; the evidence does not contain line numbers."
+    ],
+    "raised_by": [
+     "claude",
+     "claude"
+    ],
+    "id": "F2",
+    "votes": {
+     "gemini": {
+      "upheld": false,
+      "severity": "minor",
+      "reason": "Policy MP-TF-001 section 7.1 explicitly states the appeal deadline is 90 days, making the citation accurate and supported by the evidence."
+     },
+     "claude": {
+      "upheld": false,
+      "severity": "material",
+      "reason": "MP-TF-001 section 7.1 does state appeal deadline of 90 days from notice, supporting the citation; not an error."
+     },
+     "gpt": {
+      "upheld": false,
+      "severity": "minor",
+      "reason": "MP-TF-001 section 7.1 exists and states the appeal deadline is 90 days from the claim determination notice, supporting the citation."
+     }
+    },
+    "upheld": false,
+    "severity": null
+   },
+   {
+    "quote": "sources: denial_letter.txt line 24; policy MP-TF-001 section 7.3",
+    "problems": [
+     "Cites 'denial_letter.txt line 24' as a specific line reference that is invented; the evidence does not contain line numbers."
+    ],
+    "raised_by": [
+     "claude"
+    ],
+    "id": "F3",
+    "votes": {
+     "gemini": {
+      "upheld": true,
+      "severity": "minor",
+      "reason": "The source document does not contain line numbers, so the specific line citation is invented, though the underlying fact is correct and present in the text."
+     },
+     "claude": {
+      "upheld": true,
+      "severity": "minor",
+      "reason": "denial_letter.txt has no line numbers; the 'line 24' reference is fabricated, but the underlying fact (180-day corrected claim, 2027-01-30) is correct, so unlikely to mislead the appeal."
+     },
+     "gpt": {
+      "upheld": false,
+      "severity": "minor",
+      "reason": "The cited corrected-claim deadline is supported by denial_letter.txt and MP-TF-001 section 7.3; the referenced sentence corresponds to the corrected-claims line in the provided document."
+     }
+    },
+    "upheld": true,
+    "severity": "minor"
+   }
+  ],
+  "discarded_flags": [],
+  "judge_failures": [],
+  "upheld_material": 1,
+  "upheld_minor": 1,
+  "stage1_flag_counts": {
+   "gemini": 1,
+   "claude": 3,
+   "gpt": 1
+  },
+  "tokens": {
+   "gemini": {
+    "completion_tokens": 5129,
+    "prompt_tokens": 21111,
+    "total_tokens": 26240
+   },
+   "claude": {
+    "completion_tokens": 706,
+    "prompt_tokens": 29111,
+    "total_tokens": 29817,
+    "cache_creation_input_tokens": 29109,
+    "cache_read_input_tokens": 0
+   },
+   "gpt": {
+    "completion_tokens": 3386,
+    "prompt_tokens": 18560,
+    "total_tokens": 21946
+   }
+  },
+  "latency_s": {
+   "gemini": 58.4,
+   "claude": 15.2,
+   "gpt": 40.2
+  }
+ },
+ "note": "judge verdicts for this Hermes run (hermes-p1-r1): per-criterion panel verdicts and hallucination flags (host-side scoring; synthetic data)"
+}
